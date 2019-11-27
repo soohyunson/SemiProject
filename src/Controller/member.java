@@ -21,6 +21,8 @@ public class member extends HttpServlet {
 		String realPath = URI.substring(ctx.length());
 		
 		MemberDAO dao = MemberDAO.getInstance();
+		System.out.println(URI);
+		System.out.println(ctx);
 		
 		if(realPath.contentEquals("/login.mem")) {
 			try {
@@ -41,9 +43,9 @@ public class member extends HttpServlet {
 			try {
 			String id = request.getParameter("id");
 			//id 받아오기 ok
-			boolean result = dao.isIdOk(id);
+			//boolean result = dao.isIdOk(id);
 			PrintWriter pw = response.getWriter();
-			pw.append("{\"result\" :" + result + "}");
+			//pw.append("{\"result\" :" + result + "}");
 			
 			}catch(Exception e) {
 				e.printStackTrace();
