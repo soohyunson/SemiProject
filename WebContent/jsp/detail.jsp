@@ -1,20 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<link
-	href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
-	rel="stylesheet">
-	<style>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>My Challenge</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+        <style>
             body{
                 margin:0px;
                 padding:0px;
@@ -27,9 +24,10 @@
             }
 
             .navi{
-                position: absolute;
+                position:absolute;
                 top:0px;
                 margin:0px;
+
                 overflow: hidden;
                 padding:0px;
                 width:60%;
@@ -38,16 +36,21 @@
                 font-family:fantasy;
                 font-size: 20px;
 
+
+
+
             }
             .title{
                 margin:0px;
                 padding:0px;
+
                 width:50%;
             }
             .itemList{
                 position: absolute;
                 margin:0px;
                 padding:0px;
+
                 right: 0px;
                 width:50%;
             }
@@ -57,6 +60,7 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
+
                 color:#7019FF;
             }
             .navi-item{
@@ -135,9 +139,16 @@
 
             }
             .threefloor{
-                border-bottom: 3px solid #7019FF;
-                border-radius: 3px;
-                height: 50px;
+                position: relative;
+                top:150px;
+                background-color: #edceed;
+                text-align: center;
+                height: 700px;
+            }
+            
+            .fourthfloor{
+                position: relative;
+                top:300px;
             }
 
             .fivefloor{
@@ -204,70 +215,44 @@
                 height: 500px;
             }
         </style>
-</head>
-<body>
- <div class="container">
+
+    </head>
+    <body>        
+        <div class="container">
             <br><br><br>
             <div class="twofloor">
-                <div class="bd-example">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" style="height: 500px">
-                            <div class="carousel-item active">
-                                <img style="height: 500px" src="https://img1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/liveboard/share/8150c8189ba9455c90d7f3bdb2708dbf.jpg" class="d-block w-100" >
-
-                            </div>
-                            <div class="carousel-item">
-                                <img style="height: 500px" src="https://img1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/liveboard/share/d6c33729ce964321a8af9f324534b4c0.jpg" class="d-block w-100" >
-
-                            </div>
-                            <div class="carousel-item">
-                                <img style="height: 500px" src="https://img1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/liveboard/share/f800864255c24b5c8b261d2b2fe8602e.JPG" class="d-block w-100" >
-
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
+              <div class="bd-example">
+                    <img src = ${file_path}>
                 </div>
+               
             </div>
+            
             <div class="threefloor">
-                <a href="#summary"><button class="menubtn" id="menu1">요약</button></a>
-                <a href="#detail"><button class="menubtn">챌린지 소개</button></a>
-                <a href="#progress"><button class="menubtn">진행방식</button></a>
-                <a href="#review"><button class="menubtn">리뷰</button></a>
+             <br>  <br>  <br> <br>
+              <h1>레드카드발급 관련 공통 안내사항</h1><br><br><br>
+               1. 인증규정과 무관한 이미지로 인증을 대체하려 한 경우<br>
+               2. 신체의 일부가 나와야 할 때 본인이 아닌 경우<br>
+               3. 한번의 행위로 2회 인증하는 경우(예. 자정전과 후로 한 챌린지를 2회 인증하는 경우)<br>
+               4. 미리 해놓고 다음에는 사진만 찍는 경우<br>
+               5. 한 번의 행위로 두 개의 서로 다른 챌린지에 인증하는 경우<br>
+               (예. 닭가슴살 샐러드를 먹으며, 닭가슴살 먹기 챌린지와 샐러드 먹기 챌린지에 둘 다 인증하는 경우)<br>
+               6. 미리 해놓고 인증샷은 나중에 찍는 경우 <br>
+               (예. 한 주 할 일을 모두 계획 후 미리 써두고, 밤에는 사진만 찍는 경우)<br>
+               7. 다수의 회원들로부터 수행여부를 의심받았는데, 회사가 그 의심이 납득 가능하다고 판단한 경우<br>
+               8. 고의적으로 인증규정만 맞췄을 뿐 인증규정의 빈틈을 노렸다고 회사가 판단하는 경우<br>
+               9. 한 사람이 두 계정으로 인증하거나, 지인이 인증할 때를 이용해 본인도 인증하는 경우<br>
+               (예. 아메리카노 한 잔을 두고, 두 사람이 카페에서 아메리카노 주문하기 챌린지에 인증한 경우)<br>
+                 <br>  <br>  <br>
+               
             </div>
+            
             
             <div class="fourthfloor">
                 <div class="middlethird" id="summary">
-                    요약
+                 상세내용이 표시될 예정입니다. 
                 </div>
             </div>
-            <div class="fifthfloor">
-                <div class="middlefifth" id="detail">
-                    챌린지소개
-                </div>
-            </div>
-            <div class="seventhfloor">
-                <div class="middlesixth" id="progress">
-                    진행방식
-                </div>
-            </div>
-            <div class="eighthfloor">
-                <div class="middlesixth" id="review">
-                    리뷰
-                </div>
-            </div>
+            
         </div>
 
         <div class="fivefloor">
@@ -302,8 +287,7 @@
         </div>
     <div class="category">
         <div class="wrapper">
-           
-            <div><a href="#"><input type="button" value="enjoy" id="enjoybtn"></a></div>
+            <div><a href="bill.html"><input type="button" value="enjoy" id="enjoybtn"></a></div>
         </div>
     </div>
     <ul class="navi">
@@ -341,5 +325,5 @@
             options: {}
         });
     </script>
-</body>
+    </body>
 </html>
