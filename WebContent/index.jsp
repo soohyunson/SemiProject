@@ -86,9 +86,9 @@
 <body>
   <div class="wrap">
     <div class="box firstBox">
-      <img src="background-Index.png" class="backgroundImg firstImg">
+      <img src="${pageContext.request.contextPath}/Img/background-Index.png" class="backgroundImg firstImg">
       <div class="navi firstNavi">
-        <div><a href="#"><img src="b.png" class="logo"></a></div>
+        <div><a href="#"><img src="${pageContext.request.contextPath}/Img/b.png" class="logo"></a></div>
         <div><button class="naviStartBtn">시작하기</button></div>
       </div>
       <div class="explan firstExplan">
@@ -96,14 +96,14 @@
         <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">나를 더 강하게 만든다</div>
         <div class="referenceText">지금 바로 도전 긔릿</div>
         <div class="start"><button class="startBtn">레츠고</button></div>
-        <div class="scroll animated infinite bounce delay-2s"><a href="#"><img src="scroll@2x.png"></a></div>
+        <div class="scroll animated infinite bounce delay-2s"><a href="#"><img src="${pageContext.request.contextPath}/Img/scroll@2x.png"></a></div>
       </div>
     </div>
 
     <div class="box secondBox">
-      <img src="backgroundMain.jpg" class="backgroundImg secondImg">
+      <img src="${pageContext.request.contextPath}/Img/backgroundMain.jpg" class="backgroundImg secondImg">
       <div class="navi secondNavi">
-        <div><a href="#"><img src="b.png" class="logo"></a></div>
+        <div><a href="#"><img src="${pageContext.request.contextPath}/Img/b.png" class="logo"></a></div>
         <div><button class="naviStartBtn">시작하기</button></div>
       </div>
       <div class="explan firstExplan">
@@ -111,13 +111,13 @@
         <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">나를 더 강하게 만든다</div>
         <div class="referenceText">지금 바로 도전 긔릿</div>
         <div class="start"><button class="startBtn">레츠고</button></div>
-        <div class="scroll animated infinite bounce delay-2s"><a href="#"><img src="scroll@2x.png"></a></div>
+        <div class="scroll animated infinite bounce delay-2s"><a href="#"><img src="${pageContext.request.contextPath}/Img/scroll@2x.png"></a></div>
       </div>
     </div>
     <div class="box thirdBox">
-      <img src="thirdImg.jfif" class="backgroundImg thirdImg">
+      <img src="${pageContext.request.contextPath}/Img/thirdImg.jfif" class="backgroundImg thirdImg">
       <div class="navi thirdNavi">
-        <div><a href="#"><img src="b.png" class="logo"></a></div>
+        <div><a href="#"><img src="${pageContext.request.contextPath}/Img/b.png" class="logo"></a></div>
         <div><button class="naviStartBtn">시작하기</button></div>
       </div>
       <div class="explan firstExplan">
@@ -125,13 +125,13 @@
         <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">나를 더 강하게 만든다</div>
         <div class="referenceText">지금 바로 도전 긔릿</div>
         <div class="start"><button class="startBtn">레츠고</button></div>
-        <div class="scroll animated infinite bounce delay-2s"><a href="#"><img src="scroll@2x.png"></a></div>
+        <div class="scroll animated infinite bounce delay-2s"><a href="#"><img src="${pageContext.request.contextPath}/Img/scroll@2x.png"></a></div>
       </div>
     </div>
     <div class="box fourthBox">
-      <img src="earth.jpg" class="backgroundImg fourthImg">
+      <img src="${pageContext.request.contextPath}/Img/earth.jpg" class="backgroundImg fourthImg">
       <div class="navi fourthNavi">
-        <div><a href="#"><img src="b.png" class="logo"></a></div>
+        <div><a href="#"><img src="${pageContext.request.contextPath}/Img/b.png" class="logo"></a></div>
         <div><button class="naviStartBtn">시작하기</button></div>
       </div>
       <div class="explan firstExplan">
