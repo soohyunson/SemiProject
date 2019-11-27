@@ -14,7 +14,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Arapey|Russo+One&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="resources/css/MyPageStyle.css">
+        <link rel="stylesheet" type="text/css" href="../resources/css/MyPageStyle.css">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
@@ -27,7 +27,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <div style="text-align:start; margin-left: 5%;"><a href="#"class="submenu">My Profile</a></div>
                 <br><br>
             <div class="media">
-  <img src="Img/profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
+  <img src="../Img/profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
   <div class="media-body">
       <br>
     <h5 class="mt-0">Admin</h5>
@@ -59,10 +59,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <br><br>
                 <div style="text-align:start; margin-left: 5%;"><a href="#"class="submenu">Challenge Management</a></div>
                 <br><br>
-                <div><a href="list.board" style="margin-left:10%;" id="board">Board List</a></div>
+                <div><a href="../list.adboard" style="margin-left:10%;" id="board">Board List</a></div>
                 <br>
                
-                <div><a href="Challenge/writeBoard.jsp" style="margin-left:10%; "id="write" >write Board</a></div>
+                <div><a href="writeBoard.jsp" style="margin-left:10%; "id="write" >write Board</a></div>
                 <br>
                
                 
