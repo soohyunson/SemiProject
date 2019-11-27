@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <title>My Page</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdn.bootpay.co.kr/js/bootpay-3.0.2.min.js" type="application/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -186,6 +187,7 @@ body {
 	height: 100%;
 	color: #1D1F21;
 }
+
 </style>
 <script>
 $(function () {
@@ -216,8 +218,7 @@ $(function () {
 			<br> <br>
 			<h1 style="text-align: center; font-size: 50px;">45,000</h1>
 			<br> <br>
-			<div
-				style="width: 100%; height: 50px; background-color: darkgrey; text-align: center;">
+			<div style="width: 100%; height: 50px; background-color: darkgrey; text-align: center;">
 				<div style="float: left; width: 50%; height: 100%; line-height: 50px;">
 					<!--  <button style="background-color: darkgrey; border: none; height:100%;">포인트 충전</button> -->
 					<button id="pointCharge" type="button" class="btn btn-outline-dark">포인트 충전</button>
@@ -231,8 +232,25 @@ $(function () {
 
 			</div>
 		</div>
-
-		<div class="threefloor"></div>
+		<div class="threefloor">
+			<div class="row">
+				<div class="col">
+					구매한 포인트
+				</div>
+				<div class="col">
+					결제수단
+				</div>
+				<div class="col">
+					구매일자
+				</div>
+				<div class="col">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col"></div>
+			</div>
+		</div>
 
 		<div class="fourfloor"></div>
 		<div class="fivefloor">
