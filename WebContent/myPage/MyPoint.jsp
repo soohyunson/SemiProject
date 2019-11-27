@@ -24,19 +24,16 @@
 
 
 	<div class="container">
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 
 		<div class="onefloor" style="text-align: center;">
 			<br>
 			<div style="text-align: start; margin-left: 5%;">
 				<a href="#" class="submenu">My Profile</a>
 			</div>
-			<br>
-			<br>
+			<br> <br>
 			<div class="media">
-				<img src="Img/profileicon.png" class="mr-3" alt="..."
+				<img src="../Img/profileicon.png" class="mr-3" alt="..."
 					style="width: 100px; height: 100px; margin-left: 10%;">
 				<div class="media-body">
 					<br>
@@ -54,36 +51,30 @@
 				<progress id="file" max="100" value="70"
 					style="width: 100%; background-color: purple;"> 70% </progress>
 			</div>
-			<br>
-			<br>
+			<br> <br>
 		</div>
 
 		<div class="twofloor">
-			<br>
-			<br>
+			<br> <br>
 			<div style="text-align: start; margin-left: 5%;">
 				<a href="#" class="submenu">My Point </a>
 			</div>
-			<br>
-			<br>
+			<br> <br>
 			<h1 style="margin-left: 15%;">My Point is 45,000</h1>
-			<br>
-			<br>
+			<br> <br>
 		</div>
 
 		<div class="threefloor">
-			<br>
-			<br>
+			<br> <br>
 			<div style="text-align: start; margin-left: 5%;">
 				<a href="#" class="submenu">My Challenge</a>
 			</div>
-			<br>
-			<br>
+			<br> <br>
 
 			<div class="row">
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/cloud.png" class="card-img-top">
+						<img src="../Img/cloud.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Challenge name</h5>
 							<p class="card-text">
@@ -94,7 +85,7 @@
 				</div>
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/cloud.png" class="card-img-top">
+						<img src="../Img/cloud.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Pizza King</h5>
 							<p class="card-text">
@@ -105,7 +96,7 @@
 				</div>
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/cloud.png" class="card-img-top">
+						<img src="../Img/cloud.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Challenge name</h5>
 							<p class="card-text">
@@ -118,7 +109,7 @@
 			<div class="row">
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/prodo.png" class="card-img-top">
+						<img src="../Img/prodo.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Challenge name</h5>
 							<p class="card-text">
@@ -129,7 +120,7 @@
 				</div>
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/prodo.png" class="card-img-top">
+						<img src="../Img/prodo.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Challenge name</h5>
 							<p class="card-text">
@@ -140,7 +131,7 @@
 				</div>
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/prodo.png" class="card-img-top">
+						<img src="../Img/prodo.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Challenge name</h5>
 							<p class="card-text">
@@ -153,7 +144,7 @@
 			<div class="row">
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/prodo.png" class="card-img-top">
+						<img src="../Img/prodo.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Challenge name</h5>
 							<p class="card-text">
@@ -164,7 +155,7 @@
 				</div>
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/prodo.png" class="card-img-top">
+						<img src="../Img/prodo.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Challenge name</h5>
 							<p class="card-text">
@@ -175,7 +166,7 @@
 				</div>
 				<div class="col-4">
 					<div class="card m-3">
-						<img src="Img/prodo.png" class="card-img-top">
+						<img src="../Img/prodo.png" class="card-img-top">
 						<div class="card-body">
 							<h5 class="card-title">Challenge name</h5>
 							<p class="card-text">
@@ -190,13 +181,11 @@
 		</div>
 
 		<div class="fourfloor">
-			<br>
-			<br>
+			<br> <br>
 			<div style="text-align: start; margin-left: 5%;">
 				<a href="#" class="submenu">My Statics</a>
 			</div>
-			<br>
-			<br>
+			<br> <br>
 			<div>
 				<canvas id="myChart"></canvas>
 			</div>
@@ -232,11 +221,11 @@
 			</div>
 			<br>
 			<div class="lastbar3" style="text-align: center">
-				<a href="#"><img src="Img/icon1.png" class="mr-3" alt="..."
+				<a href="#"><img src="../Img/icon1.png" class="mr-3" alt="..."
 					style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-				<a href="#"><img src="Img/icon2.png" class="mr-3" alt="..."
+				<a href="#"><img src="../Img/icon2.png" class="mr-3" alt="..."
 					style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-				<a href="#"><img src="Img/icon3.png" class="mr-3" alt="..."
+				<a href="#"><img src="../Img/icon3.png" class="mr-3" alt="..."
 					style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
 			</div>
 			<br>
@@ -265,9 +254,10 @@
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="#"><img src="Img/reallogo.png"
-					class="mr-3" alt="..."
-					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
+			<li class="navi-title"><a href="#"> 
+			<img src="../Img/reallogo.png" class="mr-3" alt="..."
+					style="width: 135px; height: 50px; margin-left: 10%;">
+			</a></li>
 		</ul>
 		<ul class="itemList">
 
