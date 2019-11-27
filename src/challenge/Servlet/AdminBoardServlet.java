@@ -32,17 +32,17 @@ public class AdminBoardServlet extends HttpServlet {
 		String realPath = uri.substring(projectPath.length());
 		
 		if(realPath.contentEquals("/detail.adboard")) {
-			//int seq = Integer.parseInt( request.getParameter("seq"));
+			int seq = Integer.parseInt( request.getParameter("seq"));
 			
 			ChallengeDTO dto = new ChallengeDTO();
 	
 			
 			try {
-				dto = ChallengeDAO.getInstance().getChallenge(2);
+				dto = ChallengeDAO.getInstance().getChallenge(seq);
 				
 				ArrayList<Challenge_recordDTO> list = new ArrayList<>();
 				
-				list = ChallengeRecordDAO.getInstance().getParticipate(2);
+				list = ChallengeRecordDAO.getInstance().getParticipate(seq);
 				
 				request.setAttribute("recordList", list);
 				request.setAttribute("dto", dto);
