@@ -6,6 +6,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="giveMain.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script>
+  	$(function(){
+  		$(".challengeOne").on("click",function(){
+  			location.href = "index.jsp";
+  		})
+  		$(".challengeTwo-1").on("click",function(){
+  			location.href = "good.jsp";
+  		})  	
+  		$(".challengeTwo-2").on("click",function(){
+  			location.href = "yes.jsp";
+  		})  	
+  		$(".challengeTwo-3").on("click",function(){
+  			location.href = "sd.jsp";
+  		})  	
+  	})
+  </script>
 </head>
 <body>
 <div class="wrap">
@@ -54,7 +71,7 @@
 						<div class="challengeOne-explan2">[영상편집] 전공수업보다 디테일한</div>
 					</div>
 					<div class="challegnSubBox">
-						<div class="challengeTwo">
+						<div class="challengeTwo challengeTwo-1">
 							<div class="challengeTwo-div">
 								<img src="${pageContext.request.contextPath }/Img/exercise.png" class="challengeSubImg">
 							</div>
@@ -62,7 +79,7 @@
 								에어비앤비 트립호스트, 하루만에 되어 보기!</div>
 							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
 						</div>
-						<div class="challengeTwo">
+						<div class="challengeTwo challengeTwo-2">
 							<div class="challengeTwo-div">
 								<img src="${pageContext.request.contextPath }/Img/exercise.png" class="challengeSubImg">
 							</div>
@@ -70,7 +87,7 @@
 								에어비앤비 트립호스트, 하루만에 되어 보기!</div>
 							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
 						</div>
-						<div class="challengeTwo">
+						<div class="challengeTwo challengeTwo-3">
 							<div class="challengeTwo-div">
 								<img src="${pageContext.request.contextPath }/Img/exercise.png" class="challengeSubImg">
 							</div>
@@ -79,8 +96,6 @@
 							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
 						</div>
 					</div>
-					<!-- <div class="challengeTwo">sasad</div>
-          <div class="challengeThree">sasad</div> -->
 				</div>
 			</div>
 		</div>
