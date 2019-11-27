@@ -1,6 +1,8 @@
 package user.server.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,20 +28,39 @@ public class UserboardServlet extends HttpServlet {
 
 		if (realPath.contentEquals("/detail.board")) {
 
-			String id = (String) request.getSession().getAttribute("id");
-			int seq = Integer.parseInt(request.getParameter("seq"));
+			// String id = (String) request.getSession().getAttribute("id");
+			// int seq = Integer.parseInt(request.getParameter("seq"));
 
 			try {
 				Challenge_recordDTO dto = new Challenge_recordDTO();
 
-				dto = ChallengeRecordDAO.getInstance().detailChallenge(id, seq);
+				dto = ChallengeRecordDAO.getInstance().detailChallenge("sky", 16);
 				int num = dto.getChallenge_num();
+
+				System.out.println(num);
+
 				ChallengeDTO challengeDto = new ChallengeDTO();
 				challengeDto = ChallengeDAO.getInstance().getChallenge(num);
 
+				System.out.println();
+
+				System.out.println(challengeDto.getStart_date());
+
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				
+				System.out.println(format.parse(challengeDto.getStart_date()));
+				Date date=format.parse(challengeDto.getStart_date());
+				String month_day = new SimpleDateFormat("MM").format(date);
+				String day=new SimpleDateFormat("dd").format(date);
+				System.out.println(month_day);
+				System.out.println(day);
+				
+					
+				request.setAttribute("day", day);
+				request.setAttribute("month", month_day);
 				request.setAttribute("RecordDTO", dto);
 				request.setAttribute("challengeDTO", challengeDto);
-				request.getRequestDispatcher(path+"/usertestNotNotNOt/detail.jsp").forward(request, response);
+				request.getRequestDispatcher("/UserTestNotNotNOt/detailTest.jsp").forward(request, response);
 
 			} catch (Exception e) {
 				System.out.println("데이터 가져오기 오류~~!~~!");

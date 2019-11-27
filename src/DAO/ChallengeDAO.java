@@ -117,4 +117,55 @@ public class ChallengeDAO {
 		}
 	}
 
+	
+	public List<ChallengeDTO> selectByPage(int p_start,int p_end) throws Exception{
+		 String sql = "select * from "
+		 		+ "(select challenge.*, row_number()over (order by seq desc)"
+		 		+ " as rown from challenge) where rown between ? and ?"; 
+		 try(
+				 Connection con = this.getConnection();
+				 PreparedStatement pstat = con.prepareStatement(sql);
+					){
+			 
+			 pstat.setInt(1, p_start);
+			 pstat.setInt(2, p_end);
+						 try(
+					 ResultSet rs = pstat.executeQuery();
+								 ){
+					 List<ChallengeDTO> result = new ArrayList<>();
+					 while(rs.next()){
+						 int seq = rs.getInt(1);
+						 String title = rs.getString(2);
+						 String content = rs.getString(3);
+						 String start_date = rs.getString(4);
+						 String end_date = rs.getString(5);
+						 String end = rs.getString(6);
+						 String total_partcipate = rs.getString(7);
+						 String file_path = rs.getString(8);
+						 ChallengeDTO dto = new ChallengeDTO(seq,title,content,start_date,end_date,end,total_partcipate,file_path);
+						 
+						 result.add(dto);
+					 }
+					 con.commit();
+					 return result;
+						 }//try2
+			         }//try1
+	 }
+	public int insertWrite(ChallengeDTO dto) throws Exception{
+		 String sql = "insert into challenge values(challenge_seq.nextval,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),'N','0',?)";
+		 
+		 try(
+		 Connection con = this.getConnection();
+		 PreparedStatement pstat = con.prepareStatement(sql);
+				 ){
+		 pstat.setString(1, dto.getTitle());
+		 pstat.setString(2, dto.getContent());
+		 pstat.setString(3, dto.getStart_date());
+		 pstat.setString(4, dto.getEnd_date());
+		 pstat.setString(5, dto.getFile_path());
+		 int result = pstat.executeUpdate();
+		 con.commit();
+		 return result;
+		 }
+	 }
 }

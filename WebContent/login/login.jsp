@@ -209,7 +209,7 @@ th{
 		<br> <br> <br>
 		<div class="twofloor"></div>
 		<div class="fourthfloor">
-			<form action="login.mem" method="post" id="loginfrm">
+			<form action="${pageContext.request.contextPath}/login.mem" method="post" id="loginfrm">
 				<table class="loginbox">
 					<tr>
 						<th>Login

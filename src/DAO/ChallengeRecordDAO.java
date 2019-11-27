@@ -107,7 +107,7 @@ public class ChallengeRecordDAO {
 	}
 	
 	public Challenge_recordDTO detailChallenge (String id, int seq) throws SQLException, Exception {
-		String sql ="select * from challenge_record where id=? and challenge_numm=?";
+		String sql ="select * from challenge_record where memeber_id=? and challenge_numm=?";
 		try(Connection conn = getConnection();
 				PreparedStatement pstat = conn.prepareStatement(sql);){
 			pstat.setString(1, id);
