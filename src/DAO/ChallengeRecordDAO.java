@@ -33,7 +33,7 @@ public class ChallengeRecordDAO {
 	}
 	
 	
-	// µ¥ÀÌÅÍ »ðÀÔ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int insert(Challenge_recordDTO dto) throws SQLException, Exception {
 		String sql = "insert into challenge_record values(challenge_record_seq.nextval,'N',?,?)";
 		try(Connection conn = getConnection();
@@ -48,7 +48,7 @@ public class ChallengeRecordDAO {
 	}
 	
 	
-	// µ¥ÀÌÅÍ »èÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int delete(int seq) throws SQLException, Exception {
 		String sql="delete from challenge_record where seq=?";
 		try(Connection conn = getConnection();
@@ -64,7 +64,7 @@ public class ChallengeRecordDAO {
 	}
 	
 	
-	// Âü°¡ÀÚ º¸±â (Ã§¸°Áö °Ô½ÃÆÇ seqÀ» ³Ñ°ÜÁà¾ßÇÔ)
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Ã§ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ seqï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	public ArrayList<Challenge_recordDTO> getParticipate(int seq) throws Exception {
 		String sql = "select * from challenge_record where challenge_numm =?";
 		try(Connection conn = getConnection();
@@ -91,7 +91,7 @@ public class ChallengeRecordDAO {
 		}
 	}
 	
-	// Ã§¸°Áö ¼º°ø ¿©ºÎ º¯°æ
+	// Ã§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int successUpdate (int seq) throws SQLException, Exception {
 		String sql ="update challenge_record set success='Y' where seq=?";
 		try(Connection conn = getConnection();
@@ -102,6 +102,31 @@ public class ChallengeRecordDAO {
 			conn.commit();
 			
 			return result;
+			
+		}
+	}
+	
+	public Challenge_recordDTO detailChallenge (String id, int seq) throws SQLException, Exception {
+		String sql ="select * from challenge_record where id=? and challenge_numm=?";
+		try(Connection conn = getConnection();
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+			pstat.setString(1, id);
+			pstat.setInt(2, seq);
+			
+			try(ResultSet rs = pstat.executeQuery()){
+				Challenge_recordDTO dto = new Challenge_recordDTO();
+				
+				if(rs.next()) {
+					dto.setSeq(rs.getInt(1));
+					dto.setSuccess(rs.getString(2));
+					dto.setChallenge_num(rs.getInt(3));
+					dto.setMember_id(rs.getString(4));
+					
+				}
+				
+				return dto;
+				
+			}
 			
 		}
 	}

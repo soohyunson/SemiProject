@@ -27,9 +27,9 @@ public class member extends HttpServlet {
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
 			//id, pw 넘어오는거 ok
-			boolean loginResult = dao.isLoginOK(id, dao.encrypt(pw));
+			//boolean loginResult = dao.isLoginOK(id, dao.encrypt(pw));
 			
-			request.getSession().setAttribute("loginResult", loginResult);
+			//request.getSession().setAttribute("loginResult", loginResult);
 			request.getSession().setAttribute("id", id);
 			request.getRequestDispatcher("logincheck.jsp").forward(request, response);
 			
@@ -41,9 +41,9 @@ public class member extends HttpServlet {
 			try {
 			String id = request.getParameter("id");
 			//id 받아오기 ok
-			boolean result = dao.isIdOk(id);
+			//boolean result = dao.isIdOk(id);
 			PrintWriter pw = response.getWriter();
-			pw.append("{\"result\" :" + result + "}");
+		//	pw.append("{\"result\" :" + result + "}");
 			
 			}catch(Exception e) {
 				e.printStackTrace();

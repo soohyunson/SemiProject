@@ -9,7 +9,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <link
@@ -254,19 +256,17 @@ th {
 					</c:when>
 
 					<c:otherwise>
-						<c:forEach items="${list }" var="dto">
+						<c:forEach items="${list}" var="dto">
 							<tr>
 								<td>${dto.seq }
-								<td><a
-									href="/detailView.wrt?seq=${dto.seq}"
-									id="tag">${dto.title }</a>
+								<td><a href="/detailView.wrt?seq=${dto.seq}" id="tag">${dto.title }</a>
 							</tr>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 
 				<tr>
-					<td colspan=5>${navi }
+					<td colspan=5>${navi}
 				</tr>
 			</table>
 		</div>

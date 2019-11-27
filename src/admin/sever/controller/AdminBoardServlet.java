@@ -1,4 +1,4 @@
-package challenge.Servlet;
+package admin.sever.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class AdminBoardServlet extends HttpServlet {
 		
 				
 			}catch(Exception e) {
-				System.out.println("Ã§¸°Áö °¡Á®¿À±â ¿À·ù~~!!");
+				System.out.println("Ã§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½~~!!");
 				e.printStackTrace();
 			}
 			
