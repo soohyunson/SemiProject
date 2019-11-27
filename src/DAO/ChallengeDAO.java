@@ -232,14 +232,14 @@ public class ChallengeDAO {
 		 }
 		 
 		 StringBuilder sb = new StringBuilder();
-		 if(needPrev) {sb.append("<a href='list.board?currentPage="+(startNavi -1)+"'> < </a>");}
+		 if(needPrev) {sb.append("<a href='list.adboard?currentPage="+(startNavi -1)+"'> < </a>");}
 		 
 		 for(int i= startNavi; i<= endNavi;i++) {
-			 sb.append("<a href='list.bo?currentPage="+i+"'>");
+			 sb.append("<a href='list.adboard?currentPage="+i+"'>");
 			 sb.append(i + " ");
 			 sb.append("</a>");
 		 }
-		 if(needNext) {sb.append("<a href='list.board?currentPage="+(endNavi +1)+"'> > </a>");}
+		 if(needNext) {sb.append("<a href='list.adboard?currentPage="+(endNavi +1)+"'> > </a>");}
 		 
 		 
 		return sb.toString();
