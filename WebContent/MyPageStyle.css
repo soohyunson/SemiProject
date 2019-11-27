@@ -1,0 +1,186 @@
+@charset "UTF-8";
+/* 
+External Style Sheet(.css)
+With an external style sheet, you can change the look of an entire website by changing just one file!
+Each page must include a reference to the external style sheet file inside the <link> element. 
+The <link> element goes inside the <head> section:
+주의) 디자인 템플릿 사용시 스타일 파일 별도 제공.
+주의) 여러개의 웹페이지에 공통(기본) 스타일 적용시 사용한다. 
+*/
+ body{
+                margin:0px;
+                padding:0px;
+                background-color:#FFFFFF;
+            }
+            .lastbar{
+                margin:0px;
+                
+                overflow: hidden;
+                padding:0px;
+            }
+            
+            .navi{
+                position:fixed;
+                top:0px;
+                margin:0px;
+                
+                overflow: hidden;
+                padding:0px;
+                width:60%;
+                left: 20%;              
+                background-color: #FFFFFF90;
+                font-family:fantasy;
+                font-size: 20px;
+               
+                
+               
+                
+            }
+            .title{
+                 margin:0px;
+                padding:0px;
+                
+                width:50%;
+            }
+            .itemList{
+                position: absolute;
+                margin:0px;
+                padding:0px;
+                
+                right: 0px;
+                width:50%;
+            }
+            .navi-title{
+                list-style-type: none;
+                width:50%;
+                line-height:72px;
+                float:left;
+                text-align: center;
+                
+                color:#1D1F21;
+            }
+            .navi-item{
+                
+                list-style-type: none;
+                width:30%;
+                line-height:72px;
+                float:left;
+                text-align: center;
+                
+                color:#1D1F21;
+            }
+            .navi-item2{
+                
+                list-style-type: none;
+                width:25%;
+                line-height:30px;
+                float:left;
+                text-align: center;
+                
+                color:#1D1F21;
+            }
+            .navi-item3{
+                
+                list-style-type: none;
+                width:25%;
+                line-height:72px;
+                float:left;
+                text-align: center;
+                
+                color:#1D1F21;
+            }
+            .navi-item>a{
+                text-decoration: none;
+                color:#1D1F21;
+                width:100%;
+                height:100%;
+                display: block;
+            }
+            .navi-item2>a{
+                text-decoration: none;
+                color:#1D1F21;
+                width:100%;
+                height:100%;
+                display: block;
+            }
+            .navi-item3>a{
+                text-decoration: none;
+                color:#1D1F21;
+                width:100%;
+                height:100%;
+                display: block;
+                font-weight: bold;
+            }
+            .navi-title>a{
+                text-decoration: none;
+                color:#1D1F21;
+                width:100%;
+                height:100%;
+                display: block;
+            }
+            .navi-item>a:hover{
+                background-color: orange;
+                
+            }
+            .container{
+               background-color: #ededed;
+                width:60%;
+                
+                margin:auto;
+                margin-top:0px;
+            }
+            .onefloor{
+                border-bottom: 3px solid #1D1F21;
+                border-top: 3px solid #1D1F21;
+                border-radius: 3px;
+            }
+            .twofloor{
+                border-bottom: 3px solid #1D1F21;
+                border-radius: 3px;
+          
+            }
+            .threefloor{
+                border-bottom: 3px solid #1D1F21;
+                border-radius: 3px;
+            }
+            
+            .fivefloor{
+                border-top: 3px solid #1D1F21;
+                
+                border-radius: 3px;
+                width: 100%;
+                background-color: gainsboro;
+            }
+            .progress{
+                display: inline-block;
+                width: 90%;
+                height: 10%;
+                
+              
+
+            }
+            .category{
+                position: fixed;
+                top: 80px;
+                left: 7%;
+                width: 12%;
+                height: 300px;
+                border: 3px solid #1D1F21;
+                
+                
+            }
+            .submenu{
+                font-family: 'Calistoga', cursive;
+                color:#1D1F21;
+            }
+            .sidebar{
+                height: 51px;
+                 
+                 font-family: 'Calistoga', cursive;
+                
+                text-align: center;
+            }
+            .sidebar>a{
+                height: 100%;
+                color:#1D1F21;
+            }
