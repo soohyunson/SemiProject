@@ -44,7 +44,8 @@
 
 	<div class="pagecontainer">
 		<nav class="navbar navbar-light bg-light">
-			<a class="navbar-brand" href="#"> <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+			<a class="navbar-brand" href="#">
+			 <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
 
 			</a>
 			<button id="close" class="btn btn-sm btn-outline-secondary border-0" type="button">

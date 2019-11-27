@@ -1,17 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <title>My Page</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="https://cdn.bootpay.co.kr/js/bootpay-3.0.2.min.js" type="application/javascript"></script>
+<script src="https://cdn.bootpay.co.kr/js/bootpay-3.0.2.min.js"
+	type="application/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
+	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
 body {
 	margin: 0px;
@@ -188,6 +197,9 @@ body {
 	color: #1D1F21;
 }
 
+.payrow {
+	height: 200%;
+}
 </style>
 <script>
 $(function () {
@@ -218,37 +230,49 @@ $(function () {
 			<br> <br>
 			<h1 style="text-align: center; font-size: 50px;">45,000</h1>
 			<br> <br>
-			<div style="width: 100%; height: 50px; background-color: darkgrey; text-align: center;">
-				<div style="float: left; width: 50%; height: 100%; line-height: 50px;">
-					<!--  <button style="background-color: darkgrey; border: none; height:100%;">포인트 충전</button> -->
-					<button id="pointCharge" type="button" class="btn btn-outline-dark">포인트 충전</button>
-					
+			<div
+				style="width: 100%; height: 50px; background-color: darkgrey; text-align: center;">
+				<div
+					style="float: left; width: 50%; height: 100%; line-height: 50px;">
+					<button id="pointCharge" type="button" class="btn btn-outline-dark">포인트 결제</button>
+
 				</div>
-				<div style="float: left; width: 50%; height: 100%; line-height: 50px;">
-					<!-- <button style="background-color: darkgrey; border: none; height:100%;">포인트 환급</button>-->
-					<button id="pointRefunds" type="button" class="btn btn-outline-dark">포인트 환급</button>
-					 
+				<div
+					style="float: left; width: 50%; height: 100%; line-height: 50px;">
+					<!-- <button style="background-color: darkgrey; border: none; height:100%;">�ъ�명�� ��湲�</button>-->
+					<button id="pointRefunds" type="button"
+						class="btn btn-outline-dark">포인트 환급</button>
+
 				</div>
 
 			</div>
 		</div>
 		<div class="threefloor">
-			<div class="row">
-				<div class="col">
-					구매한 포인트
-				</div>
-				<div class="col">
-					결제수단
-				</div>
-				<div class="col">
-					구매일자
-				</div>
-				<div class="col">
-					
+			<div class="row border-dark border-bottom">
+				<div class="col text-center">금액</div>
+				<div class="col text-center">결제수단</div>
+				<div class="col text-center">구매일자</div>
+				<div class="col text-center">기타</div>
+			</div>
+			<div class="row payrow border-secondary border-bottom">
+				<div class="col text-center">1000 원</div>
+				<div class="col text-center">페이코</div>
+				<div class="col text-center">2019-07-19</div>
+				<div class="col text-center">
+					<button type="button" 
+					class="btn btn-outline-danger" disabled>
+						결제 취소</button>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col"></div>
+			<div class="row payrow border-secondary border-bottom">
+				<div class="col text-center">1000 원</div>
+				<div class="col text-center">페이코</div>
+				<div class="col text-center">2019-07-19</div>
+				<div class="col text-center">
+					<button type="button" 
+					class="btn btn-outline-danger">
+						결제 취소</button>
+				</div>
 			</div>
 		</div>
 
@@ -271,17 +295,16 @@ $(function () {
 			</ul>
 			<ul class="lastbar">
 				<li class="navi-item2"><a href="#">언론보도</a></li>
-				<li class="navi-item2"><a href="#">개인정보취급방침</a></li>
-				<li class="navi-item2"><a href="#">미완성센터</a></li>
+				<li class="navi-item2"><a href="#">개인정보 취급방침</a></li>
+				<li class="navi-item2"><a href="#">미완성 센터</a></li>
 				<li class="navi-item2"><a href="#"></a></li>
 				<br>
 				<br>
 			</ul>
-			<div class="lastbar2" style="text-align: center;">
-				상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 : 234-88-00720
-				| 대표자명 : 김세원<br> Copyright ⓒ2019 Miwansung inc, ltd. All rights
-				reserved
-			</div>
+			<div class="lastbar2" style="text-align: center;">상호 : (주)미완성자들
+				| 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 : 234-88-00720 | 대표자명 : 김세원
+				<br>
+				Copyright ⓒ2019 Miwansung inc, ltd. All rights reserved</div>
 			<br>
 			<div class="lastbar3" style="text-align: center">
 				<a href="#"><img src="../Img/icon1.png" class="mr-3" alt="..."
