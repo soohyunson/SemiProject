@@ -92,7 +92,7 @@
 				</tr>
 				<script>
 					$("#write").on("click", function() {
-						location.href = "Challenge/writeBoard.jsp";
+						location.href = "adminChallenge/writeBoard.jsp";
 					})
 					$("#back2").on("click", function() {
 						location.href = "index.jsp";
