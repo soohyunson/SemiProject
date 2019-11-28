@@ -34,7 +34,7 @@
         $(".explan").css("display","block");        
       })
       $("#donate").on("click",function(){
-    	  location.href = "donateMain.jsp";
+    	  location.href = "giveMain.jsp";
       })
       $("#take").on("click",function(){
     	  location.href = "takeMain.jsp";
