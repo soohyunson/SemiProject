@@ -29,7 +29,7 @@ public class UserBoardServlet extends HttpServlet {
 	String projectPath = request.getContextPath();
 	
 	String realPath = uri.substring(projectPath.length());
-	if(realPath.contentEquals("/detail.usboard")) {
+	if(realPath.contentEquals("/banner.usboard")) {
 		
 		
 		
