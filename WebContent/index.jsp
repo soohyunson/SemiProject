@@ -33,11 +33,19 @@
         $(".backgroundImg").css("opacity","0.8");
         $(".explan").css("display","block");        
       })
+<<<<<<< HEAD
+      $("#donate").on("click",function(){
+    	  location.href = "${pageContext.request.contextPath}/Main/donateMain.jsp";
+      })
+      $("#take").on("click",function(){
+    	  location.href = "${pageContext.request.contextPath}/Main/takeMain.jsp";
+=======
      // $("#donate").on("click",function(){
     //	  location.href = "give.challenge";
      // })
       $("#take").on("click",function(){
     	  location.href = "take.challenge";
+>>>>>>> d64f9783aa96a19e89ea9ff7fc5dc82f7c9d2223
       })
       var elm = ".box";
       $(elm).each(function (index) {
