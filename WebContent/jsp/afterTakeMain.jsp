@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="takeMain.css">
+<link rel="stylesheet" type="text/css" href="../takeMain.css">
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script>
   	$(function(){
@@ -32,7 +32,7 @@
           <span class="flex"><img src="${pageContext.request.contextPath }/Img/b.png" class="naviLogo"></span>
           <span class="flex challengeLogo">기부</span>
           <span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a><a href="#" class="login">로그인</a><a
-              href="" class="signUp">My Page</a></span>
+              href="../banner.usboard" class="signUp">My Page</a></span>
         </div>
       </div>
       <div class="headerExplan">

@@ -86,6 +86,8 @@ public class ChallengeDAO {
 				dto.setEnd(rs.getString(6));
 				dto.setTotal_participate(rs.getInt(7));
 				dto.setFile_path(rs.getString(8));
+				dto.setGiveortake(rs.getString(9));
+				dto.setCategory(rs.getString(10));
 				
 				list.add(dto);
 			}
@@ -110,6 +112,9 @@ public class ChallengeDAO {
 					dto.setEnd_date(rs.getString(5));
 					dto.setEnd(rs.getString(6));
 					dto.setTotal_participate(rs.getInt(7));
+					dto.setFile_path(rs.getString(8));
+					dto.setGiveortake(rs.getString(9));
+					dto.setCategory(rs.getString(10));
 				}
 				
 				return dto;
@@ -144,7 +149,9 @@ public class ChallengeDAO {
 						 String end = rs.getString(6);
 						 int total_partcipate = rs.getInt(7);
 						 String file_path = rs.getString(8);
-						 ChallengeDTO dto = new ChallengeDTO(seq,title,content,start_date,end_date,end,total_partcipate,file_path);
+						 String giveortake = rs.getString(9);
+						 String category = rs.getString(10);
+						 ChallengeDTO dto = new ChallengeDTO(seq,title,content,start_date,end_date,end,total_partcipate,file_path,giveortake,category);
 						 
 						 result.add(dto);
 					 }
@@ -154,7 +161,7 @@ public class ChallengeDAO {
 			         }//try1
 	 }
 	public int insertWrite(ChallengeDTO dto) throws Exception{
-		 String sql = "insert into challenge values(challenge_seq.nextval,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),'N','0',?)";
+		 String sql = "insert into challenge values(challenge_seq.nextval,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),'N','0',?,?,?)";
 		 
 		 try(
 		 Connection con = this.getConnection();
@@ -165,6 +172,8 @@ public class ChallengeDAO {
 		 pstat.setString(3, dto.getStart_date());
 		 pstat.setString(4, dto.getEnd_date());
 		 pstat.setString(5, dto.getFile_path());
+		 pstat.setString(6, dto.getGiveortake());
+		 pstat.setString(7, dto.getCategory());
 		 int result = pstat.executeUpdate();
 		 con.commit();
 		 return result;
