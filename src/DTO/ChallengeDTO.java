@@ -10,6 +10,8 @@ public class ChallengeDTO {
 	private String end;
 	private int total_participate;
 	private String file_path;
+	private String giveortake;
+	private String category;
 	
 	
 	
@@ -18,7 +20,7 @@ public class ChallengeDTO {
 		// TODO Auto-generated constructor stub
 	}
 	public ChallengeDTO(int seq, String title, String content, String start_date, String end_date, String end,
-			int total_participate, String file_path) {
+			int total_participate, String file_path, String giveortake,String category) {
 		super();
 		this.seq = seq;
 		this.title = title;
@@ -28,6 +30,8 @@ public class ChallengeDTO {
 		this.end = end;
 		this.total_participate = total_participate;
 		this.file_path=file_path;
+		this.giveortake=giveortake;
+		this.category=category;
 	}
 	public ChallengeDTO(String end_date) {
 		super();
@@ -80,6 +84,18 @@ public class ChallengeDTO {
 	}
 	public void setFile_path(String file_path) {
 		this.file_path=file_path;
+	}
+	public String getGiveortake() {
+		return giveortake;
+	}
+	public void setGiveortake(String giveortake) {
+		this.giveortake = giveortake;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 

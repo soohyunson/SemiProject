@@ -33,11 +33,11 @@
         $(".backgroundImg").css("opacity","0.8");
         $(".explan").css("display","block");        
       })
-      $("#donate").on("click",function(){
-    	  location.href = "donateMain.jsp";
-      })
+     // $("#donate").on("click",function(){
+    //	  location.href = "give.challenge";
+     // })
       $("#take").on("click",function(){
-    	  location.href = "takeMain.jsp";
+    	  location.href = "take.challenge";
       })
       var elm = ".box";
       $(elm).each(function (index) {
@@ -145,7 +145,7 @@
   <div class="js-layer  layer  hidden" style="font-family: 'Righteous', cursive;">
       <div class="close"><button class="closeBtn">X</button></div>
       <div class="layerFirstText">What's your choice?</div><br>
-      <div class="layerSecondText"><a href="#" id="donate">DONATE</a>&nbsp&nbspOR&nbsp&nbsp<a href="#" id="take">TAKE</a></div>
+      <div class="layerSecondText"><a href="give.challenge" id="donate">DONATE</a>&nbsp&nbspOR&nbsp&nbsp<a href="#" id="take">TAKE</a></div>
   </div>
 </body>
 
