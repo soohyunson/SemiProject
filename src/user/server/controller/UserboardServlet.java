@@ -25,7 +25,7 @@ public class UserboardServlet extends HttpServlet {
 		String path = request.getContextPath();
 
 		String realPath = uri.substring(path.length());
-
+		System.out.println(realPath);
 		if (realPath.contentEquals("/detail.board")) {
 
 			// String id = (String) request.getSession().getAttribute("id");
