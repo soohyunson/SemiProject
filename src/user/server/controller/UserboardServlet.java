@@ -29,14 +29,14 @@ public class UserboardServlet extends HttpServlet {
 			//int recordNum = Integer.parseInt(request.getParameter("seq"));
 
 			try {
-				ChallengeDTO dto = ChallengeDAO.getInstance().getChallenge(16);
+				ChallengeDTO dto = ChallengeDAO.getInstance().getChallenge(29);
 
 				
 				System.out.println(dto.getStart_date());
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 				Date formatDate=format.parse(dto.getStart_date());
-				String day = new SimpleDateFormat("MM").format(formatDate);
-				String month = new SimpleDateFormat("dd").format(formatDate);
+				String day = new SimpleDateFormat("dd").format(formatDate);
+				String month = new SimpleDateFormat("MM").format(formatDate);
 				
 				System.out.println(day);
 				System.out.println(month);
@@ -45,10 +45,10 @@ public class UserboardServlet extends HttpServlet {
 				
 				request.setAttribute("day", day);
 				request.setAttribute("month", month);
-				request.setAttribute("recordNum", 11);
+				request.setAttribute("recordNum", 20);
 				request.setAttribute("dto", dto);
 				
-				request.getRequestDispatcher("UserTestNotNotNOt/detailTest.jsp").forward(request, response);
+				request.getRequestDispatcher("UserTestNotNotNOt/detail.jsp").forward(request, response);
 			} catch (Exception e) {
 				System.out.println("오류났어요!!오류오류");
 			}

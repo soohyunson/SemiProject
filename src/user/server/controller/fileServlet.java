@@ -4,6 +4,8 @@ import java.awt.print.Printable;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +40,9 @@ public class fileServlet extends HttpServlet {
 				uploadFilePath.mkdir();
 
 			}
+
 			try {
+
 				int maxSize = 1024 * 1024 * 10; // 10mb 까지 용량제한
 
 				MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF8",
@@ -51,26 +55,45 @@ public class fileServlet extends HttpServlet {
 				String fileName = multi.getFilesystemName("fileImg"); // 업로드되는 파일의 이름이 뭐냐
 				String oriFileName = multi.getOriginalFileName("fileImg"); // 업로드 할 때 당시의 파일의 원래 이름이 뭐냐
 
+				
+				
 				System.out.println(fileName);
 				System.out.println(oriFileName);
 				// response.getWriter().append("works done");
+				
+				int recordNum = Integer.parseInt(multi.getParameter("recordNum"));
+			
 
 				// int result = FilesDAO.getInstance().insert(dto);
 
 				String resPath = "files/";
 				resPath += fileName;
 				System.out.println(resPath);
-				File_ListDTO dto = new File_ListDTO(0, fileName, resPath, oriFileName, null, 14);
+				String date = new SimpleDateFormat("yy/MM/dd").format(System.currentTimeMillis());
 
-				int result = FileListDAO.getInstance().insert(dto);
-				System.out.println("파일이 업로드 된 경로 : " + resPath);
+				
+				File_ListDTO dto = new File_ListDTO(0, fileName, resPath, oriFileName, date, recordNum);
+
+				int result = 0;
+
+				System.out.println("디비 입력!");
+				try {
+					result = FileListDAO.getInstance().insert(dto);
+					System.out.println("파일이 업로드 된 경로 : " + resPath);
+					System.out.println(result);
+				} catch (Exception e) {
+					int seq = FileListDAO.getInstance().getSeq();
+					System.out.println(seq);
+					result = FileListDAO.getInstance().update(seq, dto);
+					
+					System.out.println(result);
+				}
 
 				if (result > 0) {
 
 					JsonObject obj = new JsonObject();
 					obj.addProperty("url", resPath);
 
-					Thread.sleep(1000);
 					Gson g = new Gson();
 
 					response.reset();
@@ -119,11 +142,11 @@ public class fileServlet extends HttpServlet {
 //						sos.flush();
 //
 //					}
-
 				}
+
 			} catch (Exception e) {
+				System.out.println("ㅈㅅㅈㅅㅈㅅㅈ :::: ");
 				e.printStackTrace();
-				response.sendRedirect("error.jsp");
 			}
 		}
 

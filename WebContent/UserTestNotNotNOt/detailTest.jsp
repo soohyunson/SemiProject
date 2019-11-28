@@ -55,6 +55,9 @@ img {
 				<button id="confirmBtn" type="button">인증하기</button>
 			</div>
 		</div>
+		
+		<input type="hidden" value="${recordNum}" id="recordNum">
+	
 	</form>
 	<script>
 	
@@ -150,7 +153,8 @@ img {
 				if(confirm("인증을 진행하시겠습니까?")){
 					//var form = $("#uploadfrm")[0];
 					var formData = new FormData();
-					formData.append("fileImg",$("#fileImg")[0].files[0]);					
+					formData.append("fileImg",$("#fileImg")[0].files[0]);
+					formData.append("recordNum",$("#recordNum").val());
 						$.ajax({
 							url:"${pageContext.request.contextPath}/confirm.file",
 							enctype:"multipart/form-data",
