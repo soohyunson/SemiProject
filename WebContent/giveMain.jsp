@@ -1,28 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="giveMain.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <script>
-  	$(function(){
-  		$(".challengeOne").on("click",function(){
-  			location.href = "index.jsp";
-  		})
-  		$(".challengeTwo-1").on("click",function(){
-  			location.href = "good.jsp";
-  		})  	
-  		$(".challengeTwo-2").on("click",function(){
-  			location.href = "yes.jsp";
-  		})  	
-  		$(".challengeTwo-3").on("click",function(){
-  			location.href = "sd.jsp";
-  		})  	
-  	})
-  </script>
+<style>
+	#logout{
+		background-color: white;
+		border: 1px solid black;
+		width: 80px;
+		height: 30px;
+	}
+	#mypage{
+		background-color: white;
+		border: 1px solid black;
+		width: 90px;
+		height: 30px;
+	}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -31,8 +29,20 @@
 				<div class="naviBox">
 					<span class="flex"><img src="b.png" class="naviLogo"></span>
 					<span class="flex challengeLogo">테이크</span> <span
-						class="flex naviCategory"><a href="#" class="giverBtn">기부</a><a
-						href="#" class="login">로그인</a><a href="#" class="signUp">회원가입</a></span>
+						class="flex naviCategory"><a href="#" class="giverBtn">기부</a>
+						
+						<c:choose>
+						<c:when test="${loginResult == null }">
+							<a href="login.jsp" class="login">로그인</a>
+							<a href="signup.jsp" class="signUp">회원가입</a></span>
+						</c:when>
+						<c:otherwise>
+							${id }님
+							<button id="mypage">마이페이지</button>
+							<button id="logout">로그아웃</button>
+						</c:otherwise>
+						</c:choose>
+						
 				</div>
 			</div>
 			<div class="headerExplan">
@@ -71,7 +81,7 @@
 						<div class="challengeOne-explan2">[영상편집] 전공수업보다 디테일한</div>
 					</div>
 					<div class="challegnSubBox">
-						<div class="challengeTwo challengeTwo-1">
+						<div class="challengeTwo">
 							<div class="challengeTwo-div">
 								<img src="exercise.png" class="challengeSubImg">
 							</div>
@@ -79,7 +89,7 @@
 								에어비앤비 트립호스트, 하루만에 되어 보기!</div>
 							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
 						</div>
-						<div class="challengeTwo challengeTwo-2">
+						<div class="challengeTwo">
 							<div class="challengeTwo-div">
 								<img src="exercise.png" class="challengeSubImg">
 							</div>
@@ -87,7 +97,7 @@
 								에어비앤비 트립호스트, 하루만에 되어 보기!</div>
 							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
 						</div>
-						<div class="challengeTwo challengeTwo-3">
+						<div class="challengeTwo">
 							<div class="challengeTwo-div">
 								<img src="exercise.png" class="challengeSubImg">
 							</div>
@@ -96,9 +106,37 @@
 							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
 						</div>
 					</div>
+					<!-- <div class="challengeTwo">sasad</div>
+          <div class="challengeThree">sasad</div> -->
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+  	$(function(){
+  		$(".challengeOne").on("click",function(){
+  			location.href = "index.jsp";
+  		})
+  		$(".challengeTwo-1").on("click",function(){
+  			location.href = "good.jsp";
+  		})  	
+  		$(".challengeTwo-2").on("click",function(){
+  			location.href = "yes.jsp";
+  		})  	
+  		$(".challengeTwo-3").on("click",function(){
+  			location.href = "sd.jsp";
+  		})
+  		$("#logout").on("click", function(){
+  			var result = confirm("로그아웃 하시겠습니까?");
+  			if(result){
+  				location.href="logout.mem";
+  			}
+  		})
+  		$("#mypage").on("click", function(){
+  			location.href="userMyPage.jsp";
+  		})
+  	})
+  </script>
 </body>
 </html>
