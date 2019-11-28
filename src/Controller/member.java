@@ -14,48 +14,46 @@ import DTO.MemberDTO;
 
 @WebServlet("*.mem")
 public class member extends HttpServlet {
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String URI = request.getRequestURI();
 		String ctx = request.getContextPath();
 		String realPath = URI.substring(ctx.length());
-		
+
 		MemberDAO dao = MemberDAO.getInstance();
 		System.out.println(URI);
 		System.out.println(ctx);
-		
-		if(realPath.contentEquals("/login.mem")) {
+
+		if (realPath.contentEquals("/login.mem")) {
 			try {
-			String id = request.getParameter("id");
-			String pw = request.getParameter("pw");
-			//id, pw 넘어오는거 ok
-			//boolean loginResult = dao.isLoginOK(id, dao.encrypt(pw));
-			
-			//request.getSession().setAttribute("loginResult", loginResult);
-			request.getSession().setAttribute("id", id);
-			request.getRequestDispatcher("logincheck.jsp").forward(request, response);
-			
-			}catch(Exception e) {
+				String id = request.getParameter("id");
+				String pw = request.getParameter("pw");
+				// id, pw 넘어오는거 ok
+				// boolean loginResult = dao.isLoginOK(id, dao.encrypt(pw));
+
+				// request.getSession().setAttribute("loginResult", loginResult);
+				request.getSession().setAttribute("id", id);
+				request.getRequestDispatcher("logincheck.jsp").forward(request, response);
+
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-		}else if(realPath.contentEquals("/idcheck.mem")) {
+
+		} else if (realPath.contentEquals("/idcheck.mem")) {
 			try {
-			String id = request.getParameter("id");
-			//id 받아오기 ok
-			//boolean result = dao.isIdOk(id);
-			PrintWriter pw = response.getWriter();
-<<<<<<< HEAD
-		//	pw.append("{\"result\" :" + result + "}");
-=======
-			//pw.append("{\"result\" :" + result + "}");
->>>>>>> 7fcc9fd68391d88975b21d17a48ddb16bab4b3d7
-			
-			}catch(Exception e) {
+				String id = request.getParameter("id");
+				// id 받아오기 ok
+				// boolean result = dao.isIdOk(id);
+				PrintWriter pw = response.getWriter();
+
+				// pw.append("{\"result\" :" + result + "}");
+
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-		}else if(realPath.contentEquals("/signup.mem")) {
+
+		} else if (realPath.contentEquals("/signup.mem")) {
 			request.setCharacterEncoding("utf8");
 			try {
 				String id = request.getParameter("id");
@@ -66,15 +64,16 @@ public class member extends HttpServlet {
 
 				dao.insert(new MemberDTO(id, pw, name, phone, email, 0, null));
 				response.sendRedirect("realmain.jsp");
-				
-			}catch(Exception e) {
+
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 

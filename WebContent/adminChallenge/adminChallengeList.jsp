@@ -70,7 +70,7 @@
 									<tr>
 										<td>${item.seq }
 										<td><a
-											href="${pageContext.request.contextPath}/detailview.bo?seq=${item.seq}">${item.title }</a>
+											href="${pageContext.request.contextPath}/detail.adboard?seq=${item.seq}">${item.title }</a>
 										<td>${item.start_date }
 										<td>${item.end_date }
 										<td>${item.end }
@@ -92,7 +92,7 @@
 				</tr>
 				<script>
 					$("#write").on("click", function() {
-						location.href = "Challenge/writeBoard.jsp";
+						location.href = "adminChallenge/writeBoard.jsp";
 					})
 					$("#back2").on("click", function() {
 						location.href = "index.jsp";

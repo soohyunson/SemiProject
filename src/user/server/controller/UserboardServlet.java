@@ -31,7 +31,10 @@ public class UserboardServlet extends HttpServlet {
 			// String id = (String) request.getSession().getAttribute("id");
 			// int seq = Integer.parseInt(request.getParameter("seq"));
 
+			String fileImg = request.getParameter("fileImg");
+			System.out.println(fileImg);
 			try {
+				
 				Challenge_recordDTO dto = new Challenge_recordDTO();
 
 				dto = ChallengeRecordDAO.getInstance().detailChallenge("sky", 16);
@@ -56,11 +59,12 @@ public class UserboardServlet extends HttpServlet {
 				System.out.println(day);
 				
 					
-				request.setAttribute("day", day);
-				request.setAttribute("month", month_day);
-				request.setAttribute("RecordDTO", dto);
-				request.setAttribute("challengeDTO", challengeDto);
-				request.getRequestDispatcher("/UserTestNotNotNOt/detailTest.jsp").forward(request, response);
+				//request.setAttribute("img", fileImg);
+				//request.setAttribute("day", day);
+				//request.setAttribute("month", month_day);
+				//request.setAttribute("RecordDTO", dto);
+				//request.setAttribute("challengeDTO", challengeDto);
+				//request.getRequestDispatcher("/UserTestNotNotNOt/detailTest.jsp").forward(request, response);
 
 			} catch (Exception e) {
 				System.out.println("데이터 가져오기 오류~~!~~!");

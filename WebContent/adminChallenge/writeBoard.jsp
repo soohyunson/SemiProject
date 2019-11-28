@@ -37,7 +37,7 @@
 				<a href="#" class="submenu">Make Challenge </a>
 			</div>
 			<br> <br>
-			<form action="../write.board" enctype="multipart/form-data"
+			<form action="../write.adboard" enctype="multipart/form-data"
 				method="post">
 				<table border=1 align=center>
 
