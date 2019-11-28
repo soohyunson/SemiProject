@@ -295,11 +295,11 @@
 		</div>
 		<br>
 		<div class="lastbar3" style="text-align: center">
-			<a href="#"><img src="icon1.png" class="mr-3" alt="..."
+			<a href="#"><img src="Img/icon1.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="icon2.png" class="mr-3" alt="..."
+			<a href="#"><img src="Img/icon2.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="icon3.png" class="mr-3" alt="..."
+			<a href="#"><img src="Img/icon3.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
 		</div>
 		<br>
@@ -309,7 +309,7 @@
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="#"><img src="reallogo.png"
+			<li class="navi-title"><a href="#"><img src="Img/reallogo.png"
 					class="mr-3" alt="..."
 					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
 		</ul>

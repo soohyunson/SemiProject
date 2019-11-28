@@ -33,11 +33,19 @@
         $(".backgroundImg").css("opacity","0.8");
         $(".explan").css("display","block");        
       })
+<<<<<<< HEAD
       $("#donate").on("click",function(){
     	  location.href = "${pageContext.request.contextPath}/Main/donateMain.jsp";
       })
       $("#take").on("click",function(){
     	  location.href = "${pageContext.request.contextPath}/Main/takeMain.jsp";
+=======
+     // $("#donate").on("click",function(){
+    //	  location.href = "give.challenge";
+     // })
+      $("#take").on("click",function(){
+    	  location.href = "take.challenge";
+>>>>>>> d64f9783aa96a19e89ea9ff7fc5dc82f7c9d2223
       })
       var elm = ".box";
       $(elm).each(function (index) {
@@ -145,7 +153,7 @@
   <div class="js-layer  layer  hidden" style="font-family: 'Righteous', cursive;">
       <div class="close"><button class="closeBtn">X</button></div>
       <div class="layerFirstText">What's your choice?</div><br>
-      <div class="layerSecondText"><a href="#" id="donate">DONATE</a>&nbsp&nbspOR&nbsp&nbsp<a href="#" id="take">TAKE</a></div>
+      <div class="layerSecondText"><a href="give.challenge" id="donate">DONATE</a>&nbsp&nbspOR&nbsp&nbsp<a href="#" id="take">TAKE</a></div>
   </div>
 </body>
 

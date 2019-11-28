@@ -13,7 +13,7 @@
 		<c:when test="${loginResult == true }">
 			<script>
 				alert("로그인에 성공하였습니다!");
-				location.href = "realmain.jsp"
+				location.href = "${uri }";
 			</script>
 		</c:when>
 
