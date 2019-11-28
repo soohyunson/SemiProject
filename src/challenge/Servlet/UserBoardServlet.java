@@ -25,9 +25,13 @@ public class UserBoardServlet extends HttpServlet {
    
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	StringBuffer url = request.getRequestURL();
 	String uri = request.getRequestURI();
 	String projectPath = request.getContextPath();
-	
+	System.out.println(url);
+	System.out.println(uri);
+	System.out.println(projectPath);
+	System.out.println();
 	String realPath = uri.substring(projectPath.length());
 	if(realPath.contentEquals("/banner.usboard")) {
 		
@@ -40,9 +44,9 @@ public class UserBoardServlet extends HttpServlet {
 			
 			list =  ChallengeDAO.getInstance().selectAll();
 			
-			request.setAttribute("Detail", list);
+			request.setAttribute("detail", list);
 			
-			request.getRequestDispatcher("jsp/detail.jsp").forward(request, response);
+			request.getRequestDispatcher("jsp/userMyPage.jsp").forward(request, response);
 			
 	
 			

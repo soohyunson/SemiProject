@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
                 <div style="text-align:start; margin-left: 5%;"><a href="#"class="submenu">My Profile</a></div>
                 <br><br>
             <div class="media">
-  <img src="profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
+  <img src="../Img/profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
   <div class="media-body">
       <br>
     <h5 class="mt-0">성사동까도남</h5>
@@ -53,94 +54,31 @@
             <br><br>
                 <div style="text-align:start; margin-left: 5%;"><a href="#"class="submenu">My Challenge</a></div>
                 <br><br>
-                
+                <c:choose>
+                <c:when test="${detail.size() == 0}">
        <div class="row">
+            <div>진행중인 챌린지가 없습니다.</div>
+            </div>
+         </c:when>
+         <c:otherwise>
+         <div class="row">
+         <c:forEach items="${detail}" var="item">
            <div class="col-4">
            <div class="card m-3" >
-            <img src="cloud.png" class="card-img-top">
+            <img src="${item.file_path}" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">Challenge name</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
+                <h5 class="card-title">${item.title }</h5>
+                <p class="card-text">참여인원 : ${item.total_participate }</p>
             </div>
         </div>
            </div>
-           <div class="col-4">
-               <div class="card m-3" >
-            <img src="cloud.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Pizza King</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
-            </div>
-        </div>
+           
+           </c:forEach>
            </div>
-           <div class="col-4">
-              <div class="card m-3" >
-            <img src="cloud.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Challenge name</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
-            </div>
-        </div>
-           </div>
+         </c:otherwise>
+         </c:choose>
        </div>
-                <div class="row">
-           <div class="col-4">
-           <div class="card m-3" >
-            <img src="prodo.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Challenge name</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
-            </div>
-        </div>
-           </div>
-           <div class="col-4">
-               <div class="card m-3" >
-            <img src="prodo.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Challenge name</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
-            </div>
-        </div>
-           </div>
-           <div class="col-4">
-              <div class="card m-3" >
-            <img src="prodo.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Challenge name</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
-            </div>
-        </div>
-           </div>
-       </div>
-                <div class="row">
-           <div class="col-4">
-           <div class="card m-3" >
-            <img src="prodo.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Challenge name</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
-            </div>
-        </div>
-           </div>
-           <div class="col-4">
-               <div class="card m-3" >
-            <img src="prodo.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Challenge name</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
-            </div>
-        </div>
-           </div>
-           <div class="col-4">
-              <div class="card m-3" >
-            <img src="prodo.png" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Challenge name</h5>
-                <p class="card-text">Challenge contents<br>Card Example</p>
-            </div>
-        </div>
-           </div>
-       </div>
+               
       
        <br>
             </div>
@@ -178,9 +116,9 @@
                 <div class="lastbar2" style="text-align: center;">상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 : 234-88-00720 | 대표자명 : 김세원<br>
 Copyright ⓒ2019 Miwansung inc, ltd. All rights reserved</div><br>
                 <div class="lastbar3" style="text-align: center">
-                    <a href="#"><img src="icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                <a href="#"><img src="icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                <a href="#"><img src="icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
+                    <a href="#"><img src="../Img/icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                <a href="#"><img src="../Img/icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                <a href="#"><img src="../Img/icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
                 <br>
             </div>
             
@@ -197,7 +135,7 @@ Copyright ⓒ2019 Miwansung inc, ltd. All rights reserved</div><br>
         </div>
         <ul class="navi">
           <ul class="title">
-           <li class="navi-title"><a href="#"><img src="reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
+           <li class="navi-title"><a href="#"><img src="../Img/reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
             </ul>
             <ul class="itemList">
             
