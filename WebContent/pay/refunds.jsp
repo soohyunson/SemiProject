@@ -21,10 +21,6 @@
 .container {
 	width: 90%;
 }
-
-.addMoney {
-	border: 1px;
-}
 </style>
 <script>
 	$(document).ready(function() {
@@ -38,7 +34,7 @@
 }
 
 .noscriptmsg {
-	margin:auto;
+	margin: auto;
 	margin-top: 200px;
 	text-align: center;
 }
@@ -70,7 +66,7 @@
 				<div class="row">
 					<div class="col">
 						<h2></h2>
-						<h3 class="text-center">환급</h3>
+						<h3 class="text-center">입금신청</h3>
 					</div>
 				</div>
 				<div class="row">
@@ -114,13 +110,54 @@
 						<div class="card text-center">
 							<div class="card-body">
 								<button type="button" onclick="addMoney(1000)"
-									class="btn btn-outline-dark addMoney">+1,000원</button>
+									class="btn btn-outline-primary addMoney">전체입금</button>
+								<button type="button" onclick="addMoney(1000)"
+									class="btn btn-outline-primary addMoney">+1,000 P</button>
 								<button type="button" onclick="addMoney(3000)"
-									class="btn btn-outline-dark addMoney">+3,000원</button>
+									class="btn btn-outline-primary addMoney">+3,000 P</button>
 								<button type="button" onclick="addMoney(5000)"
-									class="btn btn-outline-dark addMoney">+5,000원</button>
+									class="btn btn-outline-primary addMoney">+5,000 P</button>
 								<button type="button" onclick="addMoney(10000)"
-									class="btn btn-outline-dark addMoney">+10,000원</button>
+									class="btn btn-outline-primary addMoney">+10,000 P</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row pt-5">
+					<div class="col">
+						<h6>계좌 선택</h6>
+						<div class="form-group">
+							<label for="exampleFormControlSelect1">입금 은행을 선택해주세요.</label> <select
+								class="form-control" id="exampleFormControlSelect1">
+								<option>KEB하나은행</option>
+								<option>SC제일은행</option>
+								<option>국민은행</option>
+								<option>신한은행</option>
+								<option>외환은행</option>
+								<option>우리은행</option>
+								<option>한국시티은행</option>
+								<option>BNK경남은행</option>
+								<option>광주은행</option>
+								<option>DGB대구은행</option>
+								<option>BNK부산은행</option>
+								<option>전북은행</option>
+								<option>제주은행</option>
+								<option>기업은행</option>
+								<option>농협</option>
+								<option>새마을금고</option>
+
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="input-group mb-3">
+							<input id="inputMoney" type="text" class="form-control"
+							placeholder=" - 없이 입력(계좌번호)">
+							<div class="input-group-append">
+								<span id="removeMoney" class="input-group-text"> <i
+									class="material-icons"> close</i></span>
 							</div>
 						</div>
 					</div>
@@ -135,7 +172,7 @@
 						<div class="accordion" id="accordionExample">
 							<div class="card">
 								<div class="card-header" id="headingOne">
-									<h2 class="mb-0">
+									<h2 class="">
 										<button class="btn btn-link" type="button"
 											data-toggle="collapse" data-target="#collapseOne"
 											aria-expanded="true" aria-controls="collapseOne">유의사항</button>

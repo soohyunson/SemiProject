@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<<<<<<< HEAD
+=======
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,11 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+<<<<<<< HEAD
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+=======
 
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -21,10 +29,14 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 <link
 	href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
+<<<<<<< HEAD
+	href="../resources/css/MyPageStyle.css">
+=======
 	href="resources/css/MyPageStyle.css">
 <script type="text/javascript">
 
@@ -32,6 +44,7 @@
 		location.href="test.jsp?seq=" + data;
 	}
 	</script>
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 </head>
 <body>
 <<<<<<< HEAD
@@ -192,16 +205,29 @@ var chart = new Chart(ctx, {
 =======
 
 	<div class="container">
+<<<<<<< HEAD
+		<br>
+		<br>
+		<br>
+=======
 		<br> <br> <br>
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 
 		<div class="onefloor" style="text-align: center;">
 			<br>
 			<div style="text-align: start; margin-left: 5%;">
 				<a href="#" class="submenu">My Profile</a>
 			</div>
+<<<<<<< HEAD
+			<br>
+			<br>
+			<div class="media">
+				<img src="../Img/profileicon.png" class="mr-3" alt="..."
+=======
 			<br> <br>
 			<div class="media">
 				<img src="Img/profileicon.png" class="mr-3" alt="..."
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 					style="width: 100px; height: 100px; margin-left: 10%;">
 				<div class="media-body">
 					<br>
@@ -219,6 +245,35 @@ var chart = new Chart(ctx, {
 				<progress id="file" max="100" value="70"
 					style="width: 100%; background-color: purple;"> 70% </progress>
 			</div>
+<<<<<<< HEAD
+			<br>
+			<br>
+		</div>
+
+		<div class="twofloor">
+			<br>
+			<br>
+			<div style="text-align: start; margin-left: 5%;">
+				<a href="#" class="submenu">My Point </a>
+			</div>
+			<br>
+			<br>
+			<h1 style="margin-left: 15%;">My Point is 45,000</h1>
+			<br>
+			<br>
+		</div>
+
+		<div class="threefloor">
+			<br>
+			<br>
+			<div style="text-align: start; margin-left: 5%;">
+				<a href="#" class="submenu">My Challenge</a>
+			</div>
+			<br>
+			<br>
+			<c:choose>
+				<c:when test="${detail.size() == 0}">
+=======
 			<br> <br>
 		</div>
 
@@ -240,11 +295,24 @@ var chart = new Chart(ctx, {
 			<br> <br>
 			<c:choose>
 				<c:when test="${givedetail.size() == 0 && takedetail.size() == 0}">
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 					<div class="row">
 						<div>진행중인 챌린지가 없습니다.</div>
 					</div>
 				</c:when>
 				<c:otherwise>
+<<<<<<< HEAD
+					<div class="row">
+						<c:forEach items="${detail}" var="item">
+							<div class="col-4">
+								<div class="card m-3">
+									<img src="${item.file_path}" class="card-img-top">
+									<div class="card-body">
+										<h5 class="card-title">${item.title }</h5>
+										<p class="card-text">참여인원 : ${item.total_participate }</p>
+									</div>
+								</div>
+=======
 				<c:choose>
 				<c:when test="${givedetail.size() == 0 } ">
 				<div style="text-align: start; margin-left: 5%;""> 기부 </div>
@@ -295,10 +363,13 @@ var chart = new Chart(ctx, {
 										</div>
 									</div>
 								</a>
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 							</div>
 
 						</c:forEach>
 					</div>
+<<<<<<< HEAD
+=======
 					<div style="text-align: start; margin-left: 5%;"> 테이크 </div>
 					<div class="row">
 					<div>존재하는 챌린지가 없습니다.</div>
@@ -348,12 +419,69 @@ var chart = new Chart(ctx, {
 					</div>
 					</c:otherwise>
 					</c:choose>
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 				</c:otherwise>
 			</c:choose>
 		</div>
 
 
 		<br>
+<<<<<<< HEAD
+	</div>
+
+	<div class="fourfloor">
+		<br>
+		<br>
+		<div style="text-align: start; margin-left: 5%;">
+			<a href="#" class="submenu">My Statics</a>
+		</div>
+		<br>
+		<br>
+		<div>
+			<canvas id="myChart"></canvas>
+		</div>
+	</div>
+	<div class="fivefloor">
+		<ul class="lastbar">
+			<li class="navi-item3"><a href="#">COMPANY</a></li>
+			<li class="navi-item3"><a href="#">POLICIES</a></li>
+			<li class="navi-item3"><a href="#">SUPPORT</a></li>
+			<li class="navi-item3"><a href="#">기업교육</a></li>
+			<br>
+			<br>
+		</ul>
+		<ul class="lastbar">
+			<li class="navi-item2"><a href="#">블로그</a></li>
+			<li class="navi-item2"><a href="#">이용약관</a></li>
+			<li class="navi-item2"><a href="#">FAQ</a></li>
+			<li class="navi-item2"><a href="#">MIWANSUNG.BIZ</a></li>
+
+		</ul>
+		<ul class="lastbar">
+			<li class="navi-item2"><a href="#">언론보도</a></li>
+			<li class="navi-item2"><a href="#">개인정보취급방침</a></li>
+			<li class="navi-item2"><a href="#">미완성센터</a></li>
+			<li class="navi-item2"><a href="#"></a></li>
+			<br>
+			<br>
+		</ul>
+		<div class="lastbar2" style="text-align: center;">
+			상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 : 234-88-00720 |
+			대표자명 : 김세원<br> Copyright ⓒ2019 Miwansung inc, ltd. All rights
+			reserved
+		</div>
+		<br>
+		<div class="lastbar3" style="text-align: center">
+			<a href="#"><img src="../Img/icon1.png" class="mr-3" alt="..."
+				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
+			<a href="#"><img src="../Img/icon2.png" class="mr-3" alt="..."
+				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
+			<a href="#"><img src="../Img/icon3.png" class="mr-3" alt="..."
+				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
+		</div>
+		<br>
+	</div>
+=======
 
 
 		<div class="fourfloor">
@@ -406,6 +534,7 @@ var chart = new Chart(ctx, {
 			</div>
 			<br>
 		</div>
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 
 	</div>
 	<div class="category">
@@ -431,7 +560,11 @@ var chart = new Chart(ctx, {
 	<ul class="navi">
 		<ul class="title">
 			<li class="navi-title"><a href="#"><img
+<<<<<<< HEAD
+					src="../Img/reallogo.png" class="mr-3" alt="..."
+=======
 					src="Img/reallogo.png" class="mr-3" alt="..."
+>>>>>>> f5d5d676cf86da11fa2eb6bd877def83c7e53fa4
 					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
 		</ul>
 		<ul class="itemList">
@@ -441,6 +574,40 @@ var chart = new Chart(ctx, {
 			<li class="navi-item"><a href="#">MYPAGE</a></li>
 		</ul>
 	</ul>
+<<<<<<< HEAD
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+        </script>
+=======
 
 	<script>
 
