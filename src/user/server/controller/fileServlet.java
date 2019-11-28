@@ -1,7 +1,9 @@
 package user.server.controller;
 
+import java.awt.print.Printable;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -85,9 +87,40 @@ public class fileServlet extends HttpServlet {
 //					response.setHeader("Content-Disposition", "attachment; filename=\"" + encFileName + "\"");
 //					response.setHeader("Content-Lenth", String.valueOf(f.length()));
 
-				
-				}
+					String gson = new Gson().toJson(resPath);
+					System.out.println(gson);
+					response.setContentType("application/json");
+					response.setCharacterEncoding("UTF-8");
+					response.getWriter().append(gson);
+//					File f = new File(uploadPath + "\\" +fileName);
+//
+//					try (
+//							FileInputStream fis = new FileInputStream(f);
+//							DataInputStream fileDis = new DataInputStream(fis);
+//							ServletOutputStream sos = response.getOutputStream();
+//							){
+//
+//						byte[] fileContents = new byte[(int) f.length()];
+//						fileDis.readFully(fileContents);
+//						fileDis.close();
+//						// response에 담을 데이터 타입 형태
+//						// 파일 전송시 : application/octet-stream
+//						response.setContentType("application/octet-stream");
+//
+//						// 파일 이름을 인코딩 변경
+//						String encFileName = new String(fileName.getBytes("utf8"), "iso-8859-1");
+//						// response의 header에 파일 이름과 파일 크기
+//						// .setHeader("Content-Disposltion", "attachment; filename=인코딩한파일이름");
+//						// .setHeader("Content-Lenth", 파일크기를String형으로);
+//						response.setHeader("Content-Disposition", "attachment; filename=\"" + encFileName + "\"");
+//						response.setHeader("Content-Lenth", String.valueOf(f.length()));
+//
+//						sos.write(fileContents);
+//						sos.flush();
+//
+//					}
 
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				response.sendRedirect("error.jsp");

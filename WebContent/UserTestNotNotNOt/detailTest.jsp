@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.Date"%>
-<%@ page import="java.text.SimpleDateFormat"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +12,26 @@ td {
 	width: 200px;
 	height: 200px;
 }
+
+img {
+	width: 100%;
+	hegiht: 100%;
+}
 </style>
+<script type="text/javascript">
+	function checkFile(f) {
+		var file = f.files;
+		
+		if(!/\.(gif|jpg|jpeg|png)$/i.test(file[0].name)) {
+			alert('gif, jpg, png 파일만 선택해 주세요.\n\n현재 파일 : ' + file[0].name);
+		}
+		else return;
+		f.outerHTML = f.outerHTML;
+	}
+</script>
 </head>
 <body>
-	<form id="uploadfrm">
+	<form id="uploadfrm" method="post" enctype="multipart/form-data">
 		<div class="confirmfloor">
 			<div class="confirmDiv">
 				<table>
@@ -37,13 +50,128 @@ td {
 						<td><img class="ten">
 					</tr>
 				</table>
-				<input type="file" name="fileImg" id="fileImg">
-				<button id="confirmBtn">인증하기</button>
+				<input type="file" name="fileImg" id="fileImg" accept="image/*"
+					onchange="checkFile(this)">
+				<button id="confirmBtn" type="button">인증하기</button>
 			</div>
 		</div>
 	</form>
 	<script>
+	
+
+		var today = new Date();
+		var day = today.getDate();
+		var month = today.getMonth()+1; //January is 0!
+		var year = today.getFullYear();
 		
+		console.log(month);
+		console.log(day);
+		
+		var lastday = ( new Date(year,month, 0) ).getDate();
+		
+		console.log(lastday);
+		console.log("받아온 월: "+${month});
+		console.log("오늘 일"+day);
+	
+		
+		var className;
+		if(${month}!=month){
+            if((lastday-day)+${day}==1){
+               className= 'one';      
+            }
+             if((lastday-day)+${day}==2){
+               className= 'two';      
+            }
+            else if((lastday-day)+${day}==3){
+               className= 'three';      
+            }
+            else if((lastday-day)+${day}==4){
+               className= 'four';      
+            }
+            else if((lastday-day)+${day}==5){
+               className= 'five';      
+            }
+            else if((lastday-day)+${day}==6){
+               className= 'six';      
+            }
+            else if((lastday-day)+${day}==7){
+               className= 'seven';      
+            }
+            else if((lastday-day)+${day}==8){
+               className= 'eight';      
+            }
+            else if((lastday-day)+${day}==9){
+               className= 'nine';      
+            }
+            else if((lastday-day)+${day}==10){
+               className= 'ten';      
+            }
+   
+         }else{
+            if((day-${day})==1){
+               className= 'one';      
+            }
+            else if((day-${day})==2){
+               className= 'two';      
+            }
+            else if(day-${day}==3){
+               className= 'three';      
+            }
+            else if(day-${day}==4){
+               className= 'four';      
+            }
+            else if(day-${day}==5){
+               className= 'five';      
+            }
+            else if(day-${day}==6){
+               className= 'six';      
+            }
+            else if(day-${day}==7){
+               className= 'seven';      
+            }
+            else if(day-${day}==8){
+               className= 'eight';      
+            }
+            else if(day-${day}==9){
+               className= 'nine';      
+            }
+            else if(day-${day}==10){
+               className= 'ten';      
+            }
+            
+         }
+         console.log(className);
+	
+		$("#confirmBtn").on("click",function(){
+			if(!$("#fileImg").val()){
+				alert("파일을 선택해 주세요!");
+				return;
+			}else{
+				if(confirm("인증을 진행하시겠습니까?")){
+					//var form = $("#uploadfrm")[0];
+					var formData = new FormData();
+					formData.append("fileImg",$("#fileImg")[0].files[0]);					
+						$.ajax({
+							url:"${pageContext.request.contextPath}/confirm.file",
+							enctype:"multipart/form-data",
+							data:formData,
+							type:"post",
+							contentType:false,
+							processData:false,
+                            cache:false,
+							//dataType:"json"
+						}).done(function(data){
+							console.log(data);
+							
+							$("."+className).attr("src",data);
+							
+						}).fail(function(){
+							console.log("실패실패실패~~!!");
+						});
+					}
+			}		
+		})
+
 	</script>
 
 </body>
