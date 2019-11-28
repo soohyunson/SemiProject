@@ -218,8 +218,10 @@ body {
 <script>
 $(function () {
 	$("#pointCharge").on("click", function(){
-		alert("dd");
+		window.open("charge.pay", "", 
+				"width=500, height=500, left=200, menubar=no ");
 	})
+
 })
 	
 </script>
@@ -248,7 +250,8 @@ $(function () {
 				style="width: 100%; height: 50px; background-color: darkgrey; text-align: center;">
 				<div
 					style="float: left; width: 50%; height: 100%; line-height: 50px;">
-					<button id="pointCharge" type="button" class="btn btn-outline-dark">포인트 결제</button>
+					<button id="pointCharge" type="button" 
+					class="btn btn-outline-dark">포인트 결제</button>
 
 				</div>
 				<div

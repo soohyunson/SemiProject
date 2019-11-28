@@ -88,6 +88,7 @@ public class fileServlet extends HttpServlet {
 					JsonObject obj = new JsonObject();
 					obj.addProperty("url", resPath);
 
+
 					Gson g = new Gson();
 
 					response.reset();
@@ -104,6 +105,7 @@ public class fileServlet extends HttpServlet {
 					response.setContentType("application/json");
 					response.setCharacterEncoding("UTF-8");
 					response.getWriter().append(gson);
+
 
 				}
 
