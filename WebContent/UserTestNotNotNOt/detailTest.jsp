@@ -173,14 +173,14 @@ img {
 							console.log(data);
 
 							$("."+className).attr("src",data);
-							
+							s
 
 						}).fail(function(){
 							console.log("실패실패실패~~!!");
 						});
 					}
 			}		
-		})
+		});
 
 	</script>
 
