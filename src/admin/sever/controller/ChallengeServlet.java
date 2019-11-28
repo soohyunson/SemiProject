@@ -19,19 +19,20 @@ import DTO.ChallengeDTO;
 
 @WebServlet("*.challenge")
 public class ChallengeServlet extends HttpServlet {
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String URI = request.getRequestURI();
 		String ctxPath = request.getContextPath();
 		String realPath = URI.substring(ctxPath.length());
+		System.out.println(realPath);
 
-		if (realPath.contentEquals("/give.challenge")) {
+		if (realPath.contentEquals("/index/give.challenge")) {
 			try {
 				List<ChallengeDTO> list;
 				list = ChallengeDAO.getInstance().selectAll("give");
 				request.setAttribute("list", list);
-				RequestDispatcher rd = request.getRequestDispatcher("giveMain.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/Main/donateMain.jsp");
 				rd.forward(request, response);
 				
 			}  catch (Exception e) {

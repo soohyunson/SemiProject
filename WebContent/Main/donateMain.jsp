@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8">
   <title>Insert title here</title>
-  <link rel="stylesheet" type="text/css" href="donateMain.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/donateMain.css">
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <link rel="stylesheet" type="text/css" href="slick/slick.css">
-  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="slick/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/slick/slick-theme.css">
+  <script type="text/javascript" src="${pageContext.request.contextPath}/Main/slick/slick.min.js"></script>
   <script>
     $(function () {
       $(".challengeOne").on("click", function () {
@@ -44,8 +43,31 @@
       $("#healthCategory").on("click",function(){
         location.href = "#health";
       })
+       $("#logout").on("click", function(){
+  			var result = confirm("로그아웃 하시겠습니까?");
+  			if(result){
+  				location.href="logout.mem";
+  			}
+  		})
+  		$("#mypage").on("click", function(){
+  			location.href="${pageContext.request.contextPath }/jsp/userMyPage.jsp";
+  		})
     })
   </script>
+  <style>
+	#logout{
+		background-color: white;
+		border: 1px solid black;
+		width: 80px;
+		height: 30px;
+	}
+	#mypage{
+		background-color: white;
+		border: 1px solid black;
+		width: 90px;
+		height: 30px;
+	}
+</style> 
 </head>
 
 <body>
@@ -55,8 +77,18 @@
         <div class="naviBox">
           <span class="flex"><img src="${pageContext.request.contextPath }/Img/b.png" class="naviLogo"></span>
           <span class="flex challengeLogo">기부</span>
-          <span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a><a href="#" class="login">로그인</a><a
-              href="#" class="signUp">회원가입</a></span>
+          <span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
+          <c:choose>
+						<c:when test="${loginResult == null }">
+							<a href="${pageContext.request.contextPath }/login/login.jsp" class="login">로그인</a>
+							<a href="${pageContext.request.contextPath }/login/signup.jsp" class="signUp">회원가입</a></span>
+						</c:when>
+						<c:otherwise>
+							${id }님
+							<button id="mypage">마이페이지</button>
+							<button id="logout">로그아웃</button>
+						</c:otherwise>
+						</c:choose>
         </div>
       </div>
       <div class="headerExplan">
@@ -85,10 +117,21 @@
           <div class="challengeOne">
             <div class="challengeOne-div"><img src="${pageContext.request.contextPath }/Img/exercise.png"
                 class="challengeOneImg"></div>
-            <div class="challengeOne-explan">[영상편집] 전공수업보다 디테일한 '쉬운'방법으로 '고퀄'영상 만들기 [프리미어, 파이널컷]</div>
-            <div class="challengeOne-explan2">[영상편집] 전공수업보다 디테일한</div>
+            <div class="challengeOne-explan">${list.get(0).title}</div>
+            <div class="challengeOne-explan2">${list.get(0).content}</div>
           </div>
           <div class="challegnSubBox">
+          c:forEach var="i" begin="1" end="3">
+                     <div class="challengeTwo challengeTwo-1">
+
+                        <div class="challengeTwo-div">
+                           <img src="exercise.png" class="challengeSubImg">
+                        </div>
+                        <div class="challengeTwo-explan">${list.get(i).title }</div>
+                        <div class="challengeTwo-explan2">${list.get(i).content }</div>
+                     </div>
+                     
+                  </c:forEach>
             <div class="challengeTwo challengeTwo-1">
               <div class="challengeTwo-div"><img src="${pageContext.request.contextPath }/Img/exercise.png"
                   class="challengeSubImg"></div>

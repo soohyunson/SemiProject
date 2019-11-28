@@ -1,7 +1,7 @@
 package DTO;
 
 public class MemberDTO {
-	
+	private int seq;
 	private String id;
 	private String pw;
 	private String name;
@@ -9,6 +9,27 @@ public class MemberDTO {
 	private String email;
 	private int point;
 	private String getout;
+	public MemberDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public MemberDTO(int seq, String id, String pw, String name, String phone, String email, int point, String getout) {
+		super();
+		this.seq = seq;
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.point = point;
+		this.getout = getout;
+	}
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
 	public String getId() {
 		return id;
 	}
@@ -51,22 +72,5 @@ public class MemberDTO {
 	public void setGetout(String getout) {
 		this.getout = getout;
 	}
-	public MemberDTO(String id, String pw, String name, String phone, String email, int point, String getout) {
-		super();
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.phone = phone;
-		this.email = email;
-		this.point = point;
-		this.getout = getout;
-	}
-	public MemberDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	
-	
 	
 }

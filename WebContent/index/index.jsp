@@ -34,7 +34,7 @@
         $(".explan").css("display","block");        
       })
       $("#donate").on("click",function(){
-          location.href = "${pageContext.request.contextPath}/Main/donateMain.jsp";
+          location.href = "give.challenge";
         })
         
         $("#take").on("click",function(){
