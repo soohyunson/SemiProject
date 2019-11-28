@@ -10,12 +10,13 @@ import java.util.List;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import DTO.ChallengeDTO;
+import DTO.MemberDTO;
 import adminboardCongiuration.Configuration;
 
 public class ChallengeDAO {
 	private static ChallengeDAO instance;
 	private static BasicDataSource bds = new BasicDataSource();
-	
+
 	private ChallengeDAO() {
 		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		bds.setUrl("jdbc:oracle:thin:@o.qowmq.dev:1521:xe");
@@ -23,22 +24,22 @@ public class ChallengeDAO {
 		bds.setPassword("semi");
 		bds.setInitialSize(30);
 	}
-	
+
 	public synchronized static ChallengeDAO getInstance() {
-		if(instance==null) {
+		if (instance == null) {
 			instance = new ChallengeDAO();
-		}return instance;
+		}
+		return instance;
 	}
-	
+
 	public Connection getConnection() throws Exception {
 		return bds.getConnection();
-	
+
 	}
-	
+
 	public int insert(ChallengeDTO dto) throws SQLException, Exception {
-		String sql ="insert into challenge values(challenge_seq.nextval,?,?,?,?,?,?,?);";
-		try(Connection conn = getConnection();
-				PreparedStatement pstat = conn.prepareStatement(sql);){
+		String sql = "insert into challenge values(challenge_seq.nextval,?,?,?,?,?,?,?);";
+		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql);) {
 			pstat.setString(1, dto.getTitle());
 			pstat.setString(2, dto.getContent());
 			pstat.setString(3, dto.getStart_date());
@@ -46,34 +47,33 @@ public class ChallengeDAO {
 			pstat.setString(5, dto.getEnd());
 			pstat.setInt(5, dto.getTotal_participate());
 			pstat.setString(7, dto.getFile_path());
-			
+
 			int result = pstat.executeUpdate();
 			conn.commit();
-			
+
 			return result;
-			
+
 		}
 	}
-	
+
 	public int delete(int seq) throws SQLException, Exception {
 		String sql = "delete * from challenge where seq=?";
-		try(Connection conn = getConnection();
-				PreparedStatement pstat = conn.prepareStatement(sql);){
+		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql);) {
 			pstat.setInt(1, seq);
-			
+
 			int result = pstat.executeUpdate();
 			conn.commit();
-			
+
 			return result;
-			
+
 		}
 	}
-	
+
 	public ArrayList<ChallengeDTO> selectAll () throws SQLException, Exception{
-		String sql ="select * from challenge";
+		String sql ="select * from challenge ";
 		try(Connection conn = getConnection();
-				PreparedStatement pstat = conn.prepareStatement(sql);
-				ResultSet rs = pstat.executeQuery()){
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+				try(ResultSet rs = pstat.executeQuery()){
 			
 			ArrayList<ChallengeDTO> list = new ArrayList<>();
 			while(rs.next()) {
@@ -86,23 +86,60 @@ public class ChallengeDAO {
 				dto.setEnd(rs.getString(6));
 				dto.setTotal_participate(rs.getInt(7));
 				dto.setFile_path(rs.getString(8));
+				dto.setGiveortake(rs.getString(9));
+				dto.setCategory(rs.getString(10));
 				
 				list.add(dto);
+
 			}
 			return list;
-			
 		}
+		}
+
 	}
 	
-	public ChallengeDTO getChallenge(int seq) throws Exception {
-		String sql ="select * from challenge where seq=?";
+	
+	public ArrayList<ChallengeDTO> selectAll (String giveortake) throws SQLException, Exception{
+		String sql ="select * from challenge where giveortake=?";
 		try(Connection conn = getConnection();
-				PreparedStatement pstat = conn.prepareStatement(sql)){
-			pstat.setInt(1, seq);
-			try(ResultSet rs = pstat.executeQuery()){
-				
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+				pstat.setString(1, giveortake);
+				try(ResultSet rs = pstat.executeQuery()){
+			
+			ArrayList<ChallengeDTO> list = new ArrayList<>();
+			while(rs.next()) {
 				ChallengeDTO dto = new ChallengeDTO();
-				if(rs.next()) {
+				dto.setSeq(rs.getInt(1));
+				dto.setTitle(rs.getString(2));
+				dto.setContent(rs.getString(3));
+				dto.setStart_date(rs.getString(4));
+				dto.setEnd_date(rs.getString(5));
+				dto.setEnd(rs.getString(6));
+				dto.setTotal_participate(rs.getInt(7));
+				dto.setFile_path(rs.getString(8));
+				dto.setGiveortake(rs.getString(9));
+				dto.setCategory(rs.getString(10));
+				
+				list.add(dto);
+
+			}
+			return list;
+		}
+		}
+
+	}
+	
+	
+	
+
+	public ChallengeDTO getChallenge(int seq) throws Exception {
+		String sql = "select * from challenge where seq=?";
+		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql)) {
+			pstat.setInt(1, seq);
+			try (ResultSet rs = pstat.executeQuery()) {
+
+				ChallengeDTO dto = new ChallengeDTO();
+				if (rs.next()) {
 					dto.setSeq(rs.getInt(1));
 					dto.setTitle(rs.getString("title"));
 					dto.setContent(rs.getString("content"));
@@ -110,14 +147,18 @@ public class ChallengeDAO {
 					dto.setEnd_date(rs.getString(5));
 					dto.setEnd(rs.getString(6));
 					dto.setTotal_participate(rs.getInt(7));
+					dto.setFile_path(rs.getString(8));
+					dto.setGiveortake(rs.getString(9));
+					dto.setCategory(rs.getString(10));
 				}
-				
+
 				return dto;
-				
+
 			}
-			
+
 		}
 	}
+
 
 	
 	public List<ChallengeDTO> selectByPage(int p_start,int p_end) throws Exception{
@@ -144,7 +185,9 @@ public class ChallengeDAO {
 						 String end = rs.getString(6);
 						 int total_partcipate = rs.getInt(7);
 						 String file_path = rs.getString(8);
-						 ChallengeDTO dto = new ChallengeDTO(seq,title,content,start_date,end_date,end,total_partcipate,file_path);
+						 String giveortake = rs.getString(9);
+						 String category = rs.getString(10);
+						 ChallengeDTO dto = new ChallengeDTO(seq,title,content,start_date,end_date,end,total_partcipate,file_path,giveortake,category);
 						 
 						 result.add(dto);
 					 }
@@ -154,7 +197,7 @@ public class ChallengeDAO {
 			         }//try1
 	 }
 	public int insertWrite(ChallengeDTO dto) throws Exception{
-		 String sql = "insert into challenge values(challenge_seq.nextval,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),'N','0',?)";
+		 String sql = "insert into challenge values(challenge_seq.nextval,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),'N','0',?,?,?)";
 		 
 		 try(
 		 Connection con = this.getConnection();
@@ -165,6 +208,8 @@ public class ChallengeDAO {
 		 pstat.setString(3, dto.getStart_date());
 		 pstat.setString(4, dto.getEnd_date());
 		 pstat.setString(5, dto.getFile_path());
+		 pstat.setString(6, dto.getGiveortake());
+		 pstat.setString(7, dto.getCategory());
 		 int result = pstat.executeUpdate();
 		 con.commit();
 		 return result;
@@ -242,7 +287,8 @@ public class ChallengeDAO {
 		 if(needNext) {sb.append("<a href='list.adboard?currentPage="+(endNavi +1)+"'> > </a>");}
 		 
 		 
+
 		return sb.toString();
-		 
-	 }
+
+	}
 }

@@ -222,7 +222,7 @@
             <br><br><br>
             <div class="twofloor">
               <div class="bd-example">
-                    <img src = ${file_path}>
+                    <img src = "${detailpage.file_path}">
                 </div>
                
             </div>
@@ -249,7 +249,13 @@
             
             <div class="fourthfloor">
                 <div class="middlethird" id="summary">
-                 상세내용이 표시될 예정입니다. 
+                ${detailpage.title}
+                 ${detailpage.content}
+                  ${detailpage.start_date}
+                   ${detailpage.end_date}
+                    ${detailpage.total_participate}
+                    
+                
                 </div>
             </div>
             

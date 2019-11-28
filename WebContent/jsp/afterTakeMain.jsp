@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="takeMain.css">
+<link rel="stylesheet" type="text/css" href="../takeMain.css">
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script>
   	$(function(){
@@ -22,32 +20,9 @@
   		})  	
   		$(".challengeTwo-3").on("click",function(){
   			location.href = "sd.jsp";
-  		})
-  		$("#logout").on("click", function(){
-  			var result = confirm("로그아웃 하시겠습니까?");
-  			if(result){
-  				location.href="logout.mem";
-  			}
-  		})
-  		$("#mypage").on("click", function(){
-  			location.href="userMyPage.jsp";
-  		})
+  		})  	
   	})
   </script>
-<style>
-	#logout{
-		background-color: white;
-		border: 1px solid black;
-		width: 80px;
-		height: 30px;
-	}
-	#mypage{
-		background-color: white;
-		border: 1px solid black;
-		width: 90px;
-		height: 30px;
-	}
-</style>
 </head>
 <body>
 	<div class="wrap">
@@ -55,22 +30,9 @@
       <div class="navi">
         <div class="naviBox">
           <span class="flex"><img src="${pageContext.request.contextPath }/Img/b.png" class="naviLogo"></span>
-          
-          
           <span class="flex challengeLogo">기부</span>
-          <span class="flex naviCategory"><a href="#" class="takeBtn">테이크
-         <c:choose>
-						<c:when test="${loginResult == null }">
-							<a href="login.jsp" class="login">로그인</a>
-							<a href="signup.jsp" class="signUp">회원가입</a></span>
-						</c:when>
-						<c:otherwise>
-							${id }님
-							<button id="mypage">마이페이지</button>
-							<button id="logout">로그아웃</button>
-						</c:otherwise>
-						</c:choose>
-          
+          <span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a><a href="#" class="login">로그인</a><a
+              href="../banner.usboard" class="signUp">My Page</a></span>
         </div>
       </div>
       <div class="headerExplan">

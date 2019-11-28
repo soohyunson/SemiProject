@@ -1,15 +1,17 @@
-package challenge.Servlet;
+package admin.sever.controller;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.AbstractDocument.Content;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -25,11 +27,16 @@ public class UserBoardServlet extends HttpServlet {
    
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	StringBuffer url = request.getRequestURL();
 	String uri = request.getRequestURI();
 	String projectPath = request.getContextPath();
-	
+//	System.out.println(url);
+//	System.out.println(uri);
+//	System.out.println(projectPath);
+//	System.out.println();
 	String realPath = uri.substring(projectPath.length());
-	if(realPath.contentEquals("/detail.usboard")) {
+	System.out.println(realPath);
+	if(realPath.contentEquals("/banner.usboard")) {
 		
 		
 		
@@ -40,9 +47,9 @@ public class UserBoardServlet extends HttpServlet {
 			
 			list =  ChallengeDAO.getInstance().selectAll();
 			
-			request.setAttribute("Detail", list);
+			request.setAttribute("detail", list);
 			
-			request.getRequestDispatcher("jsp/detail.jsp").forward(request, response);
+			request.getRequestDispatcher("jsp/userMyPage.jsp").forward(request, response);
 			
 	
 			
@@ -50,6 +57,21 @@ public class UserBoardServlet extends HttpServlet {
 			System.out.println("오류다~~!!");
 			e.printStackTrace();
 		}
+		
+	}else if(realPath.contentEquals("/fromList.usboard")) {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		ChallengeDTO detail = new ChallengeDTO();
+		try {
+			detail = ChallengeDAO.getInstance().getChallenge(seq);
+			request.setAttribute("detailpage", detail);
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/detail.jsp");
+			rd.forward(request, response);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
 		
 	}
 	}
