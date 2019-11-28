@@ -1,0 +1,310 @@
+[33mcommit 0ba60a94859bde08cc960cbc7a2128f4ce2e59d7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31mMainServer/master[m[33m)[m
+Merge: b474d9e 99943f2
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Thu Nov 28 11:16:32 2019 +0900
+
+    Merge pull request #14 from gangsikkim/master
+    
+    today second
+
+[33mcommit 99943f2efc58e3e0175ecaff6cd76d51b580e42f[m
+Merge: 5c42a0a b474d9e
+Author: kks <kks@kks.com>
+Date:   Thu Nov 28 11:14:10 2019 +0900
+
+    Merge branch 'master' of https://github.com/qowmq/SemiProject
+
+[33mcommit 5c42a0a8df10812490cb679d737d0901a68dbd9c[m
+Author: kks <kks@kks.com>
+Date:   Thu Nov 28 11:12:21 2019 +0900
+
+    today first
+
+[33mcommit b474d9edf394b19a32bc183d9bf4476c81b58862[m
+Author: yth <yth@email.com>
+Date:   Thu Nov 28 11:08:43 2019 +0900
+
+    file upload
+
+[33mcommit 239c8c605fe1e09847ebe093d8c5e3ec36643677[m
+Merge: 627ce03 39232a0
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Thu Nov 28 09:21:06 2019 +0900
+
+    Merge pull request #12 from ChaeyoungLe/master
+    
+    pupupupupu
+
+[33mcommit 39232a0c6e691a1aee6eb521ee86335d9162a02e[m
+Merge: 1eeb33f 627ce03
+Author: chaeyoung <codud@naver.com>
+Date:   Thu Nov 28 09:18:20 2019 +0900
+
+    Merge branch 'master' of https://github.com/qowmq/SemiProject
+
+[33mcommit 1eeb33ff287d9d7190fa7bc72edd895607f3d773[m
+Merge: 87bca22 24a6bcb
+Author: chaeyoung <codud@naver.com>
+Date:   Thu Nov 28 09:15:31 2019 +0900
+
+    Grororororooror
+
+[33mcommit 627ce03312fc5e41ae01d6f3ad93409a0b4df470[m
+Merge: fbc0dd9 7b60fba
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 21:58:57 2019 +0900
+
+    Merge pull request #11 from gangsikkim/master
+    
+    today last
+
+[33mcommit 7b60fba69956a8e017cc1f7d895beebfea4974ac[m
+Merge: 5010933 fbc0dd9
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 21:57:30 2019 +0900
+
+    Merge branch 'master' of https://github.com/qowmq/SemiProject
+
+[33mcommit 501093372252bdc20d7fb4fd646dbee5200aef91[m
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 21:57:09 2019 +0900
+
+    added
+
+[33mcommit fbc0dd9c8965088e755620b285ca474730a9a927[m
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 21:54:41 2019 +0900
+
+    pay.jsp
+
+[33mcommit 0118f10c8828403eadc43e3cd449e3af00b61a63[m
+Merge: 0829a4a 8dd710d
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 21:36:15 2019 +0900
+
+    Merge branch 'master' of https://github.com/qowmq/SemiProject
+
+[33mcommit 0829a4a44d2128aca39e03177c9a2eb640e8e6b6[m
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 21:35:57 2019 +0900
+
+    giveMain
+
+[33mcommit 8dd710d0c1bf74db9f8f40c47b675185e1f97fc6[m
+Merge: 91adfef 1c9ab39
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 21:22:02 2019 +0900
+
+    Merge pull request #10 from KobeKim/master
+    
+    giveMain or takeMain second Added
+
+[33mcommit 1c9ab395fdad80c978314a139f5d40d6524e705c[m
+Author: kobe <a@b.com>
+Date:   Wed Nov 27 21:19:37 2019 +0900
+
+    giveMain or takeMain second Added
+
+[33mcommit 91adfef4038e51beec83074529ff97fbb4366279[m
+Merge: 24a6bcb c3bfb24
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 20:54:43 2019 +0900
+
+    Merge pull request #9 from KobeKim/master
+    
+    takeMain or giveMain added
+
+[33mcommit c3bfb2433a1ada23132dcd6cfc26e3aed857e235[m
+Author: kobe <a@b.com>
+Date:   Wed Nov 27 20:52:44 2019 +0900
+
+    takeMain or giveMain added
+
+[33mcommit 87bca22b62816aa2fe6b1f0d7f4871e807558191[m
+Merge: 3a4c51c 7fcc9fd
+Author: chaeyoung <codud@naver.com>
+Date:   Wed Nov 27 20:11:33 2019 +0900
+
+    lastTest
+
+[33mcommit 24a6bcb3385e74e889919dbf76f86ff57bc3d55a[m
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 20:09:17 2019 +0900
+
+    pay added
+
+[33mcommit b8f6d6dc9896558cee88b96baec3c27b1483e71f[m
+Merge: e5d2a66 22a5e3d
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 20:04:09 2019 +0900
+
+    Merge branch 'master' of https://github.com/qowmq/SemiProject
+
+[33mcommit 22a5e3d0df8e2da4f536865c3bb838fa5d7a6762[m
+Merge: 7abed3c 9e48276
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 20:03:55 2019 +0900
+
+    Merge pull request #8 from gangsikkim/master
+    
+    TtoTto
+
+[33mcommit 9e482767d2bf0ecd229a4342020e24658fc91632[m
+Merge: fbfe38d 7abed3c
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 20:02:14 2019 +0900
+
+    Merge branch 'master' of https://github.com/qowmq/SemiProject
+
+[33mcommit fbfe38d58f9e972908db58d1bf67efdc5317e134[m
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 20:01:38 2019 +0900
+
+    goodgood
+
+[33mcommit e5d2a66675a6c62a3466bd639114e92e6ce96280[m
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 19:31:18 2019 +0900
+
+    Pay Added
+
+[33mcommit 7abed3c12daa667abab61fc0603e2b904dcdb47c[m
+Merge: cb3898a 365f4fd
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 17:40:13 2019 +0900
+
+    Merge pull request #7 from gangsikkim/master
+    
+    newnew eger! eger!
+
+[33mcommit 365f4fda103b668359ef1a8e3f8ad66e2b6de791[m
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 17:34:24 2019 +0900
+
+    nice
+
+[33mcommit cb3898a6e75bb020df0f462fc163f0d455c18678[m
+Merge: 7fcc9fd 4d06a31
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 17:30:53 2019 +0900
+
+    Merge pull request #6 from gangsikkim/master
+    
+    new thing!
+
+[33mcommit 4d06a316e3fde90025a2e2ee79d8f7a8df79413a[m
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 17:28:59 2019 +0900
+
+    good
+
+[33mcommit 3a4c51c6a04522ea1b6e2547b0e1c14459f4c317[m
+Author: chaeyoung <codud@naver.com>
+Date:   Wed Nov 27 17:14:11 2019 +0900
+
+    test
+
+[33mcommit 7fcc9fd68391d88975b21d17a48ddb16bab4b3d7[m
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 17:10:34 2019 +0900
+
+    point move
+
+[33mcommit 9ac8484f55156afed531426f066042606a63236e[m
+Merge: fec5533 045235f
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 17:08:44 2019 +0900
+
+    Merge pull request #5 from 40165993/master
+    
+    detail update
+
+[33mcommit 045235fabe7ed36ac120b925fdc33100e36f37a6[m
+Author: sky <a@b.com>
+Date:   Wed Nov 27 17:06:30 2019 +0900
+
+    detail update
+
+[33mcommit fec553363b475a71383ddd583e79cfde96806a2b[m
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 17:01:16 2019 +0900
+
+    myPage folder added and admin added
+
+[33mcommit 41a117e40c4e2a7d8a2caa03a6403dbbe109ce8b[m
+Merge: 36163c5 171101d
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 16:58:54 2019 +0900
+
+    Merge pull request #4 from gangsikkim/master
+    
+    point
+
+[33mcommit 171101dc6627189085b5e54ddcb834d9b9a4ea92[m
+Author: kks <kks@kks.com>
+Date:   Wed Nov 27 16:55:22 2019 +0900
+
+    point
+
+[33mcommit 36163c5d29fc3f40a2b0902f247abfad2720d427[m
+Merge: 34baef8 def30de
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 14:56:23 2019 +0900
+
+    Merge pull request #3 from soohyunson/master
+    
+    dao update
+
+[33mcommit def30de4b29ca587cb3d745f569f04da1ff54257[m
+Author: ssh <ssh@naver.com>
+Date:   Wed Nov 27 14:55:28 2019 +0900
+
+    dao update
+
+[33mcommit 34baef82bb5d18178f5a2e139961765e255b239b[m
+Merge: 0c9eb8a d214289
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 14:47:57 2019 +0900
+
+    Merge pull request #2 from KobeKim/master
+    
+    index Img added
+
+[33mcommit d214289f734e73efffbb64e6e0bcd2735742b6fa[m
+Author: kobe <a@b.com>
+Date:   Wed Nov 27 14:42:49 2019 +0900
+
+    index Img added
+
+[33mcommit 0c9eb8ac5f39e7186d2ce15649033238796e4403[m
+Merge: 38dc7a2 0c55837
+Author: qowmq <51194508+qowmq@users.noreply.github.com>
+Date:   Wed Nov 27 14:25:32 2019 +0900
+
+    Merge pull request #1 from KobeKim/master
+    
+    index added
+
+[33mcommit 0c558379168e478b7bacea5b35bd6a01c669e42c[m
+Author: kobe <a@b.com>
+Date:   Wed Nov 27 14:24:15 2019 +0900
+
+    index added
+
+[33mcommit 38dc7a25b1ec0c9395151018a814729efe16e79b[m
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 13:10:28 2019 +0900
+
+    new SemiProject
+
+[33mcommit efd4c3b058f20107bf765a8fd45b426fe4e204dc[m
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 13:09:03 2019 +0900
+
+    frist
+
+[33mcommit 515e3aafe3faf6b2428f37c18c1a545c103fe0dc[m
+Author: yth <yth@email.com>
+Date:   Wed Nov 27 13:07:24 2019 +0900
+
+    New challengeProject

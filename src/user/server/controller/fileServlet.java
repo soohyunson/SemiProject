@@ -68,11 +68,12 @@ public class fileServlet extends HttpServlet {
 				if (result > 0) {
 					
 					JsonObject obj = new JsonObject();
-		            String gson = new Gson().toJson(resPath);
-		            System.out.println(gson);
+					obj.addProperty("url", resPath);
+					obj.addProperty("filename", fileName);
 				    response.setContentType("application/json");
 		            response.setCharacterEncoding("UTF-8");
-		            response.getWriter().append(gson);
+		            
+		            response.getWriter().print(obj);
 //					File f = new File(uploadPath + "\\" +fileName);
 //
 //					try (

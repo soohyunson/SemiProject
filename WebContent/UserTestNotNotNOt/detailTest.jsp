@@ -12,6 +12,9 @@ td {
 	width: 200px;
 	height: 200px;
 }
+.confirmDiv{
+
+}
 </style>
 <script type="text/javascript">
 	function checkFile(f) {
@@ -73,8 +76,8 @@ td {
 						}).done(function(data){
 							console.log(data);
 							
-							$(".one").attr("src",data.url);
-							alert("najdkjdsflksjlkjskl");
+							$(".one").attr("src", "../"+data.url);
+							$(".one").attr("alt", data.filename);
 						}).fail(function(){
 							console.log("실패실패실패~~!!");
 						});
