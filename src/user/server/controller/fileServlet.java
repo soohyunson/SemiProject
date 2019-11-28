@@ -82,12 +82,10 @@ public class fileServlet extends HttpServlet {
 					// response의 header에 파일 이름과 파일 크기
 					// .setHeader("Content-Disposltion", "attachment; filename=인코딩한파일이름");
 					// .setHeader("Content-Lenth", 파일크기를String형으로);
-					response.setHeader("Content-Disposition", "attachment; filename=\"" + encFileName + "\"");
-					response.setHeader("Content-Lenth", String.valueOf(f.length()));
+//					response.setHeader("Content-Disposition", "attachment; filename=\"" + encFileName + "\"");
+//					response.setHeader("Content-Lenth", String.valueOf(f.length()));
 
-					sos.write(fileContents);
-					sos.flush();
-
+				
 				}
 
 			} catch (Exception e) {
