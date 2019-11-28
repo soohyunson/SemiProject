@@ -23,7 +23,6 @@ public class PayMentServelt extends HttpServlet {
 		String realURL = request.getRequestURI();
 		String URL = realURL.replace(rootURL, "");
 		System.out.println(URL);
-		
 		if(URL.equals("/payCheck.pay")) {
 			//결제 검증용 
 			String receipt_Id =  request.getParameter("receipt_id");
@@ -47,6 +46,10 @@ public class PayMentServelt extends HttpServlet {
 			
 			String result = Payment.getInstance().goCancel(receipt_id, price);
 			System.out.println(result);
+		}else if(URL.equals("/myPage/charge.pay")) {
+			//아이디 불러옴
+			//String id = (String) request.getSession().getAttribute("");
+			request.getRequestDispatcher("/pay/charge.jsp").forward(request, response);
 		}
 	}
 
