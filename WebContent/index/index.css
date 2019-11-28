@@ -1,17 +1,16 @@
-@charset "EUC-KR";
 *{box-sizing: border-box;}
 html,body{margin: 0px; padding: 0px; overflow: hidden;}
-/* ÆùÆ® */
-/* À»Áö·ÎÃ¼ */
+/* í°íŠ¸ */
+/* ì„ì§€ë¡œì²´ */
 @font-face { font-family: 'BMEULJIRO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff'); font-weight: normal; font-style: normal; }
 .wrap{
     position: relative;
 }
-/* ¾çÁøÃ¼ */
-@font-face { font-family: '¾çÁøÃ¼'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
+/* ì–‘ì§„ì²´ */
+@font-face { font-family: 'ì–‘ì§„ì²´'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
 
-/* aÅÂ±× ¼Ó¼º ¾ø¾Ö±â */
-#donate:link,#take:link { color: red; text-decoration: underline;}
+/* aíƒœê·¸ ì†ì„± ì—†ì• ê¸° */
+#donate:link,#take:link { color: black; text-decoration: underline;}
 #donate:visited,#take:visited { color: black; text-decoration: none;}
 #donate:hover,#take:hover { color: blue; text-decoration: underline;}
 .box{
@@ -48,7 +47,7 @@ html,body{margin: 0px; padding: 0px; overflow: hidden;}
     right: 40px;
     cursor: pointer;
     padding-top: 5px;
-    font-family: '¾çÁøÃ¼';
+    font-family: 'ì–‘ì§„ì²´';
 }
 .explan{
     height: 400px;
@@ -87,7 +86,7 @@ html,body{margin: 0px; padding: 0px; overflow: hidden;}
     right: 40px;
     cursor: pointer;
     padding-top: 5px;
-    font-family: '¾çÁøÃ¼';
+    font-family: 'ì–‘ì§„ì²´';
 }
 .scroll{
     margin-top: 100px;
@@ -123,3 +122,10 @@ html,body{margin: 0px; padding: 0px; overflow: hidden;}
     border: none;
     cursor: pointer;
 }
+/* ì²«ë²ˆì§¸ ë°°ê²½ */
+
+/* ë‘ë²ˆì§¸ ë°•ìŠ¤ */
+
+/* ì„¸ë²ˆì§¸ ë°•ìŠ¤ */
+
+/* ë„¤ë²ˆì§¸ ë°•ìŠ¤ */
