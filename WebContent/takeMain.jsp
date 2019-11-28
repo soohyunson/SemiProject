@@ -73,7 +73,7 @@
 							<img src="${pageContext.request.contextPath }/Img/exercise.png"
 								class="challengeOneImg">
 						</div>
-						<div class="challengeOne-explan">${list.get(0).title }</div>
+						<div class="challengeOne-explan"><a href="fromList.usboard?seq=${list.get(0).seq}">${list.get(0).title }</a></div>
 						<div class="challengeOne-explan2">${list.get(0).content}</div>
 					</div>
 					<div class="challegnSubBox">
@@ -83,7 +83,7 @@
 								<div class="challengeTwo-div">
 									<img src="exercise.png" class="challengeSubImg">
 								</div>
-								<div class="challengeTwo-explan">${list.get(i).title }</div>
+								<div class="challengeTwo-explan"><a href="fromList.usboard?seq=${list.get(i).seq}">${list.get(i).title }</a></div>
 								<div class="challengeTwo-explan2">${list.get(i).content }</div>
 							</div>
 							
