@@ -4,9 +4,17 @@ public class File_ListDTO {
 	
 	private int seq;
 	private String file_name;
+	private String file_path;
 	private String original_name;
 	private String upload_date;
 	private int challenge_record_num;
+	
+	public String getFile_path() {
+		return file_path;
+	}
+	public void setFile_path(String file_path) {
+		this.file_path = file_path;
+	}
 	public int getSeq() {
 		return seq;
 	}
@@ -37,10 +45,11 @@ public class File_ListDTO {
 	public void setChallenge_record_num(int challenge_record_num) {
 		this.challenge_record_num = challenge_record_num;
 	}
-	public File_ListDTO(int seq, String file_name, String original_name, String upload_date, int challenge_record_num) {
+	public File_ListDTO(int seq, String file_name, String file_path, String original_name, String upload_date, int challenge_record_num) {
 		super();
 		this.seq = seq;
 		this.file_name = file_name;
+		this.file_path=file_path;
 		this.original_name = original_name;
 		this.upload_date = upload_date;
 		this.challenge_record_num = challenge_record_num;
