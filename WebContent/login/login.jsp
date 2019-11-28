@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -185,9 +186,11 @@ body {
 .fourthfloor {
 	height: 700px;
 }
-
+.loginbox{
+	border: 1px solid black;
+	
+}
 table {
-	border: 1px solid #1D1F21;
 	width: 300px;
 	height: 200px;
 	position: relative;
@@ -201,7 +204,18 @@ table {
 }
 th{
 	font-size: 25px;
-	}
+}
+#check{
+	border-bottom: 1px solid black;
+}
+#login{
+	background-color: white;
+	border: 1px solid black;
+}
+#signupbtn{
+	background-color: white;
+	border: 1px solid black;
+}
 </style>
 </head>
 <body>
@@ -209,7 +223,12 @@ th{
 		<br> <br> <br>
 		<div class="twofloor"></div>
 		<div class="fourthfloor">
-			<form action="${pageContext.request.contextPath}/login.mem" method="post" id="loginfrm">
+			<form action="login.mem" method="post" id="loginfrm">
+			<%
+				String uri = request.getHeader("Referer");
+				System.out.println(uri);
+				request.getSession().setAttribute("uri", uri);
+			%>
 				<table class="loginbox">
 					<tr>
 						<th>Login
@@ -229,7 +248,7 @@ th{
 						<input type="button" id="signupbtn" value="Sign Up">
 					</tr>
 					<tr>
-						<td><input type="checkbox">Remember My ID
+						<td id="check"><input type="checkbox">Remember My ID
 					</tr>
 					<tr>
 					</tr>
@@ -269,11 +288,11 @@ th{
 		</div>
 		<br>
 		<div class="lastbar3" style="text-align: center">
-			<a href="#"><img src="icon1.png" class="mr-3" alt="..."
+			<a href="#"><img src="Img/icon1.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="icon2.png" class="mr-3" alt="..."
+			<a href="#"><img src="Img/icon2.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="icon3.png" class="mr-3" alt="..."
+			<a href="#"><img src="Img/icon3.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
 		</div>
 		<br>
@@ -283,7 +302,7 @@ th{
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="#"><img src="reallogo.png"
+			<li class="navi-title"><a href="#"><img src="Img/reallogo.png"
 					class="mr-3" alt="..."
 					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
 		</ul>

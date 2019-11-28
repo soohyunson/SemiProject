@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,6 @@
                 .title{
                     margin:0px;
                     padding:0px;
-
                     width:50%;
                 }
                 .itemList{
@@ -66,7 +66,6 @@
                     line-height:72px;
                     float:left;
                     text-align: center;
-
                     color:#7019FF;
                 }
                 .navi-item2{
@@ -156,11 +155,13 @@
                 .category{
                     position: fixed;
                     top: 80px;
-                    left: 3%;
-                    width: 16%;
-                    height: 500px;
+                    left: 5%;
+                    width: 13%;
+                    height: 150px;
                     border: 3px solid #7019FF;
+                   
                 }
+               
                 #enjoybtn{
                     width: 80%;
                     height: 50px;
@@ -202,9 +203,17 @@
                     margin: auto;
                     width: 80%;
                 }
-                th{
+                #title{
                     font-size: 20px;
                     text-align: center;
+                    border : 1px solid black;
+                }
+                td{
+                	border : 1px solid black;
+           
+                }
+                th{
+                	border : 1px solid black;
                 }
             </style>
 </head>
@@ -222,32 +231,59 @@
                     <br>
                     <table id="listboard">
                         <tr>
-                            <th colspan=2>회원목록
+                            <th colspan=2 id="title">회원목록
                         </tr>
                         <tr>
-                            <td width="20%" style="text-align: center">회원ID
-                            <td width="80%" style="text-align: center">회원명
+                            <th width="20%" style="text-align: center">회원ID
+                            <th width="80%" style="text-align: center">회원명
                         </tr>
                         <c:choose>
-                            <c:when test="${list.size() == 0 }">
+                        <c:when test="${dto == null }">
+                        <c:choose>
+                        	<c:when test="${list.size() == 0 }">
                                 <tr>
-                                    <td colspan=5>표시할 내용이 없습니다.
+                                    <td colspan=2>표시할 내용이 없습니다.
                                 </tr>
                             </c:when>
-
                             <c:otherwise>
                                 <c:forEach items="${list }" var="dto">
                                     <tr>
-                                        <td>${dto.seq }
-                                        <td><a href="${pageContext.request.contextPath}/detailView.wrt?seq=${dto.seq}" id="tag">${dto.title }</a>
-
+                                        <td width="20%" style="text-align: center">${dto.id }
+                                        <td width="80%" style="text-align: center">${dto.name }
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>
+                            </c:choose>
+                        </c:when>
+                        <c:otherwise>
+                        	<c:forEach items="${dto }" var="item">
+                        	<tr>
+                        		<td>${item.id }
+                        		<td>${item.name }
+                        	</tr>
+                        	
+                        	</c:forEach>
+                        </c:otherwise>
+                            
                         </c:choose>
-
                         <tr>
-                            <td colspan=5> ${navi }
+                        
+                        </tr>
+                        <tr>
+               				<tr>
+               				<form action="search.mem" method="post" id="searchfrm">
+               				
+                        	<td colspan=2 style="text-align: center">${navi }
+                        	</form>
+                     		</tr>
+                        </tr>
+                        <tr>
+                        <td colspan=2 style="text-align: right">
+                        	<input type=text placeholder="아이디로 검색하기" name="search">
+                        	<input type="button" value="검색" id="searchbtn">
+                        </tr>
+                        <tr>
+                        <td colspan=2 style="text-align: right"><input type="button" id="back" value="돌아가기">
                         </tr>
                     </table>
                 </div>
@@ -279,19 +315,26 @@
                 <div class="lastbar2" style="text-align: center;">상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 : 234-88-00720 | 대표자명 : 김세원<br>
                     Copyright ⓒ2019 Miwansung inc, ltd. All rights reserved</div><br>
                 <div class="lastbar3" style="text-align: center">
-                    <a href="#"><img src="icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                    <a href="#"><img src="icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                    <a href="#"><img src="icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
+                    <a href="#"><img src="Img/icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                    <a href="#"><img src="Img/icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                    <a href="#"><img src="Img/icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
                 <br>
             </div>
             <div class="category">
                 <div class="wrapper">
-                    관리자페이지 리스트
+                <ul style="list-style-type: none; padding: 0; text-align: center;">
+                <li><a href="adminMyPage.jsp" style="color: black; font-weight: bold">Manager Home</a>
+                <br><br>
+                <li><a href="memberlist.mem" style="color: black">Member List</a>
+                <li><a href="#" style="color: black;">Board List</a>
+                <li><a href="#" style="color: black;">write Board</a>
+                </ul>
+                    
                 </div>
             </div>
             <ul class="navi">
                 <ul class="title">
-                    <li class="navi-title"><a href="#"><img src="reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
+                    <li class="navi-title"><a href="#"><img src="Img/reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
                 </ul>
                 <ul class="itemList">
 
@@ -323,6 +366,15 @@
                     // Configuration options go here
                     options: {}
                 });
+            </script>
+            <script>
+            	$("#searchbtn").on("click", function(){
+            		$("#searchfrm").submit();
+            	})
+            	
+            	$("#back").on("click", function(){
+            		location.href="adminMyPage.jsp";
+            	})
             </script>
 </body>
 </html>
