@@ -34,11 +34,13 @@
         $(".explan").css("display","block");        
       })
       $("#donate").on("click",function(){
-          location.href = "give.challenge";
+
+          location.href = "${pageContext.request.contextPath}/donation.challenge";
+
         })
         
         $("#take").on("click",function(){
-          location.href = "${pageContext.request.contextPath}/Main/takeMain.jsp";
+          location.href = "${pageContext.request.contextPath}/take.challenge";
         })
       var elm = ".box";
       $(elm).each(function (index) {

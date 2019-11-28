@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
+import DTO.ChallengeDTO;
 import DTO.Challenge_recordDTO;
 
 public class ChallengeRecordDAO {
@@ -131,4 +132,28 @@ public class ChallengeRecordDAO {
 		}
 	}
 
+	public ArrayList<Challenge_recordDTO> selectAll (String id) throws Exception{
+		String sql ="select * from challenge_record where memeber_id=?";
+		try(Connection conn = getConnection();
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+				pstat.setString(1, id);
+				try(ResultSet rs = pstat.executeQuery()){
+			
+			ArrayList<Challenge_recordDTO> list = new ArrayList<>();
+			while(rs.next()) {
+				Challenge_recordDTO dto = new Challenge_recordDTO();
+				dto.setSeq(rs.getInt(1));
+				dto.setSuccess(rs.getString(2));
+				dto.setChallenge_num(rs.getInt(3));
+				dto.setMember_id(rs.getString(4));
+				
+				
+				list.add(dto);
+
+			}
+			return list;
+		}
+		}
+
+	}
 }
