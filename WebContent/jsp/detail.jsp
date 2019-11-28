@@ -133,12 +133,12 @@
                 border-top: 3px solid #7019FF;
                 border-radius: 3px;
             }
-            .twofloor{
+            .topfloor{
                 border-bottom: 3px solid #7019FF;
                 border-radius: 3px;
 
             }
-            .threefloor{
+            .fourfloor{
                 position: relative;
                 top:150px;
                 background-color: #edceed;
@@ -202,32 +202,50 @@
                 margin: 0;
                 border: 0px solid black;
             }
+            .onefloor{
+            	height : 400px;
+            	width: 100%;
+            	border: 1px solid black;
+            	margin: auto;
+            }
+            .twofloor{
+            	border: 1px solid black;
+            	height: 60px;
+            	width: 100%;
+            	font-size: 30px;
+            	text-align: center;
+            }
             .fourthfloor{
                 height: 500px;
             }
             .fifthfloor{
                 height: 500px;
             }
-            .seventhfloor{
-                height: 500px; 
-            }
-            .eighthfloor{
-                height: 500px;
-            }
+            
         </style>
 
     </head>
     <body>        
         <div class="container">
             <br><br><br>
-            <div class="twofloor">
+            <div class="topfloor">
               <div class="bd-example">
                     <img src = "${detailpage.file_path}">
                 </div>
                
             </div>
-            
+            <br>
+            <div class="onefloor">
+             	사진자리
+            </div>
+            <br>
+            <div class="twofloor">
+            give or take challenge 입니다.
+            </div>
+            <br>
             <div class="threefloor">
+            </div>
+            <div class="fourfloor">
              <br>  <br>  <br> <br>
               <h1>레드카드발급 관련 공통 안내사항</h1><br><br><br>
                1. 인증규정과 무관한 이미지로 인증을 대체하려 한 경우<br>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -206,6 +207,11 @@
 		<div class="twofloor"></div>
 
 		<div class="fourthfloor">
+		<%
+				String realuri = request.getHeader("Referer");
+				request.getSession().setAttribute("realuri", realuri);
+				
+			%>
 			<form action="signup.mem" method="post" id="signfrm">
 				<table class="signuptable">
 					<tr>

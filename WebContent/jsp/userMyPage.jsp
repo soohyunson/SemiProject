@@ -26,7 +26,7 @@
   <img src="../Img/profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
   <div class="media-body">
       <br>
-    <h5 class="mt-0">성사동까도남</h5>
+    <h5 class="mt-0">${id }님의 마이페이지입니다.</h5>
     내일은 챌린지 성공하자!
   </div>
              

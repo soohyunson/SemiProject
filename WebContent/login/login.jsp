@@ -31,7 +31,7 @@ body {
 }
 
 .navi {
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	margin: 0px;
 	overflow: hidden;
@@ -224,6 +224,7 @@ th{
 		<div class="twofloor"></div>
 		<div class="fourthfloor">
 			<form action="login.mem" method="post" id="loginfrm">
+			
 			<%
 				String uri = request.getHeader("Referer");
 				System.out.println(uri);

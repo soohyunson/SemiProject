@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,17 +23,17 @@ public class member extends HttpServlet {
 		String realPath = URI.substring(ctx.length());
 
 		MemberDAO dao = MemberDAO.getInstance();
-		System.out.println(URI);
-		System.out.println(ctx);
+		System.out.println(realPath);
+		
 
-		if (realPath.contentEquals("/login.mem")) {
+		if (realPath.contentEquals("/login/login.mem")) {
 			try {
 				String id = request.getParameter("id");
 				String pw = request.getParameter("pw");
-				// id, pw 넘어오는거 ok
-				// boolean loginResult = dao.isLoginOK(id, dao.encrypt(pw));
-
-				// request.getSession().setAttribute("loginResult", loginResult);
+				System.out.println(id + " : " + pw);
+				boolean loginResult = dao.isLoginOK(id, dao.encrypt(pw));
+				
+				request.getSession().setAttribute("loginResult", loginResult);
 				request.getSession().setAttribute("id", id);
 				request.getRequestDispatcher("logincheck.jsp").forward(request, response);
 
@@ -40,20 +41,19 @@ public class member extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (realPath.contentEquals("/idcheck.mem")) {
+		} else if (realPath.contentEquals("/login/idcheck.mem")) {
 			try {
 				String id = request.getParameter("id");
-				// id 받아오기 ok
-				// boolean result = dao.isIdOk(id);
+				//id 받아오기 ok
+				boolean result = dao.isIdOk(id);
 				PrintWriter pw = response.getWriter();
-
-				// pw.append("{\"result\" :" + result + "}");
+				pw.append("{\"result\" :" + result + "}");
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
-		} else if (realPath.contentEquals("/signup.mem")) {
+		} else if (realPath.contentEquals("/login/signup.mem")) {
 			request.setCharacterEncoding("utf8");
 			try {
 				String id = request.getParameter("id");
@@ -61,14 +61,52 @@ public class member extends HttpServlet {
 				String name = request.getParameter("name");
 				String phone = request.getParameter("phone");
 				String email = request.getParameter("email");
-
-				dao.insert(new MemberDTO(id, pw, name, phone, email, 0, null));
-				response.sendRedirect("realmain.jsp");
+				dao.insert(new MemberDTO(0, id, pw, name, phone, email, 0, null));
+				response.sendRedirect("signupcheck.jsp");
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+			else if(realPath.contentEquals("/adminChallenge/memberlist.mem")) { //멤버리스트 클릭했을때 주소받아오기
+				request.setCharacterEncoding("utf8");
+				try {
+					String navi = dao.getPageNavi(1);
+					int cpage = 1;
+					String page = request.getParameter("cpage");
+					if(page != null) {
+						cpage = Integer.parseInt(page);
+					}
+					int start = cpage * configuration.Configuration.recordCountPerPage - (configuration.Configuration.recordCountPerPage -1 );
+					int end = cpage * configuration.Configuration.recordCountPerPage;
+					System.out.println(start + " : " + end);
+					List<MemberDTO> list = dao.selectByPage(start, end);
+//					List<MemberDTO> list = dao.selectAll();
+					request.setAttribute("list", list);
+					request.setAttribute("navi", navi);
+					request.getRequestDispatcher("../memberlist.jsp").forward(request, response);
+					
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}else if(realPath.contentEquals("/adminChallenge/search.mem")) {
+				try {
+				String id = request.getParameter("search");
+				System.out.println(id); 
+				List<MemberDTO> dto = dao.search(id);
+//				System.out.println(dto.getId() + " : " + dto.getName()); ok
+				request.setAttribute("dto", dto);
+				request.getRequestDispatcher("../memberlist.jsp").forward(request, response);
+				
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}else if(realPath.contentEquals("/Main/logout.mem")) {
+				request.getSession().invalidate();
+				response.sendRedirect("../index.jsp");
+			}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
