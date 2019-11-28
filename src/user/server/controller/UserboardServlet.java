@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.ChallengeDAO;
-import DAO.ChallengeRecordDAO;
 import DTO.ChallengeDTO;
-import DTO.Challenge_recordDTO;
 
 @WebServlet("*.board")
 public class UserboardServlet extends HttpServlet {
@@ -27,49 +25,34 @@ public class UserboardServlet extends HttpServlet {
 		String realPath = uri.substring(path.length());
 		System.out.println(realPath);
 		if (realPath.contentEquals("/detail.board")) {
+			//int challengeNum = Integer.parseInt(request.getParameter("challengeNum"));
+			//int recordNum = Integer.parseInt(request.getParameter("seq"));
 
-			// String id = (String) request.getSession().getAttribute("id");
-			// int seq = Integer.parseInt(request.getParameter("seq"));
-
-			String fileImg = request.getParameter("fileImg");
-			System.out.println(fileImg);
 			try {
+				ChallengeDTO dto = ChallengeDAO.getInstance().getChallenge(29);
+
 				
-				Challenge_recordDTO dto = new Challenge_recordDTO();
-
-				dto = ChallengeRecordDAO.getInstance().detailChallenge("sky", 16);
-				int num = dto.getChallenge_num();
-
-				System.out.println(num);
-
-				ChallengeDTO challengeDto = new ChallengeDTO();
-				challengeDto = ChallengeDAO.getInstance().getChallenge(num);
-
-				System.out.println();
-
-				System.out.println(challengeDto.getStart_date());
-
+				System.out.println(dto.getStart_date());
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				Date formatDate=format.parse(dto.getStart_date());
+				String day = new SimpleDateFormat("dd").format(formatDate);
+				String month = new SimpleDateFormat("MM").format(formatDate);
 				
-				System.out.println(format.parse(challengeDto.getStart_date()));
-				Date date=format.parse(challengeDto.getStart_date());
-				String month_day = new SimpleDateFormat("MM").format(date);
-				String day=new SimpleDateFormat("dd").format(date);
-				System.out.println(month_day);
 				System.out.println(day);
+				System.out.println(month);
 				
-					
-				//request.setAttribute("img", fileImg);
-				//request.setAttribute("day", day);
-				//request.setAttribute("month", month_day);
-				//request.setAttribute("RecordDTO", dto);
-				//request.setAttribute("challengeDTO", challengeDto);
-				//request.getRequestDispatcher("/UserTestNotNotNOt/detailTest.jsp").forward(request, response);
-
+				
+				
+				request.setAttribute("day", day);
+				request.setAttribute("month", month);
+				request.setAttribute("recordNum", 20);
+				request.setAttribute("dto", dto);
+				
+				request.getRequestDispatcher("UserTestNotNotNOt/detail.jsp").forward(request, response);
 			} catch (Exception e) {
-				System.out.println("데이터 가져오기 오류~~!~~!");
-				e.printStackTrace();
+				System.out.println("오류났어요!!오류오류");
 			}
+
 		}
 
 	}
