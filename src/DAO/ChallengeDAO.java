@@ -160,6 +160,37 @@ public class ChallengeDAO {
 
 	}
 	
+	public ArrayList<ChallengeDTO> getCatergoryChallege(String giveortake , String category) throws SQLException, Exception{
+		String sql="select * from challenge where giveortake=? and category =?";
+		try(Connection conn = getConnection();
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+			pstat.setString(1, giveortake);
+			pstat.setString(2, category);
+			
+			try(ResultSet rs = pstat.executeQuery()){
+				ArrayList<ChallengeDTO> list = new ArrayList<>();
+				while(rs.next()) {
+					ChallengeDTO dto = new ChallengeDTO();
+					dto.setSeq(rs.getInt(1));
+					dto.setTitle(rs.getString(2));
+					dto.setContent(rs.getString(3));
+					dto.setStart_date(rs.getString(4));
+					dto.setEnd_date(rs.getString(5));
+					dto.setEnd(rs.getString(6));
+					dto.setTotal_participate(rs.getInt(7));
+					dto.setFile_path(rs.getString(8));
+					dto.setGiveortake(rs.getString(9));
+					dto.setCategory(rs.getString(10));
+					
+					list.add(dto);
+				}
+				return list;
+			}
+			
+		}
+		
+	}
+	
 	
 
 	public ChallengeDTO getChallenge(int seq) throws Exception {

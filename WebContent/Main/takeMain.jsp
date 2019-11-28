@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="takeMain.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/takeMain.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<link rel="stylesheet" type="text/css" href="slick/slick.css">
-<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
-<script type="text/javascript"
-	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript"
-	src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="slick/slick.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/slick/slick-theme.css">
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/Main/slick/slick.min.js"></script>
 <script>
     $(function () {
       $(".challengeOne").on("click", function () {
@@ -45,8 +43,32 @@
       $("#healthCategory").on("click",function(){
         location.href = "#health";
       })
+      $("#logout").on("click", function(){
+  			var result = confirm("로그아웃 하시겠습니까?");
+  			if(result){
+  				location.href="logout.mem";
+  			}
+  		})
+  		$("#mypage").on("click", function(){
+  			location.href="${pageContext.request.contextPath }/jsp/userMyPage.jsp";
+  		})
     })
   </script>
+<style>
+	#logout{
+		background-color: white;
+		border: 1px solid black;
+		width: 80px;
+		height: 30px;
+	}
+	#mypage{
+		background-color: white;
+		border: 1px solid black;
+		width: 90px;
+		height: 30px;
+	}
+</style> 
+  
 </head>
 
 <body>
@@ -56,9 +78,19 @@
 				<div class="naviBox">
 					<span class="flex"><img
 						src="${pageContext.request.contextPath }/Img/b.png"
-						class="naviLogo"></span> <span class="flex challengeLogo">기부</span>
-					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a><a
-						href="#" class="login">로그인</a><a href="#" class="signUp">회원가입</a></span>
+						class="naviLogo"></span> <span class="flex challengeLogo">테이크챌린지</span>
+					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
+					<c:choose>
+						<c:when test="${loginResult == null }">
+							<a href="${pageContext.request.contextPath }/login/login.jsp" class="login">로그인</a>
+							<a href="${pageContext.request.contextPath }/login/signup.jsp" class="signUp">회원가입</a></span>
+						</c:when>
+						<c:otherwise>
+							${id }님
+							<button id="mypage">마이페이지</button>
+							<button id="logout">로그아웃</button>
+						</c:otherwise>
+						</c:choose>
 				</div>
 			</div>
 			<div class="headerExplan">
@@ -97,9 +129,8 @@
 							<img src="${pageContext.request.contextPath }/Img/exercise.png"
 								class="challengeOneImg">
 						</div>
-						<div class="challengeOne-explan">[영상편집] 전공수업보다 디테일한 '쉬운'방법으로
-							'고퀄'영상 만들기 [프리미어, 파이널컷]</div>
-						<div class="challengeOne-explan2">[영상편집] 전공수업보다 디테일한</div>
+						<div class="challengeOne-explan">${list.get(0).title}</div>
+						<div class="challengeOne-explan2">${list.get(0).content }</div>
 					</div>
 					<div class="challegnSubBox">
 						<div class="challengeTwo challengeTwo-1">
@@ -107,161 +138,67 @@
 								<img src="${pageContext.request.contextPath }/Img/exercise.png"
 									class="challengeSubImg">
 							</div>
-							<div class="challengeTwo-explan">월 60만원 벌면서 영어회화도 할 수 있다고?
-								에어비앤비 트립호스트, 하루만에 되어 보기!</div>
-							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
+							<div class="challengeTwo-explan">${list.get(1).title}</div>
+							<div class="challengeTwo-explan2">${list.get(1).content}</div>
 						</div>
 						<div class="challengeTwo challengeTwo-2">
 							<div class="challengeTwo-div">
 								<img src="${pageContext.request.contextPath }/Img/exercise.png"
 									class="challengeSubImg">
 							</div>
-							<div class="challengeTwo-explan">월 60만원 벌면서 영어회화도 할 수 있다고?
-								에어비앤비 트립호스트, 하루만에 되어 보기!</div>
-							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
+							<div class="challengeTwo-explan">${list.get(2).title}</div>
+							<div class="challengeTwo-explan2">${list.get(2).content}</div>
 						</div>
 						<div class="challengeTwo challengeTwo-3">
 							<div class="challengeTwo-div">
 								<img src="${pageContext.request.contextPath }/Img/exercise.png"
 									class="challengeSubImg">
 							</div>
-							<div class="challengeTwo-explan">월 60만원 벌면서 영어회화도 할 수 있다고?
-								에어비앤비 트립호스트, 하루만에 되어 보기!</div>
-							<div class="challengeTwo-explan2">월 60만원 벌면서 영어회화도 할 수 있다고?</div>
+							<div class="challengeTwo-explan">${list.get(3).title}</div>
+							<div class="challengeTwo-explan2">${list.get(3).content}</div>
 						</div>
 					</div>
 				</div>
 				<div class="challegneMiddleContainer">
-					<div class="recruitment" id="habit">습관</div>
+					<div class="recruitment" id="habit">생활</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">물먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">밥먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">커피먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">칼국수</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">햄버거</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">예스</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
+						<c:forEach var="i" begin="0" end="5">
+							<div class="slideDiv">
+								<img src="b.png" class="slideImg">
+								<h3 class="slideTitle">${lifelist.get(i).title}</h3 class="slideTitle">
+								<h5 class="slideExplan">${lifelist.get(i).content}</h5>
+							</div>
+						</c:forEach>
 					</div>
 					<div class="recruitment" id="study">공부</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">물먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">밥먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">커피먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">칼국수</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">햄버거</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">예스</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
+						<c:forEach var="i" begin="0" end="5">
+							<div class="slideDiv">
+								<img src="b.png" class="slideImg">
+								<h3 class="slideTitle">${studylist.get(i).title}</h3 class="slideTitle">
+								<h5 class="slideExplan">${studylist.get(i).content}</h5>
+							</div>
+						</c:forEach>
 					</div>
 					<div class="recruitment" id="health">건강</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">물먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">밥먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">커피먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">칼국수</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">햄버거</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">예스</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
+						<c:forEach var="i" begin="0" end="5">
+							<div class="slideDiv">
+								<img src="b.png" class="slideImg">
+								<h3 class="slideTitle">${healthlist.get(i).title}</h3 class="slideTitle">
+								<h5 class="slideExplan">${healthlist.get(i).content}</h5>
+							</div>
+						</c:forEach>
 					</div>
 					<div class="recruitment" id="exercise">운동</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">물먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">밥먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">커피먹기</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">칼국수</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">햄버거</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
-						</div>
-						<div class="slideDiv">
-							<img src="b.png" class="slideImg">
-							<h3 class="slideTitle">예스</h3 class="slideTitle">
-							<h5 class="slideExplan">할수있을까?</h5>
+						<c:forEach var="i" begin="0" end="5">
+							<div class="slideDiv">
+								<img src="b.png" class="slideImg">
+								<h3 class="slideTitle">${exlist.get(i).title}</h3 class="slideTitle">
+								<h5 class="slideExplan">${exlist.get(i).content}</h5>
+							</div>
+						</c:forEach>
 						</div>
 					</div>
 				</div>

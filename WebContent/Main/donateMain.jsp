@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
@@ -92,7 +94,7 @@
 					<div class="categoryTitle" id="healthCategory">건강</div>
 				</div>
 			</div>
-			<div class="challengeContainer">
+			<div class="challengeContainer" style="border:none;'">
 				<div class="recruitment">모집 중</div>
 				<div class="challengeMainBox">
 					<div class="challengeOne">
@@ -132,43 +134,43 @@
 					</div>
 				</div>
 				<div class="challegneMiddleContainer">
-					<div class="recruitment" id="habit">습관</div>
+					<div class="recruitment" id="habit">생활</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
-						<c:forEach var="i" begin="10" end="15">
+						<c:forEach var="i" begin="0" end="5">
 							<div class="slideDiv">
 								<img src="b.png" class="slideImg">
-								<h3 class="slideTitle">${list.get(i).title}</h3 class="slideTitle">
-								<h5 class="slideExplan">${list.get(i).content}</h5>
+								<h3 class="slideTitle">${lifelist.get(i).title}</h3 class="slideTitle">
+								<h5 class="slideExplan">${lifelist.get(i).content}</h5>
 							</div>
 						</c:forEach>
 					</div>
 					<div class="recruitment" id="study">공부</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
-						<c:forEach var="i" begin="16" end="21">
+						<c:forEach var="i" begin="0" end="5">
 							<div class="slideDiv">
 								<img src="b.png" class="slideImg">
-								<h3 class="slideTitle">${list.get(i).title}</h3 class="slideTitle">
-								<h5 class="slideExplan">${list.get(i).content}</h5>
+								<h3 class="slideTitle">${studylist.get(i).title}</h3 class="slideTitle">
+								<h5 class="slideExplan">${studylist.get(i).content}</h5>
 							</div>
 						</c:forEach>
 					</div>
 					<div class="recruitment" id="health">건강</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
-						<c:forEach var="i" begin="22" end="27">
+						<c:forEach var="i" begin="0" end="5">
 							<div class="slideDiv">
 								<img src="b.png" class="slideImg">
-								<h3 class="slideTitle">${list.get(i).title}</h3 class="slideTitle">
-								<h5 class="slideExplan">${list.get(i).content}</h5>
+								<h3 class="slideTitle">${healthlist.get(i).title}</h3 class="slideTitle">
+								<h5 class="slideExplan">${healthlist.get(i).content}</h5>
 							</div>
 						</c:forEach>
 					</div>
 					<div class="recruitment" id="exercise">운동</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
-						<c:forEach var="i" begin="4" end="9">
+						<c:forEach var="i" begin="0" end="5">
 							<div class="slideDiv">
 								<img src="b.png" class="slideImg">
-								<h3 class="slideTitle">${list.get(i).title}</h3 class="slideTitle">
-								<h5 class="slideExplan">${list.get(i).content}</h5>
+								<h3 class="slideTitle">${exlist.get(i).title}</h3 class="slideTitle">
+								<h5 class="slideExplan">${exlist.get(i).content}</h5>
 							</div>
 						</c:forEach>
 					</div>
@@ -220,6 +222,7 @@
 			<img src="scrollUp.png" style="width: 50px; height: 50px;">
 		</div>
 	</div>
+
 </body>
 
 </html>
