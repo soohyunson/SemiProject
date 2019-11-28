@@ -34,10 +34,10 @@
         $(".explan").css("display","block");        
       })
       $("#donate").on("click",function(){
-    	  location.href = "giveMain.jsp";
+    	  location.href = "${pageContext.request.contextPath}/Main/donateMain.jsp";
       })
       $("#take").on("click",function(){
-    	  location.href = "takeMain.jsp";
+    	  location.href = "${pageContext.request.contextPath}/Main/takeMain.jsp";
       })
       var elm = ".box";
       $(elm).each(function (index) {
