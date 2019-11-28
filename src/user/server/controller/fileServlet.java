@@ -48,10 +48,6 @@ public class fileServlet extends HttpServlet {
 				MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF8",
 						new DefaultFileRenamePolicy());
 
-				// String name = multi.getParameter("file1");//파일 가져와라
-				// int seq = Integer.parseInt(multi.getParameter("seq"));
-
-				// System.out.println(seq);
 				String fileName = multi.getFilesystemName("fileImg"); // 업로드되는 파일의 이름이 뭐냐
 				String oriFileName = multi.getOriginalFileName("fileImg"); // 업로드 할 때 당시의 파일의 원래 이름이 뭐냐
 
@@ -59,12 +55,10 @@ public class fileServlet extends HttpServlet {
 				
 				System.out.println(fileName);
 				System.out.println(oriFileName);
-				// response.getWriter().append("works done");
+	
 				
 				int recordNum = Integer.parseInt(multi.getParameter("recordNum"));
 			
-
-				// int result = FilesDAO.getInstance().insert(dto);
 
 				String resPath = "files/";
 				resPath += fileName;
@@ -104,44 +98,13 @@ public class fileServlet extends HttpServlet {
 
 					// 파일 이름을 인코딩 변경
 					String encFileName = new String(fileName.getBytes("utf8"), "iso-8859-1");
-					// response의 header에 파일 이름과 파일 크기
-					// .setHeader("Content-Disposltion", "attachment; filename=인코딩한파일이름");
-					// .setHeader("Content-Lenth", 파일크기를String형으로);
-//					response.setHeader("Content-Disposition", "attachment; filename=\"" + encFileName + "\"");
-//					response.setHeader("Content-Lenth", String.valueOf(f.length()));
 
 					String gson = new Gson().toJson(resPath);
 					System.out.println(gson);
 					response.setContentType("application/json");
 					response.setCharacterEncoding("UTF-8");
 					response.getWriter().append(gson);
-//					File f = new File(uploadPath + "\\" +fileName);
-//
-//					try (
-//							FileInputStream fis = new FileInputStream(f);
-//							DataInputStream fileDis = new DataInputStream(fis);
-//							ServletOutputStream sos = response.getOutputStream();
-//							){
-//
-//						byte[] fileContents = new byte[(int) f.length()];
-//						fileDis.readFully(fileContents);
-//						fileDis.close();
-//						// response에 담을 데이터 타입 형태
-//						// 파일 전송시 : application/octet-stream
-//						response.setContentType("application/octet-stream");
-//
-//						// 파일 이름을 인코딩 변경
-//						String encFileName = new String(fileName.getBytes("utf8"), "iso-8859-1");
-//						// response의 header에 파일 이름과 파일 크기
-//						// .setHeader("Content-Disposltion", "attachment; filename=인코딩한파일이름");
-//						// .setHeader("Content-Lenth", 파일크기를String형으로);
-//						response.setHeader("Content-Disposition", "attachment; filename=\"" + encFileName + "\"");
-//						response.setHeader("Content-Lenth", String.valueOf(f.length()));
-//
-//						sos.write(fileContents);
-//						sos.flush();
-//
-//					}
+
 				}
 
 			} catch (Exception e) {
