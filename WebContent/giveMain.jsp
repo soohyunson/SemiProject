@@ -30,33 +30,33 @@
 		<div class="header">
 			<div class="navi">
 				<div class="naviBox">
-					<span class="flex"><img src="b.png" class="naviLogo"></span>
-					<span class="flex challengeLogo">테이크</span> <span
+					<span class="flex"><img src="${pageContext.request.contextPath }/Img/b.png" class="naviLogo"></span>
+					<span class="flex challengeLogo">기부</span> <span
 						class="flex naviCategory"><a href="#" class="giverBtn">기부</a><a
 						href="#" class="login">로그인</a><a href="#" class="signUp">회원가입</a></span>
 				</div>
 			</div>
 			<div class="headerExplan">
-				<div class="firstText">test</div>
-				<div class="secondText">test</div>
+				<div class="firstText">기부페이지</div>
+				<div class="secondText">기부페이지</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="mainCategory">
 				<div>
-					<img src="exercise.png" class="categoryImg">
+					<img src="${pageContext.request.contextPath }/Img/exercise.png" class="categoryImg">
 					<div class="categoryTitle">운동</div>
 				</div>
 				<div>
-					<img src="exercise.png" class="categoryImg secondCategoryImg">
+					<img src="${pageContext.request.contextPath }/Img/exercise.png" class="categoryImg secondCategoryImg">
 					<div class="categoryTitle">습관</div>
 				</div>
 				<div>
-					<img src="study.png" class="categoryImg">
+					<img src="${pageContext.request.contextPath }/Img/study.png" class="categoryImg">
 					<div class="categoryTitle">공부</div>
 				</div>
 				<div>
-					<img src="exercise.png" class="categoryImg">
+					<img src="${pageContext.request.contextPath }/Img/exercise.png" class="categoryImg">
 					<div class="categoryTitle">건강</div>
 				</div>
 			</div>
@@ -66,12 +66,13 @@
 				<div class="challengeMainBox">
 					<div class="challengeOne">
 						<div class="challengeOne-div">
-							<img src="exercise.png" class="challengeOneImg">
+							<img src="${pageContext.request.contextPath }/Img/exercise.png" class="challengeOneImg">
 						</div>
 						<div class="challengeOne-explan">${list.get(0).title }</div>
 						<div class="challengeOne-explan2">${list.get(0).content}</div>
 					</div>
 					<div class="challegnSubBox">
+
 						<c:forEach var="i" begin="1" end="3">
 							<div class="challengeTwo challengeTwo-1">
 
@@ -83,6 +84,7 @@
 							</div>
 							
 						</c:forEach>
+
 					</div>
 				</div>
 			</div>

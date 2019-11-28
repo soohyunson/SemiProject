@@ -1,4 +1,5 @@
-package challenge.Servlet;
+package admin.sever.controller;
+
 
 import java.io.IOException;
 import java.sql.SQLException;

@@ -52,6 +52,19 @@
 					<tr>
 						<td><br>
 							<div style="text-align: center">
+								Give or Take : <input type="text" name="giveortake">
+									
+							</div> <br>
+					</tr>
+					<tr>
+						<td><br>
+							<div style="text-align: center">
+								Category : <input type="text" name="category">
+							</div> <br>
+					</tr>
+					<tr>
+						<td><br>
+							<div style="text-align: center">
 								Start Date : <input type="text" name="startdate"
 									id="startDatepicker">
 							</div> <br>

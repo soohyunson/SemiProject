@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="kr">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>My Challenge</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <link
@@ -29,7 +29,7 @@ body {
 }
 
 .navi {
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	margin: 0px;
 	overflow: hidden;
@@ -142,17 +142,21 @@ body {
 }
 
 .twofloor {
-	border-top: 3px solid #7019FF;
 	border-bottom: 3px solid #7019FF;
 	border-radius: 3px;
-	height: 40px;
-	font-size: 20px;
 }
 
 .threefloor {
-	border-bottom: 3px solid #7019FF;
-	border-radius: 3px;
-	height: 50px;
+	position: relative;
+	top: 150px;
+	background-color: #edceed;
+	text-align: center;
+	height: 700px;
+}
+
+.fourthfloor {
+	position: relative;
+	top: 300px;
 }
 
 .fivefloor {
@@ -171,7 +175,7 @@ body {
 .category {
 	position: fixed;
 	top: 80px;
-	left: 3%;
+	right: 3%;
 	width: 16%;
 	height: 500px;
 	border: 3px solid #7019FF;
@@ -215,61 +219,61 @@ body {
 	height: 500px;
 }
 
-#listboard {
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-	margin: auto;
-	width: 80%;
+.fifthfloor {
+	height: 500px;
 }
 
-th {
-	font-size: 20px;
-	text-align: center;
+.seventhfloor {
+	height: 500px;
+}
+
+.eighthfloor {
+	height: 500px;
+}
+
+td {
+	border: 1px solid black;
+	width: 200px;
+	height: 200px;
 }
 </style>
+
 </head>
 <body>
 	<div class="container">
-		<br>
-		<br>
-		<br>
-		<div class="twofloor">Manager Page</div>
-		<div class="threefloor">Member List</div>
+		<br> <br> <br>
+		<div class="twofloor">
+			<div class="bd-example">
+				<img src="${item.file_path}">
+			</div>
+
+		</div>
+
+		<div class="threefloor">
+			<br> <br> <br> <br>
+			<h1>레드카드발급 관련 공통 안내사항</h1>
+			<br> <br> <br> 1. 인증규정과 무관한 이미지로 인증을 대체하려 한 경우<br>
+			2. 신체의 일부가 나와야 할 때 본인이 아닌 경우<br> 3. 한번의 행위로 2회 인증하는 경우(예. 자정전과
+			후로 한 챌린지를 2회 인증하는 경우)<br> 4. 미리 해놓고 다음에는 사진만 찍는 경우<br> 5. 한
+			번의 행위로 두 개의 서로 다른 챌린지에 인증하는 경우<br> (예. 닭가슴살 샐러드를 먹으며, 닭가슴살 먹기
+			챌린지와 샐러드 먹기 챌린지에 둘 다 인증하는 경우)<br> 6. 미리 해놓고 인증샷은 나중에 찍는 경우 <br>
+			(예. 한 주 할 일을 모두 계획 후 미리 써두고, 밤에는 사진만 찍는 경우)<br> 7. 다수의 회원들로부터
+			수행여부를 의심받았는데, 회사가 그 의심이 납득 가능하다고 판단한 경우<br> 8. 고의적으로 인증규정만 맞췄을 뿐
+			인증규정의 빈틈을 노렸다고 회사가 판단하는 경우<br> 9. 한 사람이 두 계정으로 인증하거나, 지인이 인증할 때를
+			이용해 본인도 인증하는 경우<br> (예. 아메리카노 한 잔을 두고, 두 사람이 카페에서 아메리카노 주문하기
+			챌린지에 인증한 경우)<br> <br> <br> <br>
+
+		</div>
+
 
 		<div class="fourthfloor">
-			<br>
-			<table id="listboard">
-				<tr>
-					<th colspan=2>회원목록
-				</tr>
-				<tr>
-					<td width="20%" style="text-align: center">회원ID
-					<td width="80%" style="text-align: center">회원명
-				</tr>
-				<c:choose>
-					<c:when test="${list.size() == 0 }">
-						<tr>
-							<td colspan=5>표시할 내용이 없습니다.
-						</tr>
-					</c:when>
+			<div class="middlethird" id="summary">상세내용이 표시될 예정입니다.</div>
 
-					<c:otherwise>
-						<c:forEach items="${list }" var="dto">
-							<tr>
-								<td>${dto.seq }
-								<td><a
-									href="/detailView.wrt?seq=${dto.seq}"
-									id="tag">${dto.title }</a>
-							</tr>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-
-				<tr>
-					<td colspan=5>${navi }
-				</tr>
-			</table>
 		</div>
+
+		
+
+
 
 	</div>
 
@@ -314,7 +318,12 @@ th {
 		<br>
 	</div>
 	<div class="category">
-		<div class="wrapper">관리자페이지 리스트</div>
+		<div class="wrapper">
+			<div>
+				<a href="bill.html"><input type="button" value="enjoy"
+					id="enjoybtn"></a>
+			</div>
+		</div>
 	</div>
 	<ul class="navi">
 		<ul class="title">
