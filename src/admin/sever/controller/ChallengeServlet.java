@@ -27,7 +27,6 @@ public class ChallengeServlet extends HttpServlet {
 		String realPath = URI.substring(ctxPath.length());
 
 		if (realPath.contentEquals("/give.challenge")) {
-			System.out.println("넘어옴");
 			try {
 				List<ChallengeDTO> list;
 				list = ChallengeDAO.getInstance().selectAll("give");
