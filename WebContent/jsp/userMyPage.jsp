@@ -20,9 +20,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
 
 <script
    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -33,7 +30,7 @@
    href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
    rel="stylesheet">
 <link rel="stylesheet" type="text/css"
-   href="../resources/css/MyPageStyle.css">
+   href="${pageContext.request.contextPath}/resources/css/MyPageStyle.css">
 
 
 
@@ -54,7 +51,7 @@
          <br>
          <br>
          <div class="media">
-            <img src="../Img/profileicon.png" class="mr-3" alt="..."
+            <img src="${pageContext.request.contextPath}/Img/profileicon.png" class="mr-3" alt="..."
                style="width: 100px; height: 100px; margin-left: 10%;">
             <div class="media-body">
                <br>
@@ -142,7 +139,7 @@
 
                      <div class="col-4">
                         <a
-                           href="${pageContext.request.contextPath}/myPageDetailView.usboard?seq=${givedetail.get[i].seq}&seq2=${giverecord[i].seq}">
+                           href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${givedetail.get[i].seq}&recordSeq=${giverecord[i].seq}">
                            <div class="card m-3">
 
                               <img src="${givedetail.get[i].file_path}" class="card-img-top">
@@ -178,7 +175,7 @@
                      <div class="col-4">
                         
                         <a
-                           href="${pageContext.request.contextPath}/myPageDetailView.usboard?seq=${givedetail[i].seq}&seq2=${giverecord[i].seq}">
+                           href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${givedetail[i].seq}&recordSeq=${giverecord[i].seq}">
                            <div class="card m-3">
                               <img src="${givedetail[i].file_path}" class="card-img-top">
                               <div class="card-body">
@@ -198,7 +195,7 @@
                   <c:forEach var="j" begin="0" end="${sizee}">
                      <div class="col-4">
                         <a
-                           href="${pageContext.request.contextPath}/myPageDetailView.usboard?seq=${takedetail[j].seq}&seq2=${takerecord[j].seq}">
+                           href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${takedetail[j].seq}&recordSeq=${takerecord[j].seq}">
                            <div class="card m-3">
 
                               <img src="${takedetail[j].file_path}" class="card-img-top">
