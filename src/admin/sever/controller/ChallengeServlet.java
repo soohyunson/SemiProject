@@ -26,20 +26,7 @@ public class ChallengeServlet extends HttpServlet {
 		String realPath = URI.substring(ctxPath.length());
 		System.out.println(realPath);
 
-		if (realPath.contentEquals("/give.challenge")) {
-			try {
-				List<ChallengeDTO> list;
-				list = ChallengeDAO.getInstance().selectAll("give");
-				request.setAttribute("list", list);
-				RequestDispatcher rd = request.getRequestDispatcher("/Main/donateMain.jsp");
-				rd.forward(request, response);
-
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				System.out.println("왜 오류인지 아시는분~~??");
-				e.printStackTrace();
-			}
-		} else if (realPath.contentEquals("/take.challenge")) {
+		if (realPath.contentEquals("/take.challenge")) {
 		
 			try {
 				ArrayList<ChallengeDTO> list = ChallengeDAO.getInstance().selectAll("take");
@@ -82,7 +69,6 @@ public class ChallengeServlet extends HttpServlet {
 
 			}
 		}
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

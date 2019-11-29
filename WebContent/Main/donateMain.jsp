@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/Main/donateMain.css">
+	href="${pageContext.request.contextPath }/resources/css/donateMain.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/Main/slick/slick.css">
@@ -60,7 +60,7 @@
 			<div class="navi">
 				<div class="naviBox">
 					<span class="flex"><img
-						src="${pageContext.request.contextPath }/Img/b.png"
+						src="${pageContext.request.contextPath }/resources/img/b.png"
 						class="naviLogo"></span> <span class="flex challengeLogo">기부</span>
 					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a><a
 						href="${pageContext.request.contextPath }/login/login.jsp"
@@ -115,7 +115,7 @@
 					<div class="challegnSubBox">
 						<div class="challengeTwo challengeTwo-1">
 							<div class="challengeTwo-div">
-								<img src="${pageContext.request.contextPath }/Img/exercise.png"
+								<img src="${pageContext.request.contextPath }/resources/img/exercise.png"
 									class="challengeSubImg">
 							</div>
 							<div class="challengeTwo-explan">
@@ -126,7 +126,7 @@
 						</div>
 						<div class="challengeTwo challengeTwo-2">
 							<div class="challengeTwo-div">
-								<img src="${pageContext.request.contextPath }/Img/exercise.png"
+								<img src="${pageContext.request.contextPath }/resources/img/exercise.png"
 									class="challengeSubImg">
 							</div>
 							<div class="challengeTwo-explan">
@@ -137,7 +137,7 @@
 						</div>
 						<div class="challengeTwo challengeTwo-3">
 							<div class="challengeTwo-div">
-								<img src="${pageContext.request.contextPath }/Img/exercise.png"
+								<img src="${pageContext.request.contextPath }/resources/img/exercise.png"
 									class="challengeSubImg">
 							</div>
 							<div class="challengeTwo-explan">
