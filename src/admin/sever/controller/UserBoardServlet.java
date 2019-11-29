@@ -2,7 +2,9 @@ package admin.sever.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -90,12 +92,47 @@ public class UserBoardServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		}else if(realPath.contentEquals("/myPageDetailView.usboard")) {
-			int challengeseq = Integer.parseInt(request.getParameter("seq"));
-			int recordseq = Integer.parseInt(request.getParameter("seq2"));
-			System.out.println(challengeseq);
-			System.out.println(recordseq);
+		}else if (realPath.contentEquals("/myPageDetailView.usboard")) {
+			
+			System.out.println("여기로 넘어 왔나욤???ㅎㅎㅎ");
+			int challengeNum = Integer.parseInt(request.getParameter("challengeSeq"));
+			int recordNum = Integer.parseInt(request.getParameter("recordSeq"));
+			
+			System.out.println(challengeNum+":::::::::::::::"+recordNum);
+
+			try {
+				ChallengeDTO dto = ChallengeDAO.getInstance().getChallenge(challengeNum);
+
+				
+				System.out.println(dto.getStart_date());
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				Date formatDate=format.parse(dto.getStart_date());
+				String day = new SimpleDateFormat("dd").format(formatDate);
+				String month = new SimpleDateFormat("MM").format(formatDate);
+				
+				System.out.println(day);
+				System.out.println(month);
+				
+				
+				
+				request.setAttribute("day", day);
+				request.setAttribute("month", month);
+				request.setAttribute("recordNum", recordNum);
+				request.setAttribute("dto", dto);
+				
+				request.getRequestDispatcher("UserTestNotNotNOt/detail.jsp").forward(request, response);
+			} catch (Exception e) {
+				System.out.println("오류났어요!!오류오류");
+			}
+
 		}
+		
+//		else if(realPath.contentEquals("/myPageDetailView.usboard")) {
+//			int challengeseq = Integer.parseInt(request.getParameter("seq"));
+//			int recordseq = Integer.parseInt(request.getParameter("seq2"));
+//			System.out.println(challengeseq);
+//			System.out.println(recordseq);
+//		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
