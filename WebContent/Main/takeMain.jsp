@@ -52,6 +52,18 @@
         $("#mypage").on("click", function(){
            location.href="banner.usboard";
         })
+        
+        $("#adminpage").on("click",function(){
+        	location.href="admin/adminMyPage.jsp";
+        })
+        
+        $("#adminlogout").on("click",function(){
+        	var result = confirm("로그아웃 하시겠습니까?");
+            if(result){
+               location.href="logout.mem";
+            }
+        })
+        
     })
   </script>
 <style>
@@ -86,9 +98,18 @@
                      <a href="${pageContext.request.contextPath }/user/login/signup.jsp" class="signUp">회원가입</a></span>
                   </c:when>
                   <c:otherwise>
-                     ${id }님
+                  	<c:choose>
+                  		<c:when test="${id == 'admin' }">
+                  		<button id="adminpage">마이페이지</button>
+                    	<button id="adminlogout">로그아웃</button>
+                  		</c:when>
+                  		<c:otherwise>
+                  			${id }님
                      <button id="mypage">마이페이지</button>
                      <button id="logout">로그아웃</button>
+                  		</c:otherwise>
+                  	</c:choose>
+                     
                   </c:otherwise>
                   </c:choose>
             </div>
