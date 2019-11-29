@@ -291,11 +291,6 @@
 			<img src="scrollUp.png" style="width: 50px; height: 50px;">
 		</div>
 	</div>
-	
-	
-	
-	
-	
 	<script>
 		console.log(40);
 		function clickFun(seq){
