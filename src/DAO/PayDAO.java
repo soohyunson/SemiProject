@@ -39,7 +39,7 @@ public class PayDAO {
 				PreparedStatement pstat = new LoggableStatement(conn, sql)){
 			pstat.setString(1, member_id);
 			try(ResultSet rs = pstat.executeQuery()){
-				PayDTO dto = new PayDTO();
+				PayDTO dto = new PayDTO();			
 				if(rs.next()) {
 					dto.setSeq(rs.getInt("seq"));
 					dto.setPoint(rs.getInt("point"));

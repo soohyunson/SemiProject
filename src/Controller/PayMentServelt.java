@@ -46,14 +46,14 @@ public class PayMentServelt extends HttpServlet {
 			
 			String result = Payment.getInstance().goCancel(receipt_id, price);
 			System.out.println(result);
-		}else if(URL.equals("/myPage/charge.pay")) {
+		}else if(URL.equals("/user/myPage/charge.pay")) {
 			//아이디 불러옴
 			//String id = (String) request.getSession().getAttribute("");
-			request.getRequestDispatcher("/pay/charge.jsp").forward(request, response);
+			request.getRequestDispatcher("/user/pay/charge.jsp").forward(request, response);
 		}else if(URL.equals("/myPage/refunds.pay")) {
 			//아이디 불러옴
 			//String id = (String) request.getSession().getAttribute("");
-			request.getRequestDispatcher("/pay/refunds.jsp").forward(request, response);
+			request.getRequestDispatcher("/user/pay/refunds.jsp").forward(request, response);
 		}
 	}
 
