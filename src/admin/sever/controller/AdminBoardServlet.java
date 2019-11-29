@@ -100,29 +100,30 @@ public class AdminBoardServlet extends HttpServlet {
 					request.setAttribute("page", page);
 					request.setAttribute("dto", dto);
 					request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
-				} catch (Exception e) {
-					e.printStackTrace();
-					// response.sendRedirect("error.jsp");
-				}
-			} else {
-				try {
-					currentPage = Integer.parseInt(CPage);
-					String page = ChallengeDAO.getInstance().getPageNavi(currentPage);
 
-					int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage - 1);
-					int end = currentPage * Configuration.recordCountPerPage;
-					List<ChallengeDTO> dto = ChallengeDAO.getInstance().selectByPage(start, end);
-					request.setAttribute("page", page);
-					request.setAttribute("dto", dto);
-					request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
-				} catch (Exception e) {
-					e.printStackTrace();
-					response.sendRedirect("error.jsp");
-				}
-			}
-		} else if (realPath.contentEquals("/write.adboard")) {
-			String uploadPath = request.getServletContext().getRealPath("/files");
-
+				    }catch(Exception e) {
+				    	e.printStackTrace();
+				        //response.sendRedirect("error.jsp");
+				    }
+		    }
+		    else {
+                 try {
+			    	currentPage = Integer.parseInt(CPage);
+			    	String page = ChallengeDAO.getInstance().getPageNavi(currentPage);
+			    	
+			    	int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage-1); 
+			    	int end = currentPage * Configuration.recordCountPerPage;
+			    	List<ChallengeDTO> dto =  ChallengeDAO.getInstance().selectByPage(start, end);
+			    request.setAttribute("page", page);
+				request.setAttribute("dto", dto);
+				request.getRequestDispatcher("adminChallenge/adminChallengeList.jsp").forward(request, response);
+			    }catch(Exception e) {
+			    	e.printStackTrace();
+			        response.sendRedirect("error.jsp");
+			    }
+		    }
+		}else if(realPath.contentEquals("/write.adboard")) {
+String uploadPath = request.getServletContext().getRealPath("/files");
 			File uploadFilePath = new File(uploadPath);
 			System.out.println(uploadPath);
 			System.out.println(uploadFilePath);

@@ -24,7 +24,7 @@ public class member extends HttpServlet {
 
 		MemberDAO dao = MemberDAO.getInstance();
 		System.out.println(realPath);
-		
+//		System.out.println(ctx); 절대경로
 
 		if (realPath.contentEquals("/user/login/login.mem")) {
 			try {
@@ -62,7 +62,7 @@ public class member extends HttpServlet {
 				String phone = request.getParameter("phone");
 				String email = request.getParameter("email");
 				dao.insert(new MemberDTO(0, id, pw, name, phone, email, 0, null));
-				response.sendRedirect("signupcheck.jsp");
+				response.sendRedirect(ctx + "/user/login/signupcheck.jsp");
 
 			} catch (Exception e) {
 				e.printStackTrace();
