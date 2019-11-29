@@ -1,5 +1,10 @@
+<<<<<<< HEAD:WebContent/index.jsp
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+>>>>>>> b3c68e3addf6d6ccf2af23185c45c763513a250e:WebContent/index/index.jsp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +44,7 @@
         $(".explan").css("display","block");        
       })
       $("#donate").on("click",function(){
+<<<<<<< HEAD:WebContent/index.jsp
     	  location.href = "${pageContext.request.contextPath}/Main/donateMain.jsp";
       })
       $("#take").on("click",function(){
@@ -49,9 +55,19 @@
       $("#take").on("click",function(){
     	  location.href = "take.challenge";
       })
+=======
+
+          location.href = "${pageContext.request.contextPath}/donation.challenge";
+
+        })
+        
+        $("#take").on("click",function(){
+          location.href = "${pageContext.request.contextPath}/take.challenge";
+        })
+>>>>>>> b3c68e3addf6d6ccf2af23185c45c763513a250e:WebContent/index/index.jsp
       var elm = ".box";
       $(elm).each(function (index) {
-        // ���������� Wheel �̺�Ʈ ����
+        // 개별적으로 Wheel 이벤트 적용
         $(this).on("mousewheel DOMMouseScroll", function (e) {
           e.preventDefault();
           var delta = 0;
@@ -64,14 +80,14 @@
             delta = -event.detail / 3;
           var moveTop = $(window).scrollTop();
           var elmSelecter = $(elm).eq(index);
-          // ���콺���� ������ �Ʒ���
+          // 마우스휠을 위에서 아래로
           if (delta < 0) {
             if ($(elmSelecter).next() != undefined) {
               try {
                 moveTop = $(elmSelecter).next().offset().top;
               } catch (e) { }
             }
-            // ���콺���� �Ʒ����� ����
+            // 마우스휠을 아래에서 위로
           } else {
             if ($(elmSelecter).prev() != undefined) {
               try {
@@ -80,7 +96,7 @@
             }
           }
 
-          // ȭ�� �̵� 0.8��(800)
+          // 화면 이동 0.8초(800)
           $("html,body").stop().animate({
             scrollTop: moveTop + 'px'
           }, {
@@ -92,6 +108,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD:WebContent/index.jsp
 	<div class="wrap">
 		<div class="box firstBox">
 			<img
@@ -216,6 +233,71 @@
 				href="#" id="take">TAKE</a>
 		</div>
 	</div>
+=======
+  <div class="wrap">
+    <div class="box firstBox">
+      <img src="background-Index.png" class="backgroundImg firstImg">
+      <div class="navi firstNavi">
+        <div><a href="#"><img src="b.png" class="logo"></a></div>
+        <div><button class="naviStartBtn">시작하기</button></div>
+      </div>
+      <div class="explan firstExplan">
+        <div class="firstText" style="font-family: 'East Sea Dokdo', cursive;">나를 죽이지 못하는 고통은</div>
+        <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">나를 더 강하게 만든다</div>
+        <div class="referenceText">지금 바로 도전 긔릿</div>
+        <div class="start"><button class="startBtn">레츠고</button></div>
+        <div class="scroll animated infinite bounce delay-2s"><img src="scroll@2x.png"></div>
+      </div>
+    </div>
+
+    <div class="box secondBox">
+      <img src="backgroundMain.jpg" class="backgroundImg secondImg">
+      <div class="navi secondNavi">
+        <div><a href="#"><img src="b.png" class="logo"></a></div>
+        <div><button class="naviStartBtn">시작하기</button></div>
+      </div>
+      <div class="explan firstExplan">
+        <div class="firstText" style="font-family: 'East Sea Dokdo', cursive;">나를 죽이지 못하는 고통은</div>
+        <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">나를 더 강하게 만든다</div>
+        <div class="referenceText">지금 바로 도전 긔릿</div>
+        <div class="start"><button class="startBtn">레츠고</button></div>
+        <div class="scroll animated infinite bounce delay-2s"><img src="scroll@2x.png"></div>
+      </div>
+    </div>
+    <div class="box thirdBox">
+      <img src="thirdImg.jfif" class="backgroundImg thirdImg">
+      <div class="navi thirdNavi">
+        <div><a href="#"><img src="b.png" class="logo"></a></div>
+        <div><button class="naviStartBtn">시작하기</button></div>
+      </div>
+      <div class="explan firstExplan">
+        <div class="firstText" style="font-family: 'East Sea Dokdo', cursive;">나를 죽이지 못하는 고통은</div>
+        <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">나를 더 강하게 만든다</div>
+        <div class="referenceText">지금 바로 도전 긔릿</div>
+        <div class="start"><button class="startBtn">레츠고</button></div>
+        <div class="scroll animated infinite bounce delay-2s"><img src="scroll@2x.png"></div>
+      </div>
+    </div>
+    <div class="box fourthBox">
+      <img src="earth.jpg" class="backgroundImg fourthImg">
+      <div class="navi fourthNavi">
+        <div><a href="#"><img src="b.png" class="logo"></a></div>
+        <div><button class="naviStartBtn">시작하기</button></div>
+      </div>
+      <div class="explan firstExplan">
+        <div class="firstText" style="font-family: 'East Sea Dokdo', cursive;">나를 죽이지 못하는 고통은</div>
+        <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">나를 더 강하게 만든다</div>
+        <div class="referenceText">지금 바로 도전 긔릿</div>
+        <div class="start"><button class="startBtn">레츠고</button></div>        
+      </div>
+    </div>
+  </div>
+  <div class="js-layer  layer  hidden" style="font-family: 'Righteous', cursive;">
+      <div class="close"><button class="closeBtn">X</button></div>
+      <div class="layerFirstText">What's your choice?</div><br>
+      <div class="layerSecondText"><a href="#" id="donate">DONATE</a>&nbsp&nbspOR&nbsp&nbsp<a href="#" id="take">TAKE</a></div>
+  </div>
+>>>>>>> b3c68e3addf6d6ccf2af23185c45c763513a250e:WebContent/index/index.jsp
 </body>
 
 </html>

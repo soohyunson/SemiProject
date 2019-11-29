@@ -115,9 +115,8 @@ a:hover {text-decoration: none;}
     flex-direction: row;
     justify-content: space-between;
     padding: 35px 0px 25px;
-    margin: 50px 300px;    
-    height: 700px;
-    border: 1px solid black;
+    margin: 50px 300px;
+    height: 400px;
 }
 .recruitment{    
     font-size: 30px;

@@ -99,7 +99,7 @@ public class ChallengeDAO {
 	}
 	
 	
-	public ArrayList<ChallengeDTO> selectAll (String giveortake) throws SQLException, Exception{
+	public ArrayList<ChallengeDTO> selectAll (String giveortake) throws Exception{
 		String sql ="select * from challenge where giveortake=?";
 		try(Connection conn = getConnection();
 				PreparedStatement pstat = conn.prepareStatement(sql);){
@@ -129,6 +129,67 @@ public class ChallengeDAO {
 
 	}
 	
+	public ArrayList<ChallengeDTO> selectAll (int seq,String giveortake) throws Exception{
+		String sql ="select * from challenge where seq=? and giveortake=?";
+		try(Connection conn = getConnection();
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+				pstat.setInt(1, seq);
+				pstat.setString(2, giveortake);
+				try(ResultSet rs = pstat.executeQuery()){
+			
+			ArrayList<ChallengeDTO> list = new ArrayList<>();
+			while(rs.next()) {
+				ChallengeDTO dto = new ChallengeDTO();
+				dto.setSeq(rs.getInt(1));
+				dto.setTitle(rs.getString(2));
+				dto.setContent(rs.getString(3));
+				dto.setStart_date(rs.getString(4));
+				dto.setEnd_date(rs.getString(5));
+				dto.setEnd(rs.getString(6));
+				dto.setTotal_participate(rs.getInt(7));
+				dto.setFile_path(rs.getString(8));
+				dto.setGiveortake(rs.getString(9));
+				dto.setCategory(rs.getString(10));
+				
+				list.add(dto);
+
+			}
+			return list;
+		}
+		}
+
+	}
+	
+	public ArrayList<ChallengeDTO> getCatergoryChallege(String giveortake , String category) throws SQLException, Exception{
+		String sql="select * from challenge where giveortake=? and category =?";
+		try(Connection conn = getConnection();
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+			pstat.setString(1, giveortake);
+			pstat.setString(2, category);
+			
+			try(ResultSet rs = pstat.executeQuery()){
+				ArrayList<ChallengeDTO> list = new ArrayList<>();
+				while(rs.next()) {
+					ChallengeDTO dto = new ChallengeDTO();
+					dto.setSeq(rs.getInt(1));
+					dto.setTitle(rs.getString(2));
+					dto.setContent(rs.getString(3));
+					dto.setStart_date(rs.getString(4));
+					dto.setEnd_date(rs.getString(5));
+					dto.setEnd(rs.getString(6));
+					dto.setTotal_participate(rs.getInt(7));
+					dto.setFile_path(rs.getString(8));
+					dto.setGiveortake(rs.getString(9));
+					dto.setCategory(rs.getString(10));
+					
+					list.add(dto);
+				}
+				return list;
+			}
+			
+		}
+		
+	}
 	
 	
 
@@ -159,7 +220,33 @@ public class ChallengeDAO {
 		}
 	}
 
+	public ChallengeDTO getChallenge(int seq, String giveortake) throws Exception {
+		String sql = "select * from challenge where seq=? and giveortake=?";
+		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql)) {
+			pstat.setInt(1, seq);
+			pstat.setString(2, giveortake);
+			try (ResultSet rs = pstat.executeQuery()) {
 
+				ChallengeDTO dto = new ChallengeDTO();
+				if (rs.next()) {
+					dto.setSeq(rs.getInt(1));
+					dto.setTitle(rs.getString("title"));
+					dto.setContent(rs.getString("content"));
+					dto.setStart_date(rs.getString(4));
+					dto.setEnd_date(rs.getString(5));
+					dto.setEnd(rs.getString(6));
+					dto.setTotal_participate(rs.getInt(7));
+					dto.setFile_path(rs.getString(8));
+					dto.setGiveortake(rs.getString(9));
+					dto.setCategory(rs.getString(10));
+				}
+
+				return dto;
+
+			}
+
+		}
+	}
 	
 	public List<ChallengeDTO> selectByPage(int p_start,int p_end) throws Exception{
 		 String sql = "select * from "

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         /* 로그인 폼 */
+         #loginTitle {
+            color: skyblue;
+            margin-top: 20px;
+            margin-left: 40px;
+            font-weight: bold;
+            font-size: 40px;
+        }
+
+        #closeWindow {
+            position: absolute;
+            right: 0px;
+            margin: 5px 20px 0px 0px;
+            border: none;
+            background: white;
+        }
+
+        #closeWindow:hover {
+            cursor: pointer;
+        }
+        .loginIdTitle {
+            font-size: 15px;
+            margin-left: 40px;
+            margin-bottom: 10px;
+        }
+
+        .loginIdDiv {
+            margin-left: 40px;
+            margin-bottom: 30px;
+        }
+    .loginPwTitle {
+            font-size: 15px;
+            margin-bottom: 10px;
+            margin-left: 40px;
+        }
+
+        .loginPwDiv {
+            margin-left: 40px;
+            margin-bottom: 10px;
+        }
+
+        .loginLost {
+            font-size: 10px;
+            opacity: 0.4;
+            text-decoration: none;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .loginRemem {
+            margin-left: 40px;
+            margin-bottom: 10px;
+        }
+
+        .rememberBtn {
+            border: none;
+        }
+
+        .loginLost>a {
+            color: blue;
+        }
+
+        .loginLost>a:link {
+            color: red;
+            text-decoration: none;
+        }
+
+        .loginLost>a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        .loginLost>a:hover {
+            color: skyblue;
+            text-decoration: underline;
+        }
+
+        .loginContinue {
+            margin-bottom: 20px;
+        }
+    </tyle>
+</head>
+<body>
+    <h2 id="loginTitle">LOGIN<input type="button" value="X" id="closeWindow"></h2>
+                <div class="loginIdTitle">USERNAME</div>
+                <div class="loginIdDiv"><input type="text" id="id"></div>
+                <div class="loginPwTitle">PASSWORD</div>
+                <div class="loginPwDiv"><input type="password" id="pw"></div>
+                <div class="loginRemem"><input type="checkbox" class="rememberBtn">Remember ID</div>
+                <div class="loginContinue"><button id="continue">CONTINUE</button></div>
+                <div class="loginLost"><a href="#">회원가입</a>&nbsp&&nbsp<a href="#">아이디</a>&nbsp/&nbsp<a
+                        href="#">비밀번호</a>&nbsp</div>
+</body>
+</html>
