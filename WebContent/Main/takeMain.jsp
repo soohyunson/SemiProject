@@ -175,7 +175,7 @@
                   <c:forEach var="i" begin="0" end="5">
                      <div class="slideDiv">
                         <img src="b.png" class="slideImg">
-                        <h3 class="slideTitle"><a href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(i).seq}">${studylist.get(i).title}</a></h3>
+                        <h3 class="slideTitle">${studylist.get(i).title}</h3>
                         <h5 class="slideExplan">${studylist.get(i).content}</h5>
                      </div>
                   </c:forEach>
