@@ -54,12 +54,20 @@ public class UserBoardServlet extends HttpServlet {
 					System.out.println(dto.size());
 					System.out.println(dto.get(i).getChallenge_num());
 					realdto = ChallengeDAO.getInstance().getChallenge(dto.get(i).getChallenge_num());
-					
-
-					if (realdto.getGiveortake() == "give") {
+					System.out.println(realdto.getGiveortake());
+                      String give = "give";
+                      String take = "take";
+					if (realdto.getGiveortake().equalsIgnoreCase(give)) {
 						record1.add(dto.get(i));
 						list1.add(realdto);
-					} else {
+					} else if(realdto.getGiveortake().equalsIgnoreCase(take)){
+						record2.add(dto.get(i));
+						list2.add(realdto);
+					}else if(realdto.getGiveortake()==null) {
+						record2.add(dto.get(i));
+						list2.add(realdto);
+					}
+					else {
 						record2.add(dto.get(i));
 						list2.add(realdto);
 					}
