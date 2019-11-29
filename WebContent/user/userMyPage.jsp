@@ -87,8 +87,8 @@
 			</div>
 			<br> <br>
 			<c:choose>
-				<c:when test="${givedetail ==  null } ">
-					<div style="text-align: start; margin-left: 5%;"">기부</div>
+				<c:when test="${empty givedetail and !empty takedetail } ">
+					<div style="text-align: start; margin-left: 5%;">기부</div>
 					<div class="row">
 						<div>존재하는 챌린지가 없습니다.</div>
 
@@ -98,10 +98,13 @@
 					<div style="text-align: start; margin-left: 5%;">테이크</div>
 					<div class="row">
 						<c:set var="sizee" value="${fn:length(takedetail)-1}" />
+						
+						<c:if test="${sizee <= 0 }">
+							<c:set var="sizee" value="0" />
+						</c:if>
 						<c:forEach var="j" begin="0" end="${sizee}">
 							<div class="col-4">
-								<a
-									href="${pageContext.request.contextPath}/myPageDetailView.usboard?seq=${takedetail[j].seq}&seq2=${takerecord[j].seq}">
+								<a href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${takedetail[j].seq}&recordSeq=${takerecord[j].seq}">
 									<div class="card m-3">
 
 										<img src="${takedetail[j].file_path}" class="card-img-top">
@@ -117,7 +120,7 @@
 						</c:forEach>
 					</div>
 				</c:when>
-				<c:when test="${takedetail == null }">
+				<c:when test="${!empty givedetail and empty takedetail }">
 					<div style="text-align: start; margin-left: 5%;">기부</div>
 					<div class="row">
 
@@ -131,7 +134,7 @@
 
 							<div class="col-4">
 								<a
-									href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${givedetail.get[i].seq}&recordSeq=${giverecord[i].seq}">
+									href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${givedetail[i].seq}&recordSeq=${giverecord[i].seq}">
 									<div class="card m-3">
 
 										<img src="${givedetail.get[i].file_path}" class="card-img-top">
@@ -153,8 +156,26 @@
 						<div>존재하는 챌린지가 없습니다.</div>
 					</div>
 				</c:when>
+				<c:when  test="${givedetail.size() ==  0 and takedetail.size() == 0 }">
+					
+					<div style="text-align: start; margin-left: 5%;">기부</div>
+					<div class="row">
+						<div>존재하는 챌린지가 없습니다.</div>
+
+
+
+					</div>
+					<div style="text-align: start; margin-left: 5%;">테이크</div>
+					<div class="row">
+						<div>존재하는 챌린지가 없습니다.</div>
+							
+
+						
+					</div>
+				</c:when>
+				
 				<c:otherwise>
-					<div style="text-align: start; margin-left: 5%;"">기부</div>
+					<div style="text-align: start; margin-left: 5%;">기부</div>
 					<div class="row">
 						<c:set var="size" value="${fn:length(givedetail)-1}" />
 

@@ -116,7 +116,7 @@ public class AdminBoardServlet extends HttpServlet {
 			    	List<ChallengeDTO> dto =  ChallengeDAO.getInstance().selectByPage(start, end);
 			    request.setAttribute("page", page);
 				request.setAttribute("dto", dto);
-				request.getRequestDispatcher("adminChallenge/adminChallengeList.jsp").forward(request, response);
+				request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
 			    }catch(Exception e) {
 			    	e.printStackTrace();
 			        response.sendRedirect("error.jsp");
