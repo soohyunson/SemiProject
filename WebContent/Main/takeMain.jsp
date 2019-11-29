@@ -76,9 +76,8 @@
 		<div class="header">
 			<div class="navi">
 				<div class="naviBox">
-					<span class="flex"><img
-						src="${pageContext.request.contextPath }/Img/b.png"
-						class="naviLogo"></span> <span class="flex challengeLogo">테이크챌린지</span>
+					<span class="flex"><img src="${pageContext.request.contextPath }/Img/b.png" class="naviLogo"></span> <span class="flex challengeLogo">테이크챌린지</span>
+>>>>>>> b3c68e3addf6d6ccf2af23185c45c763513a250e
 					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
 					<c:choose>
 						<c:when test="${loginResult == null }">

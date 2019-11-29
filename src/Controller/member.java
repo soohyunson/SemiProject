@@ -90,6 +90,16 @@ public class member extends HttpServlet {
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
+<<<<<<< HEAD
+			}else if(realPath.contentEquals("/adminChallenge/search.mem")) {
+				try {
+				String id = request.getParameter("search");
+				System.out.println(id); 
+				List<MemberDTO> dto = dao.search(id);
+//				System.out.println(dto.getId() + " : " + dto.getName()); ok
+				request.setAttribute("dto", dto);
+				request.getRequestDispatcher("../memberlist.jsp").forward(request, response);
+=======
 			}else if(realPath.contentEquals("/search.mem")) {
 				try {
 				String id = request.getParameter("search");
@@ -98,13 +108,18 @@ public class member extends HttpServlet {
 //				System.out.println(dto.getId() + " : " + dto.getName()); ok
 				request.setAttribute("dto", dto);
 				request.getRequestDispatcher("memberlist.jsp").forward(request, response);
+>>>>>>> b3c68e3addf6d6ccf2af23185c45c763513a250e
 				
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
 			}else if(realPath.contentEquals("/Main/logout.mem")) {
 				request.getSession().invalidate();
+<<<<<<< HEAD
+				response.sendRedirect("../index.jsp");
+=======
 				response.sendRedirect("../index/index.jsp");
+>>>>>>> b3c68e3addf6d6ccf2af23185c45c763513a250e
 			}
 		
 	}
