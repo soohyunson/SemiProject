@@ -12,6 +12,8 @@ public class ChallengeDTO {
 	private String file_path;
 	private String giveortake;
 	private String category;
+	private int pp_point;
+	private int total_amount;
 	
 	
 	
@@ -20,7 +22,7 @@ public class ChallengeDTO {
 		// TODO Auto-generated constructor stub
 	}
 	public ChallengeDTO(int seq, String title, String content, String start_date, String end_date, String end,
-			int total_participate, String file_path, String giveortake,String category) {
+			int total_participate, String file_path, String giveortake,String category,int pp_point,int total_amount) {
 		super();
 		this.seq = seq;
 		this.title = title;
@@ -32,6 +34,8 @@ public class ChallengeDTO {
 		this.file_path=file_path;
 		this.giveortake=giveortake;
 		this.category=category;
+		this.pp_point=pp_point;
+		this.total_amount=total_amount;
 	}
 	public ChallengeDTO(String end_date) {
 		super();
@@ -96,6 +100,18 @@ public class ChallengeDTO {
 	}
 	public void setCategory(String category) {
 		this.category = category;
+	}
+	public int getPp_point() {
+		return pp_point;
+	}
+	public void setPp_point(int pp_point) {
+		this.pp_point = pp_point;
+	}
+	public int getTotal_amount() {
+		return total_amount;
+	}
+	public void setTotal_amount(int total_amount) {
+		this.total_amount = total_amount;
 	}
 	
 
