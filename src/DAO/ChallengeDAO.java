@@ -45,8 +45,12 @@ public class ChallengeDAO {
 			pstat.setString(3, dto.getStart_date());
 			pstat.setString(4, dto.getEnd_date());
 			pstat.setString(5, dto.getEnd());
-			pstat.setInt(5, dto.getTotal_participate());
+			pstat.setInt(6, dto.getTotal_participate());
 			pstat.setString(7, dto.getFile_path());
+			pstat.setString(8, dto.getGiveortake());
+			pstat.setString(9, dto.getCategory());
+			pstat.setInt(10, dto.getPp_point());
+			pstat.setInt(11, dto.getTotal_amount());
 
 			int result = pstat.executeUpdate();
 			conn.commit();
@@ -88,6 +92,8 @@ public class ChallengeDAO {
 				dto.setFile_path(rs.getString(8));
 				dto.setGiveortake(rs.getString(9));
 				dto.setCategory(rs.getString(10));
+				dto.setPp_point(rs.getInt(11));
+				dto.setTotal_amount(rs.getInt(12));
 				
 				list.add(dto);
 
@@ -119,6 +125,8 @@ public class ChallengeDAO {
 				dto.setFile_path(rs.getString(8));
 				dto.setGiveortake(rs.getString(9));
 				dto.setCategory(rs.getString(10));
+				dto.setPp_point(rs.getInt(11));
+				dto.setTotal_amount(rs.getInt(12));
 				
 				list.add(dto);
 
@@ -150,6 +158,8 @@ public class ChallengeDAO {
 				dto.setFile_path(rs.getString(8));
 				dto.setGiveortake(rs.getString(9));
 				dto.setCategory(rs.getString(10));
+				dto.setPp_point(rs.getInt(11));
+				dto.setTotal_amount(rs.getInt(12));
 				
 				list.add(dto);
 
@@ -181,6 +191,8 @@ public class ChallengeDAO {
 					dto.setFile_path(rs.getString(8));
 					dto.setGiveortake(rs.getString(9));
 					dto.setCategory(rs.getString(10));
+					dto.setPp_point(rs.getInt(11));
+					dto.setTotal_amount(rs.getInt(12));
 					
 					list.add(dto);
 				}
@@ -211,6 +223,8 @@ public class ChallengeDAO {
 					dto.setFile_path(rs.getString(8));
 					dto.setGiveortake(rs.getString(9));
 					dto.setCategory(rs.getString(10));
+					dto.setPp_point(rs.getInt(11));
+					dto.setTotal_amount(rs.getInt(12));
 				}
 
 				return dto;
@@ -220,11 +234,11 @@ public class ChallengeDAO {
 		}
 	}
 
-	public ChallengeDTO getChallenge(int seq, String giveortake) throws Exception {
-		String sql = "select * from challenge where seq=? and giveortake=?";
+	public ChallengeDTO getChallenge(String giveortake) throws Exception {
+		String sql = "select * from challenge where giveortake=?";
 		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql)) {
-			pstat.setInt(1, seq);
-			pstat.setString(2, giveortake);
+			
+			pstat.setString(1, giveortake);
 			try (ResultSet rs = pstat.executeQuery()) {
 
 				ChallengeDTO dto = new ChallengeDTO();
@@ -239,6 +253,8 @@ public class ChallengeDAO {
 					dto.setFile_path(rs.getString(8));
 					dto.setGiveortake(rs.getString(9));
 					dto.setCategory(rs.getString(10));
+					dto.setPp_point(rs.getInt(11));
+					dto.setTotal_amount(rs.getInt(12));
 				}
 
 				return dto;
@@ -274,7 +290,9 @@ public class ChallengeDAO {
 						 String file_path = rs.getString(8);
 						 String giveortake = rs.getString(9);
 						 String category = rs.getString(10);
-						 ChallengeDTO dto = new ChallengeDTO(seq,title,content,start_date,end_date,end,total_partcipate,file_path,giveortake,category);
+						 int pp_point = rs.getInt(11);
+						 int total_amount = rs.getInt(12);
+						 ChallengeDTO dto = new ChallengeDTO(seq,title,content,start_date,end_date,end,total_partcipate,file_path,giveortake,category,pp_point,total_amount);
 						 
 						 result.add(dto);
 					 }
@@ -284,7 +302,7 @@ public class ChallengeDAO {
 			         }//try1
 	 }
 	public int insertWrite(ChallengeDTO dto) throws Exception{
-		 String sql = "insert into challenge values(challenge_seq.nextval,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),'N','0',?,?,?)";
+		 String sql = "insert into challenge values(challenge_seq.nextval,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),'N','0',?,?,?,?,?)";
 		 
 		 try(
 		 Connection con = this.getConnection();
@@ -297,6 +315,8 @@ public class ChallengeDAO {
 		 pstat.setString(5, dto.getFile_path());
 		 pstat.setString(6, dto.getGiveortake());
 		 pstat.setString(7, dto.getCategory());
+		 pstat.setInt(8, dto.getPp_point());
+		 pstat.setInt(9, dto.getTotal_amount());
 		 int result = pstat.executeUpdate();
 		 con.commit();
 		 return result;

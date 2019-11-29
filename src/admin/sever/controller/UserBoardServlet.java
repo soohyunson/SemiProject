@@ -54,12 +54,20 @@ public class UserBoardServlet extends HttpServlet {
 					System.out.println(dto.size());
 					System.out.println(dto.get(i).getChallenge_num());
 					realdto = ChallengeDAO.getInstance().getChallenge(dto.get(i).getChallenge_num());
-					
-
-					if (realdto.getGiveortake() == "give") {
+					System.out.println(realdto.getGiveortake());
+                      String give = "give";
+                      String take = "take";
+					if (realdto.getGiveortake().equalsIgnoreCase(give)) {
 						record1.add(dto.get(i));
 						list1.add(realdto);
-					} else {
+					} else if(realdto.getGiveortake().equalsIgnoreCase(take)){
+						record2.add(dto.get(i));
+						list2.add(realdto);
+					}else if(realdto.getGiveortake()==null) {
+						record2.add(dto.get(i));
+						list2.add(realdto);
+					}
+					else {
 						record2.add(dto.get(i));
 						list2.add(realdto);
 					}
@@ -72,7 +80,7 @@ public class UserBoardServlet extends HttpServlet {
 				request.setAttribute("takerecord", record2);
 				request.setAttribute("givedetail", list1);
 				request.setAttribute("takedetail", list2);
-				request.getRequestDispatcher("jsp/userMyPage.jsp").forward(request, response);
+				request.getRequestDispatcher("user/userMyPage.jsp").forward(request, response);
 
 			} catch (Exception e) {
 				System.out.println("오류다~~!!");
@@ -85,7 +93,7 @@ public class UserBoardServlet extends HttpServlet {
 			try {
 				detail = ChallengeDAO.getInstance().getChallenge(seq);
 				request.setAttribute("detailpage", detail);
-				RequestDispatcher rd = request.getRequestDispatcher("jsp/detail.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("user/detail.jsp");
 				rd.forward(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

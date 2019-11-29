@@ -51,7 +51,7 @@ public class AdminBoardServlet extends HttpServlet {
 		
 				
 			}catch(Exception e) {
-				System.out.println("ç���� �������� ����~~!!");
+				System.out.println("nonono~~!!");
 				e.printStackTrace();
 			}
 			
@@ -95,7 +95,7 @@ public class AdminBoardServlet extends HttpServlet {
 				    	List<ChallengeDTO> dto =  ChallengeDAO.getInstance().selectByPage(start, end );
 				    request.setAttribute("page", page);
 					request.setAttribute("dto", dto);
-					request.getRequestDispatcher("adminChallenge/adminChallengeList.jsp").forward(request, response);
+					request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
 				    }catch(Exception e) {
 				    	e.printStackTrace();
 				        //response.sendRedirect("error.jsp");
@@ -145,14 +145,15 @@ String uploadPath = request.getServletContext().getRealPath("/files");
 				//String writer = (String)request.getSession().getAttribute("loginInfo");
 				String start_date = multi.getParameter("startdate");
 				String end_date = multi.getParameter("enddate");
-				
+				String giveortake = multi.getParameter("giveortake");
+				String category = multi.getParameter("category");
 				
 				
 			
 				System.out.println(title);
 				System.out.println(contents);
 				
-				//ChallengeDTO dto = new ChallengeDTO(0,title,contents,start_date,end_date,"N",0,oriFileName);
+				ChallengeDTO dto = new ChallengeDTO(0,title,contents,start_date,end_date,"N",0,oriFileName,giveortake,category,10000,10000);
 				try {
 				int result = ChallengeDAO.getInstance().insertWrite(dto);
 				System.out.println(result);
