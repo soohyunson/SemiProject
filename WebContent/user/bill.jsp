@@ -55,8 +55,7 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
-
-                color:#7019FF;
+                color:black;
             }
             .navi-item{
                 list-style-type: none;
@@ -64,7 +63,7 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
-                color:#7019FF;
+                color:black;
             }
             .navi-item2{
                 list-style-type: none;
@@ -80,7 +79,7 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
-                color:#7019FF;
+                color:black;
             }
             .navi-item>a{
                 text-decoration: none;
@@ -91,14 +90,14 @@
             }
             .navi-item2>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
             }
             .navi-item3>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
@@ -106,7 +105,7 @@
             }
             .navi-title>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
@@ -122,23 +121,23 @@
                 margin-top:0px;
             }
             .onefloor{
-                border-bottom: 3px solid #7019FF;
-                border-top: 3px solid #7019FF;
+                border-bottom: 3px solid black;
+                border-top: 3px solid black;
                 border-radius: 3px;
             }
             .twofloor{
-                border-bottom: 3px solid #7019FF;
+                border-bottom: 3px solid black;
                 border-radius: 3px;
 
             }
             .threefloor{
-                border-bottom: 3px solid #7019FF;
+                border-bottom: 3px solid black;
                 border-radius: 3px;
                 height: 50px;
             }
 
             .fivefloor{
-                border-top: 3px solid #7019FF;
+                border-top: 3px solid black;
                 border-radius: 3px;
                 width: 100%;
                 background-color: gainsboro;
@@ -154,7 +153,7 @@
                 right: 3%;
                 width: 16%;
                 height: 500px;
-                border: 3px solid #7019FF;
+                border: 3px solid black;
             }
             #enjoybtn{
                 width: 80%;

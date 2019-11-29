@@ -286,15 +286,7 @@
             
             
             <div class="fourthfloor">
-                <div class="middlethird" id="summary">
-                ${detailpage.title}
-                 ${detailpage.content}
-                  ${detailpage.start_date}
-                   ${detailpage.end_date}
-                    ${detailpage.total_participate}
-                    
                 
-                </div>
             </div>
             
         </div>
@@ -376,7 +368,13 @@
     </script>
     <script>
     	$("#enjoybtn").on("click",function(){
-    		location.href="bill.jsp";
+    		if(${id != null}){
+    			location.href="${pageContext.request.contextPath }/user/bill.jsp";
+    		}else{
+    			alert("로그인 페이지로 이동합니다");
+    			location.href="${pageContext.request.contextPath }/user/login/login.jsp"
+    		}
+
     	})
     </script>
     </body>
