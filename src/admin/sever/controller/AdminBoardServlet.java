@@ -47,8 +47,11 @@ public class AdminBoardServlet extends HttpServlet {
 				request.setAttribute("dto", dto);
 				request.getRequestDispatcher("test.jsp").forward(request, response);
 
-			} catch (Exception e) {
-				System.out.println("ç���� �������� ����~~!!");
+		
+				
+			}catch(Exception e) {
+				System.out.println("nonono~~!!");
+
 				e.printStackTrace();
 			}
 
@@ -148,11 +151,16 @@ public class AdminBoardServlet extends HttpServlet {
 				String start_date = multi.getParameter("startdate");
 				String end_date = multi.getParameter("enddate");
 
+				String giveortake = multi.getParameter("giveortake");
+				String category = multi.getParameter("category");
+				
+				
+			
 				System.out.println(title);
 				System.out.println(contents);
+				
+				ChallengeDTO dto = new ChallengeDTO(0,title,contents,start_date,end_date,"N",0,oriFileName,giveortake,category,10000,10000);
 
-				// ChallengeDTO dto = new
-				// ChallengeDTO(0,title,contents,start_date,end_date,"N",0,oriFileName);
 				try {
 					//int result = ChallengeDAO.getInstance().insertWrite(dto);
 					//System.out.println(result);
