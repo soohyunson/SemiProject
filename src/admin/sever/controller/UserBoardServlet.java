@@ -48,8 +48,8 @@ public class UserBoardServlet extends HttpServlet {
 				ArrayList<Challenge_recordDTO> record2 = new ArrayList<>();
 				ChallengeDTO realdto = new ChallengeDTO();
 				
-				String id = request.getParameter("id");
-				List<Challenge_recordDTO> dto = ChallengeRecordDAO.getInstance().selectAll("sky");
+				String id = (String)request.getSession().getAttribute("id");
+				List<Challenge_recordDTO> dto = ChallengeRecordDAO.getInstance().selectAll(id);
 				for (int i = 0; i < dto.size(); i++) {
 					System.out.println(dto.size());
 					System.out.println(dto.get(i).getChallenge_num());
@@ -80,7 +80,7 @@ public class UserBoardServlet extends HttpServlet {
 				request.setAttribute("takerecord", record2);
 				request.setAttribute("givedetail", list1);
 				request.setAttribute("takedetail", list2);
-				request.getRequestDispatcher("jsp/userMyPage.jsp").forward(request, response);
+				request.getRequestDispatcher("user/userMyPage.jsp").forward(request, response);
 
 			} catch (Exception e) {
 				System.out.println("오류다~~!!");
