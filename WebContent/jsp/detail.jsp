@@ -133,12 +133,12 @@
                 border-top: 3px solid #7019FF;
                 border-radius: 3px;
             }
-            .twofloor{
+            .topfloor{
                 border-bottom: 3px solid #7019FF;
                 border-radius: 3px;
 
             }
-            .threefloor{
+            .rfloor{
                 position: relative;
                 top:150px;
                 background-color: #edceed;
@@ -151,7 +151,7 @@
                 top:300px;
             }
 
-            .fivefloor{
+            .fifthfloor{
                 border-top: 3px solid #7019FF;
                 border-radius: 3px;
                 width: 100%;
@@ -202,32 +202,76 @@
                 margin: 0;
                 border: 0px solid black;
             }
+            .onefloor{
+            	height : 400px;
+            	width: 100%;
+            	border: 1px solid black;
+            	margin: auto;
+            }
+            .twofloor{
+            	border: 1px solid black;
+            	height: 60px;
+            	width: 100%;
+            	font-size: 30px;
+            	text-align: center;
+            }
+            .threefloor{
+            	border: 1px solid black;
+            	height: 50px;
+            }
+            .fourfloor{
+            	border: 1px solid black;
+            	height: 60px;
+            	font-size: 40px;
+            	text-align: center;
+            }
+            .fivefloor{
+            	border: 1px solid black;
+            	height: 500px;
+            }
             .fourthfloor{
                 height: 500px;
             }
             .fifthfloor{
                 height: 500px;
             }
-            .seventhfloor{
-                height: 500px; 
+            .wrapper{
+            	text-align: center;
             }
-            .eighthfloor{
-                height: 500px;
-            }
+            
         </style>
 
     </head>
     <body>        
         <div class="container">
             <br><br><br>
-            <div class="twofloor">
+            <div class="topfloor">
               <div class="bd-example">
                     <img src = "${detailpage.file_path}">
                 </div>
                
             </div>
-            
+            <br>
+            <div class="onefloor">
+             	사진자리
+            </div>
+            <br>
+            <div class="twofloor">
+            give or take challenge 입니다.
+            </div>
+            <br>
             <div class="threefloor">
+            	카테고리 출력 부분
+            </div>
+            <br>
+            <div class="fourfloor">
+            	제목출력
+            </div>
+            <br>
+            <div class="fivefloor">
+            	내용출력
+            </div>
+            <div class="rfloor">
              <br>  <br>  <br> <br>
               <h1>레드카드발급 관련 공통 안내사항</h1><br><br><br>
                1. 인증규정과 무관한 이미지로 인증을 대체하려 한 경우<br>
@@ -261,7 +305,7 @@
             
         </div>
 
-        <div class="fivefloor">
+        <div class="fifthfloor">
             <ul class="lastbar">
                 <li class="navi-item3"><a href="#">COMPANY</a></li>
                 <li class="navi-item3"><a href="#">POLICIES</a></li>
@@ -293,7 +337,11 @@
         </div>
     <div class="category">
         <div class="wrapper">
-            <div><a href="bill.html"><input type="button" value="enjoy" id="enjoybtn"></a></div>
+        	<div>챌린지명</div>
+        	<div>시작일</div>
+        	<div>마감일</div>
+        	<div>give or take</div>
+            <div><button id="enjoybtn">enjoy</button></div>
         </div>
     </div>
     <ul class="navi">
