@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
     <head>
@@ -27,7 +27,6 @@
                 position:absolute;
                 top:0px;
                 margin:0px;
-
                 overflow: hidden;
                 padding:0px;
                 width:60%;
@@ -35,10 +34,6 @@
                 background-color: #FFFFFF90;
                 font-family:fantasy;
                 font-size: 20px;
-
-
-
-
             }
             .title{
                 margin:0px;
@@ -70,8 +65,7 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
-
-                color:#7019FF;
+                color:black;
             }
             .navi-item2{
                 list-style-type: none;
@@ -79,7 +73,7 @@
                 line-height:30px;
                 float:left;
                 text-align: center;
-                color:#7019FF;
+                color:black;
             }
             .navi-item3{
                 list-style-type: none;
@@ -87,18 +81,18 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
-                color:#7019FF;
+                color:black;
             }
             .navi-item>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
             }
             .navi-item2>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
@@ -113,7 +107,7 @@
             }
             .navi-title>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
@@ -129,12 +123,12 @@
                 margin-top:0px;
             }
             .onefloor{
-                border-bottom: 3px solid #7019FF;
-                border-top: 3px solid #7019FF;
+                border-bottom: 3px solid black;
+                border-top: 3px solid black;
                 border-radius: 3px;
             }
             .topfloor{
-                border-bottom: 3px solid #7019FF;
+                border-bottom: 3px solid black;
                 border-radius: 3px;
 
             }
@@ -152,7 +146,7 @@
             }
 
             .fifthfloor{
-                border-top: 3px solid #7019FF;
+                border-top: 3px solid black;
                 border-radius: 3px;
                 width: 100%;
                 background-color: gainsboro;
@@ -168,15 +162,11 @@
                 right: 3%;
                 width: 16%;
                 height: 500px;
-                border: 3px solid #7019FF;
+                border: 3px solid black;
             }
             #enjoybtn{
-                width: 80%;
-                height: 50px;
                 font-size: 20px;
-                position: relative;
-                top : 430px;
-                
+
             }
             .submenu{
                 font-family: 'Calistoga', cursive;
@@ -218,6 +208,8 @@
             .threefloor{
             	border: 1px solid black;
             	height: 50px;
+            	text-align: center;
+            	font-size: 20px;
             }
             .fourfloor{
             	border: 1px solid black;
@@ -237,6 +229,8 @@
             }
             .wrapper{
             	text-align: center;
+            	height: 100%;
+            	border: 1px solid black;
             }
             
         </style>
@@ -253,23 +247,23 @@
             </div>
             <br>
             <div class="onefloor">
-             	사진자리
+             	<img style="height: 100%; width: 100%;" src="${pageContext.request.contextPath}/files/${detailpage.file_path }">
             </div>
             <br>
             <div class="twofloor">
-            give or take challenge 입니다.
+            "${detailpage.giveortake }" 챌린지
             </div>
             <br>
             <div class="threefloor">
-            	카테고리 출력 부분
+            	${detailpage.category }
             </div>
             <br>
             <div class="fourfloor">
-            	제목출력
+            	${detailpage.title }
             </div>
             <br>
             <div class="fivefloor">
-            	내용출력
+            	${detailpage.content }
             </div>
             <div class="rfloor">
              <br>  <br>  <br> <br>
@@ -337,11 +331,13 @@
         </div>
     <div class="category">
         <div class="wrapper">
-        	<div>챌린지명</div>
-        	<div>시작일</div>
-        	<div>마감일</div>
-        	<div>give or take</div>
-            <div><button id="enjoybtn">enjoy</button></div>
+        	<div style="height:30%" style="font-size: 18px;">
+        	${detailpage.title } 챌린지
+        	</div>
+        	<div style="height:15%">${detailpage.start_date } </div>
+        	<div style="height:15%">${detailpage.end_date }</div>
+        	<div style="height:20%">${detailpage.giveortake }</div>
+        	<div style="height:20%"><button id="enjoybtn">enjoy</button></div>
         </div>
     </div>
     <ul class="navi">
@@ -349,7 +345,6 @@
             <li class="navi-title"><a href="#"><img src="reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
         </ul>
         <ul class="itemList">
-
             <li class="navi-item"><a href="#">GIVE OR TAKE</a></li>
             <li class="navi-item"><a href="#">CHALLENGE</a></li>
             <li class="navi-item"><a href="#">MYPAGE</a></li>
@@ -378,6 +373,11 @@
             // Configuration options go here
             options: {}
         });
+    </script>
+    <script>
+    	$("#enjoybtn").on("click",function(){
+    		location.href="bill.jsp";
+    	})
     </script>
     </body>
 </html>
