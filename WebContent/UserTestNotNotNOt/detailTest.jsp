@@ -12,15 +12,12 @@ td {
 	width: 200px;
 	height: 200px;
 }
-<<<<<<< HEAD
 
 img {
 	width: 100%;
 	hegiht: 100%;
-=======
-.confirmDiv{
 
->>>>>>> 8210a0595e3f260c2fe1085c28d5d8b9350d3818
+
 }
 </style>
 <script type="text/javascript">
