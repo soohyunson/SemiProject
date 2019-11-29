@@ -129,7 +129,7 @@
                </div>
             </c:when>
             <c:when test="${takedetail.size() == 0 }">
-               <div style="text-align: start; margin-left: 5%;"">기부</div>
+               <div style="text-align: start; margin-left: 5%;">기부</div>
                <div class="row">
 
 
@@ -222,7 +222,7 @@
 
 
    <br>
-   </div>
+ 
 
    <div class="fourfloor">
       <br>
@@ -276,8 +276,6 @@
       </div>
       <br>
    </div>
-
-   </div>
    <div class="category">
       <div class="wrapper">
          <br>
@@ -322,9 +320,7 @@
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
-   <script>
 
-        </script>
 
 
 </body>
