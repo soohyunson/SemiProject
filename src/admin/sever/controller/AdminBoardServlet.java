@@ -176,6 +176,24 @@ String uploadPath = request.getServletContext().getRealPath("/files");
 			}
 
 		}
+		else if(realPath.contentEquals("/modify.adboard")) {
+			
+		}else if(realPath.contentEquals("/delete.adboard")) {
+			String seq = request.getParameter("seq");
+			
+			System.out.println(seq);
+			int seq2 = Integer.parseInt(seq);
+			try {
+			int cresult = ChallengeDAO.getInstance().delete(seq2);
+		
+			int rresult = ChallengeRecordDAO.getInstance().deleteByChall(seq2);
+			
+			response.sendRedirect("list.adboard");
+			}catch(Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
