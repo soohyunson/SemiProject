@@ -87,9 +87,9 @@
 					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
 						<c:choose>
 							<c:when test="${loginResult == null }">
-								<a href="${pageContext.request.contextPath }/login/login.jsp"
+								<a href="${pageContext.request.contextPath }/user/login/login.jsp"
 									class="login">로그인</a>
-								<a href="${pageContext.request.contextPath }/login/signup.jsp"
+								<a href="${pageContext.request.contextPath }/user/login/signup.jsp"
 									class="signUp">회원가입</a></span>
 					</c:when>
 					<c:otherwise>
