@@ -80,7 +80,7 @@ public class UserBoardServlet extends HttpServlet {
 				request.setAttribute("takerecord", record2);
 				request.setAttribute("givedetail", list1);
 				request.setAttribute("takedetail", list2);
-				request.getRequestDispatcher("jsp/userMyPage.jsp").forward(request, response);
+				request.getRequestDispatcher("user/userMyPage.jsp").forward(request, response);
 
 			} catch (Exception e) {
 				System.out.println("오류다~~!!");

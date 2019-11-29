@@ -26,7 +26,7 @@ public class member extends HttpServlet {
 		System.out.println(realPath);
 		
 
-		if (realPath.contentEquals("/login/login.mem")) {
+		if (realPath.contentEquals("/user/login/login.mem")) {
 			try {
 				String id = request.getParameter("id");
 				String pw = request.getParameter("pw");
@@ -41,7 +41,7 @@ public class member extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (realPath.contentEquals("/login/idcheck.mem")) {
+		} else if (realPath.contentEquals("/user/login/idcheck.mem")) {
 			try {
 				String id = request.getParameter("id");
 				//id 받아오기 ok
@@ -53,7 +53,7 @@ public class member extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (realPath.contentEquals("/login/signup.mem")) {
+		} else if (realPath.contentEquals("/user/login/signup.mem")) {
 			request.setCharacterEncoding("utf8");
 			try {
 				String id = request.getParameter("id");
@@ -104,10 +104,10 @@ public class member extends HttpServlet {
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
-			}else if(realPath.contentEquals("/Main/logout.mem")) {
+			}else if(realPath.contentEquals("/logout.mem")) {
 				request.getSession().invalidate();
 
-				response.sendRedirect("../index/index.jsp");
+				response.sendRedirect("index.jsp");
 
 			}
 		
