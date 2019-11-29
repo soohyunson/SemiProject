@@ -96,7 +96,7 @@
          <br>
          <c:choose>
             <c:when test="${givedetail.size() == 0 } ">
-               <div style="text-align: start; margin-left: 5%;"">기부</div>
+               <div style="text-align: start; margin-left: 5%;">기부</div>
                <div class="row">
                   <div>존재하는 챌린지가 없습니다.</div>
 

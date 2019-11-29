@@ -50,6 +50,10 @@ public class PayMentServelt extends HttpServlet {
 			//아이디 불러옴
 			//String id = (String) request.getSession().getAttribute("");
 			request.getRequestDispatcher("/pay/charge.jsp").forward(request, response);
+		}else if(URL.equals("/myPage/refunds.pay")) {
+			//아이디 불러옴
+			//String id = (String) request.getSession().getAttribute("");
+			request.getRequestDispatcher("/pay/refunds.jsp").forward(request, response);
 		}
 	}
 

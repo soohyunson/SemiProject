@@ -36,192 +36,19 @@
 	</div>
 </noscript>
 <style>
-body {
-	margin: 0px;
-	padding: 0px;
-	background-color: #FFFFFF;
-	box-sizing: border-box;
-}
-
-.lastbar {
-	margin: 0px;
-	overflow: hidden;
-	padding: 0px;
-}
-
-.navi {
-	position: fixed;
-	top: 0px;
-	margin: 0px;
-	overflow: hidden;
-	padding: 0px;
-	width: 60%;
-	left: 20%;
-	background-color: #FFFFFF90;
-	font-family: fantasy;
-	font-size: 20px;
-}
-
-.title {
-	margin: 0px;
-	padding: 0px;
-	width: 50%;
-}
-
-.itemList {
-	position: absolute;
-	margin: 0px;
-	padding: 0px;
-	right: 0px;
-	width: 50%;
-}
-
-.navi-title {
-	list-style-type: none;
-	width: 50%;
-	line-height: 72px;
-	float: left;
-	text-align: center;
-	color: #1D1F21;
-}
-
-.navi-item {
-	list-style-type: none;
-	width: 30%;
-	line-height: 72px;
-	float: left;
-	text-align: center;
-	color: #1D1F21;
-}
-
-.navi-item2 {
-	list-style-type: none;
-	width: 25%;
-	line-height: 30px;
-	float: left;
-	text-align: center;
-	color: #1D1F21;
-}
-
-.navi-item3 {
-	list-style-type: none;
-	width: 25%;
-	line-height: 72px;
-	float: left;
-	text-align: center;
-	color: #1D1F21;
-}
-
-.navi-item>a {
-	text-decoration: none;
-	color: #1D1F21;
-	width: 100%;
-	height: 100%;
-	display: block;
-}
-
-.navi-item2>a {
-	text-decoration: none;
-	color: #1D1F21;
-	width: 100%;
-	height: 100%;
-	display: block;
-}
-
-.navi-item3>a {
-	text-decoration: none;
-	color: #1D1F21;
-	width: 100%;
-	height: 100%;
-	display: block;
-	font-weight: bold;
-}
-
-.navi-title>a {
-	text-decoration: none;
-	color: #1D1F21;
-	width: 100%;
-	height: 100%;
-	display: block;
-}
-
-.navi-item>a:hover {
-	background-color: orange;
-}
-
-.container {
-	background-color: #ededed;
-	width: 60%;
-	margin: auto;
-	margin-top: 0px;
-}
-
-.onefloor {
-	border-bottom: 3px solid #1D1F21;
-	border-top: 3px solid #1D1F21;
-	border-radius: 3px;
-}
-
-.twofloor {
-	border-bottom: 3px solid #1D1F21;
-	border-radius: 3px;
-	text-align: center;
-}
-
-.threefloor {
-	border-bottom: 3px solid #1D1F21;
-	border-radius: 3px;
-}
-
-.fivefloor {
-	border-top: 3px solid #1D1F21;
-	border-radius: 3px;
-	width: 100%;
-	background-color: gainsboro;
-}
-
-.progress {
-	display: inline-block;
-	width: 90%;
-	height: 10%;
-}
-
-.category {
-	position: fixed;
-	top: 80px;
-	left: 7%;
-	width: 12%;
-	height: 300px;
-	border: 3px solid #1D1F21;
-}
-
-.submenu {
-	font-family: 'Calistoga', cursive;
-	color: #1D1F21;
-}
-
-.sidebar {
-	height: 51px;
-	font-family: 'Calistoga', cursive;
-	text-align: center;
-}
-
-.sidebar>a {
-	height: 100%;
-	color: #1D1F21;
-}
-
-.payrow {
-	height: 200%;
-}
+	body{margin:0;padding:0;background-color:#fff;box-sizing:border-box}.lastbar{margin:0;overflow:hidden;padding:0}.navi{position:fixed;top:0;margin:0;overflow:hidden;padding:0;width:60%;left:20%;background-color:#fffFFF90;font-family:fantasy;font-size:20px}.title{margin:0;padding:0;width:50%}.itemList{position:absolute;margin:0;padding:0;right:0;width:50%}.navi-title{list-style-type:none;width:50%;line-height:72px;float:left;text-align:center;color:#1d1f21}.navi-item{list-style-type:none;width:30%;line-height:72px;float:left;text-align:center;color:#1d1f21}.navi-item2{list-style-type:none;width:25%;line-height:30px;float:left;text-align:center;color:#1d1f21}.navi-item3{list-style-type:none;width:25%;line-height:72px;float:left;text-align:center;color:#1d1f21}.navi-item>a{text-decoration:none;color:#1d1f21;width:100%;height:100%;display:block}.navi-item2>a{text-decoration:none;color:#1d1f21;width:100%;height:100%;display:block}.navi-item3>a{text-decoration:none;color:#1d1f21;width:100%;height:100%;display:block;font-weight:700}.navi-title>a{text-decoration:none;color:#1d1f21;width:100%;height:100%;display:block}.navi-item>a:hover{background-color:orange}.container{background-color:#ededed;width:60%;margin:auto;margin-top:0}.onefloor{border-bottom:3px solid #1d1f21;border-top:3px solid #1d1f21;border-radius:3px}.twofloor{border-bottom:3px solid #1d1f21;border-radius:3px;text-align:center}.threefloor{border-bottom:3px solid #1d1f21;border-radius:3px}.fivefloor{border-top:3px solid #1d1f21;border-radius:3px;width:100%;background-color:#dcdcdc}.progress{display:inline-block;width:90%;height:10%}.category{position:fixed;top:80px;left:7%;width:12%;height:300px;border:3px solid #1d1f21}.submenu{font-family:Calistoga,cursive;color:#1d1f21}.sidebar{height:51px;font-family:Calistoga,cursive;text-align:center}.sidebar>a{height:100%;color:#1d1f21}.payrow{height:200%}
 </style>
 <script>
 $(function () {
 	$("#pointCharge").on("click", function(){
 		window.open("charge.pay", "", 
-				"width=500, height=500, left=200, menubar=no ");
+				"width=510, height=800, left=200, menubar=no");
 	})
-
+	
+	$("#pointRefunds").on("click", function(){
+		window.open("refunds.pay", "", 
+				"width=510, height=800, left=200, menubar=no");
+	})
 })
 	
 </script>
