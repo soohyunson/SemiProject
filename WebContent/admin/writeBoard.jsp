@@ -165,7 +165,7 @@
 		})
 
 		$("#cancel").on("click", function() {
-			location.href = "../list.bo";
+			location.href = "../list.adboard";
 			//history.back();
 			//history.go(-2);
 		})
