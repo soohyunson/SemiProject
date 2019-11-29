@@ -93,7 +93,7 @@ public class UserBoardServlet extends HttpServlet {
 			try {
 				detail = ChallengeDAO.getInstance().getChallenge(seq);
 				request.setAttribute("detailpage", detail);
-				RequestDispatcher rd = request.getRequestDispatcher("jsp/detail.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("user/detail.jsp");
 				rd.forward(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/takeMain.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/takeMain.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Main/slick/slick-theme.css">
@@ -50,22 +50,9 @@
            }
         })
         $("#mypage").on("click", function(){
-           location.href="banner.usboard";
+           location.href="${pageContext.request.contextPath }/user/userMyPage.jsp";
         })
-        
-        $("#adminpage").on("click",function(){
-        	location.href="admin/adminMyPage.jsp";
-        })
-        
-        $("#adminlogout").on("click",function(){
-        	var result = confirm("로그아웃 하시겠습니까?");
-            if(result){
-               location.href="logout.mem";
-            }
-        })
-        
-    })
-  </script>
+        </script>
 <style>
    #logout{
       background-color: white;
@@ -90,26 +77,17 @@
             <div class="naviBox">
                <span class="flex"><img
                   src="${pageContext.request.contextPath }/Img/b.png"
-                  class="naviLogo"></span> <span class="flex challengeLogo">테이크챌린지</span>
+                  class="naviLogo"></span> <span class="flex challengeLogo">테이크</span>
                <span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
                <c:choose>
                   <c:when test="${loginResult == null }">
-                     <a href="${pageContext.request.contextPath }/user/login/login.jsp" class="login">로그인</a>
-                     <a href="${pageContext.request.contextPath }/user/login/signup.jsp" class="signUp">회원가입</a></span>
+                     <a href="${pageContext.request.contextPath }/login/login.jsp" class="login">로그인</a>
+                     <a href="${pageContext.request.contextPath }/login/signup.jsp" class="signUp">회원가입</a></span>
                   </c:when>
                   <c:otherwise>
-                  	<c:choose>
-                  		<c:when test="${id == 'admin' }">
-                  		<button id="adminpage">마이페이지</button>
-                    	<button id="adminlogout">로그아웃</button>
-                  		</c:when>
-                  		<c:otherwise>
-                  			${id }님
+                     ${id }님
                      <button id="mypage">마이페이지</button>
                      <button id="logout">로그아웃</button>
-                  		</c:otherwise>
-                  	</c:choose>
-                     
                   </c:otherwise>
                   </c:choose>
             </div>
@@ -122,22 +100,22 @@
       <div class="container">
          <div class="mainCategory">
             <div>
-               <img src="${pageContext.request.contextPath }/Img/exercise.png"
+               <img src="${pageContext.request.contextPath }/resources/img/exercise.png"
                   class="categoryImg">
                <div class="categoryTitle" id="exerciseCategory">운동</div>
             </div>
             <div>
-               <img src="${pageContext.request.contextPath }/Img/exercise.png"
+               <img src="${pageContext.request.contextPath }/resources/img/exercise.png"
                   class="categoryImg secondCategoryImg">
                <div class="categoryTitle" id="habitCategory">습관</div>
             </div>
             <div>
-               <img src="${pageContext.request.contextPath }/Img/study.png"
+               <img src="${pageContext.request.contextPath }/resources/img/study.png"
                   class="categoryImg">
                <div class="categoryTitle" id="studyCategory">공부</div>
             </div>
             <div>
-               <img src="${pageContext.request.contextPath }/Img/exercise.png"
+               <img src="${pageContext.request.contextPath }/resources/img/exercise.png"
                   class="categoryImg">
                <div class="categoryTitle" id="healthCategory">건강</div>
             </div>
@@ -147,7 +125,7 @@
             <div class="challengeMainBox">
                <div class="challengeOne">
                   <div class="challengeOne-div">
-                     <img src="${pageContext.request.contextPath }/Img/exercise.png"
+                     <img src="${pageContext.request.contextPath }/resources/img/exercise.png"
                         class="challengeOneImg">
                   </div>
                   <div class="challengeOne-explan"><a href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(0).seq}">${list.get(0).title}</a></div>
@@ -156,7 +134,7 @@
                <div class="challegnSubBox">
                   <div class="challengeTwo challengeTwo-1">
                      <div class="challengeTwo-div">
-                        <img src="${pageContext.request.contextPath }/Img/exercise.png"
+                        <img src="${pageContext.request.contextPath }/resources/img/exercise.png"
                            class="challengeSubImg">
                      </div>
                      <div class="challengeTwo-explan"><a href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(1).seq}">${list.get(1).title}</a></div>
@@ -164,7 +142,7 @@
                   </div>
                   <div class="challengeTwo challengeTwo-2">
                      <div class="challengeTwo-div">
-                        <img src="${pageContext.request.contextPath }/Img/exercise.png"
+                        <img src="${pageContext.request.contextPath }/resources/img/exercise.png"
                            class="challengeSubImg">
                      </div>
                      <div class="challengeTwo-explan"><a href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(2).seq}">${list.get(2).title}</a></div>
@@ -172,7 +150,7 @@
                   </div>
                   <div class="challengeTwo challengeTwo-3">
                      <div class="challengeTwo-div">
-                        <img src="${pageContext.request.contextPath }/Img/exercise.png"
+                        <img src="${pageContext.request.contextPath }/resources/img/exercise.png"
                            class="challengeSubImg">
                      </div>
                      <div class="challengeTwo-explan"><a href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(3).seq}">${list.get(3).title}</a></div>

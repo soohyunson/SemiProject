@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/Main/donateMain.css">
+	href="${pageContext.request.contextPath }/resources/css/donateMain.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/Main/slick/slick.css">
@@ -21,18 +21,32 @@
 	src="${pageContext.request.contextPath}/Main/slick/slick.min.js"></script>
 <script>
 	$(function() {
-		$(".challengeOne").on("click", function() {
-			location.href = "index.jsp";
-		})
-		$(".challengeTwo-1").on("click", function() {
-			location.href = "good.jsp";
-		})
-		$(".challengeTwo-2").on("click", function() {
-			location.href = "yes.jsp";
-		})
-		$(".challengeTwo-3").on("click", function() {
-			location.href = "sd.jsp";
-		})
+		
+
+		$(".challengeOne")
+				.on(
+						"click",
+						function() {
+							location.href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(0).seq}";
+						})
+		$(".challengeTwo-1")
+				.on(
+						"click",
+						function() {
+							location.href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(1).seq}";
+						})
+		$(".challengeTwo-2")
+				.on(
+						"click",
+						function() {
+							location.href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(2).seq}";
+						})
+		$(".challengeTwo-3")
+				.on(
+						"click",
+						function() {
+							location.href = "${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(3).seq}";
+						})
 		$('.slideShow').slick({
 			infinite : true,
 			slidesToShow : 3,
@@ -50,26 +64,26 @@
 		$("#healthCategory").on("click", function() {
 			location.href = "#health";
 		})
-		
-		 $("#logout").on("click", function(){
-           var result = confirm("로그아웃 하시겠습니까?");
-           if(result){
-              location.href="logout.mem";
-           }
-        })
-        $("#mypage").on("click", function(){
-           location.href="banner.usboard";
-        })
-        $("#adminpage").on("click",function(){
-        	location.href="admin/adminMyPage.jsp";
-        })
-        
-        $("#adminlogout").on("click",function(){
-        	var result = confirm("로그아웃 하시겠습니까?");
-            if(result){
-               location.href="logout.mem";
-            }
-        })
+
+		$("#logout").on("click", function() {
+			var result = confirm("로그아웃 하시겠습니까?");
+			if (result) {
+				location.href = "logout.mem";
+			}
+		})
+		$("#mypage").on("click", function() {
+			location.href = "banner.usboard";
+		})
+		$("#adminpage").on("click", function() {
+			location.href = "admin/adminMyPage.jsp";
+		})
+
+		$("#adminlogout").on("click", function() {
+			var result = confirm("로그아웃 하시겠습니까?");
+			if (result) {
+				location.href = "logout.mem";
+			}
+		})
 	})
 </script>
 </head>
@@ -80,29 +94,32 @@
 			<div class="navi">
 				<div class="naviBox">
 					<span class="flex"><img
-						src="${pageContext.request.contextPath }/Img/b.png"
+						src="${pageContext.request.contextPath }/resources/img/b.png"
 						class="naviLogo"></span> <span class="flex challengeLogo">기부</span>
 					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
-					<c:choose>
-                  <c:when test="${loginResult == null }">
-                     <a href="${pageContext.request.contextPath }/user/login/login.jsp" class="login">로그인</a>
-                     <a href="${pageContext.request.contextPath }/user/login/signup.jsp" class="signUp">회원가입</a></span>
-                  </c:when>
-                  <c:otherwise>
-                  	<c:choose>
-                  		<c:when test="${id == 'admin' }">
-                  		<button id="adminpage">마이페이지</button>
-                    	<button id="adminlogout">로그아웃</button>
-                  		</c:when>
-                  		<c:otherwise>
+						<c:choose>
+							<c:when test="${loginResult == null }">
+								<a
+									href="${pageContext.request.contextPath }/user/login/login.jsp"
+									class="login">로그인</a>
+								<a
+									href="${pageContext.request.contextPath }/user/login/signup.jsp"
+									class="signUp">회원가입</a></span>
+					</c:when>
+					<c:otherwise>
+						<c:choose>
+							<c:when test="${id == 'admin' }">
+								<button id="adminpage">마이페이지</button>
+								<button id="adminlogout">로그아웃</button>
+							</c:when>
+							<c:otherwise>
                   			${id }님
                      <button id="mypage">마이페이지</button>
-                     <button id="logout">로그아웃</button>
-                  		</c:otherwise>
-                  	</c:choose>
-                     
-                  </c:otherwise>
-                  </c:choose>
+								<button id="logout">로그아웃</button>
+							</c:otherwise>
+						</c:choose>
+					</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 			<div class="headerExplan">
@@ -141,44 +158,36 @@
 							<img src="${pageContext.request.contextPath }/Img/exercise.png"
 								class="challengeOneImg">
 						</div>
-						<div class="challengeOne-explan">
-							<a
-								href="${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(0).seq}">${list.get(0).title}</a>
-						</div>
+						<div class="challengeOne-explan">${list.get(0).title}</div>
 						<div class="challengeOne-explan2">${list.get(0).content}</div>
 					</div>
 
 					<div class="challegnSubBox">
 						<div class="challengeTwo challengeTwo-1">
 							<div class="challengeTwo-div">
-								<img src="${pageContext.request.contextPath }/Img/exercise.png"
+								<img
+									src="${pageContext.request.contextPath }/resources/img/exercise.png"
 									class="challengeSubImg">
 							</div>
-							<div class="challengeTwo-explan">
-								<a
-									href="${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(1).seq}">${list.get(1).title }</a>
-							</div>
+							<div class="challengeTwo-explan">${list.get(1).title }</div>
 							<div class="challengeTwo-explan2">${list.get(1).content}</div>
 						</div>
 						<div class="challengeTwo challengeTwo-2">
 							<div class="challengeTwo-div">
-								<img src="${pageContext.request.contextPath }/Img/exercise.png"
+								<img
+									src="${pageContext.request.contextPath }/resources/img/exercise.png"
 									class="challengeSubImg">
 							</div>
-							<div class="challengeTwo-explan">
-								<a
-									href="${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(2).seq}">${list.get(2).title}</a>
-							</div>
+							<div class="challengeTwo-explan">${list.get(2).title}</div>
 							<div class="challengeTwo-explan2">${list.get(2).content}</div>
 						</div>
 						<div class="challengeTwo challengeTwo-3">
 							<div class="challengeTwo-div">
-								<img src="${pageContext.request.contextPath }/Img/exercise.png"
+								<img
+									src="${pageContext.request.contextPath }/resources/img/exercise.png"
 									class="challengeSubImg">
 							</div>
-							<div class="challengeTwo-explan">
-								<a
-									href="${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(3).seq}">${list.get(3).title}</a>
+							<div class="challengeTwo-explan">${list.get(3).title}</a>
 							</div>
 							<div class="challengeTwo-explan2">${list.get(3).content}</div>
 						</div>
@@ -188,24 +197,23 @@
 					<div class="recruitment" id="habit">생활</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
 						<c:forEach var="i" begin="0" end="5">
-							<div class="slideDiv">
+							<div class="slideDiv" onclick="clickFun(${lifelist.get(i).seq})">
+								<input type="hidden" class="seq" value="${lifelist.get(i).seq}">
 								<img src="b.png" class="slideImg">
-								<h3 class="slideTitle">
-									<a
-										href="${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(i).seq}">${lifelist.get(i).title}</a>
-								</h3>
+								<h3 class="slideTitle">${lifelist.get(i).title}</h3>
 								<h5 class="slideExplan">${lifelist.get(i).content}</h5>
 							</div>
 						</c:forEach>
+
 					</div>
+					
 					<div class="recruitment" id="study">공부</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
 						<c:forEach var="i" begin="0" end="5">
-							<div class="slideDiv">
+							<div class="slideDiv" onclick="clickFun(${studylist.get(i).seq})">
 								<img src="b.png" class="slideImg">
 								<h3 class="slideTitle">
-									<a
-										href="${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(i).seq}">${studylist.get(i).title}</a>
+									${studylist.get(i).title}
 								</h3>
 								<h5 class="slideExplan">${studylist.get(i).content}</h5>
 							</div>
@@ -214,11 +222,10 @@
 					<div class="recruitment" id="health">건강</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
 						<c:forEach var="i" begin="0" end="5">
-							<div class="slideDiv">
+							<div class="slideDiv" onclick="clickFun(${healthlist.get(i).seq})">
 								<img src="b.png" class="slideImg">
 								<h3 class="slideTitle">
-									<a
-										href="${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(i).seq}">${healthlist.get(i).title}</a>
+									${healthlist.get(i).title}
 								</h3>
 								<h5 class="slideExplan">${healthlist.get(i).content}</h5>
 							</div>
@@ -227,11 +234,10 @@
 					<div class="recruitment" id="exercise">운동</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
 						<c:forEach var="i" begin="0" end="5">
-							<div class="slideDiv">
+							<div class="slideDiv" onclick="clickFun(${exlist.get(i).seq})">
 								<img src="b.png" class="slideImg">
 								<h3 class="slideTitle">
-									<a
-										href="${pageContext.request.contextPath}/fromList.usboard?seq=${list.get(i).seq}">${exlist.get(i).title}</a>
+									${exlist.get(i).title}
 								</h3>
 								<h5 class="slideExplan">${exlist.get(i).content}</h5>
 							</div>
@@ -285,7 +291,20 @@
 			<img src="scrollUp.png" style="width: 50px; height: 50px;">
 		</div>
 	</div>
-
+	
+	
+	
+	
+	
+	<script>
+		console.log(40);
+		function clickFun(seq){
+			console.log(seq);
+			$(location).attr("href","${pageContext.request.contextPath}/fromList.usboard?seq="+seq);
+			}
+	</script>
+	
+	
 </body>
 
 </html>
