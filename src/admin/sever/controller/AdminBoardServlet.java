@@ -152,7 +152,7 @@ String uploadPath = request.getServletContext().getRealPath("/files");
 				System.out.println(title);
 				System.out.println(contents);
 				
-				ChallengeDTO dto = new ChallengeDTO(0,title,contents,start_date,end_date,"N",0,oriFileName);
+				//ChallengeDTO dto = new ChallengeDTO(0,title,contents,start_date,end_date,"N",0,oriFileName);
 				try {
 				int result = ChallengeDAO.getInstance().insertWrite(dto);
 				System.out.println(result);
