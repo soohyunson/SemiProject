@@ -11,7 +11,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <title>My Challenge</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 <link
 	href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
 	rel="stylesheet">
@@ -236,7 +236,28 @@ td {
 	width: 200px;
 	height: 200px;
 }
+
+img {
+	width: 100%;
+	hegiht: 100%;
+}
+
+.confirmDiv {
+	padding-top: 30px;
+}
 </style>
+
+<script type="text/javascript">
+	function checkFile(f) {
+		var file = f.files;
+
+		if (!/\.(gif|jpg|jpeg|png)$/i.test(file[0].name)) {
+			alert('gif, jpg, png 파일만 선택해 주세요.\n\n현재 파일 : ' + file[0].name);
+		} else
+			return;
+		f.outerHTML = f.outerHTML;
+	}
+</script>
 
 </head>
 <body>
@@ -244,7 +265,7 @@ td {
 		<br> <br> <br>
 		<div class="twofloor">
 			<div class="bd-example">
-				<img src="${item.file_path}">
+				<img src="${dto.file_path}">
 			</div>
 
 		</div>
@@ -267,15 +288,44 @@ td {
 
 
 		<div class="fourthfloor">
-			<div class="middlethird" id="summary">상세내용이 표시될 예정입니다.</div>
+			<div class="middlethird" id="summary">${dto.content}</div>
 
 		</div>
 
-		
+		<div class="confirmDiv" style="padding-bottom: 80px;">
+			<form id="uploadfrm" method="post" enctype="multipart/form-data">
+				<div class="confirmfloor">
+					<div class="confirmDiv">
+						<table>
+							<tr>
+								<td><img class="one">
+								<td><img class="two">
+								<td><img class="three">
+								<td><img class="four">
+								<td><img class="five">
+							</tr>
+							<tr>
+								<td><img class="six">
+								<td><img class="seven">
+								<td><img class="eight">
+								<td><img class="nine">
+								<td><img class="ten">
+							</tr>
+						</table>
+						<input type="file" name="fileImg" id="fileImg" accept="image/*"
+							onchange="checkFile(this)">
+						<button id="confirmBtn" type="button">인증하기</button>
+					</div>
+				</div>
 
+				<input type="hidden" value="${recordNum}" id="recordNum">
 
-
+			</form>
+		</div>
 	</div>
+
+
+
 
 	<div class="fivefloor">
 		<ul class="lastbar">
@@ -338,17 +388,7 @@ td {
 			<li class="navi-item"><a href="#">MYPAGE</a></li>
 		</ul>
 	</ul>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+
 	<script>
 		var ctx = document.getElementById('myChart').getContext('2d');
 		var chart = new Chart(ctx, {
@@ -370,6 +410,127 @@ td {
 			// Configuration options go here
 			options : {}
 		});
+	</script>
+
+
+	<script>
+	
+
+		var today = new Date();
+		var day = today.getDate();
+		var month = today.getMonth()+1; //January is 0!
+		var year = today.getFullYear();
+		
+		console.log(month);
+		console.log(day);
+		
+		var lastday = ( new Date(year,month, 0) ).getDate();
+		
+		console.log(lastday);
+		console.log("받아온 월: "+${month});
+		console.log("오늘 일"+day);
+		console.log("받아온 일 :"+${day})
+	
+		
+		var className;
+		if(${month}!=month){
+            if((lastday-day)+${day}==1){
+               className= 'one';      
+            }
+             if((lastday-day)+${day}==2){
+               className= 'two';      
+            }
+            else if((lastday-day)+${day}==3){
+               className= 'three';      
+            }
+            else if((lastday-day)+${day}==4){
+               className= 'four';      
+            }
+            else if((lastday-day)+${day}==5){
+               className= 'five';      
+            }
+            else if((lastday-day)+${day}==6){
+               className= 'six';      
+            }
+            else if((lastday-day)+${day}==7){
+               className= 'seven';      
+            }
+            else if((lastday-day)+${day}==8){
+               className= 'eight';      
+            }
+            else if((lastday-day)+${day}==9){
+               className= 'nine';      
+            }
+            else if((lastday-day)+${day}==10){
+               className= 'ten';      
+            }
+   
+         }else{
+            if((day-${day})==1){
+               className= 'one';      
+            }
+            else if((day-${day})==2){
+               className= 'two';      
+            }
+            else if(day-${day}==3){
+               className= 'three';      
+            }
+            else if(day-${day}==4){
+               className= 'four';      
+            }
+            else if(day-${day}==5){
+               className= 'five';      
+            }
+            else if(day-${day}==6){
+               className= 'six';      
+            }
+            else if(day-${day}==7){
+               className= 'seven';      
+            }
+            else if(day-${day}==8){
+               className= 'eight';      
+            }
+            else if(day-${day}==9){
+               className= 'nine';      
+            }
+            else if(day-${day}==10){
+               className= 'ten';      
+            }
+            
+         }
+         console.log(className);
+	
+		$("#confirmBtn").on("click",function(){
+			if(!$("#fileImg").val()){
+				alert("파일을 선택해 주세요!");
+				return;
+			}else{
+				if(confirm("인증을 진행하시겠습니까?")){
+					//var form = $("#uploadfrm")[0];
+					var formData = new FormData();
+					formData.append("fileImg",$("#fileImg")[0].files[0]);
+					formData.append("recordNum",$("#recordNum").val());
+						$.ajax({
+							url:"${pageContext.request.contextPath}/confirm.file",
+							enctype:"multipart/form-data",
+							data:formData,
+							type:"post",
+							contentType:false,
+							processData:false,
+                            cache:false,
+							//dataType:"json"
+						}).done(function(data){
+							console.log(data);
+							
+							$("."+className).attr("src",data);
+							
+						}).fail(function(){
+							console.log("실패실패실패~~!!");
+						});
+					}
+			}		
+		});
+
 	</script>
 </body>
 </html>
