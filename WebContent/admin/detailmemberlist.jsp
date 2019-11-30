@@ -64,12 +64,11 @@ body {
 	float: left;
 	text-align: center;
 	color: #7019FF;
-
 }
 
-.navi-title> img{
-width:100%;
-height:100%;
+.navi-title>img {
+	width: 100%;
+	height: 100%;
 }
 
 .navi-item {
@@ -220,10 +219,10 @@ height:100%;
 }
 
 .fourthfloor {
-	height: 500px;
+	height: 100%;
 }
 
-#listboard {
+.listboard {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	margin: auto;
@@ -247,15 +246,13 @@ th {
 </head>
 <body>
 	<div class="container">
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<div class="twofloor">Manager Page</div>
 		<div class="threefloor">Member List</div>
 
 		<div class="fourthfloor">
 			<br>
-			<table id="listboard">
+			<table class="listboard">
 				<tr>
 					<th colspan=2 id="title">회원목록
 				</tr>
@@ -284,10 +281,21 @@ th {
 					<th width="20%" style="text-align: center">탈퇴여부
 					<th width="80%" style="text-align: center">${dto.getout }
 				</tr>
+				</table>
+<br><br>
 
-			
+<h1 style = "text-align :center">참여중인 챌린지</h1>
+<br><br>
+<table class="listboard">
 				
+					<c:forEach items="${list}" var="dto">
+					<tr>
+					<th width="100%" style="text-align: center"><a href = "${pageContext.request.contextPath}/detail.adboard?seq=${dto.seq}">${dto.title}</a>
+					</c:forEach>
+					</tr>
+
 			</table>
+			<br><br>
 		</div>
 
 	</div>
@@ -332,25 +340,24 @@ th {
 		</div>
 		<br>
 	</div>
-		<div class="wrapper">
-			<ul style="list-style-type: none; padding: 0; text-align: center;">
-				<li><a
-					href="${pageContext.request.contextPath}/adminChallenge/adminMyPage.jsp"
-					style="color: black; font-weight: bold">Manager Home</a> <br>
-				<br>
-				<li><a href="memberlist.mem" style="color: black">Member
-						List</a>
-				<li><a href="#" style="color: black;">Board List</a>
-				<li><a href="#" style="color: black;">write Board</a>
-			</ul>
-
-		</div>
+	<div class="wrapper">
+	<div class="category">
+		<ul style="list-style-type: none; padding: 0; text-align: center;">
+			<li><a
+				href="${pageContext.request.contextPath}/adminChallenge/adminMyPage.jsp"
+				style="color: black; font-weight: bold">Manager Home</a> <br> <br>
+			<li><a href="memberlist.mem" style="color: black">Member
+					List</a>
+			<li><a href="#" style="color: black;">Board List</a>
+			<li><a href="#" style="color: black;">write Board</a>
+		</ul>
+</div>
+	</div>
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="">
-			<!-- <img src="" class="mr-3" alt="..." style="width: 135px; height: 50px; margin-left: 10%;"> -->
-			DON'T GIVE UP
+			<li class="navi-title"><a href=""> <!-- <img src="" class="mr-3" alt="..." style="width: 135px; height: 50px; margin-left: 10%;"> -->
+					DON'T GIVE UP
 			</a></li>
 		</ul>
 		<ul class="itemList">
@@ -394,8 +401,6 @@ th {
 		$("#searchbtn").on("click", function() {
 			$("#searchfrm").submit();
 		})
-
-		
 	</script>
 </body>
 </html>

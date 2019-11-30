@@ -110,24 +110,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-   <div class="wrap">
-      <div class="header">
-         <div class="navi">
-            <div class="naviBox">
-               <span class="flex">
-               DON'T GIVE UP
-               <!--  <img src="${pageContext.request.contextPath }/Img/b.png" class="naviLogo">-->
-               </span> <span class="flex challengeLogo">테이크</span>
-               <span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
-               <c:choose>
-                  <c:when test="${loginResult == null }">
-                     <a href="${pageContext.request.contextPath }/login/login.jsp" class="login">로그인</a>
-                     <a href="${pageContext.request.contextPath }/login/signup.jsp" class="signUp">회원가입</a></span>
-                  </c:when>
-                  <c:otherwise>
-                     ${id }님
-=======
+
 	<div class="wrap">
 		<div class="header">
 			<div class="navi">
@@ -147,7 +130,7 @@
 					</c:when>
 					<c:otherwise>
                   			${id }님
->>>>>>> d19bf5eefabf24c3f7052befab1e7e891144cf64
+
                      <button id="mypage">마이페이지</button>
 								<button id="logout">로그아웃</button>
 							</c:otherwise>
