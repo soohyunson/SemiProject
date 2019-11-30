@@ -249,7 +249,7 @@
                                 <c:forEach items="${list }" var="dto">
                                     <tr>
                                         <td width="20%" style="text-align: center">${dto.id }
-                                        <td width="80%" style="text-align: center">${dto.name }
+                                        <td width="80%" style="text-align: center"><a href="${pageContext.request.contextPath}/memberlist.adboard?id=${dto.id}">${dto.name }</a>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>
