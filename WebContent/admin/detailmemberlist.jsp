@@ -64,6 +64,12 @@ body {
 	float: left;
 	text-align: center;
 	color: #7019FF;
+
+}
+
+.navi-title> img{
+width:100%;
+height:100%;
 }
 
 .navi-item {
@@ -326,7 +332,6 @@ th {
 		</div>
 		<br>
 	</div>
-	<div class="category">
 		<div class="wrapper">
 			<ul style="list-style-type: none; padding: 0; text-align: center;">
 				<li><a
@@ -343,9 +348,10 @@ th {
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="#"><img
-					src="Img/reallogo.png" class="mr-3" alt="..."
-					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
+			<li class="navi-title"><a href="">
+			<!-- <img src="" class="mr-3" alt="..." style="width: 135px; height: 50px; margin-left: 10%;"> -->
+			DON'T GIVE UP
+			</a></li>
 		</ul>
 		<ul class="itemList">
 
