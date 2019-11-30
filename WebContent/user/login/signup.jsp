@@ -176,7 +176,7 @@
                 border: 2px solid black;
                 margin: auto;
                 position: relative;
-                top: 50%;
+                top: 120px;
                 height: 400px;
                 width: 500px;
             }
@@ -192,6 +192,16 @@
             }
             .sub{
                 text-align: right;
+            }
+            #confirm{
+            	background-color: black;
+            	border: 1px solid black;
+            	color: white;
+            }
+            #reset{
+            	background-color: black;
+            	border: 1px solid black;
+            	color: white;
             }
         </style>
 	
@@ -226,7 +236,7 @@
 						<td><input type="password" id="pw1" name="pw"></td>
 					</tr>
 					<tr>
-						<td colspan="2" id="pw1result" style="text-align: center">
+						<td colspan="2" id="pw1result" style="text-align: center;">
 							(비밀번호는 영어 대소문자, 숫자 조합 8자 이상)</td>
 					</tr>
 					<tr>
@@ -259,8 +269,8 @@
 						<td colspan="2" id=emailresult></td>
 					</tr>
 					<tr>
-						<td colspan="2" id="btnresult"><button>확인</button> <input
-							type="reset" value="다시입력"></td>
+						<td colspan="2" id="btnresult">
+						<button id="confirm">확인</button> <input type="reset" value="다시입력" id="reset"></td>
 					</tr>
 				</table>
 			</form>
