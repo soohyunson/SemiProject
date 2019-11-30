@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <script language="javascript">
 function javascript(){
+	var referrer =  document.referrer;
 	//부모창 새로고침
 	opener.parent.location.reload();
      

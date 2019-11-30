@@ -66,7 +66,6 @@ public class PayMentServelt extends HttpServlet {
 					System.out.println("합산 포인트: " + resultPoint);
 					System.out.println("member 입력: " + updateByPoint);
 
-					request.setAttribute("url", realURL);
 					request.getRequestDispatcher("/user/pay/close.jsp").forward(request, response);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -82,6 +81,12 @@ public class PayMentServelt extends HttpServlet {
 				if(dto !=null) {
 					String result = Payment.getInstance().goCancel(dto.getReceipt_id(), dto.getPoint());
 					System.out.println(result);
+					int reuslt = PaymentDAO.getInstance().deleteByPoint(member_id, seq);
+					if(reuslt >0) {
+						//삭제 성공
+						request.setAttribute("url", realURL);
+						request.getRequestDispatcher("/user/pay/close.jsp").forward(request, response);
+					}
 				}
 			}catch (Exception e) {
 				e.printStackTrace();

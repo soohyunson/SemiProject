@@ -99,13 +99,16 @@ public class PaymentDAO {
 		}
 	}
 	
-//	public int deleteByPoint(String id, int seq) throws Exception{
-//		String sql = "delete from payment where member_id = ?";
-//		
-//		try(Connection conn = this.getConnection();
-//				PreparedStatement pstat = new LoggableStatement(conn, sql);){
-//			pstat.setString(1, );
-//		}
-//	}
+	public int deleteByPoint(String id, int seq) throws Exception{
+		String sql = "delete from payment where member_id = ? and seq = ?";
+		
+		try(Connection conn = this.getConnection();
+				PreparedStatement pstat = new LoggableStatement(conn, sql);){
+			pstat.setString(1, id);
+			pstat.setInt(2, seq);
+			int result = pstat.executeUpdate();
+			return result;
+		}
+	}
 	
 }
