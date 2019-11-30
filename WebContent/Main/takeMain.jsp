@@ -245,7 +245,7 @@
 								<h3 class="slideTitle">${healthlist.get(i).title}</h3>
 								<h5 class="slideExplan">${healthlist.get(i).content}</h5>
 							</div>
-						</c:forEach>
+					</c:forEach>
 					</div>
 					<div class="recruitment" id="exercise">운동</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
@@ -257,7 +257,7 @@
 							</div>
 						</c:forEach>
 					</div>
-				</div>
+		</div>
 			</div>
 		</div>
 		<div class=""></div>
