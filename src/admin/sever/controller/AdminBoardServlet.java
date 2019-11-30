@@ -16,8 +16,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import DAO.ChallengeDAO;
 import DAO.ChallengeRecordDAO;
+import DAO.MemberDAO;
 import DTO.ChallengeDTO;
 import DTO.Challenge_recordDTO;
+import DTO.MemberDTO;
 import adminboardCongiuration.Configuration;
 
 @WebServlet("*.adboard")
@@ -30,6 +32,7 @@ public class AdminBoardServlet extends HttpServlet {
 		String projectPath = request.getContextPath();
 
 		String realPath = uri.substring(projectPath.length());
+		System.out.println("요청된 경로는 : " + realPath + "입니다.");
 
 		if (realPath.contentEquals("/detail.adboard")) {
 			int seq = Integer.parseInt(request.getParameter("seq"));
@@ -47,9 +50,7 @@ public class AdminBoardServlet extends HttpServlet {
 				request.setAttribute("dto", dto);
 				request.getRequestDispatcher("test.jsp").forward(request, response);
 
-		
-				
-			}catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("nonono~~!!");
 
 				e.printStackTrace();
@@ -91,7 +92,7 @@ public class AdminBoardServlet extends HttpServlet {
 					String page = ChallengeDAO.getInstance().getPageNavi(1);
 					int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage - 1);
 					int end = currentPage * Configuration.recordCountPerPage;
-					
+
 					System.out.println();
 					List<ChallengeDTO> dto = ChallengeDAO.getInstance().selectByPage(start, end);
 
@@ -101,29 +102,28 @@ public class AdminBoardServlet extends HttpServlet {
 					request.setAttribute("dto", dto);
 					request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
 
-				    }catch(Exception e) {
-				    	e.printStackTrace();
-				        //response.sendRedirect("error.jsp");
-				    }
-		    }
-		    else {
-                 try {
-			    	currentPage = Integer.parseInt(CPage);
-			    	String page = ChallengeDAO.getInstance().getPageNavi(currentPage);
-			    	
-			    	int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage-1); 
-			    	int end = currentPage * Configuration.recordCountPerPage;
-			    	List<ChallengeDTO> dto =  ChallengeDAO.getInstance().selectByPage(start, end);
-			    request.setAttribute("page", page);
-				request.setAttribute("dto", dto);
-				request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
-			    }catch(Exception e) {
-			    	e.printStackTrace();
-			        response.sendRedirect("error.jsp");
-			    }
-		    }
-		}else if(realPath.contentEquals("/write.adboard")) {
-String uploadPath = request.getServletContext().getRealPath("/files");
+				} catch (Exception e) {
+					e.printStackTrace();
+					// response.sendRedirect("error.jsp");
+				}
+			} else {
+				try {
+					currentPage = Integer.parseInt(CPage);
+					String page = ChallengeDAO.getInstance().getPageNavi(currentPage);
+
+					int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage - 1);
+					int end = currentPage * Configuration.recordCountPerPage;
+					List<ChallengeDTO> dto = ChallengeDAO.getInstance().selectByPage(start, end);
+					request.setAttribute("page", page);
+					request.setAttribute("dto", dto);
+					request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+					response.sendRedirect("error.jsp");
+				}
+			}
+		} else if (realPath.contentEquals("/write.adboard")) {
+			String uploadPath = request.getServletContext().getRealPath("/files");
 			File uploadFilePath = new File(uploadPath);
 			System.out.println(uploadPath);
 			System.out.println(uploadFilePath);
@@ -154,17 +154,16 @@ String uploadPath = request.getServletContext().getRealPath("/files");
 
 				String giveortake = multi.getParameter("giveortake");
 				String category = multi.getParameter("category");
-				
-				
-			
+
 				System.out.println(title);
 				System.out.println(contents);
-				
-				ChallengeDTO dto = new ChallengeDTO(0,title,contents,start_date,end_date,"N",0,oriFileName,giveortake,category,10000,10000);
+
+				ChallengeDTO dto = new ChallengeDTO(0, title, contents, start_date, end_date, "N", 0, oriFileName,
+						giveortake, category, 10000, 10000);
 
 				try {
-					//int result = ChallengeDAO.getInstance().insertWrite(dto);
-					//System.out.println(result);
+					// int result = ChallengeDAO.getInstance().insertWrite(dto);
+					// System.out.println(result);
 
 					response.sendRedirect("list.adboard");
 				} catch (Exception e) {
@@ -175,7 +174,27 @@ String uploadPath = request.getServletContext().getRealPath("/files");
 				response.sendRedirect("error.jsp");
 			}
 
-		}
+		}else if (realPath.contentEquals("/memberlist.adboard")) {
+
+			String id = request.getParameter("id");
+			System.out.println("넘어온 아이디 값은 : " + id);
+			MemberDTO dto = new MemberDTO();
+
+			try {
+				dto = MemberDAO.getInstance().select(id);
+				
+				System.out.println(dto.getName());
+
+				
+				request.setAttribute("dto", dto);
+			
+				request.getRequestDispatcher("/admin/detailmemberlist.jsp").forward(request, response);
+
+			} catch (Exception e) {
+				System.out.println("ㅇ기 에러났어요~~!!!!!!: :::::");
+				e.printStackTrace();
+			}
+		} 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

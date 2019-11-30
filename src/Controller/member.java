@@ -84,7 +84,7 @@ public class member extends HttpServlet {
 //					List<MemberDTO> list = dao.selectAll();
 					request.setAttribute("list", list);
 					request.setAttribute("navi", navi);
-					request.getRequestDispatcher("../memberlist.jsp").forward(request, response);
+					request.getRequestDispatcher("/admin/memberlist.jsp").forward(request, response);
 					
 					
 				}catch(Exception e) {
