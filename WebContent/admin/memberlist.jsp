@@ -336,7 +336,10 @@
             </div>
             <ul class="navi">
                 <ul class="title">
-                    <li class="navi-title"><a href="#"><img src="Img/reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
+                    <li class="navi-title"><a href="#">
+                    DON'T GIVE UP
+                    <!-- <img src="Img/reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"> -->
+                    </a></li>
                 </ul>
                 <ul class="itemList">
 
