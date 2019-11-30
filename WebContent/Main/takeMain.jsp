@@ -47,31 +47,64 @@
       $("#healthCategory").on("click",function(){
         location.href = "#health";
       })
-      $("#logout").on("click", function(){
-           var result = confirm("로그아웃 하시겠습니까?");
-           if(result){
-              location.href="logout.mem";
-           }
-        })
-        $("#mypage").on("click", function(){
-           location.href="${pageContext.request.contextPath }/user/userMyPage.jsp";
-        })
-        })
+      $("#logout").on("click", function() {
+			var result = confirm("로그아웃 하시겠습니까?");
+			if (result) {
+				location.href = "logout.mem";
+			}
+		})
+		$("#mypage").on("click", function() {
+			location.href = "banner.usboard";
+		})
+		$("#adminpage").on("click", function() {
+			location.href = "admin/adminMyPage.jsp";
+		})
+
+		$("#adminlogout").on("click", function() {
+			var result = confirm("로그아웃 하시겠습니까?");
+			if (result) {
+				location.href = "logout.mem";
+			}
+		})
+	})
         </script>
 <style>
-#logout {
-	background-color: white;
-	border: 1px solid black;
-	width: 80px;
-	height: 30px;
-}
-
-#mypage {
-	background-color: white;
-	border: 1px solid black;
-	width: 90px;
-	height: 30px;
-}
+	#mypage{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#logout{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#adminpage{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#adminlogout{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
 </style>
 
 </head>
@@ -86,17 +119,20 @@
 						class="naviLogo"></span> <span class="flex challengeLogo">테이크</span>
 					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
 						<c:choose>
-							<c:when test="${loginResult == null }">
-								<a href="${pageContext.request.contextPath }/user/login/login.jsp"
+							<c:when test="${loginResult2 == null }">
+								<a
+									href="${pageContext.request.contextPath }/user/login/login.jsp"
 									class="login">로그인</a>
-								<a href="${pageContext.request.contextPath }/user/login/signup.jsp"
+								<a
+									href="${pageContext.request.contextPath }/user/login/signup.jsp"
 									class="signUp">회원가입</a></span>
 					</c:when>
 					<c:otherwise>
-                     ${id }님
+                  			${id }님
                      <button id="mypage">마이페이지</button>
-						<button id="logout">로그아웃</button>
-					</c:otherwise>
+								<button id="logout">로그아웃</button>
+							</c:otherwise>
+						
 					</c:choose>
 				</div>
 			</div>

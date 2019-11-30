@@ -86,6 +86,45 @@
 		})
 	})
 </script>
+
+<style>
+	#mypage{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#logout{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#adminpage{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#adminlogout{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+</style>
 </head>
 
 <body>
@@ -98,7 +137,7 @@
 						class="naviLogo"></span> <span class="flex challengeLogo">기부</span>
 					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
 						<c:choose>
-							<c:when test="${loginResult == null }">
+							<c:when test="${loginResult2 == null }">
 								<a
 									href="${pageContext.request.contextPath }/user/login/login.jsp"
 									class="login">로그인</a>
@@ -107,18 +146,12 @@
 									class="signUp">회원가입</a></span>
 					</c:when>
 					<c:otherwise>
-						<c:choose>
-							<c:when test="${id == 'admin' }">
-								<button id="adminpage">마이페이지</button>
-								<button id="adminlogout">로그아웃</button>
-							</c:when>
-							<c:otherwise>
+						
                   			${id }님
                      <button id="mypage">마이페이지</button>
 								<button id="logout">로그아웃</button>
 							</c:otherwise>
-						</c:choose>
-					</c:otherwise>
+						
 					</c:choose>
 				</div>
 			</div>
@@ -217,7 +250,7 @@
 								</h3>
 								<h5 class="slideExplan">${studylist.get(i).content}</h5>
 							</div>
-						</c:forEach>
+				</c:forEach>
 					</div>
 					<div class="recruitment" id="health">건강</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
@@ -229,7 +262,7 @@
 								</h3>
 								<h5 class="slideExplan">${healthlist.get(i).content}</h5>
 							</div>
-						</c:forEach>
+				</c:forEach>
 					</div>
 					<div class="recruitment" id="exercise">운동</div>
 					<div class="slideShow" align="center" style="width: 1200px;">

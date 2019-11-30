@@ -196,9 +196,22 @@ public class MemberDAO {
 
 			}return list;
 		}
-
 	}
-
+	
+	public boolean isAdmin(String id, String pw) throws Exception{
+		String sql = "select * from member where id=? and pw=? and getout='gm'";
+		try(Connection con = getConnection();
+				PreparedStatement psta = con.prepareStatement(sql);){
+			psta.setString(1, id);
+			psta.setString(2, pw);
+			
+			try(ResultSet rs = psta.executeQuery();){
+				return rs.next(); //로그인 한 사람이 관리자인지 체크
+			}
+		}
+		
+			}
+		
 	public List<MemberDTO> selectByPage(int start, int end) throws Exception{
 		//게시판 숫자 네비
 		String sql = "select * from(select member.*, row_number() over (order by seq desc)rown from member)"

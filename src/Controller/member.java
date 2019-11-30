@@ -31,11 +31,20 @@ public class member extends HttpServlet {
 				String id = request.getParameter("id");
 				String pw = request.getParameter("pw");
 				System.out.println(id + " : " + pw);
-				boolean loginResult = dao.isLoginOK(id, dao.encrypt(pw));
+				boolean loginResult = dao.isAdmin(id, dao.encrypt(pw)); //dao.isLoginOK(id, dao.encrypt(pw));			
+				System.out.println(loginResult);
+				if(loginResult) {
+					request.getSession().setAttribute("loginResult", loginResult);
+					request.getSession().setAttribute("id", id);
+					request.getRequestDispatcher("logincheck.jsp").forward(request, response);
+				}else {
+					boolean loginResult2 = dao.isLoginOK(id, dao.encrypt(pw));
+					request.getSession().setAttribute("loginResult2", loginResult2);
+					System.out.println(loginResult2);
+					request.getSession().setAttribute("id", id);
+					request.getRequestDispatcher("logincheck.jsp").forward(request, response);
+				}
 				
-				request.getSession().setAttribute("loginResult", loginResult);
-				request.getSession().setAttribute("id", id);
-				request.getRequestDispatcher("logincheck.jsp").forward(request, response);
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -84,7 +93,7 @@ public class member extends HttpServlet {
 //					List<MemberDTO> list = dao.selectAll();
 					request.setAttribute("list", list);
 					request.setAttribute("navi", navi);
-					request.getRequestDispatcher("../memberlist.jsp").forward(request, response);
+					request.getRequestDispatcher("/admin/memberlist.jsp").forward(request, response);
 					
 					
 				}catch(Exception e) {
@@ -94,11 +103,11 @@ public class member extends HttpServlet {
 			}else if(realPath.contentEquals("/search.mem")) {
 				try {
 				String id = request.getParameter("search");
-				//System.out.println(id); 
+				System.out.println(id); 
 				List<MemberDTO> dto = dao.search(id);
 //				System.out.println(dto.getId() + " : " + dto.getName()); ok
 				request.setAttribute("dto", dto);
-				request.getRequestDispatcher("memberlist.jsp").forward(request, response);
+				request.getRequestDispatcher("/admin/memberlist.mem").forward(request, response);
 
 				
 				}catch(Exception e) {
