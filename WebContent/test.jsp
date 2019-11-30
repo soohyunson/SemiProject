@@ -158,6 +158,7 @@ body {
 .fourthfloor {
 	position: relative;
 	top: 300px;
+	z-index:-10;
 }
 
 .fivefloor {
@@ -313,7 +314,10 @@ img {
 				</table>
 			</c:forEach>
 		</form>
-		<input type="button" value="성공" id="succesBtn">
+		
+		<input type="button" value="성공" id="succesBtn"><br>
+<input type="button" value="챌린지 수정" id="modifyBtn"><br>
+<input type="button" value="챌린지 삭제" id="deleteBtn">
 
 		<script>
 			$("#succesBtn").on("click", function() {
@@ -321,6 +325,20 @@ img {
 
 				if (result) {
 					$("#frm").submit();
+				}
+			})
+			$("#modifyBtn").on("click", function() {
+				var result = confirm("챌린지 정보를 수정하시겠습니까?");
+
+				if (result) {
+					location.href="modify.adboard?seq=${dto.seq}";
+				}
+			})
+			$("#deleteBtn").on("click", function() {
+				var result = confirm("챌린지를 삭제하시겠습니까?");
+
+				if (result) {
+					location.href="delete.adboard?seq=${dto.seq}";
 				}
 			})
 		</script>

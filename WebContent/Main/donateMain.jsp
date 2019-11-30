@@ -86,6 +86,45 @@
 		})
 	})
 </script>
+
+<style>
+	#mypage{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#logout{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#adminpage{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+	#adminlogout{
+		border: 1px solid black;
+		background-color: black;
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 15px;
+		border-radius: 10px;
+	}
+</style>
 </head>
 
 <body>
@@ -291,11 +330,6 @@
 			<img src="scrollUp.png" style="width: 50px; height: 50px;">
 		</div>
 	</div>
-	
-	
-	
-	
-	
 	<script>
 		console.log(40);
 		function clickFun(seq){
