@@ -219,25 +219,25 @@ body {
 .payrow {
 	height: 200%
 }
+
+.list-group-item {
+	background-color: #EDEDED;
+}
 </style>
 <script>
 	$(function() {
-		$("#pointCharge").on(
-				"click",
-				function() {
-					window.open("charge.pay", "",
-							"width=510, height=800, left=200, menubar=no");
-				})
+		$("#pointCharge").on("click",function() {
+			window.open("charge.pay", "", "width=510, height=800, left=200, menubar=no");
+			})
 
-		$("#pointRefunds")
-				.on(
-						"click",
-						function() {
-							window
-									.open("refunds.pay", "",
-											'minimizable=no,scrollbars=no,resizable=no,titlebar=no,location=no');
-						})
+		$("#pointRefunds").on("click", function() {
+			window.open("refunds.pay", "", 'minimizable=no,scrollbars=no,resizable=no,titlebar=no,location=no');
+			})
 	})
+	
+	function buyCancel(seq) {
+		window.open("payCancel.pay?seq=" + seq, "", 'minimizable=no,scrollbars=no,resizable=no,titlebar=no,location=no');
+	}
 </script>
 </head>
 <body>
@@ -253,7 +253,6 @@ body {
 					</div>
 					<br> <br>
 				</div>
-
 				<div class="twofloor">
 					<br> <br>
 					<div style="text-align: start; margin-left: 5%;">
@@ -280,71 +279,64 @@ body {
 
 					</div>
 				</div>
-				<div class="threefloor">
-					<div class="row border-dark border-bottom">
-						<div class="col text-center">금액</div>
-						<div class="col text-center">결제수단</div>
-						<div class="col text-center">구매일자</div>
-						<div class="col text-center">기타</div>
-					</div>
-					<div class="row pt-5">
-					<div class="col">
-						<div class="accordion" id="accordionExample">
-							<div class="card">
-								<div class="card-header  bg-transparent" style="background-color: #EDEDED;" id="headingOne">
-									<h5>
-										<button class="btn btn-link" type="button"
-											data-toggle="collapse" data-target="#collapseOne"
-											aria-expanded="true" aria-controls="collapseOne">유의사항</button>
-									</h5>
-								</div>
-								<div id="collapseOne" class="collapse hiden" data-parent="#accordionExample">
-									<div class="card-body">
-										<ul class="list-group list-group-flush">
-											<li class="list-group-item">현금으로 포인트를 충전할 수 있습니다.</li>
-											<li class="list-group-item">1000포인트 이상 1000포인트 단위로 입금이
-												가능합니다.</li>
-											<li class="list-group-item">365일 00:10 ~ 23:50 전환 가능
-												합니다.</li>
-											<li class="list-group-item">단, 시스템 정비 시간은(23:50 ~ 00:10)
-												서비스 이용불가</li>
-											<li class="list-group-item">개인의 실명이름 외에 법인사업자 또는 개인사업자의
-												상호명, 동호회와 같은 모임명칭 등 기재사항이 등재되어 있는 계좌에 대해 입금이 제한될 수 있습니다.</li>
-										</ul>
+				<c:choose>
+					<c:when test="${fn:length(list) ne 0}">
+						<div class="threefloor">
+							<div class="row">
+								<div class="col">
+									<div class="accordion" id="accordionExample">
+										<div class="card">
+											<div class="card-header" style="background-color: #EDEDED;"
+												id="headingOne">
+													<button class="btn btn-link" type="button"
+														data-toggle="collapse" data-target="#collapseOne"
+														aria-expanded="true" aria-controls="collapseOne">결제내역</button>
+											</div>
+											<div id="collapseOne" class="collapse hiden"
+												data-parent="#accordionExample">
+												<div class="card-body" style="background-color: #EDEDED;">
+													<ul class="list-group list-group-flush border-none">
+														<li class="list-group-item  border-gray">
+															<div class="row border-dark">
+																<div class="col text-center">금액</div>
+																<div class="col text-center">결제수단</div>
+																<div class="col text-center">구매일자</div>
+																<div class="col text-center">기타</div>
+															</div>
+														</li>
+														<c:forEach items="${list}" var="dto">
+															<li class="list-group-item">
+																<div class="row payrow border-secondary">
+																	<div class="col text-center">${dto.point}원</div>
+																	<div class="col text-center">${dto.company}</div>
+																	<div class="col text-center">${dto.payment_date}</div>
+																	<c:choose>
+																		<c:when test="${dto.payment_date == today}">
+																			<div class="col text-center">
+																				<button type="button" class="btn btn-outline-danger" onclick="buyCancel(${dto.seq})">
+																					결제 취소</button>	
+																			</div>
+																		</c:when>
+																		<c:otherwise>
+																			<div class="col text-center"></div>
+																		</c:otherwise>
+																	</c:choose>
+																</div>
+															</li>
+														</c:forEach>
+													</ul>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-					<c:choose>
-						<c:when test="${fn:length(list) ne 0}">
-							<c:forEach items="${list}" var="dto">
-								<div class="row payrow border-secondary border-bottom">
-									<div class="col text-center">${dto.point}원</div>
-									<div class="col text-center">${dto.company}</div>
-									<div class="col text-center">${dto.payment_date}</div>
-									<c:choose>
-										<c:when test="${dto.payment_date == today}">
-											<div class="col text-center">
-												<button type="button" class="btn btn-outline-danger">
-													결제 취소</button>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<div class="col text-center"></div>
-										</c:otherwise>
-									</c:choose>
-								</div>
-							</c:forEach>
-						</c:when>
-						<c:otherwise>
-							<div class="row payrow border-secondary border-bottom">
-								<div class="col text-center">구매한 포인트가 없습니다.</div>
-							</div>
-						</c:otherwise>
-					</c:choose>
-				</div>
+					</c:when>
+					<c:otherwise>
+						
+					</c:otherwise>
+				</c:choose>
 				<div class="fourfloor"></div>
 				<div class="fivefloor">
 					<ul class="lastbar">
@@ -352,23 +344,18 @@ body {
 						<li class="navi-item3"><a href="#">POLICIES</a></li>
 						<li class="navi-item3"><a href="#">SUPPORT</a></li>
 						<li class="navi-item3"><a href="#">기업교육</a></li>
-						<br>
-						<br>
 					</ul>
 					<ul class="lastbar">
 						<li class="navi-item2"><a href="#">블로그</a></li>
 						<li class="navi-item2"><a href="#">이용약관</a></li>
 						<li class="navi-item2"><a href="#">FAQ</a></li>
 						<li class="navi-item2"><a href="#">MIWANSUNG.BIZ</a></li>
-
 					</ul>
 					<ul class="lastbar">
 						<li class="navi-item2"><a href="#">언론보도</a></li>
 						<li class="navi-item2"><a href="#">개인정보 취급방침</a></li>
 						<li class="navi-item2"><a href="#">미완성 센터</a></li>
 						<li class="navi-item2"><a href="#"></a></li>
-						<br>
-						<br>
 					</ul>
 					<div class="lastbar2" style="text-align: center;">
 						상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 :
@@ -392,7 +379,6 @@ body {
 					</div>
 					<br>
 				</div>
-
 			</div>
 			<div class="category">
 				<div class="wrapper">
@@ -433,6 +419,5 @@ body {
 
 		</c:otherwise>
 	</c:choose>
-
 </body>
 </html>
