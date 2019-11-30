@@ -180,16 +180,19 @@ public class AdminBoardServlet extends HttpServlet {
       }else if (realPath.contentEquals("/memberlist.adboard")) {
 
          String id = request.getParameter("id");
-         System.out.println("넘어온 아이디 값은 : " + id);
          MemberDTO dto = new MemberDTO();
+         ArrayList<ChallengeDTO> list = new ArrayList<ChallengeDTO>();
+         
 
          try {
             dto = MemberDAO.getInstance().select(id);
+            list = ChallengeDAO.getInstance().selectIdChallenge(id);
             
-            System.out.println(dto.getName());
-
+        
+           // request.setlist.get(0).getChallenge_num();
             
             request.setAttribute("dto", dto);
+            request.setAttribute("list", list);
          
             request.getRequestDispatcher("/admin/detailmemberlist.jsp").forward(request, response);
 
