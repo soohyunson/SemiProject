@@ -50,7 +50,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
              <br><br>
                 <div style="text-align:start; margin-left: 5%;"><a href="#" class="submenu">Member Management </a></div>
                 <br><br>
-                <div><a href="../admin/memberlist.mem" style="margin-left:10%; ">Member List</a></div>
+                <div><a href="memberlist.mem" style="margin-left:10%; ">Member List</a></div>
                 
                 <br><br>
             </div>
