@@ -59,6 +59,28 @@ public class ChallengeDAO {
 
 		}
 	}
+	public int update(ChallengeDTO dto,int seq) throws SQLException, Exception {
+		String sql = "update challenge set title=?,content=?,start_date=?,end_date=?,end=?,file_path=?,giveortake=?,category=? where seq=?";
+		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql);) {
+			pstat.setString(1, dto.getTitle());
+			pstat.setString(2, dto.getContent());
+			pstat.setString(3, dto.getStart_date());
+			pstat.setString(4, dto.getEnd_date());
+			pstat.setString(5, dto.getEnd());
+			pstat.setString(6, dto.getFile_path());
+			
+			pstat.setString(7, dto.getGiveortake());
+			pstat.setString(8, dto.getCategory());
+			
+			pstat.setInt(9, seq);
+
+			int result = pstat.executeUpdate();
+			conn.commit();
+
+			return result;
+
+		}
+	}
 
 	public int delete(int seq) throws SQLException, Exception {
 		String sql = "delete * from challenge where seq=?";
