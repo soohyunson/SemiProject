@@ -86,152 +86,82 @@
 				<a href="#" class="submenu">My Challenge</a>
 			</div>
 			<br> <br>
+			<script>
+				console.log(${giveList.size()});
+				console.log(${takeList.size()});
+			</script>
 			<c:choose>
-				<c:when test="${empty givedetail and !empty takedetail } ">
-					<div style="text-align: start; margin-left: 5%;">기부</div>
-					<div class="row">
-						<div>존재하는 챌린지가 없습니다.</div>
+				<c:when test="${giveList.size() eq 0 || giveList eq null}">
 
-
-
+					<div
+						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;">기부</div>
+					<div class="row" style="width:100%; margin:auto;">
+						<div class="col-12 p-4 m-1" style="background:white; width:100%;">
+							<div>존재하는 챌린지가 없습니다.</div>
+						</div>
 					</div>
-					<div style="text-align: start; margin-left: 5%;">테이크</div>
-					<div class="row">
-						<c:set var="sizee" value="${fn:length(takedetail)-1}" />
-						
-						<c:if test="${sizee <= 0 }">
-							<c:set var="sizee" value="0" />
-						</c:if>
-						<c:forEach var="j" begin="0" end="${sizee}">
-							<div class="col-4">
-								<a href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${takedetail[j].seq}&recordSeq=${takerecord[j].seq}">
-									<div class="card m-3">
 
-										<img src="${takedetail[j].file_path}" class="card-img-top">
+				</c:when>
+				<c:otherwise>
+					<div
+						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;">기부</div>
+					<div class="row">
+
+						<c:forEach items="${giveList}" var="dto">
+
+							<div class="col-4">
+
+								<a
+									href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${dto.seq}">
+									<div class="card m-3">
+										<img src="${dto.file_path}" class="card-img-top">
 										<div class="card-body">
-											<h5 class="card-title">${takedetail[j].title }</h5>
-											<p class="card-text">참여인원 :
-												${takedetail[j].total_participate }</p>
+											<h5 class="card-title">${dto.title }</h5>
+											<p class="card-text">참여인원 : ${dto.total_participate }</p>
 										</div>
 									</div>
 								</a>
 							</div>
-
 						</c:forEach>
 					</div>
+
+				</c:otherwise>
+			</c:choose>
+			<c:choose>
+				<c:when test="${takeList.size() eq 0 || takeList eq null}">
+					<div
+						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;">테이크</div>
+					<div class="row mb-5" style="width:100%; margin:auto;">
+						<div class="col-12 p-4 m-1" style="background:white; width:100%;">
+							<div>존재하는 챌린지가 없습니다.</div>
+						</div>
+
+					</div>
 				</c:when>
-				<c:when test="${!empty givedetail and empty takedetail }">
-					<div style="text-align: start; margin-left: 5%;">기부</div>
+				<c:otherwise>
+					<div
+						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;">테이크</div>
 					<div class="row">
-
-
-						<c:set var="size" value="${fn:length(givedetail)-1}" />
-						<c:if test="${size <= 0 }">
-							<c:set var="size" value="0" />
-						</c:if>
-
-						<c:forEach var="i" begin="0" end="${size}">
+						<c:forEach items="${takeList}" var="dto">
 
 							<div class="col-4">
 								<a
-									href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${givedetail[i].seq}&recordSeq=${giverecord[i].seq}">
+									href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${dto.seq}">
 									<div class="card m-3">
 
-										<img src="${givedetail.get[i].file_path}" class="card-img-top">
+										<img src="${dto.file_path}" class="card-img-top">
 										<div class="card-body">
-											<h5 class="card-title">${givedetail[i].title }</h5>
-											<p class="card-text">참여인원 :
-												${givedetail[i].total_participate }</p>
+											<h5 class="card-title">${dto.title }</h5>
+											<p class="card-text">참여인원 : ${dto.total_participate }</p>
 										</div>
 									</div>
 								</a>
-
 							</div>
 
-						</c:forEach>
-					</div>
-
-					<div style="text-align: start; margin-left: 5%;">테이크</div>
-					<div class="row">
-						<div>존재하는 챌린지가 없습니다.</div>
-					</div>
-				</c:when>
-				<c:when  test="${givedetail.size() ==  0 and takedetail.size() == 0 }">
-					
-					<div style="text-align: start; margin-left: 5%;">기부</div>
-					<div class="row">
-						<div>존재하는 챌린지가 없습니다.</div>
-
-
-
-					</div>
-					<div style="text-align: start; margin-left: 5%;">테이크</div>
-					<div class="row">
-						<div>존재하는 챌린지가 없습니다.</div>
-							
-
-						
-					</div>
-				</c:when>
-				
-				<c:otherwise>
-					<div style="text-align: start; margin-left: 5%;">기부</div>
-					<div class="row">
-						<c:set var="size" value="${fn:length(givedetail)-1}" />
-
-						<c:if test="${size <= 0 }">
-							<c:set var="size" value="0" />
-						</c:if>
-
-						<c:forEach var="i" begin="0" end="${size}">
-							
-								<div class="col-4">
-
-									<a
-										href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${givedetail[i].seq}&recordSeq=${giverecord[i].seq}">
-										<div class="card m-3">
-											<img src="${givedetail[i].file_path}" class="card-img-top">
-											<div class="card-body">
-												<h5 class="card-title">${givedetail[i].title }</h5>
-												<p class="card-text">참여인원 :
-													${givedetail[i].total_participate }</p>
-											</div>
-										</div>
-									</a>
-								</div>
-							
-						</c:forEach>
-					</div>
-					<div style="text-align: start; margin-left: 5%;">테이크</div>
-					<div class="row">
-						<c:set var="sizee" value="${fn:length(takedetail)-1}" />
-
-						<c:if test="${sizee <= 0 }">
-							<c:set var="sizee" value="0" />
-						</c:if>
-
-						<c:forEach var="j" begin="0" end="${sizee}">
-							
-								<div class="col-4">
-									<a
-										href="${pageContext.request.contextPath}/myPageDetailView.usboard?challengeSeq=${takedetail[j].seq}&recordSeq=${takerecord[j].seq}">
-										<div class="card m-3">
-
-											<img src="${takedetail[j].file_path}" class="card-img-top">
-											<div class="card-body">
-												<h5 class="card-title">${takedetail[j].title }</h5>
-												<p class="card-text">참여인원 :
-													${takedetail[j].total_participate }</p>
-											</div>
-										</div>
-									</a>
-								</div>
-							
 						</c:forEach>
 					</div>
 				</c:otherwise>
 			</c:choose>
-
 
 		</div>
 	</div>

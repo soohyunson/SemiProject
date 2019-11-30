@@ -193,4 +193,23 @@ public class ChallengeRecordDAO {
 		}
 
 	}
+	
+	public int selectSeq(int challengeNum , String id) throws SQLException, Exception {
+		String sql ="select seq from  challenge_record  where challenge_numm = ? and memeber_id = ?";
+		try(Connection conn = getConnection();
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+			pstat.setInt(1, challengeNum);
+			pstat.setString(2, id);
+			try(ResultSet rs = pstat.executeQuery()){
+				int seq=0;
+				if(rs.next()) {
+					seq=rs.getInt(1);
+				}
+				return seq;
+				
+			}
+			
+		}
+	}
+	
 }
