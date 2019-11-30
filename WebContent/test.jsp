@@ -316,7 +316,7 @@ img {
 		</form>
 		
 		<input type="button" value="¼º°ø" id="succesBtn"><br>
-<input type="button" value="Ã§¸°Áö ¼öÁ¤" id="modifyBtn"><br>
+<input type="button" value="Ã§¸°Áö °ü¸®" id="modifyBtn"><br>
 <input type="button" value="Ã§¸°Áö »èÁ¦" id="deleteBtn">
 
 		<script>
