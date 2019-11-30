@@ -244,6 +244,19 @@ public class MemberDAO {
 			return result;
 		}
 	}
+	public int updatePoint(int point,String id)throws Exception{
+		String sql = "update member set point = point - ? where id = ?";
+		try(
+				Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);
+				){
+			pstat.setInt(1, point);
+			pstat.setString(2, id);
+			int result = pstat.executeUpdate();
+			con.commit();
+			return result;
+		}
+	}
 
 
 	public String getPageNavi(int currentPage) throws Exception { //게시판에서 페이지 넘기기 (int 값은 모두 예시)

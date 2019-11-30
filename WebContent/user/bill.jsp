@@ -197,6 +197,10 @@
             .fifthfloor{
                 height: 150px;
             }
+            .detailfloor, .myInfo{
+            	border:1px solid black;
+            	margin-top:40px;
+            }
         </style>
 </head>
 <body>
@@ -223,6 +227,21 @@
 ① 회원이 납입한 요금에 대하여는 회사는 그 요금을 환불이 불가합니다.
                
                 </div>
+            </div>
+            <div class=detailfloor>
+            	<div class="detailInfo">
+            		챌린지명 :<div id="challengeTitle">${challenge.title }</div> <br>
+            		참가포인트:<div id="pp-point">${challenge.pp_point }</div> <br>
+            		시작날짜:<div id="start-date">${challenge.start_date }</div> <br>
+            		끝나는 날짜:<div id="end-date">${challenge.end_date }</div> <br>
+            		카테고리:<div id="category">${challenge.category }</div>
+            	</div>
+			</div>
+            <div class="myInfofloor">
+            	<div class="myInfo">
+            		<div id="userId">아이디:${userId.id }</div><br>
+            		${userId.name }의 포인트:<div id="userPoint">${userId.point } <input type="button" id="charge" value="충전"></div>
+            	</div>
             </div>
             <div class="fifthfloor">
                <br><br>
@@ -302,9 +321,13 @@
         <script>
         $("#confirm").on("click",function(){
             if($("#check").prop("checked")){
-                if(confirm("진행하시겠습니까?")){
-                    location.href="challengeParticipation.jsp";
-                }
+            	if($("#pp-point").html() <= $("#userPoint").html()){
+                    if(confirm("진행하시겠습니까?")){
+                        location.href="participation.usboard?seq=${challenge.seq }&pp_point=${challenge.pp_point }&userId=${userId.id }&userPoint=${userId.point}";
+                    }
+            	}else{
+            		alert("포인트를 충전해주십시오")
+            	}
             }else{
                 alert("약관에 동의해주십시오");
             }

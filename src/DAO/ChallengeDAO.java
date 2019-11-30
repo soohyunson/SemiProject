@@ -322,6 +322,31 @@ public class ChallengeDAO {
 		 return result;
 		 }
 	 }
+	public int updateTotalParticipate(int seq)throws Exception{
+		String sql = "update challenge set total_participate = total_participate+1 where seq = ?";
+		try(
+				Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);
+				){
+			pstat.setInt(1, seq);
+			int result = pstat.executeUpdate();
+			con.commit();
+			return result;
+		}
+	}
+	public int updateTotalAmount(int point,int seq)throws Exception{
+		String sql = "update challenge set total_amount = total_amount+? where seq = ?";
+		try(
+				Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);
+				){
+			pstat.setInt(1, point);
+			pstat.setInt(2, seq);
+			int result = pstat.executeUpdate();
+			con.commit();
+			return result;
+		}
+	}
 	private int getArticleCount() throws Exception{
 		 String sql = "select count(*) from challenge";
 		 try(
