@@ -2,6 +2,8 @@ package admin.sever.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,183 +26,186 @@ import adminboardCongiuration.Configuration;
 
 @WebServlet("*.adboard")
 public class AdminBoardServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String uri = request.getRequestURI();
-		String projectPath = request.getContextPath();
+   private static final long serialVersionUID = 1L;
 
-		String realPath = uri.substring(projectPath.length());
-		System.out.println("요청된 경로는 : " + realPath + "입니다.");
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      String uri = request.getRequestURI();
+      String projectPath = request.getContextPath();
 
-		if (realPath.contentEquals("/detail.adboard")) {
-			int seq = Integer.parseInt(request.getParameter("seq"));
+      String realPath = uri.substring(projectPath.length());
+      System.out.println("요청된 경로는 : " + realPath + "입니다.");
 
-			ChallengeDTO dto = new ChallengeDTO();
+      if (realPath.contentEquals("/detail.adboard")) {
+         int seq = Integer.parseInt(request.getParameter("seq"));
 
-			try {
-				dto = ChallengeDAO.getInstance().getChallenge(seq);
+         ChallengeDTO dto = new ChallengeDTO();
 
-				ArrayList<Challenge_recordDTO> list = new ArrayList<>();
+         try {
+            dto = ChallengeDAO.getInstance().getChallenge(seq);
 
-				list = ChallengeRecordDAO.getInstance().getParticipate(seq);
+            ArrayList<Challenge_recordDTO> list = new ArrayList<>();
 
-				request.setAttribute("recordList", list);
-				request.setAttribute("dto", dto);
-				request.getRequestDispatcher("test.jsp").forward(request, response);
+            list = ChallengeRecordDAO.getInstance().getParticipate(seq);
 
-			} catch (Exception e) {
-				System.out.println("nonono~~!!");
+            request.setAttribute("recordList", list);
+            request.setAttribute("dto", dto);
+            request.getRequestDispatcher("test.jsp").forward(request, response);
 
-				e.printStackTrace();
-			}
+         } catch (Exception e) {
+            System.out.println("nonono~~!!");
 
-		} else if (realPath.contentEquals("/succesCheck.adboard")) {
-			String[] check = request.getParameterValues("succesCheck");
-			int seq = Integer.parseInt(request.getParameter("seq"));
+            e.printStackTrace();
+         }
 
-			System.out.println(seq);
-			for (int i = 0; i < check.length; i++) {
-				System.out.println(check[i]);
-			}
+      } else if (realPath.contentEquals("/succesCheck.adboard")) {
+         String[] check = request.getParameterValues("succesCheck");
+         int seq = Integer.parseInt(request.getParameter("seq"));
 
-			ArrayList<Challenge_recordDTO> list = new ArrayList<>();
+         System.out.println(seq);
+         for (int i = 0; i < check.length; i++) {
+            System.out.println(check[i]);
+         }
 
-			try {
-				list = ChallengeRecordDAO.getInstance().getParticipate(2);
+         ArrayList<Challenge_recordDTO> list = new ArrayList<>();
 
-				for (Challenge_recordDTO dto : list) {
-					for (int i = 0; i < check.length; i++) {
-						if (dto.getMember_id().contentEquals(check[i])) {
-							int result = ChallengeRecordDAO.getInstance().successUpdate(dto.getSeq());
-							System.out.println(result);
-						}
-					}
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else if (realPath.contentEquals("/list.adboard")) {
-			int currentPage = 0;
-			String CPage = request.getParameter("currentPage");
-			System.out.println("cpage : " + CPage);
-			if (CPage == null) {
-				try {
-					currentPage = 1;
-					String page = ChallengeDAO.getInstance().getPageNavi(1);
-					int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage - 1);
-					int end = currentPage * Configuration.recordCountPerPage;
+         try {
+            list = ChallengeRecordDAO.getInstance().getParticipate(2);
 
-					System.out.println();
-					List<ChallengeDTO> dto = ChallengeDAO.getInstance().selectByPage(start, end);
+            for (Challenge_recordDTO dto : list) {
+               for (int i = 0; i < check.length; i++) {
+                  if (dto.getMember_id().contentEquals(check[i])) {
+                     int result = ChallengeRecordDAO.getInstance().successUpdate(dto.getSeq());
+                     System.out.println(result);
+                  }
+               }
+            }
+         } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+         }
+      } else if (realPath.contentEquals("/list.adboard")) {
+         int currentPage = 0;
+         String CPage = request.getParameter("currentPage");
+         System.out.println("cpage : " + CPage);
+         if (CPage == null) {
+            try {
+               currentPage = 1;
+               String page = ChallengeDAO.getInstance().getPageNavi(1);
+               int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage - 1);
+               int end = currentPage * Configuration.recordCountPerPage;
 
-					System.out.println(dto.size());
+               System.out.println();
+               List<ChallengeDTO> dto = ChallengeDAO.getInstance().selectByPage(start, end);
 
-					request.setAttribute("page", page);
-					request.setAttribute("dto", dto);
-					request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
+               System.out.println(dto.size());
 
-				} catch (Exception e) {
-					e.printStackTrace();
-					// response.sendRedirect("error.jsp");
-				}
-			} else {
-				try {
-					currentPage = Integer.parseInt(CPage);
-					String page = ChallengeDAO.getInstance().getPageNavi(currentPage);
+               request.setAttribute("page", page);
+               request.setAttribute("dto", dto);
+               request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
 
-					int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage - 1);
-					int end = currentPage * Configuration.recordCountPerPage;
-					List<ChallengeDTO> dto = ChallengeDAO.getInstance().selectByPage(start, end);
-					request.setAttribute("page", page);
-					request.setAttribute("dto", dto);
-					request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
-				} catch (Exception e) {
-					e.printStackTrace();
-					response.sendRedirect("error.jsp");
-				}
-			}
-		} else if (realPath.contentEquals("/write.adboard")) {
-			String uploadPath = request.getServletContext().getRealPath("/files");
-			File uploadFilePath = new File(uploadPath);
-			System.out.println(uploadPath);
-			System.out.println(uploadFilePath);
-			if (!uploadFilePath.exists()) {
-				uploadFilePath.mkdir();
+            } catch (Exception e) {
+               e.printStackTrace();
+               // response.sendRedirect("error.jsp");
+            }
+         } else {
+            try {
+               currentPage = Integer.parseInt(CPage);
+               String page = ChallengeDAO.getInstance().getPageNavi(currentPage);
 
-			}
-			try {
-				int maxSize = 1024 * 1024 * 10; // 10mb 까지 용량제한
+               int start = currentPage * Configuration.recordCountPerPage - (Configuration.recordCountPerPage - 1);
+               int end = currentPage * Configuration.recordCountPerPage;
+               List<ChallengeDTO> dto = ChallengeDAO.getInstance().selectByPage(start, end);
+               request.setAttribute("page", page);
+               request.setAttribute("dto", dto);
+               request.getRequestDispatcher("admin/adminChallengeList.jsp").forward(request, response);
+            } catch (Exception e) {
+               e.printStackTrace();
+               response.sendRedirect("error.jsp");
+            }
+         }
+      } else if (realPath.contentEquals("/write.adboard")) {
+         String uploadPath = request.getServletContext().getRealPath("/files");
+         File uploadFilePath = new File(uploadPath);
+         System.out.println(uploadPath);
+         System.out.println(uploadFilePath);
+         if (!uploadFilePath.exists()) {
+            uploadFilePath.mkdir();
 
-				MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF8",
-						new DefaultFileRenamePolicy());
+         }
+         try {
+            int maxSize = 1024 * 1024 * 10; // 10mb 까지 용량제한
 
-				// String name = multi.getParameter("file1");//파일 가져와라
-				String fileName = multi.getFilesystemName("file1"); // 업로드되는 파일의 이름이 뭐냐
-				String oriFileName = multi.getOriginalFileName("file1"); // 업로드 할 때 당시의 파일의 원래 이름이 뭐냐
-				List<ChallengeDTO> list = ChallengeDAO.getInstance().getInstance().selectAll();
-				// FilesDTO dto2 = new
-				// FilesDTO(0,list.get(list.size()-1).getSeq()+1,fileName,oriFileName);
-				// int result2 = FilesDAO.getInstance().insert(dto2);
+            MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF8",
+                  new DefaultFileRenamePolicy());
 
-				// seq
-				String title = multi.getParameter("title");
-				String contents = multi.getParameter("content");
-				// String writer = (String)request.getSession().getAttribute("loginInfo");
-				String start_date = multi.getParameter("startdate");
-				String end_date = multi.getParameter("enddate");
+            // String name = multi.getParameter("file1");//파일 가져와라
+            String fileName = multi.getFilesystemName("file1"); // 업로드되는 파일의 이름이 뭐냐
+            String oriFileName = multi.getOriginalFileName("file1"); // 업로드 할 때 당시의 파일의 원래 이름이 뭐냐
+            List<ChallengeDTO> list = ChallengeDAO.getInstance().getInstance().selectAll();
+            // FilesDTO dto2 = new
+            // FilesDTO(0,list.get(list.size()-1).getSeq()+1,fileName,oriFileName);
+            // int result2 = FilesDAO.getInstance().insert(dto2);
 
-				String giveortake = multi.getParameter("giveortake");
-				String category = multi.getParameter("category");
+            // seq
+            String title = multi.getParameter("title");
+            String contents = multi.getParameter("content");
+            // String writer = (String)request.getSession().getAttribute("loginInfo");
+            String start_date = multi.getParameter("startdate");
+            String end_date = multi.getParameter("enddate");
 
-				System.out.println(title);
-				System.out.println(contents);
+            String giveortake = multi.getParameter("giveortake");
+            String category = multi.getParameter("category");
 
-				ChallengeDTO dto = new ChallengeDTO(0, title, contents, start_date, end_date, "N", 0, oriFileName,
-						giveortake, category, 10000, 10000);
+            System.out.println(title);
+            System.out.println(contents);
 
-				try {
-					// int result = ChallengeDAO.getInstance().insertWrite(dto);
-					// System.out.println(result);
+            ChallengeDTO dto = new ChallengeDTO(0, title, contents, start_date, end_date, "N", 0, oriFileName,
+                  giveortake, category, 10000, 10000);
 
-					response.sendRedirect("list.adboard");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				response.sendRedirect("error.jsp");
-			}
+            try {
+               // int result = ChallengeDAO.getInstance().insertWrite(dto);
+               // System.out.println(result);
 
-		}else if (realPath.contentEquals("/memberlist.adboard")) {
+               response.sendRedirect("list.adboard");
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+         } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+         }
 
-			String id = request.getParameter("id");
-			System.out.println("넘어온 아이디 값은 : " + id);
-			MemberDTO dto = new MemberDTO();
+      }else if (realPath.contentEquals("/memberlist.adboard")) {
 
-			try {
-				dto = MemberDAO.getInstance().select(id);
-				
-				System.out.println(dto.getName());
+         String id = request.getParameter("id");
+         System.out.println("넘어온 아이디 값은 : " + id);
+         MemberDTO dto = new MemberDTO();
 
-				
-				request.setAttribute("dto", dto);
-			
-				request.getRequestDispatcher("/admin/detailmemberlist.jsp").forward(request, response);
+         try {
+            dto = MemberDAO.getInstance().select(id);
+            
+            System.out.println(dto.getName());
 
-			} catch (Exception e) {
-				System.out.println("ㅇ기 에러났어요~~!!!!!!: :::::");
-				e.printStackTrace();
-			}
-		} 
-	}
+            
+            request.setAttribute("dto", dto);
+         
+            request.getRequestDispatcher("/admin/detailmemberlist.jsp").forward(request, response);
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+         } catch (Exception e) {
+            System.out.println("ㅇ기 에러났어요~~!!!!!!: :::::");
+            e.printStackTrace();
+         }
+      } 
+   }
 
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      doGet(request, response);
+   }
+   
 }
+   
+

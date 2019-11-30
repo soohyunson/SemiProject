@@ -166,6 +166,11 @@
             }
             #enjoybtn{
                 font-size: 20px;
+                background-color: black;
+                color: white;
+                width: 90%;
+                height: 50px;
+                border: 1px solid black;
 
             }
             .submenu{
@@ -323,12 +328,12 @@
         </div>
     <div class="category">
         <div class="wrapper">
-        	<div style="height:30%" style="font-size: 18px;">
+        	<div style="height:20%" style="font-size: 20px; font-weight: bold;">
         	${detailpage.title } 챌린지
         	</div>
-        	<div style="height:15%">${detailpage.start_date } </div>
-        	<div style="height:15%">${detailpage.end_date }</div>
-        	<div style="height:20%">${detailpage.giveortake }</div>
+        	<div style="height:20%;">챌린지 시작일 : ${detailpage.start_date } </div>
+        	<div style="height:20%">챌린지 종료일 : ${detailpage.end_date }</div>
+        	<div style="height:20%"> ${detailpage.giveortake } 챌린지</div>
         	<div style="height:20%"><button id="enjoybtn">enjoy</button></div>
         </div>
     </div>
@@ -374,7 +379,6 @@
     			alert("로그인 페이지로 이동합니다");
     			location.href="${pageContext.request.contextPath }/user/login/login.jsp"
     		}
-
     	})
     </script>
     </body>

@@ -264,14 +264,13 @@
                         	
                         	</c:forEach>
                         </c:otherwise>
-                            
                         </c:choose>
                         <tr>
                         
                         </tr>
                         <tr>
                				<tr>
-               				<form action="search.mem" method="post" id="searchfrm">
+               				
                				
                         	<td colspan=2 style="text-align: center">${navi }
                         	</form>
@@ -279,6 +278,7 @@
                         </tr>
                         <tr>
                         <td colspan=2 style="text-align: right">
+                        
                         	<input type=text placeholder="아이디로 검색하기" name="search">
                         	<input type="button" value="검색" id="searchbtn">
                         </tr>
