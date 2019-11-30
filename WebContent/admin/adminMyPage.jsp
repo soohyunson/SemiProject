@@ -30,7 +30,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
   <img src="../Img/profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
   <div class="media-body">
       <br>
-    <h5 class="mt-0">Admin</h5>
+    <h5 class="mt-0">${id }</h5>
    관리자님 반갑습니다.
   </div>
              
