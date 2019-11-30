@@ -5,15 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-		function goPoint() {
-			location.href = "${pageContext.request.contextPath}/MyPoint.mypage";
-		}
-	
+<script language="javascript">
+function javascript(){
+	//부모창 새로고침
+	opener.parent.location.reload();
+     
+ 	//현재 창 닫기
+	self.close();
+}
 </script>
 </head>
-<body>
-	<button onclick="goPoint()">goPoint</button>
+<body onload="javascript()">
 </body>
-
 </html>
+
+
