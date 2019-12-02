@@ -36,8 +36,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/MyPageStyle.css">
+<link rel="stylesheet" type="text/css"href="${pageContext.request.contextPath}/resources/css/MyPageStyle.css">
 
 
 
