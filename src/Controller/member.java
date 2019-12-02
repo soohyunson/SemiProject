@@ -114,6 +114,7 @@ public class member extends HttpServlet {
 				request.setAttribute("dto", dto);
 				request.getRequestDispatcher("/admin/memberlist.mem").forward(request, response);
 
+<<<<<<< HEAD
 
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -154,6 +155,48 @@ public class member extends HttpServlet {
 			}
 		}
 	}
+=======
+				
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}else if(realPath.contentEquals("/logout.mem")) {
+				request.getSession().invalidate();
+				response.sendRedirect("index.jsp");
+
+			}else if(realPath.contentEquals("/delete.mem")) {
+				
+				try {String id = request.getParameter("id");
+				System.out.println("삭제할 아이디는 : " + id);
+					int result = MemberDAO.getInstance().delete(id);
+					request.setAttribute("result", result);
+					request.getRequestDispatcher("/index.jsp").forward(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}else if(realPath.contentEquals("/update.mem")) {
+				
+			
+				try {
+					String id = request.getParameter("id");
+					String pw = request.getParameter("pw");
+					String name = request.getParameter("name");
+					String phone = request.getParameter("phone");
+					String email = request.getParameter("email");
+					int result = dao.update(pw, phone, email);
+					request.setAttribute("update", result);
+					request.getRequestDispatcher("userMyPage.jsp").forward(request, response);
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+  }
+>>>>>>> d75653f31a6471448c9193e055aebef0edd25fee
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
