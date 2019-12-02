@@ -14,11 +14,19 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Arapey|Russo+One&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../resources/css/MyPageStyle.css">
+         <link href="https://fonts.googleapis.com/css?family=Bangers|Coming+Soon|Gloria+Hallelujah|Handlee|Rock+Salt&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/MyPageStyle.css">
+        <style>
+@font-face { font-family: '양진체'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'BMEULJIRO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff'); font-weight: normal; font-style: normal; }
+</style>
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
+<div>
+<img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="back" style="position:fixed; z-index:-500; filter: blur(4px);">
+</div>
  <div class="container">
             <br><br><br>
             
@@ -27,8 +35,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <div style="text-align:start; margin-left: 5%;"><a href="#"class="submenu">My Profile</a></div>
                 <br><br>
             <div class="media">
-  <img src="../Img/profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
-  <div class="media-body">
+  <img src="${pageContext.request.contextPath }/resources/img/profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
+  <div class="media-body" style=" font-family: 'BMEULJIRO';">
       <br>
     <h5 class="mt-0">${id }</h5>
    관리자님 반갑습니다.
@@ -50,7 +58,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
              <br><br>
                 <div style="text-align:start; margin-left: 5%;"><a href="#" class="submenu">Member Management </a></div>
                 <br><br>
-                <div><a href="memberlist.mem" style="margin-left:10%; ">Member List</a></div>
+                <div><a href="memberlist.mem" style="margin-left:10%; font-family: 'BMEULJIRO';">Member List</a></div>
                 
                 <br><br>
             </div>
@@ -59,10 +67,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <br><br>
                 <div style="text-align:start; margin-left: 5%;"><a href="#"class="submenu">Challenge Management</a></div>
                 <br><br>
-                <div><a href="${pageContext.request.contextPath}/list.adboard" style="margin-left:10%;" id="board">Board List</a></div>
+                <div><a href="${pageContext.request.contextPath}/list.adboard" style="margin-left:10%; font-family: 'BMEULJIRO';" id="board">Board List</a></div>
                 <br>
                
-                <div><a href="writeBoard.jsp" style="margin-left:10%; "id="write" >write Board</a></div>
+                <div><a href="writeBoard.jsp" style="margin-left:10%; font-family: 'BMEULJIRO';" id="write" >write Board</a></div>
                 <br>
                
                 
@@ -102,9 +110,9 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <div class="lastbar2" style="text-align: center;">상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 : 234-88-00720 | 대표자명 : 김세원<br>
 Copyright ⓒ2019 Miwansung inc, ltd. All rights reserved</div><br>
                 <div class="lastbar3" style="text-align: center">
-                    <a href="#"><img src="Img/icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                <a href="#"><img src="Img/icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                <a href="#"><img src="Img/icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
+                    <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
                 <br>
             </div>
             
@@ -112,12 +120,12 @@ Copyright ⓒ2019 Miwansung inc, ltd. All rights reserved</div><br>
         
         <ul class="navi">
           <ul class="title">
-           <li class="navi-title"><a href="#">Don't Give Up</a></li>
+           <li class="navi-title"><a href="#" style="font-family: 'Rock Salt', cursive; font-size:20px;">Don't Give Up</a></li>
             </ul>
             <ul class="itemList">
             
-            <li class="navi-item"><a href="#">HOME</a></li>
-            <li class="navi-item"><a href="#">ADMIN PAGE</a></li>
+            <li class="navi-item"><a href="#"  style="font-family: 양진체; font-weight:bold;">ADMIN PAGE</a></li>
+            <li class="navi-item"><a href="#"  style="font-family: 양진체; font-weight:bold;">LOGOUT</a></li>
             </ul>
         </ul>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -17,7 +17,9 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
 	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bangers|Coming+Soon|Gloria+Hallelujah|Handlee|Rock+Salt&display=swap" rel="stylesheet">
 <style>
+@font-face { font-family: '양진체'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
 body {
 	margin: 0px;
 	padding: 0px;
@@ -67,8 +69,10 @@ body {
 }
 
 .navi-item {
+    position:absolute;
+    right:0px;
 	list-style-type: none;
-	width: 30%;
+	width: 50%;
 	line-height: 72px;
 	float: left;
 	text-align: center;
@@ -131,7 +135,8 @@ body {
 }
 
 .container {
-	background-color: #ededed;
+position: relative;
+	background-color: #FFFFFF;
 	width: 60%;
 	margin: auto;
 	margin-top: 0px;
@@ -158,7 +163,7 @@ body {
 	border-top: 3px solid #1D1F21;
 	border-radius: 3px;
 	width: 100%;
-	background-color: gainsboro;
+	background-color: #FFFFFF;
 }
 
 .progress {
@@ -187,7 +192,8 @@ body {
 	height: 700px;
 }
 .loginbox{
-	border: 1px solid black;
+	
+	
 	
 }
 table {
@@ -197,6 +203,7 @@ table {
 	margin: auto;
     text-align: center;
 	top: 200px;
+	
 }
 .bottom {
 	border: 1px solid black;
@@ -216,10 +223,15 @@ th{
 	background-color: white;
 	border: 1px solid black;
 }
+
 </style>
 </head>
 <body>
+<div>
+<img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="back" style="position:fixed; z-index:-500;filter: blur(4px);">
+</div>
 	<div class="container">
+	<img src="${pageContext.request.contextPath }/resources/img/square.png" class="circle" style="position:absolute;  top:250px; left:450px;  ">
 		<br> <br> <br>
 		<div class="twofloor"></div>
 		<div class="fourthfloor">
@@ -228,24 +240,29 @@ th{
 				System.out.println("uri : " + uri);
 				request.getSession().setAttribute("uri", uri);
 			%>
+<<<<<<< HEAD
+				<table class="loginbox" style="width:180px;">
+=======
 			<form action="login.mem" method="post" id="loginfrm">
 				<table class="loginbox">
 					<tr>
 						<th>Login
 					</tr>
+>>>>>>> 0797b9b5de0d0f2258243627bbf66304f3c5c5d0
 					<tr>
-						<td>Don't Give Up!
+						<th style="font-size:40px;">Login
 					</tr>
+					
 					<tr>
-						<td><input type="text" placeholder="Input your ID" name="id">
+						<td><input type="text" placeholder="Input your ID" name="id" >
 					</tr>
 					<tr>
 						<td><input type="password" placeholder="Input your PASSWORD"
-							name="pw">
+							name="pw" >
 					</tr>
 					<tr>
-						<td><input type="button" value="login" id="login">
-						<input type="button" id="signupbtn" value="Sign Up">
+						<td><input type="button" value="login" id="login" style="background-color:black; color:white; border-radius:4px; width:86px;">
+						<input type="button" id="signupbtn" value="Sign Up" style="background-color:black; color:white; border-radius:4px; width:86px;">
 					</tr>
 					<tr>
 						<td id="check"><input type="checkbox">Remember My ID
@@ -256,8 +273,12 @@ th{
 			</form>
 			
 		</div>
+<<<<<<< HEAD
+	
+=======
 		
 	</div>
+>>>>>>> 0797b9b5de0d0f2258243627bbf66304f3c5c5d0
 
 	<div class="fivefloor">
 		<ul class="lastbar">
@@ -290,54 +311,31 @@ th{
 		</div>
 		<br>
 		<div class="lastbar3" style="text-align: center">
-			<a href="#"><img src="Img/icon1.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon1.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="Img/icon2.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon2.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="Img/icon3.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon3.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
 		</div>
 		<br>
+	</div>
 	</div>
 	<div class="category">
 		<div class="wrapper"></div>
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="#"><img src="Img/reallogo.png"
-					class="mr-3" alt="..."
-					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
+			<li class="navi-title"><a href="#" style="font-family: 'Rock Salt', cursive; font-size:20px;">Don't Give Up</a></li>
 		</ul>
 		<ul class="itemList">
 
-			<li class="navi-item"><a href="#">GIVE OR TAKE</a></li>
-			<li class="navi-item"><a href="#">CHALLENGE</a></li>
-			<li class="navi-item"><a href="#">MYPAGE</a></li>
+			
+			<li class="navi-item" style="font-family: 양진체; font-weight:bold;">당신의 오늘을 배팅하라!</li>
 		</ul>
 	</ul>
 
-	<script>
-		var ctx = document.getElementById('myChart').getContext('2d');
-		var chart = new Chart(ctx, {
-			// The type of chart we want to create
-			type : 'line',
-
-			// The data for our dataset
-			data : {
-				labels : [ 'January', 'February', 'March', 'April', 'May',
-						'June', 'July' ],
-				datasets : [ {
-					label : 'My First dataset',
-					backgroundColor : 'rgb(255, 99, 132)',
-					borderColor : 'rgb(255, 99, 132)',
-					data : [ 0, 10, 5, 2, 20, 30, 45 ]
-				} ]
-			},
-
-			// Configuration options go here
-			options : {}
-		});//#<div class="conpt>
-	</script>
+	
 	<script>
 		$("#signupbtn").on("click", function() {
 			location.href = "signup.jsp"
