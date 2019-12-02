@@ -399,7 +399,12 @@ body {
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap" rel="stylesheet">
         <style>
+        /* 을지로체 */
+@font-face { font-family: 'BMEULJIRO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff'); font-weight: normal; font-style: normal; }
+            /* 양진체 */
+@font-face { font-family: '양진체'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
             body{
                 margin:0px;
                 padding:0px;
@@ -418,7 +423,7 @@ body {
                 padding:0px;
                 width:60%;
                 left: 20%;              
-                background-color: #FFFFFF90;
+                background-color: white;
                 font-family:fantasy;
                 font-size: 20px;
             }
@@ -432,9 +437,9 @@ body {
                 position: absolute;
                 margin:0px;
                 padding:0px;
-
                 right: 0px;
                 width:50%;
+                font-family: '양진체';
             }
             .navi-title{
                 list-style-type: none;
@@ -442,17 +447,16 @@ body {
                 line-height:72px;
                 float:left;
                 text-align: center;
-
-                color:#7019FF;
+                
             }
             .navi-item{
-
                 list-style-type: none;
                 width:30%;
                 line-height:72px;
                 float:left;
                 text-align: center;
                 color:black;
+                font-weight: bold;
             }
             .navi-item2{
                 list-style-type: none;
@@ -486,7 +490,7 @@ body {
             }
             .navi-item3>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
@@ -499,12 +503,9 @@ body {
                 height:100%;
                 display: block;
             }
-            .navi-item>a:hover{
-                background-color: orange;
-
-            }
+            
             .container{
-                background-color: #ededed;
+                background-color: white;
                 width:60%;
                 margin:auto;
                 margin-top:0px;
@@ -536,7 +537,7 @@ body {
                 border-top: 3px solid black;
                 border-radius: 3px;
                 width: 100%;
-                background-color: gainsboro;
+                background-color: white;
             }
             .progress{
                 display: inline-block;
@@ -552,23 +553,23 @@ body {
                 border: 3px solid black;
             }
             #enjoybtn{
-                font-size: 20px;
+                font-size: 22px;
                 background-color: black;
                 color: white;
                 width: 90%;
                 height: 50px;
                 border: 1px solid black;
-
+				font-family: '양진체';
+				border-radius: 10px;
             }
+            
             .submenu{
                 font-family: 'Calistoga', cursive;
-                color:#7019FF;
+                color:black;
             }
             .sidebar{
                 height: 51px;
-
                 font-family: 'Calistoga', cursive;
-
                 text-align: center;
             }
             .sidebar>a{
@@ -587,25 +588,24 @@ body {
             .onefloor{
             	height : 400px;
             	width: 100%;
-            	
             	margin: auto;
             }
             .twofloor{
             	height: 60px;
             	width: 100%;
             	font-size: 30px;
-            	text-align: center;
+            	text-align: left;
             }
             .threefloor{
-            	
             	height: 50px;
-            	text-align: center;
+            	text-align: left;
             	font-size: 20px;
             }
             .fourfloor{
             	height: 60px;
             	font-size: 40px;
             	text-align: center;
+            	border-bottom: 3px solid black;
             }
             .fivefloor{
             	
@@ -626,6 +626,11 @@ body {
             	font-weight: bold;
             	text-size: 15px;
             }
+            #logout{
+            	border: none;
+            	background-color: white;
+            	font-weight: bold;
+            }
             
         </style>
 
@@ -644,18 +649,19 @@ body {
              	<img style="height: 100%; width: 100%;" src="${pageContext.request.contextPath}/files/${detailpage.file_path }">
             </div>
             <br>
-            <div class="twofloor">
-            "${detailpage.giveortake }" 챌린지
-            </div>
-            <br>
-            <div class="threefloor">
-            	카테고리 : ${detailpage.category }
-            </div>
-            <br>
-            <div class="fourfloor">
+            <div class="fourfloor" style="font-family: 'BMEULJIRO', cursive;">
             	${detailpage.title }
             </div>
             <br>
+            <div class="twofloor" style="font-family: 'BMEULJIRO', cursive;">
+            ${detailpage.giveortake } 챌린지
+            </div>
+            <br>
+            <div class="threefloor" style="font-family: 'BMEULJIRO', cursive;">
+            	카테고리 : ${detailpage.category }
+            </div>
+            <br>
+            
             <div class="fivefloor">
             	<br>
             	<div id="method">챌린지 진행 방식</div>
@@ -723,7 +729,7 @@ body {
     <div class="category">
         <div class="wrapper">
         	<br>
-        	<div style="height:20%; font-size: 20px; font-weight: bold;">
+        	<div style="height:20%; font-size: 25px; font-weight: bold; font-family: 'BMEULJIRO' ">
         	${detailpage.title }
         	</div>
         	<div style="height: 20px;"> ${detailpage.giveortake } 챌린지</div><br>
@@ -734,12 +740,11 @@ body {
     </div>
     <ul class="navi">
         <ul class="title">
-            <li class="navi-title"><a href="#"><img src="reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
+            <li class="navi-title"><a href="${uri }"><img src="reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
         </ul>
         <ul class="itemList">
-            <li class="navi-item"><a href="#">GIVE OR TAKE</a></li>
-            <li class="navi-item"><a href="#">CHALLENGE</a></li>
-            <li class="navi-item"><a href="#">MYPAGE</a></li>
+            <li class="navi-item"><a href="banner.usboard">MYPAGE</a></li>
+            <li class="navi-item"><button id="logout">logout</button></li>
         </ul>
     </ul>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -776,6 +781,12 @@ body {
     			location.href="${pageContext.request.contextPath }/user/login/login.jsp"
     		}
     	})
+    	$("#logout").on("click", function(){
+    		var result = confirm("로그아웃 하시겠습니까?");
+			if (result) {
+				location.href = "logout.mem";
+			}
+    	});
     </script>
 </body>
 </html>

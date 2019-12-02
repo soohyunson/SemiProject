@@ -36,7 +36,7 @@ public class MemberDAO {
 		return bds.getConnection();
 	}
 
-	public static String encrypt(String input) throws Exception {//비밀번호 암호화
+	public String encrypt(String input) throws Exception {//비밀번호 암호화
 		MessageDigest digest = MessageDigest.getInstance("SHA-256");
 		digest.reset();
 		digest.update(input.getBytes("utf8"));
@@ -50,6 +50,7 @@ public class MemberDAO {
 				PreparedStatement psta = con.prepareStatement(sql);){
 			psta.setString(1, id);
 			psta.setString(2, pw);
+			System.out.println(pw);
 			try(ResultSet rs = psta.executeQuery();){
 				return rs.next();
 			}
