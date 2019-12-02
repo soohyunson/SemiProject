@@ -24,8 +24,16 @@
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="../resources/css/MyPageStyle.css">
+	 <link href="https://fonts.googleapis.com/css?family=Bangers|Coming+Soon|Gloria+Hallelujah|Handlee|Rock+Salt&display=swap" rel="stylesheet">
+	   <style>
+@font-face { font-family: '양진체'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'BMEULJIRO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff'); font-weight: normal; font-style: normal; }
+</style>
 </head>
 <body>
+<div>
+<img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="back" style="position:fixed; z-index:-500; filter: blur(4px);">
+</div>
 	<div class="container">
 		<br> <br> <br>
 
@@ -33,33 +41,35 @@
 
 		<div class="twofloor">
 			<br> <br>
-			<div style="text-align: start; margin-left: 5%;">
+			<div style="text-align: center;">
 				<a href="#" class="submenu">Make Challenge </a>
 			</div>
 			<br> <br>
 			<form action="../write.adboard" enctype="multipart/form-data"
 				method="post">
-				<table border=1 align=center>
+				<table border=1 align=center style="border:2px solid #1D1F21; text-align:start; ">
 
 					<tr>
 
-						<td><input type=text name=title placeholder="제목을 입력하세요."><input
-							type=file name=file1>
+						<td><input type=text name=title placeholder="제목을 입력하세요."style="width:350px;  border-radius:4px;  font-family: 'BMEULJIRO';"><input
+							type=file name=file1 style=" border-radius:4px; font-family: 'BMEULJIRO'; color:#1D1F21;">
 					</tr>
 					<tr>
-						<td><textarea name="content" rows="30" cols="70"></textarea>
+						<td><textarea name="content" rows="30" cols="100"></textarea>
 					</tr>
 					<tr>
 						<td><br>
 							<div style="text-align: center">
-								Give or Take : <input type="text" name="giveortake">
+							Give or Take -
+								<input type="radio" name="giveortake" value="give"> : Give   <input type="radio" name="giveortake" value="take"> : Take 
 									
 							</div> <br>
 					</tr>
 					<tr>
 						<td><br>
 							<div style="text-align: center">
-								Category : <input type="text" name="category">
+								Category - 
+								<input type="radio" name="category" value="생활"> : 생활   <input type="radio" name="category" value="운동"> : 운동 <input type="radio" name="category" value="건강"> : 건강   <input type="radio" name="category" value="공부"> : 공부  
 							</div> <br>
 					</tr>
 					<tr>
@@ -80,8 +90,8 @@
 					<tr>
 						<td align=right>
 
-							<button id=write>작성완료</button>
-							<button type=button id=cancel>돌아가기</button>
+							<button id=write style="background-color:black; border-radius:4px; color:white; font-family: 'BMEULJIRO';">작성완료</button>
+							<button type=button id=cancel style="background-color:black; border-radius:4px; color:white; font-family: 'BMEULJIRO';">돌아가기</button>
 					</tr>
 				</table>
 
@@ -133,11 +143,11 @@
 			</div>
 			<br>
 			<div class="lastbar3" style="text-align: center">
-				<a href="#"><img src="../icon1.png" class="mr-3" alt="..."
+				<a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon1.png" class="mr-3" alt="..."
 					style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-				<a href="#"><img src="../icon2.png" class="mr-3" alt="..."
+				<a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon2.png" class="mr-3" alt="..."
 					style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-				<a href="#"><img src="../icon3.png" class="mr-3" alt="..."
+				<a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon3.png" class="mr-3" alt="..."
 					style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
 			</div>
 			<br>
@@ -147,12 +157,12 @@
 
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="#">Don't Give Up</a></li>
+			<li class="navi-title"><a href="#"  style="font-family: 'Rock Salt', cursive; font-size:20px;">Don't Give Up</a></li>
 		</ul>
 		<ul class="itemList">
 
-			<li class="navi-item"><a href="#">HOME</a></li>
-			<li class="navi-item"><a href="#">ADMIN PAGE</a></li>
+			<li class="navi-item"><a href="#"  style="font-family: 양진체; font-weight:bold;">ADMIN PAGE</a></li>
+            <li class="navi-item"><a href="#"  style="font-family: 양진체; font-weight:bold;">LOGOUT</a></li>
 		</ul>
 	</ul>
 

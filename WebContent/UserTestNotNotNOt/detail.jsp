@@ -1,6 +1,8 @@
+<%@page import="DTO.File_ListDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -298,23 +300,24 @@ img {
 					<div class="confirmDiv">
 						<table>
 							<tr>
-								<td><img class="one">
-								<td><img class="two">
-								<td><img class="three">
-								<td><img class="four">
-								<td><img class="five">
+								<td><img class="one Imgtag">
+								<td><img class="two Imgtag">
+								<td><img class="three Imgtag">
+								<td><img class="four Imgtag">
+								<td><img class="five Imgtag">
 							</tr>
 							<tr>
-								<td><img class="six">
-								<td><img class="seven">
-								<td><img class="eight">
-								<td><img class="nine">
-								<td><img class="ten">
+								<td><img class="six Imgtag">
+								<td><img class="seven Imgtag">
+								<td><img class="eight Imgtag">
+								<td><img class="nine Imgtag">
+								<td><img class="ten Imgtag">
 							</tr>
 						</table>
 						<input type="file" name="fileImg" id="fileImg" accept="image/*"
 							onchange="checkFile(this)">
 						<button id="confirmBtn" type="button">인증하기</button>
+
 					</div>
 				</div>
 
@@ -377,9 +380,7 @@ img {
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="#"><img src="reallogo.png"
-					class="mr-3" alt="..."
-					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
+			<li class="navi-title"></li>
 		</ul>
 		<ul class="itemList">
 
@@ -424,81 +425,141 @@ img {
 		console.log(month);
 		console.log(day);
 		
-		var lastday = ( new Date(year,month, 0) ).getDate();
+		var lastday = ( new Date(year,month-1, 0) ).getDate();
 		
 		console.log(lastday);
 		console.log("받아온 월: "+${month});
 		console.log("오늘 일"+day);
-		console.log("받아온 일 :"+${day})
-	
+		console.log("받아온 일 :"+${day});
+		console.log("마지막 날짜 : "+lastday);
 		
-		var className;
+
+		var size = ${size};
+		console.log("넘어온 size : "+size);
+		var imgtag = $(".Imgtag");
+	
+		 console.log((lastday-${day})+day);
+		 
+		$.ajax({
+			url:"${pageContext.request.contextPath}/arrayFile.file",
+			dataType:"json",
+			data:{
+				recordNum : ${recordNum},
+				start_day : "${dto.start_date}"
+			}
+			
+		}).done(function(data){
+			console.log(data);
+			console.log(data.length);
+			
+			
+			for(i=0;i<data.length;i++){
+				var className;
+			 if(data[i].day==1){
+	               className= 'one';      
+	            }
+	             if(data[i].day==2){
+	               className= 'two';      
+	            }
+	            else if(data[i].day==3){
+	               className= 'three';      
+	            }
+	            else if(data[i].day==4){
+	               className= 'four';      
+	            }
+	            else if(data[i].day==5){
+	               className= 'five';      
+	            }
+	            else if(data[i].day==6){
+	               className= 'six';      
+	            }
+	            else if(data[i].day==7){
+	               className= 'seven';      
+	            }
+	            else if(data[i].day==8){
+	               className= 'eight';      
+	            }
+	            else if(data[i].day==9){
+	               className= 'nine';      
+	            }
+	            else if(data[i].day==10){
+	               className= 'ten';      
+	            }
+	             console.log(className);
+	             $("."+className).attr("src",data[i].filePath);
+			}
+		
+		})
+		
+		
+		
+		var name;
 		if(${month}!=month){
             if((lastday-day)+${day}==1){
-               className= 'one';      
+               name= 'one';      
             }
              if((lastday-day)+${day}==2){
-               className= 'two';      
+               name= 'two';      
             }
             else if((lastday-day)+${day}==3){
-               className= 'three';      
+               name= 'three';      
             }
             else if((lastday-day)+${day}==4){
-               className= 'four';      
+               name= 'four';      
             }
             else if((lastday-day)+${day}==5){
-               className= 'five';      
+               name= 'five';      
             }
             else if((lastday-day)+${day}==6){
-               className= 'six';      
+            	name= 'six';      
             }
             else if((lastday-day)+${day}==7){
-               className= 'seven';      
+            	name= 'seven';      
             }
             else if((lastday-day)+${day}==8){
-               className= 'eight';      
+            	name= 'eight';      
             }
             else if((lastday-day)+${day}==9){
-               className= 'nine';      
+            	name= 'nine';      
             }
             else if((lastday-day)+${day}==10){
-               className= 'ten';      
+            	name= 'ten';      
             }
    
          }else{
             if((day-${day})==1){
-               className= 'one';      
+            	name= 'one';      
             }
             else if((day-${day})==2){
-               className= 'two';      
+            	name= 'two';      
             }
             else if(day-${day}==3){
-               className= 'three';      
+            	name= 'three';      
             }
             else if(day-${day}==4){
-               className= 'four';      
+            	name= 'four';      
             }
             else if(day-${day}==5){
-               className= 'five';      
+            	name= 'five';      
             }
             else if(day-${day}==6){
-               className= 'six';      
+            	name= 'six';      
             }
             else if(day-${day}==7){
-               className= 'seven';      
+            	name= 'seven';      
             }
             else if(day-${day}==8){
-               className= 'eight';      
+            	name= 'eight';      
             }
             else if(day-${day}==9){
-               className= 'nine';      
+            	name= 'nine';      
             }
             else if(day-${day}==10){
-               className= 'ten';      
+            	name= 'ten';      
             }
             
          }
-         console.log(className);
+         console.log(name);
 	
 		$("#confirmBtn").on("click",function(){
 			if(!$("#fileImg").val()){
@@ -522,7 +583,7 @@ img {
 						}).done(function(data){
 							console.log(data);
 							
-							$("."+className).attr("src",data);
+							$("."+name).attr("src",data);
 							
 						}).fail(function(){
 							console.log("실패실패실패~~!!");

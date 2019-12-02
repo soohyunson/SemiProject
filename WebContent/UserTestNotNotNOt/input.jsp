@@ -14,7 +14,7 @@
 				"click",
 				function() {
 					$(location).attr("href",
-							"${pageContext.request.contextPath}/detail.board");
+							"${pageContext.request.contextPath}/myPageDetailView.usboard");
 				})
 	</script>
 </body>

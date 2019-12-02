@@ -152,10 +152,8 @@ public class member extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 			}
-		
-	}
+  }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

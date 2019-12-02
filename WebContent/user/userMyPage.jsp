@@ -36,8 +36,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/MyPageStyle.css">
+<link rel="stylesheet" type="text/css"href="${pageContext.request.contextPath}/resources/css/MyPageStyle.css">
 
 
 
@@ -95,10 +94,7 @@
 				<a href="#" class="submenu" style=" font-family: 'BMEULJIRO';">My Challenge</a>
 			</div>
 			<br> <br>
-			<script>
-				console.log(${giveList.size()});
-				console.log(${takeList.size()});
-			</script>
+		
 			<c:choose>
 				<c:when test="${giveList.size() eq 0 || giveList eq null}">
 
