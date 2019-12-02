@@ -86,21 +86,21 @@
 <body class="animated fadeIn delay-1s">
   <div class="wrap">
     <div class="box firstBox">
-      <img src="${pageContext.request.contextPath }/resources/img/background-Index.png" class="backgroundImg firstImg">
+      <img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="backgroundImg firstImg">
       <div class="navi firstNavi">
         <div><a href="#"><img src="${pageContext.request.contextPath }/resources/img/b.png" class="logo"></a></div>
         <div><button class="naviStartBtn">시작하기</button></div>
       </div>
       <div class="explan firstExplan">
-        <div class="firstText" style="font-family: 'East Sea Dokdo', cursive;">나를 죽이지 못하는 고통은</div>
-        <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">나를 더 강하게 만든다</div>
+        <div class="firstText" style="font-family: 'East Sea Dokdo', cursive;">넌 나의 한정된 나날 속에</div>
+        <div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">영원함을 줬어</div>
         <div class="referenceText">지금 바로 도전 긔릿</div>
         <div class="start"><button class="startBtn">레츠고</button></div>
         <div class="scroll animated infinite bounce delay-2s"><img src="${pageContext.request.contextPath }/resources/img/scroll@2x.png"></div>
       </div>
     </div>            
     <div class="box secondBox">
-      <img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="backgroundImg secondImg">
+      <img src="${pageContext.request.contextPath }/resources/img/backgroundSecond.jpg" class="backgroundImg secondImg">
       <div class="navi secondNavi">
         <div><a href="#"><img src="${pageContext.request.contextPath }/resources/img/b.png" class="logo"></a></div>
         <div><button class="naviStartBtn">시작하기</button></div>

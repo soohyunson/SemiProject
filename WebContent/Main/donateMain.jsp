@@ -9,6 +9,8 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/resources/css/donateMain.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -19,7 +21,9 @@
 <link
 	href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap"
 	rel="stylesheet">
-
+<link
+	href="https://fonts.googleapis.com/css?family=Bangers|Coming+Soon|Gloria+Hallelujah|Handlee|Rock+Salt&display=swap"
+	rel="stylesheet">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/Main/slick/slick.min.js"></script>
 <script>
@@ -55,6 +59,44 @@
 			slidesToShow : 3,
 			slidesToScroll : 3
 		});
+		//호버
+		$("#exerciseCategory").mouseenter(function(){
+    	  $(".firstCategoryImg").attr("src", $(".firstCategoryImg").attr("src").replace("gym.png", "gym (1).png"));  
+    	  $(".firstCategoryImg").css("transform","translateY(-10px)");
+    	  $(".firstCategoryImg").css("transition-duration","0.5s");
+    	  });
+    	$("#exerciseCategory").mouseleave(function(){
+    		$(".firstCategoryImg").attr("src", $(".firstCategoryImg").attr("src").replace("gym (1).png", "gym.png"));  
+      	  $(".firstCategoryImg").css("transform","translateY(0px)");     		
+    	  });
+    	$("#habitCategory").mouseenter(function(){
+    		$(".secondCategoryImg").attr("src", $(".secondCategoryImg").attr("src").replace("healthy.png", "healthy (1).png"));
+    		$(".secondCategoryImg").css("transform","translateY(-10px)");
+    		$(".secondCategoryImg").css("transition-duration","0.5s");
+    	  });
+    	$("#habitCategory").mouseleave(function(){
+    		$(".secondCategoryImg").attr("src", $(".secondCategoryImg").attr("src").replace("healthy (1).png", "healthy.png"));   
+      	  $(".secondCategoryImg").css("transform","translateY(0px)");
+    	  });
+    	$("#studyCategory").mouseenter(function(){
+    		$(".thirdCategoryImg").attr("src", $(".thirdCategoryImg").attr("src").replace("creativity.png", "creativity (1).png"));
+    		$(".thirdCategoryImg").css("transform","translateY(-10px)");
+    		$(".thirdCategoryImg").css("transition-duration","0.5s");
+    	  });
+    	$("#studyCategory").mouseleave(function(){
+    		$(".thirdCategoryImg").attr("src", $(".thirdCategoryImg").attr("src").replace("creativity (1).png", "creativity.png"));   
+      	  $(".thirdCategoryImg").css("transform","translateY(0px)");
+    	  });
+    	$("#healthCategory").mouseenter(function(){
+    		$(".fourthCategoryImg").attr("src", $(".fourthCategoryImg").attr("src").replace("care.png", "care (1).png")); 
+    		$(".fourthCategoryImg").css("transform","translateY(-10px)");
+    		$(".fourthCategoryImg").css("transition-duration","0.5s");
+    	  });
+    	$("#healthCategory").mouseleave(function(){
+    		$(".fourthCategoryImg").attr("src", $(".fourthCategoryImg").attr("src").replace("care (1).png", "care.png"));  
+      	  $(".fourthCategoryImg").css("transform","translateY(0px)"); 
+    	  });
+	    	//
 		$("#exerciseCategory").on("click", function() {
 			location.href = "#exercise";
 		})
@@ -96,12 +138,12 @@
 <body>
 	<div class="wrap">
 		<div class="header">
+		<img class="headerbackground" src="${pageContext.request.contextPath }/resources/img/MainBackground.gif">
 			<div class="navi">
 				<div class="naviBox">
-					<span class="flex"><img
-						src="${pageContext.request.contextPath }/resources/img/b.png"
-						class="naviLogo"></span> <span class="flex challengeLogo">기부</span> 
-						<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
+					<span class="logoText" style="font-family: 'Rock Salt', cursive;">Don't
+						Give Up</span> <span class="flex challengeLogo">기부</span> <span
+						class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
 						<c:choose>
 							<c:when test="${loginResult == null }">
 								<a
@@ -129,32 +171,38 @@
 			</div>
 			<div class="headerExplan">
 				<div class="firstText"
-					style="font-family: 'East Sea Dokdo', cursive;">너에게 두손이 있는 이유는</div>
+					style="font-family: 'East Sea Dokdo', cursive;">너에게 두손이 있는
+					이유는</div>
 				<div class="secondText"
-					style="font-family: 'East Sea Dokdo', cursive;">너와 타인을 돕기 위해서이다</div>
+					style="font-family: 'East Sea Dokdo', cursive;">너와 타인을 돕기
+					위해서이다</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="mainCategory">
-				<div>
-					<img src="https://img.icons8.com/windows/100/000000/exercise.png"
-						class="categoryImg">
-					<div class="categoryTitle" id="exerciseCategory">운동</div>
+				<div id="exerciseCategory">
+					<img
+						src="${pageContext.request.contextPath }/resources/img/gym.png"
+						class="categoryImg firstCategoryImg">
+					<div class="categoryTitle firstCategoryTitle">운동</div>
 				</div>
-				<div>
-					<img src="${pageContext.request.contextPath }/Img/habit.png"
+				<div id="habitCategory">
+					<img
+						src="${pageContext.request.contextPath }/resources/img/healthy.png"
 						class="categoryImg secondCategoryImg">
-					<div class="categoryTitle" id="habitCategory">습관</div>
+					<div class="categoryTitle secondCategoryTitle">생활</div>
 				</div>
-				<div>
-					<img src="${pageContext.request.contextPath }/Img/study.png"
-						class="categoryImg">
-					<div class="categoryTitle" id="studyCategory">공부</div>
+				<div id="studyCategory">
+					<img
+						src="${pageContext.request.contextPath }/resources/img/creativity.png"
+						class="categoryImg thirdCategoryImg">
+					<div class="categoryTitle thirdCategoryTitle">공부</div>
 				</div>
-				<div>
-					<img src="${pageContext.request.contextPath }/Img/health.png"
-						class="categoryImg">
-					<div class="categoryTitle" id="healthCategory">건강</div>
+				<div id="healthCategory">
+					<img
+						src="${pageContext.request.contextPath }/resources/img/care.png"
+						class="categoryImg fourthCategoryImg">
+					<div class="categoryTitle fourthCategoryTitle">건강</div>
 				</div>
 			</div>
 			<div class="challengeContainer" style="border: none;'">
