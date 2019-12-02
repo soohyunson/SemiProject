@@ -25,11 +25,10 @@ public class MyPageServlet extends HttpServlet {
 		String ctxPath = request.getContextPath();
 		String cmd = requestURI.substring(ctxPath.length());
 		System.out.println(ctxPath);
-		System.out.println("dd");
 
 		System.out.println(cmd);
 		if (cmd.equals("/MyPoint.mypage")) {
-			String id = "test";
+			String id = "point";
 			request.getSession().setAttribute("id", id);
 		
 			try {
@@ -50,7 +49,17 @@ public class MyPageServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else {
+		}else if(cmd.contentEquals("/myPageDetailView.mypage")) {
+			String id = request.getParameter("id");
+			try {
+				MemberDTO MemberDTO = MemberDAO.getInstance().select(id);
+				request.setAttribute("list", MemberDTO);
+				request.getRequestDispatcher("user/login/memberdetail.jsp").forward(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
 

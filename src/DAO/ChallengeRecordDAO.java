@@ -47,6 +47,17 @@ public class ChallengeRecordDAO {
 			return result;
 		}
 	}
+	public int challengeParticipate(int seq,String id) throws Exception {
+		String sql = "insert into challenge_record values(challenge_record_seq.nextval,'N',?,?)";
+		try(Connection conn = getConnection();
+				PreparedStatement pstat = conn.prepareStatement(sql);){
+			pstat.setInt(1, seq);
+			pstat.setString(2, id);
+			int result = pstat.executeUpdate();
+			conn.commit();
+			return result;
+		}
+	}
 	
 	
 	// ������ ����
@@ -115,8 +126,7 @@ public class ChallengeRecordDAO {
 			int result = pstat.executeUpdate();
 			conn.commit();
 			
-			return result;
-			
+			return result;			
 		}
 	}
 	
@@ -136,11 +146,25 @@ public class ChallengeRecordDAO {
 					dto.setChallenge_num(rs.getInt(3));
 					dto.setMember_id(rs.getString(4));
 					
-				}
-				
-				return dto;
-				
+				}				
+				return dto;				
 			}
+			
+		}
+	}
+	public boolean idCompare(String id, int seq) throws SQLException, Exception {
+		String sql ="select * from challenge_record where memeber_id=? and challenge_numm=?";
+		try(Connection conn = getConnection();
+				//PreparedStatement pstat = conn.prepareStatement(sql);
+				PreparedStatement pstat = new LoggableStatement(conn, sql);){
+			pstat.setString(1, id);
+			pstat.setInt(2, seq);
+			System.out.println((((LoggableStatement)pstat).getQueryString()));
+			try(ResultSet rs = pstat.executeQuery()){
+				Challenge_recordDTO dto = new Challenge_recordDTO();
+				
+				return rs.next();
+				}
 			
 		}
 	}

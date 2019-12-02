@@ -16,6 +16,9 @@
 	href="${pageContext.request.contextPath}/Main/slick/slick.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/Main/slick/slick-theme.css">
+<link
+	href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap"
+	rel="stylesheet">
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/Main/slick/slick.min.js"></script>
@@ -64,7 +67,9 @@
 		$("#healthCategory").on("click", function() {
 			location.href = "#health";
 		})
-
+		$(".takeBtn").on("click",function(){
+    	  location.href = "take.challenge";
+      })
 		$("#logout").on("click", function() {
 			var result = confirm("로그아웃 하시겠습니까?");
 			if (result) {
@@ -134,10 +139,10 @@
 				<div class="naviBox">
 					<span class="flex"><img
 						src="${pageContext.request.contextPath }/resources/img/b.png"
-						class="naviLogo"></span> <span class="flex challengeLogo">기부</span>
-					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
+						class="naviLogo"></span> <span class="flex challengeLogo">기부</span> 
+						<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
 						<c:choose>
-							<c:when test="${loginResult == null }">
+							<c:when test="${loginResult2 == null }">
 								<a
 									href="${pageContext.request.contextPath }/user/login/login.jsp"
 									class="login">로그인</a>
@@ -146,35 +151,31 @@
 									class="signUp">회원가입</a></span>
 					</c:when>
 					<c:otherwise>
-						<c:choose>
-							<c:when test="${id == 'admin' }">
-								<button id="adminpage">마이페이지</button>
-								<button id="adminlogout">로그아웃</button>
-							</c:when>
-							<c:otherwise>
+						
                   			${id }님
                      <button id="mypage">마이페이지</button>
 								<button id="logout">로그아웃</button>
 							</c:otherwise>
-						</c:choose>
-					</c:otherwise>
+						
 					</c:choose>
 				</div>
 			</div>
 			<div class="headerExplan">
-				<div class="firstText">122만건의 거래, 98.2%의 만족도</div>
-				<div class="secondText">싸우자, 나가자, 도전하자!</div>
+				<div class="firstText"
+					style="font-family: 'East Sea Dokdo', cursive;">너에게 두손이 있는 이유는</div>
+				<div class="secondText"
+					style="font-family: 'East Sea Dokdo', cursive;">너와 타인을 돕기 위해서이다</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="mainCategory">
 				<div>
-					<img src="${pageContext.request.contextPath }/Img/exercise.png"
+					<img src="https://img.icons8.com/windows/100/000000/exercise.png"
 						class="categoryImg">
 					<div class="categoryTitle" id="exerciseCategory">운동</div>
 				</div>
 				<div>
-					<img src="${pageContext.request.contextPath }/Img/exercise.png"
+					<img src="${pageContext.request.contextPath }/Img/habit.png"
 						class="categoryImg secondCategoryImg">
 					<div class="categoryTitle" id="habitCategory">습관</div>
 				</div>
@@ -184,7 +185,7 @@
 					<div class="categoryTitle" id="studyCategory">공부</div>
 				</div>
 				<div>
-					<img src="${pageContext.request.contextPath }/Img/exercise.png"
+					<img src="${pageContext.request.contextPath }/Img/health.png"
 						class="categoryImg">
 					<div class="categoryTitle" id="healthCategory">건강</div>
 				</div>
@@ -245,39 +246,34 @@
 						</c:forEach>
 
 					</div>
-					
+
 					<div class="recruitment" id="study">공부</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
 						<c:forEach var="i" begin="0" end="5">
 							<div class="slideDiv" onclick="clickFun(${studylist.get(i).seq})">
 								<img src="b.png" class="slideImg">
-								<h3 class="slideTitle">
-									${studylist.get(i).title}
-								</h3>
+								<h3 class="slideTitle">${studylist.get(i).title}</h3>
 								<h5 class="slideExplan">${studylist.get(i).content}</h5>
 							</div>
-						</c:forEach>
+				</c:forEach>
 					</div>
 					<div class="recruitment" id="health">건강</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
 						<c:forEach var="i" begin="0" end="5">
-							<div class="slideDiv" onclick="clickFun(${healthlist.get(i).seq})">
+							<div class="slideDiv"
+								onclick="clickFun(${healthlist.get(i).seq})">
 								<img src="b.png" class="slideImg">
-								<h3 class="slideTitle">
-									${healthlist.get(i).title}
-								</h3>
+								<h3 class="slideTitle">${healthlist.get(i).title}</h3>
 								<h5 class="slideExplan">${healthlist.get(i).content}</h5>
 							</div>
-						</c:forEach>
+				</c:forEach>
 					</div>
 					<div class="recruitment" id="exercise">운동</div>
 					<div class="slideShow" align="center" style="width: 1200px;">
 						<c:forEach var="i" begin="0" end="5">
 							<div class="slideDiv" onclick="clickFun(${exlist.get(i).seq})">
 								<img src="b.png" class="slideImg">
-								<h3 class="slideTitle">
-									${exlist.get(i).title}
-								</h3>
+								<h3 class="slideTitle">${exlist.get(i).title}</h3>
 								<h5 class="slideExplan">${exlist.get(i).content}</h5>
 							</div>
 						</c:forEach>
@@ -337,8 +333,8 @@
 			$(location).attr("href","${pageContext.request.contextPath}/fromList.usboard?seq="+seq);
 			}
 	</script>
-	
-	
+
+
 </body>
 
 </html>
