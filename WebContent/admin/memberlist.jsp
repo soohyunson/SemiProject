@@ -11,6 +11,11 @@
        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Bangers|Coming+Soon|Gloria+Hallelujah|Handlee|Rock+Salt&display=swap" rel="stylesheet">
+	   <style>
+@font-face { font-family: '양진체'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'BMEULJIRO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff'); font-weight: normal; font-style: normal; }
+</style>
  <style>
                 body{
                     margin:0px;
@@ -48,7 +53,7 @@
                     margin:0px;
                     padding:0px;
 
-                    right: 0px;
+                    right: -250px;
                     width:50%;
                 }
                 .navi-title{
@@ -58,7 +63,7 @@
                     float:left;
                     text-align: center;
 
-                    color:#7019FF;
+                    color:#1D1F21;
                 }
                 .navi-item{
 
@@ -67,7 +72,7 @@
                     line-height:72px;
                     float:left;
                     text-align: center;
-                    color:#7019FF;
+                    color:#1D1F21;
                 }
                 .navi-item2{
                     list-style-type: none;
@@ -75,7 +80,7 @@
                     line-height:30px;
                     float:left;
                     text-align: center;
-                    color:#7019FF;
+                    color:#1D1F21;
                 }
                 .navi-item3{
                     list-style-type: none;
@@ -83,25 +88,25 @@
                     line-height:72px;
                     float:left;
                     text-align: center;
-                    color:#7019FF;
+                    color:#1D1F21;
                 }
                 .navi-item>a{
                     text-decoration: none;
-                    color:#7019FF;
+                    color:#1D1F21;
                     width:100%;
                     height:100%;
                     display: block;
                 }
                 .navi-item2>a{
                     text-decoration: none;
-                    color:#7019FF;
+                    color:#1D1F21;
                     width:100%;
                     height:100%;
                     display: block;
                 }
                 .navi-item3>a{
                     text-decoration: none;
-                    color:#7019FF;
+                    color:#1D1F21;
                     width:100%;
                     height:100%;
                     display: block;
@@ -109,7 +114,7 @@
                 }
                 .navi-title>a{
                     text-decoration: none;
-                    color:#7019FF;
+                    color:#1D1F21;
                     width:100%;
                     height:100%;
                     display: block;
@@ -125,25 +130,26 @@
                     margin-top:0px;
                 }
                 .onefloor{
-                    border-bottom: 3px solid #7019FF;
-                    border-top: 3px solid #7019FF;
+                    border-bottom: 3px solid #1D1F21;;
+                    border-top: 3px solid #1D1F21;
                     border-radius: 3px;
                 }
                 .twofloor{
-                    border-top: 3px solid #7019FF;
-                    border-bottom: 3px solid #7019FF;
+                    border-top: 3px solid #1D1F21;
+                    
                     border-radius: 3px;
                     height: 40px;
                     font-size: 20px;
                 }
                 .threefloor{
-                    border-bottom: 3px solid #7019FF;
+                    border-bottom: 3px solid #1D1F21;
                     border-radius: 3px;
                     height: 50px;
+                     font-size: 20px;
                 }
 
                 .fivefloor{
-                    border-top: 3px solid #7019FF;
+                    border-top: 3px solid #1D1F21;
                     border-radius: 3px;
                     width: 100%;
                     background-color: gainsboro;
@@ -159,7 +165,7 @@
                     left: 5%;
                     width: 13%;
                     height: 150px;
-                    border: 3px solid #7019FF;
+                    border: 3px solid #1D1F21;
                    
                 }
                
@@ -219,12 +225,15 @@
             </style>
 </head>
 <body>
+<div>
+<img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="back" style="position:fixed; z-index:-500; filter: blur(4px);">
+</div>
 <div class="container">
                 <br><br><br>
                 <div class="twofloor">
-                    Manager Page
+                   
                 </div>
-                <div class="threefloor">
+                <div class="threefloor" style="font-family: 'Calistoga', cursive;">
                     Member List
                 </div>
 
@@ -232,11 +241,11 @@
                     <br>
                     <table id="listboard">
                         <tr>
-                            <th colspan=2 id="title">회원목록
+                            <th colspan=2 id="title" style="font-family: 'BMEULJIRO'; font-weight:50;">회원목록
                         </tr>
                         <tr>
-                            <th width="20%" style="text-align: center">회원ID
-                            <th width="80%" style="text-align: center">회원명
+                            <th width="20%" style="text-align: center; font-family: 'BMEULJIRO'; font-weight:50;">회원ID
+                            <th width="80%" style="text-align: center; font-family: 'BMEULJIRO'; font-weight:50;">회원명
                         </tr>
                         <c:choose>
                         <c:when test="${dto == null }">
@@ -278,17 +287,17 @@
                         <tr>
                         <td colspan=2 style="text-align: right">
                         <form action="search.mem" method="post" id="searchfrm">
-                        	<input type=text placeholder="아이디로 검색하기" name="search">
-                        	<input type="button" value="검색" id="searchbtn">
+                        	<input type=text placeholder="아이디로 검색하기" name="search" style=" font-family: 'BMEULJIRO';">
+                        	<input type="button" value="검색" id="searchbtn" style="background-color:black; border-radius:4px; color:white; font-family: 'BMEULJIRO';">
                         	</form>
                         </tr>
                         <tr>
-                        <td colspan=2 style="text-align: right"><input type="button" id="back" value="돌아가기">
+                        <td colspan=2 style="text-align: right"><input type="button" id="back" value="돌아가기" style="background-color:black; border-radius:4px; color:white; font-family: 'BMEULJIRO';">
                         </tr>
                     </table>
                 </div>
 
-            </div>
+           
 
             <div class="fivefloor">
                 <ul class="lastbar">
@@ -315,10 +324,11 @@
                 <div class="lastbar2" style="text-align: center;">상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 : 234-88-00720 | 대표자명 : 김세원<br>
                     Copyright ⓒ2019 Miwansung inc, ltd. All rights reserved</div><br>
                 <div class="lastbar3" style="text-align: center">
-                    <a href="#"><img src="Img/icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                    <a href="#"><img src="Img/icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                    <a href="#"><img src="Img/icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
+                    <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                    <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                    <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
                 <br>
+            </div>
             </div>
             <div class="category">
                 <div class="wrapper">
@@ -332,43 +342,46 @@
                     
                 </div>
             </div>
+            <div class="category" style="background-color:#FFFFFF;">
+		<div class="wrapper">
+			<br>
+			
+			<div class="sidebar">
+				<img src="${pageContext.request.contextPath }/resources/img/inforcon.png" style="widht:30px;height:30px;">
+			</div>
+			<div class="sidebar">
+			<a href="myPageDetailView.mypage?id=${id }" style="font-family: 양진체; font-weight:bold;">My Information</a>
+			</div>
+			<div class="sidebar">
+				<img src="${pageContext.request.contextPath }/resources/img/challcon.png" style="widht:30px;height:30px;">
+				
+			</div>
+			<div class="sidebar">
+				<a href="#" style="font-family: 양진체; font-weight:bold;">My Challenge</a>
+			</div>
+			<div class="sidebar">
+				<img src="${pageContext.request.contextPath }/resources/img/cashcon.png" style="widht:30px;height:30px;">
+			</div>
+			<div class="sidebar">
+				<a href="#" style="font-family: 양진체; font-weight:bold;">My Point</a>
+			</div>
+		</div>
             <ul class="navi">
                 <ul class="title">
-                    <li class="navi-title"><a href="#">
-                    DON'T GIVE UP
-                    <!-- <img src="Img/reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"> -->
+                    <li class="navi-title"><a href="#" style="font-family: 'Rock Salt', cursive; font-size:20px;">
+                    Don't Give Up
+                   
                     </a></li>
                 </ul>
                 <ul class="itemList">
 
-                    <li class="navi-item"><a href="#">GIVE OR TAKE</a></li>
-                    <li class="navi-item"><a href="#">CHALLENGE</a></li>
-                    <li class="navi-item"><a href="#">MYPAGE</a></li>
+                  <li class="navi-item"><a href="#"  style="font-family: 양진체; font-weight:bold;">ADMIN PAGE</a></li>
+            <li class="navi-item"><a href="#"  style="font-family: 양진체; font-weight:bold;">LOGOUT</a></li>
                 </ul>
             </ul>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-            <script>
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var chart = new Chart(ctx, {
-                    // The type of chart we want to create
-                    type: 'line',
-
-                    // The data for our dataset
-                    data: {
-                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                        datasets: [{
-                            label: 'My First dataset',
-                            backgroundColor: 'rgb(255, 99, 132)',
-                            borderColor: 'rgb(255, 99, 132)',
-                            data: [0, 10, 5, 2, 20, 30, 45]
-                        }]
-                    },
-
-                    // Configuration options go here
-                    options: {}
-                });
-            </script>
+            
             <script>
             	$("#searchbtn").on("click", function(){
             		$("#searchfrm").submit();

@@ -222,12 +222,11 @@
 				<img src="${pageContext.request.contextPath }/resources/img/inforcon.png" style="widht:30px;height:30px;">
 			</div>
 			<div class="sidebar">
-				<a href="#" style="font-family: 양진체; font-weight:bold;">My Information</a>
+			<a href="myPageDetailView.mypage?id=${id }" style="font-family: 양진체; font-weight:bold;">My Information</a>
 			</div>
-			
 			<div class="sidebar">
 				<img src="${pageContext.request.contextPath }/resources/img/challcon.png" style="widht:30px;height:30px;">
-				<a href="myPageDetailView.mypage?id=${id }">My Information</a>
+				
 			</div>
 			<div class="sidebar">
 				<a href="#" style="font-family: 양진체; font-weight:bold;">My Challenge</a>
