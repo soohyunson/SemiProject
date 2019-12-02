@@ -10,7 +10,7 @@
 <body>
 	<script>
 		alert("환영합니다!");
-		location.href="${realuri }"
+		location.href="${pageContext.request.contextPath}/Main/takeMain.jsp"
 	</script>
 </body>
 </html>
