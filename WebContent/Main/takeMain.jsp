@@ -13,6 +13,9 @@
 	href="${pageContext.request.contextPath}/Main/slick/slick.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/Main/slick/slick-theme.css">
+<link
+	href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap"
+	rel="stylesheet">
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/Main/slick/slick.min.js"></script>
@@ -46,6 +49,9 @@
       })
       $("#healthCategory").on("click",function(){
         location.href = "#health";
+      })
+      $(".giveBtn").on("click",function(){
+    	  location.href = "donation.challenge";
       })
       $("#logout").on("click", function(){
            var result = confirm("로그아웃 하시겠습니까?");
@@ -82,9 +88,9 @@
 			<div class="navi">
 				<div class="naviBox">
 					<span class="flex"><img
-						src="${pageContext.request.contextPath }/Img/b.png"
+						src="${pageContext.request.contextPath }/resources/img/b.png"
 						class="naviLogo"></span> <span class="flex challengeLogo">테이크</span>
-					<span class="flex naviCategory"><a href="#" class="takeBtn">테이크</a>
+					<span class="flex naviCategory"><a href="#" class="giveBtn">기부</a>
 						<c:choose>
 							<c:when test="${loginResult == null }">
 								<a href="${pageContext.request.contextPath }/login/login.jsp"
@@ -101,8 +107,8 @@
 				</div>
 			</div>
 			<div class="headerExplan">
-				<div class="firstText">122만건의 거래, 98.2%의 만족도</div>
-				<div class="secondText">싸우자, 나가자, 도전하자!</div>
+				<div class="firstText" style="font-family: 'East Sea Dokdo', cursive;">아무것도 하지 않으면 </div>
+				<div class="secondText" style="font-family: 'East Sea Dokdo', cursive;">아무 일도 일어나지 않는다</div>
 			</div>
 		</div>
 		<div class="container">
@@ -115,7 +121,7 @@
 				</div>
 				<div>
 					<img
-						src="${pageContext.request.contextPath }/resources/img/exercise.png"
+						src="${pageContext.request.contextPath }/resources/img/habit.png"
 						class="categoryImg secondCategoryImg">
 					<div class="categoryTitle" id="habitCategory">습관</div>
 				</div>
@@ -127,7 +133,7 @@
 				</div>
 				<div>
 					<img
-						src="${pageContext.request.contextPath }/resources/img/exercise.png"
+						src="${pageContext.request.contextPath }/resources/img/health.png"
 						class="categoryImg">
 					<div class="categoryTitle" id="healthCategory">건강</div>
 				</div>

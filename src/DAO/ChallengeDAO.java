@@ -202,9 +202,6 @@ public class ChallengeDAO {
 		}
 		
 	}
-	
-	
-
 	public ChallengeDTO getChallenge(int seq) throws Exception {
 		String sql = "select * from challenge where seq=?";
 		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql)) {
@@ -226,7 +223,6 @@ public class ChallengeDAO {
 					dto.setPp_point(rs.getInt(11));
 					dto.setTotal_amount(rs.getInt(12));
 				}
-
 				return dto;
 
 			}

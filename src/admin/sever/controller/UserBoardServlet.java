@@ -77,7 +77,6 @@ public class UserBoardServlet extends HttpServlet {
 				request.setAttribute("givedetail", list1);
 				request.setAttribute("takedetail", list2);
 				request.getRequestDispatcher("user/userMyPage.jsp").forward(request, response);
-
 			} catch (Exception e) {
 				System.out.println("오류다~~!!");
 				e.printStackTrace();

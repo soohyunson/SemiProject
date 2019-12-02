@@ -320,7 +320,7 @@ body {
 		$("#confirm").on("click", function() {
 			if ($("#check").prop("checked")) {
 				if (confirm("진행하시겠습니까?")) {
-					location.href = "";
+					location.href = "challengeParticipation.jsp";
 				}
 			} else {
 				alert("약관에 동의해주십시오");
