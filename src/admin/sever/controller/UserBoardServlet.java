@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import DAO.ChallengeDAO;
 import DAO.ChallengeRecordDAO;
 import DAO.MemberDAO;
@@ -123,7 +124,7 @@ public class UserBoardServlet extends HttpServlet {
 			String id = (String) request.getSession().getAttribute("id");
 			ChallengeDTO detail = new ChallengeDTO();	
 			try {
-				System.out.println(seq);
+
 				detail = ChallengeDAO.getInstance().getChallenge(seq);
 				boolean isChallengeById = ChallengeRecordDAO.getInstance().idCompare(id, seq); //챌린지에 참가하고 있는가?
 				System.out.println(isChallengeById);

@@ -336,3 +336,4 @@ public class AdminBoardServlet extends HttpServlet {
 		doGet(request, response);
 	}
 }
+
