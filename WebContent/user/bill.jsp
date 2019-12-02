@@ -14,13 +14,11 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Calistoga&display=swap"
 	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bangers|Coming+Soon|Gloria+Hallelujah|Handlee|Rock+Salt&display=swap" rel="stylesheet">
 <style>
-body {
-	margin: 0px;
-	padding: 0px;
-	background-color: #FFFFFF;
-}
-
+@font-face { font-family: 'BMEULJIRO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff'); font-weight: normal; font-style: normal; }
+ /* 양진체 */
+@font-face { font-family: '양진체'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
 .lastbar {
 	margin: 0px;
 	overflow: hidden;
@@ -35,7 +33,7 @@ body {
 	padding: 0px;
 	width: 60%;
 	left: 20%;
-	background-color: #FFFFFF90;
+	background-color: white;
 	font-family: fantasy;
 	font-size: 20px;
 }
@@ -52,6 +50,9 @@ body {
 	padding: 0px;
 	right: 0px;
 	width: 50%;
+	text-align: right;
+	font-family: '양진체';
+	font-weight: bold;
 }
 
 .navi-title {
@@ -68,7 +69,7 @@ body {
 	width: 30%;
 	line-height: 72px;
 	float: left;
-	text-align: center;
+	text-align: right;
 	color: black;
 }
 
@@ -78,7 +79,7 @@ body {
 	line-height: 30px;
 	float: left;
 	text-align: center;
-	color: #7019FF;
+	color: black;
 }
 
 .navi-item3 {
@@ -92,7 +93,7 @@ body {
 
 .navi-item>a {
 	text-decoration: none;
-	color: #7019FF;
+	color: black;
 	width: 100%;
 	height: 100%;
 	display: block;
@@ -123,12 +124,8 @@ body {
 	display: block;
 }
 
-.navi-item>a:hover {
-	background-color: orange;
-}
-
 .container {
-	background-color: #ededed;
+	background-color: white;
 	width: 60%;
 	margin: auto;
 	margin-top: 0px;
@@ -149,13 +146,15 @@ body {
 	border-bottom: 3px solid black;
 	border-radius: 3px;
 	height: 50px;
+	font-size: 30px;
+	font-family: 'BMEULJIRO';
 }
 
 .fivefloor {
 	border-top: 3px solid black;
 	border-radius: 3px;
 	width: 100%;
-	background-color: gainsboro;
+	background-color: white;
 }
 
 .progress {
@@ -183,7 +182,7 @@ body {
 
 .submenu {
 	font-family: 'Calistoga', cursive;
-	color: #7019FF;
+	color: black;
 }
 
 .sidebar {
@@ -208,10 +207,11 @@ body {
 }
 
 #condition {
-	height: 300px;
+	height: 450px;
 	border: 1px solid black;
 	background-color: white;
-	overflow: scroll;
+	overflow-y: scroll;
+	
 }
 
 .fourthfloor {
@@ -220,11 +220,26 @@ body {
 
 .fifthfloor {
 	height: 150px;
+	text-align: center;
 }
 
 .detailfloor, .myInfo {
-	border: 1px solid black;
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
 	margin-top: 40px;
+}
+#logout{
+	border: none;
+	background-color: white;
+	
+}
+#pointCharge{
+	background-color: white;
+	border: 1px solid black;
+}
+#confirm{
+	background-color: white;
+	border: 1px solid black;
 }
 </style>
 <script type="text/javascript">
@@ -257,6 +272,10 @@ body {
 .noscriptmsg {
 	text-align: center;
 }
+.detailInfo{
+	font-size: 15px;
+	
+}
 </style>
 	<div class="noscriptmsg">
 		이 사이트의 기능을 모두 활용하기 위해서는 자바스크립트를 활성화 시킬 필요가 있습니다. <br> <a
@@ -266,7 +285,11 @@ body {
 </noscript>
 </head>
 <body>
+<div>
+<img src ="${pageContext.request.contextPath}/resources/img/earth.jpg" style="z-index: -500; width: 100%; position: fixed; filter: blur(4px);">
+	</div>
 	<div class="container">
+	
 		<br> <br> <br>
 		<div class="twofloor"></div>
 		<div class="threefloor">챌린지도전</div>
@@ -274,58 +297,63 @@ body {
 		<div class="fourthfloor">
 			<br>
 			<div id="condition">
-				제 1 조 목적 본 약관은 서비스 이용자가 주식회사 돈기브업(이하 “회사”라 합니다)가 제공하는 온라인상의 인터넷
-				서비스(이하 “서비스”라고 하며, 접속 가능한 유∙무선 단말기의 종류와는 상관없이 이용 가능한 “회사”가 제공하는 모든
-				“서비스”를 의미합니다. 이하 같습니다)에 회원으로 가입하고 이를 이용함에 있어 회사와 회원(본 약관에 동의하고 회원등록을
-				완료한 서비스 이용자를 말합니다. 이하 “회원”이라고 합니다)의 권리•의무 및 책임사항을 규정함을 목적으로 합니다.<br>
-				① 회사는 이 약관의 내용을 회원이 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.<br> ② 회사는 온라인
-				디지털콘텐츠산업 발전법, 전자상거래 등에서의 소비자보호에 관한 법률, 약관의 규제에 관한 법률, 소비자기본법 등 관련법을
-				위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.<br> ③ 회사가 약관을 개정할 경우에는 기존약관과
-				개정약관 및 개정약관의 적용일자와 개정사유를 명시하여 현행약관과 함께 그 적용일자 일십오(15)일 전부터 적용일 이후
-				상당한 기간 동안, 개정 내용이 회원에게 불리한 경우에는 그 적용일자 삼십(30)일 전부터 적용일 이후 상당한 기간 동안
-				각각 이를 서비스 홈페이지에 공지하고 기존 회원에게는 회사가 부여한 이메일 주소로 개정약관을 발송하여 고지합니다.<br>
-				④ 회사가 전항에 따라 회원에게 통지하면서 공지∙고지일로부터 개정약관 시행일 7일 후까지 거부의사를 표시하지 아니하면
-				승인한 것으로 본다는 뜻을 명확하게 고지하였음에도 의사표시가 없는 경우에는 변경된 약관을 승인한 것으로 봅니다. 회원이
-				개정약관에 동의하지 않을 경우 회원은 제17조 제1항의 규정에 따라 이용계약을 해지할 수 있습니다.<br> ①
-				서비스 이용은 회사의 서비스 사용승낙 직후부터 가능합니다. 다만, 유료 서비스의 경우 회사가 요금납입을 확인한 직후부터
-				가능하게 할 수 있습니다. ② 민법상 미성년자인 회원이 유료 서비스를 이용할 경우 미성년자인 회원은 결제 전 법정대리인의
-				동의를 얻어야 합니다.<br> ③ 서비스 이용시간은 회사의 업무상 또는 기술상 불가능한 경우를 제외하고는 연중무휴
-				1일 24시간(00:00-24:00)으로 함을 원칙으로 합니다. 다만, 서비스설비의 정기점검 등의 사유로 회사가 서비스를
-				특정범위로 분할하여 별도로 날짜와 시간을 정할 수 있습니다.<br> ① 회원이 납입한 요금에 대하여는 회사는 그
-				요금을 환불이 불가합니다.
-
+				돈기브업 통합 서비스 약관
+				<br>제 1 장 환영합니다!
+				<br>제 1 조 (목적 및 정의)
+				<br>주식회사 돈기브업(이하 ‘회사’)가 제공하는 서비스를 이용해 주셔서 감사합니다.
+				<br>회사는 여러분이 회사가 제공하는 다양한 인터넷과 모바일 서비스에 더 가깝고 편리하게 다가갈 수 있도록 ‘통합서비스약관’(이하 ‘본 약관’)을 마련하였습니다.
+				<br>여러분은 본 약관에 동의함으로써 통합서비스에 가입하여 통합서비스를 이용할 수 있습니다.
+				<br>본 약관은 여러분이 통합서비스를 이용하는 데 필요한 권리, 의무 및 책임사항, 이용조건 및 절차 등 기본적인 사항을 규정하고 있으므로 조금만 시간을 내서 주의 깊게 읽어주시기 바랍니다.
+				<br>제 2 조 (약관의 효력 및 변경)
+				<br>① 본 약관의 내용은 통합서비스의 화면에 게시하거나 기타의 방법으로 공지하고, 본 약관에 동의한 여러분 모두에게 그 효력이 발생합니다.
+				<br>② 회사는 필요한 경우 관련 법령을 위배하지 않는 범위 내에서 본 약관을 변경할 수 있습니다.
+				<br>③ 회사가 전 항에 따라 공지 또는 통지를 하면서 공지 또는 통지일로부터 개정약관 시행일 7일 후까지 거부의사를 표시하지 아니하면 변경된 약관을 승인한 것으로 봅니다.
+				<br>④ 여러분은 변경된 약관에 대하여 거부의사를 표시함으로써 이용계약의 해지를 선택할 수 있습니다. 
+				<br>⑤ 본 약관은 여러분이 본 약관에 동의한 날로부터 본 약관 제13조에 따른 이용계약의 해지 시까지 적용하는 것을 원칙으로 합니다. 단, 본 약관의 일부 조항은 이용계약의 해지 후에도 유효하게 적용될 수 있습니다
+				<br>제 3 조 (약관 외 준칙)
+				<br>본 약관에 규정되지 않은 사항에 대해서는 관련 법령 또는 통합서비스를 구성하는 개별 서비스의 운영정책 및 규칙의 규정에 따릅니다. 또한 본 약관과 세부지침의 내용이 충돌할 경우 세부지침에 따릅니다.
+				<br>제 2 장 통합서비스 이용계약
+				<br>제 4 조 (계약의 성립)
+				<br>① 통합서비스에 가입하기 위해서는 계정이 필요합니다. 계정이 없으신 경우 계정을 먼저 생성하시기 바랍니다.
+				<br>② 통합서비스 이용계약은 여러분이 본 약관의 내용에 동의한 후 회사가 여러분의 계정 정보 등을 확인한 후 승낙함으로써 체결됩니다.
+				<br>제 5 조 (게시물의 관리)
+				<br>① 여러분의 게시물이 정보통신망 이용촉진 및 정보보호 등에 관한 법률(이하 ‘정보통신망법’)및 저작권법 등 관련 법령에 위반되는 내용을 포함하는 경우,
+				<br>권리자는 회사에 관련 법령이 정한 절차에 따라 해당 게시물의 게시중단 및 삭제 등을 요청할 수 있으며, 회사는 관련 법령에 따라 조치를 취합니다.
+				<br>② 회사는 권리자의 요청이 없는 경우라도 권리침해가 인정될 만한 사유가 있거나 기타 회사의 정책 및 관련 법령에 위반되는 경우에는 관련 법령에 따라 해당 게시물에 대해 임시조치 등을 취할 수 있습니다.
+				<br>③ 위와 관련된 세부 절차는 정보통신망법 및 저작권법이 규정한 범위 내에서 회사가 정한 권리침해 신고 절차 에 따릅니다.
+				<br>제 6 조 (유료 서비스의 이용)
+				<br>① 여러분이 회사가 제공하는 유료서비스를 이용하는 경우 이용대금을 납부한 후 이용하는 것을 원칙으로 합니다.
+				<br>② 회사가 제공하는 유료서비스에 대한 이용요금의 결제 방법은 핸드폰결제, 신용카드결제, 일반전화결제, 계좌이체, 무통장입금, 선불전자지급수단 결제 등이 있으며 각 유료서비스마다 결제 방법의 차이가 있을 수 있습니다.
+  				<br>③ 회사는 결제의 이행을 위하여 반드시 필요한 여러분의 개인정보를 추가적으로 요구할 수 있으며, 여러분은 회사가 요구하는 개인정보를 정확하게 제공하여야 합니다.
+				<br>④ 본 조에서 정하지 않은 내용은 개별 서비스 내의 각 세부 하위 서비스의 유료서비스 약관에서 정하며, 본 조의 내용과 각 세부 하위 서비스의 유료서비스 약관의 내용이 충돌하는 경우 세부 하위 서비스의 유료서비스 약관의 규정에 따릅니다.
+				<br>⑤ 사용자가 유료결제를 한 이후에는 단순변심에 의한 환불은 불가합니다.
 			</div>
 		</div>
 		<div class=detailfloor>
 			<div class="detailInfo">
-				챌린지명 :
-				<div id="challengeTitle">${challenge.title }</div>
-				<br> 참가포인트:
-				<div id="pp-point">${challenge.pp_point }</div>
-				<br> 시작날짜:
-				<div id="start-date">${challenge.start_date }</div>
-				<br> 끝나는 날짜:
-				<div id="end-date">${challenge.end_date }</div>
-				<br> 카테고리:
-				<div id="category">${challenge.category }</div>
+				<br>
+				<div style="font-size: 17px; font-weight: bold"> 🖍챌린지 정보 </div>
+				<br> 챌린지명 : ${challenge.title }<br>
+				<br> 참가포인트 : ${challenge.pp_point } <br>
+				<br> 시작날짜 : ${challenge.start_date } <br>
+				<br> 끝나는 날짜 : ${challenge.end_date } <br>
+				<br> 카테고리 : ${challenge.category } <br><br>
 			</div>
 		</div>
 		<div class="myInfofloor">
-			<div class="myInfo">
-				<div id="userId">아이디:${userId.id }</div>
-				<br> ${userId.name }의 포인트:
-				<div id="userPoint">${userId.point }
-					<input type="button" id="pointCharge" value="충전">
-				</div>
+			<div class="myInfo"><br>
+				<div style="font-size: 17px; font-weight: bold"> 🖍회원정보 </div><br>
+				<div id="userId">아이디 : ${userId.id }</div>
+				<br> ${userId.name }의 포인트 : ${userId.point } 원  <input type="button" id="pointCharge" value="충전"><br>
+				<br>
 			</div>
 		</div>
 		<div class="fifthfloor">
-			<br> <br> <input type="checkbox" id="check"> 약관에
-			동의합니다. <br>
+			<br><br><input type="checkbox" id="check"> 약관에 동의합니다. <br><br>
 			<button id="confirm">참여하기</button>
 		</div>
 
-	</div>
+	
 
 	<div class="fivefloor">
 		<ul class="lastbar">
@@ -358,29 +386,26 @@ body {
 		</div>
 		<br>
 		<div class="lastbar3" style="text-align: center">
-			<a href="#"><img src="icon1.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon1.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="icon2.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon2.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="icon3.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon3.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
 		</div>
 		<br>
 	</div>
+</div>
 
-	<ul class="navi">
-		<ul class="title">
-			<li class="navi-title"><a href="#"><img src="reallogo.png"
-					class="mr-3" alt="..."
-					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
-		</ul>
-		<ul class="itemList">
-
-			<li class="navi-item"><a href="#">GIVE OR TAKE</a></li>
-			<li class="navi-item"><a href="#">CHALLENGE</a></li>
-			<li class="navi-item"><a href="#">MYPAGE</a></li>
-		</ul>
-	</ul>
+	 <ul class="navi">
+        <ul class="title">
+            <li class="navi-title" style="font-family: 'Rock Salt', cursive; "><a href="${uri }">Don't Give Up</a></li>
+        </ul>
+        <ul class="itemList">
+            <li class="navi-item"><a href="banner.usboard">MYPAGE</a></li>
+            <li class="navi-item"><button id="logout">LOGOUT</button></li>
+        </ul>
+    </ul>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
@@ -413,5 +438,14 @@ body {
             options: {}
         });
     </script>
+    <script>
+    	$("#logout").on("click",function(){
+    		var result = confirm("정말 로그아웃 하시겠습니까?");
+    		if(result){
+    			location.href = "logout.mem";
+    		}
+    	})
+    </script>
+    
 </body>
 </html>

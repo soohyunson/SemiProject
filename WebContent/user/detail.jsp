@@ -24,8 +24,7 @@
             body{
                 margin:0px;
                 padding:0px;
-                background-image: url("${pageContext.request.contextPath}/resources/img/background-Index.png");
-                background-size: cover;
+               
             }
             .lastbar{
                 margin:0px;
@@ -56,6 +55,7 @@
                 padding:0px;
                 right: 0px;
                 width:50%;
+                text-align: right;
                 font-family: '양진체';
             }
             .navi-title{
@@ -260,6 +260,9 @@
 
     </head>
     <body>        
+    <div>
+    <img src = "${pageContext.request.contextPath}/resources/img/background-Index.png" style="width: 100%; filter: blur(4px); z-index: -500; position: fixed">
+    </div>
         <div class="container">
             <br><br><br>
             <div class="topfloor">
@@ -380,7 +383,7 @@
         </ul>
         <ul class="itemList">
             <li class="navi-item"><a href="banner.usboard">MYPAGE</a></li>
-            <li class="navi-item"><button id="logout">logout</button></li>
+            <li class="navi-item"><button id="logout">LOGOUT</button></li>
         </ul>
     </ul>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
