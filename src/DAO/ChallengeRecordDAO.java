@@ -155,10 +155,11 @@ public class ChallengeRecordDAO {
 	public boolean idCompare(String id, int seq) throws SQLException, Exception {
 		String sql ="select * from challenge_record where memeber_id=? and challenge_numm=?";
 		try(Connection conn = getConnection();
-				PreparedStatement pstat = conn.prepareStatement(sql);){
+				//PreparedStatement pstat = conn.prepareStatement(sql);
+				PreparedStatement pstat = new LoggableStatement(conn, sql);){
 			pstat.setString(1, id);
 			pstat.setInt(2, seq);
-			
+			System.out.println((((LoggableStatement)pstat).getQueryString()));
 			try(ResultSet rs = pstat.executeQuery()){
 				Challenge_recordDTO dto = new Challenge_recordDTO();
 				

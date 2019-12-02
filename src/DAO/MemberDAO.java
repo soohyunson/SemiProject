@@ -132,15 +132,15 @@ public class MemberDAO {
 		}
 	}
 
-	public int update(MemberDTO dto, String id) throws Exception{
+	public int update(String pw, String phone, String email) throws Exception{
 		String sql = "update member set pw=?, phone=?, email=?";
 		try(
 				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
-			pstat.setString(1, encrypt(dto.getPw()));
-			pstat.setString(2, dto.getPhone());
-			pstat.setString(3, dto.getEmail());
+			pstat.setString(1, encrypt(pw));
+			pstat.setString(2, phone);
+			pstat.setString(3, email);
 			int result = pstat.executeUpdate();
 			return result;
 			//개인정보 수정
