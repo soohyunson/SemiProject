@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +21,8 @@
             body{
                 margin:0px;
                 padding:0px;
-                background-color:#FFFFFF;
+                background-image: url("${pageContext.request.contextPath}/resources/img/background-Index.png");
+                background-size: cover;
             }
             .lastbar{
                 margin:0px;
@@ -135,7 +137,7 @@
             .rfloor{
                 position: relative;
                 top:150px;
-                background-color: #edceed;
+                border: 3px solid black;
                 text-align: center;
                 height: 700px;
             }
@@ -163,6 +165,7 @@
                 width: 16%;
                 height: 500px;
                 border: 3px solid black;
+                background-color: white;
             }
             #enjoybtn{
                 font-size: 22px;
@@ -284,18 +287,18 @@
             </div>
             <div class="rfloor">
              <br>  <br>  <br> <br>
-              <h1>레드카드발급 관련 공통 안내사항</h1><br><br><br>
-               1. 인증규정과 무관한 이미지로 인증을 대체하려 한 경우<br>
-               2. 신체의 일부가 나와야 할 때 본인이 아닌 경우<br>
-               3. 한번의 행위로 2회 인증하는 경우(예. 자정전과 후로 한 챌린지를 2회 인증하는 경우)<br>
-               4. 미리 해놓고 다음에는 사진만 찍는 경우<br>
-               5. 한 번의 행위로 두 개의 서로 다른 챌린지에 인증하는 경우<br>
+              <h1>📢레드카드발급 관련 공통 안내사항</h1><br><br><br>
+               ✔ 인증규정과 무관한 이미지로 인증을 대체하려 한 경우<br>
+               ✔ 신체의 일부가 나와야 할 때 본인이 아닌 경우<br>
+               ✔ 한번의 행위로 2회 인증하는 경우(예. 자정전과 후로 한 챌린지를 2회 인증하는 경우)<br>
+               ✔ 미리 해놓고 다음에는 사진만 찍는 경우<br>
+               ✔ 한 번의 행위로 두 개의 서로 다른 챌린지에 인증하는 경우<br>
                (예. 닭가슴살 샐러드를 먹으며, 닭가슴살 먹기 챌린지와 샐러드 먹기 챌린지에 둘 다 인증하는 경우)<br>
-               6. 미리 해놓고 인증샷은 나중에 찍는 경우 <br>
+               ✔ 미리 해놓고 인증샷은 나중에 찍는 경우 <br>
                (예. 한 주 할 일을 모두 계획 후 미리 써두고, 밤에는 사진만 찍는 경우)<br>
-               7. 다수의 회원들로부터 수행여부를 의심받았는데, 회사가 그 의심이 납득 가능하다고 판단한 경우<br>
-               8. 고의적으로 인증규정만 맞췄을 뿐 인증규정의 빈틈을 노렸다고 회사가 판단하는 경우<br>
-               9. 한 사람이 두 계정으로 인증하거나, 지인이 인증할 때를 이용해 본인도 인증하는 경우<br>
+               ✔ 다수의 회원들로부터 수행여부를 의심받았는데, 회사가 그 의심이 납득 가능하다고 판단한 경우<br>
+               ✔ 고의적으로 인증규정만 맞췄을 뿐 인증규정의 빈틈을 노렸다고 회사가 판단하는 경우<br>
+               ✔ 한 사람이 두 계정으로 인증하거나, 지인이 인증할 때를 이용해 본인도 인증하는 경우<br>
                (예. 아메리카노 한 잔을 두고, 두 사람이 카페에서 아메리카노 주문하기 챌린지에 인증한 경우)<br>
                  <br>  <br>  <br>
                
@@ -306,7 +309,7 @@
                 
             </div>
             
-        </div>
+        
 
         <div class="fifthfloor">
             <ul class="lastbar">
@@ -338,15 +341,16 @@
                 <a href="#"><img src="icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
             <br>
         </div>
+        </div>
     <div class="category">
         <div class="wrapper">
         	<br>
-        	<div style="height:20%; font-size: 25px; font-weight: bold; font-family: 'BMEULJIRO' ">
+        	<div style="height:20%; font-size: 30px; font-weight: bold; font-family: 'BMEULJIRO' ">
         	${detailpage.title }
         	</div>
-        	<div style="height: 20px;"> ${detailpage.giveortake } 챌린지</div><br>
-        	<div style="height:20%;">챌린지 시작일 : ${detailpage.start_date } </div>
-        	<div style="height:20%">챌린지 종료일 : ${detailpage.end_date }</div>
+        	<div style="height: 20px; font-family: 'BMEULJIRO';"> ${detailpage.giveortake } 챌린지</div><br>
+        	<div style="height:20%; font-family: 'BMEULJIRO';">챌린지 시작일 : ${detailpage.start_date } </div>
+        	<div style="height:20%; font-family: 'BMEULJIRO'; ">챌린지 종료일 : ${detailpage.end_date }</div>
         	<div style="height:20%"><button id="enjoybtn">enjoy</button></div>
         </div>
     </div>
@@ -363,6 +367,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
+>>>>>>> 7dd67a1b23210000fca1d4db0dad2b0aae422a84
         var ctx = document.getElementById('myChart').getContext('2d');
         var chart = new Chart(ctx, {
             // The type of chart we want to create
@@ -383,7 +388,7 @@
             options: {}
         });
     </script>
-    <script>
+	<script>
     	$("#enjoybtn").on("click",function(){
     		if(${id != null}){
     			location.href="terms.usboard?seq=${detailpage.seq }&id=${id }";
@@ -399,5 +404,5 @@
 			}
     	});
     </script>
-    </body>
+</body>
 </html>

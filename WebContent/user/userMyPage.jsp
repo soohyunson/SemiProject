@@ -227,16 +227,10 @@
 				<a href="#">My Profile</a>
 			</div>
 			<div class="sidebar">
-				<a href="#">My Information</a>
-			</div>
-			<div class="sidebar">
-				<a href="#">My Challenge</a>
+				<a href="myPageDetailView.mypage?id=${id }">My Information</a>
 			</div>
 			<div class="sidebar">
 				<a href="#">My Point</a>
-			</div>
-			<div class="sidebar">
-				<a href="#">Membership Withdrawal</a>
 			</div>
 		</div>
 	</div>

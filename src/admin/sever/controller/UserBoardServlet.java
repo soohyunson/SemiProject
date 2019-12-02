@@ -32,6 +32,7 @@ public class UserBoardServlet extends HttpServlet {
 		StringBuffer url = request.getRequestURL();
 		String uri = request.getRequestURI();
 		String projectPath = request.getContextPath();
+
 		String realPath = uri.substring(projectPath.length());
 		System.out.println(realPath);
 		
@@ -148,9 +149,9 @@ public class UserBoardServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("user/detail.jsp");
 				rd.forward(request, response);
 			} catch (Exception e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 
 		} else if (realPath.contentEquals("/myPageDetailView.usboard")) {
 

@@ -36,6 +36,7 @@ public class member extends HttpServlet {
 				boolean loginResult = dao.isAdmin(id, dao.encrypt(pw)); //dao.isLoginOK(id, dao.encrypt(pw));			
 				System.out.println("loginResult : " + loginResult);
 				if(loginResult) {
+					
 					request.getSession().setAttribute("loginResult", loginResult);
 					request.getSession().setAttribute("id", id);
 					request.getRequestDispatcher("logincheck.jsp").forward(request, response);
@@ -43,6 +44,7 @@ public class member extends HttpServlet {
 					boolean loginResult2 = dao.isLoginOK(id, dao.encrypt(pw));
 					request.getSession().setAttribute("loginResult2", loginResult2);
 					System.out.println("loginResult2 : " + loginResult2);
+					System.out.println("id : " + id);
 					request.getSession().setAttribute("id", id);
 					request.getRequestDispatcher("logincheck.jsp").forward(request, response);
 				}
@@ -119,6 +121,39 @@ public class member extends HttpServlet {
 			}else if(realPath.contentEquals("/logout.mem")) {
 				request.getSession().invalidate();
 				response.sendRedirect("index.jsp");
+
+
+			}else if(realPath.contentEquals("/delete.mem")) {
+				
+				try {String id = request.getParameter("id");
+				System.out.println("삭제할 아이디는 : " + id);
+					int result = MemberDAO.getInstance().delete(id);
+					request.setAttribute("result", result);
+					request.getRequestDispatcher("/index.jsp").forward(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}else if(realPath.contentEquals("/update.mem")) {
+				
+			
+				try {
+					String id = request.getParameter("id");
+					String pw = request.getParameter("pw");
+					String name = request.getParameter("name");
+					String phone = request.getParameter("phone");
+					String email = request.getParameter("email");
+					int result = dao.update(pw, phone, email);
+					request.setAttribute("update", result);
+					request.getRequestDispatcher("userMyPage.jsp").forward(request, response);
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
 			}
 		
 	}

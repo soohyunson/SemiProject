@@ -68,7 +68,7 @@
 						<h6>현재 포인트</h6>
 						<div class="input-group mb-3">
 							<input id="orginalPoint" type="text" class="form-control"
-								readonly="readonly" value="">
+								readonly="readonly" value="${point}">
 							<div class="input-group-append">
 								<span id="removeMoney" class="input-group-text"> P </span>
 							</div>
@@ -81,7 +81,7 @@
 						<div class="input-group mb-3">
 							<input id="inputPoint" type="text" class="form-control">
 							<div class="input-group-append">
-								<span id="removeMoney" class="input-group-text"> <i
+								<span id="removePoint" class="input-group-text"> <i
 									class="material-icons"> close</i></span>
 							</div>
 						</div>
@@ -103,7 +103,7 @@
 					<div id="addMoney" class="col">
 						<div class="card text-center">
 							<div class="card-body">
-								<button type="button" onclick="addMoney(1000)"
+								<button type="button" onclick="addMoney(${point})"
 									class="btn btn-outline-primary addMoney">전체입금</button>
 								<button type="button" onclick="addMoney(1000)"
 									class="btn btn-outline-primary addMoney">+1,000 P</button>
@@ -150,7 +150,7 @@
 							<input id="inputAccount" type="text" class="form-control"
 								placeholder=" - 없이 입력(계좌번호)">
 							<div class="input-group-append">
-								<span id="removeMoney" class="input-group-text"> <i
+								<span id="removeAccount" class="input-group-text"> <i
 									class="material-icons"> close</i></span>
 							</div>
 						</div>
@@ -211,7 +211,7 @@
 				input = 0;
 			}
 
-			if (input < 1000000) {
+			if (input < ${point}) {
 				var result = parseInt(input) + parseInt(money);
 				$("#inputPoint").val(result);
 			}
@@ -240,7 +240,7 @@
 			form.submit();
 		}
 
-		$("#inputMoney").on("change", function() {
+		$("#inputPoint").on("change", function() {
 			//충전 금액 입력 
 			var regex = /^[1-9]{1,}0{3,7}/;
 			var input = $("#inputPoint").val();
@@ -261,10 +261,17 @@
 			}
 		})
 
-		$("#removeMoney").on("click", function() {
+		$("#removePoint").on("click", function() {
 			//충전 금액 지우기
 			$("#inputPoint").val("");
 		})
+		
+		removeAccount
+		$("#removeAccount").on("click", function() {
+			//충전 금액 지우기
+			$("#inputAccount").val("");
+		})
+		
 
 		$("#pay").on("click", function() {
 			//실제 복사하여 사용시에는 모든 주석을 지운 후 사용하세요
