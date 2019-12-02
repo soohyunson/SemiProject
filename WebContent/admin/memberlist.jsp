@@ -18,6 +18,7 @@
                     background-color:#FFFFFF;
                 }
                 .lastbar{
+                
                     margin:0px;
                     overflow: hidden;
                     padding:0px;
