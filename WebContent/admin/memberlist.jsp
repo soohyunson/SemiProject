@@ -259,7 +259,7 @@
                         	<c:forEach items="${dto }" var="item">
                         	<tr>
                         		<td>${item.id }
-                        		<td>${item.name }
+                        		<td><a href="${pageContext.request.contextPath}/memberlist.adboard?id=${item.id}">${item.name }</a>
                         	</tr>
                         	
                         	</c:forEach>
@@ -271,10 +271,7 @@
                         </tr>
                         <tr>
                				<tr>
-               				
-               				
                         	<td colspan=2 style="text-align: center">${navi }
-                        	
                      		</tr>
                         </tr>
                         <tr>
@@ -336,7 +333,10 @@
             </div>
             <ul class="navi">
                 <ul class="title">
-                    <li class="navi-title"><a href="#"><img src="Img/reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
+                    <li class="navi-title"><a href="#">
+                    DON'T GIVE UP
+                    <!-- <img src="Img/reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"> -->
+                    </a></li>
                 </ul>
                 <ul class="itemList">
 

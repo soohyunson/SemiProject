@@ -220,7 +220,6 @@ public class ChallengeDAO {
 		}
 
 	}
-
 	public ChallengeDTO getChallenge(int seq) throws Exception {
 		String sql = "select * from challenge where seq=?";
 		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql)) {
@@ -242,7 +241,6 @@ public class ChallengeDAO {
 					dto.setPp_point(rs.getInt(11));
 					dto.setTotal_amount(rs.getInt(12));
 				}
-
 				return dto;
 
 			}
@@ -280,7 +278,7 @@ public class ChallengeDAO {
 		}
 	}
 
-	public List<ChallengeDTO> selectByPage(int p_start, int p_end) throws Exception {
+  public List<ChallengeDTO> selectByPage(int p_start, int p_end) throws Exception {
 		String sql = "select * from " + "(select challenge.*, row_number()over (order by seq desc)"
 				+ " as rown from challenge) where rown between ? and ?";
 		try (Connection con = this.getConnection(); PreparedStatement pstat = con.prepareStatement(sql);) {
@@ -376,6 +374,34 @@ public class ChallengeDAO {
 			
 		}
 	}
+	
+	
+	public int updateTotalParticipate(int seq)throws Exception{
+	      String sql = "update challenge set total_participate = total_participate+1 where seq = ?";
+	      try(
+	            Connection con = this.getConnection();
+	            PreparedStatement pstat = con.prepareStatement(sql);
+	            ){
+	         pstat.setInt(1, seq);
+	         int result = pstat.executeUpdate();
+	         con.commit();
+	         return result;
+	      }
+	   }
+	   public int updateTotalAmount(int point,int seq)throws Exception{
+	      String sql = "update challenge set total_amount = total_amount+? where seq = ?";
+	      try(
+	            Connection con = this.getConnection();
+	            PreparedStatement pstat = con.prepareStatement(sql);
+	            ){
+	         pstat.setInt(1, point);
+	         pstat.setInt(2, seq);
+	         int result = pstat.executeUpdate();
+	         con.commit();
+	         return result;
+	      }
+	   }
+	
 	public int insertWrite(ChallengeDTO dto) throws Exception {
 		String sql = "insert into challenge values(challenge_seq.nextval,?,?,TO_DATE(?, 'YYYY-MM-DD'),TO_DATE(?, 'YYYY-MM-DD'),'N','0',?,?,?,?,?)";
 
@@ -389,7 +415,8 @@ public class ChallengeDAO {
 			pstat.setString(7, dto.getCategory());
 			pstat.setInt(8, dto.getPp_point());
 			pstat.setInt(9, dto.getTotal_amount());
-			int result = pstat.executeUpdate();
+
+      int result = pstat.executeUpdate();
 			con.commit();
 			return result;
 		}

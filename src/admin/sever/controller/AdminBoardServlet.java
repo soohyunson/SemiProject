@@ -26,7 +26,6 @@ import adminboardCongiuration.Configuration;
 
 @WebServlet("*.adboard")
 public class AdminBoardServlet extends HttpServlet {
-
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -335,6 +334,4 @@ public class AdminBoardServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
-}
 
