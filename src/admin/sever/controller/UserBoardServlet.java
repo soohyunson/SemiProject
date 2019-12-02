@@ -32,14 +32,9 @@ public class UserBoardServlet extends HttpServlet {
 		StringBuffer url = request.getRequestURL();
 		String uri = request.getRequestURI();
 		String projectPath = request.getContextPath();
-
-		//	System.out.println(url);
-		//	System.out.println(uri);
-		//	System.out.println(projectPath);
-		//	System.out.println();
-
 		String realPath = uri.substring(projectPath.length());
 		System.out.println(realPath);
+		
 		if (realPath.contentEquals("/banner.usboard")) {
 
 			String id = (String) request.getSession().getAttribute("id");

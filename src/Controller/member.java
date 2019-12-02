@@ -34,7 +34,7 @@ public class member extends HttpServlet {
 				String pw = request.getParameter("pw");
 				System.out.println(id + " : " + pw);
 				boolean loginResult = dao.isAdmin(id, dao.encrypt(pw)); //dao.isLoginOK(id, dao.encrypt(pw));			
-				System.out.println(loginResult);
+				System.out.println("loginResult : " + loginResult);
 				if(loginResult) {
 					request.getSession().setAttribute("loginResult", loginResult);
 					request.getSession().setAttribute("id", id);
@@ -42,7 +42,7 @@ public class member extends HttpServlet {
 				}else {
 					boolean loginResult2 = dao.isLoginOK(id, dao.encrypt(pw));
 					request.getSession().setAttribute("loginResult2", loginResult2);
-					System.out.println(loginResult2);
+					System.out.println("loginResult2 : " + loginResult2);
 					request.getSession().setAttribute("id", id);
 					request.getRequestDispatcher("logincheck.jsp").forward(request, response);
 				}
@@ -118,9 +118,7 @@ public class member extends HttpServlet {
 				}
 			}else if(realPath.contentEquals("/logout.mem")) {
 				request.getSession().invalidate();
-
 				response.sendRedirect("index.jsp");
-
 			}
 		
 	}
