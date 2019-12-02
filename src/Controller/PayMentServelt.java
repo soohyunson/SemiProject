@@ -14,7 +14,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import DAO.MemberDAO;
-import DAO.PayDAO;
+import DAO.PointDAO;
 import DAO.PaymentDAO;
 import DTO.MemberDTO;
 import DTO.PayDTO;
