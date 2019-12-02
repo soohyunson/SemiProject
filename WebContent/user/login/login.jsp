@@ -135,7 +135,7 @@ body {
 }
 
 .container {
-position: relative;
+
 	background-color: #FFFFFF;
 	width: 60%;
 	margin: auto;
@@ -191,18 +191,15 @@ position: relative;
 .fourthfloor {
 	height: 700px;
 }
-.loginbox{
-	
-	
-	
-}
+
+
 table {
 	width: 300px;
 	height: 200px;
 	position: relative;
 	margin: auto;
     text-align: center;
-	top: 200px;
+	top: 0px;
 	
 }
 .bottom {
@@ -231,8 +228,8 @@ th{
 <img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="back" style="position:fixed; z-index:-500;filter: blur(4px);">
 </div>
 	<div class="container">
-	<img src="${pageContext.request.contextPath }/resources/img/square.png" class="circle" style="position:absolute;  top:250px; left:450px;  ">
-		<br> <br> <br>
+	
+		
 		<div class="twofloor"></div>
 		<div class="fourthfloor">
 		<%
@@ -240,15 +237,15 @@ th{
 				System.out.println("uri : " + uri);
 				request.getSession().setAttribute("uri", uri);
 			%>
-<<<<<<< HEAD
+
 				<table class="loginbox" style="width:180px;">
-=======
+
 			<form action="login.mem" method="post" id="loginfrm">
 				<table class="loginbox">
 					<tr>
 						<th>Login
 					</tr>
->>>>>>> 0797b9b5de0d0f2258243627bbf66304f3c5c5d0
+
 					<tr>
 						<th style="font-size:40px;">Login
 					</tr>
@@ -272,13 +269,13 @@ th{
 				</table>
 			</form>
 			
-		</div>
-<<<<<<< HEAD
-	
-=======
 		
-	</div>
->>>>>>> 0797b9b5de0d0f2258243627bbf66304f3c5c5d0
+</table>
+	
+</div>
+		
+	
+
 
 	<div class="fivefloor">
 		<ul class="lastbar">
@@ -321,9 +318,7 @@ th{
 		<br>
 	</div>
 	</div>
-	<div class="category">
-		<div class="wrapper"></div>
-	</div>
+	
 	<ul class="navi">
 		<ul class="title">
 			<li class="navi-title"><a href="#" style="font-family: 'Rock Salt', cursive; font-size:20px;">Don't Give Up</a></li>
@@ -335,6 +330,7 @@ th{
 		</ul>
 	</ul>
 
+	
 	
 	<script>
 		$("#signupbtn").on("click", function() {
