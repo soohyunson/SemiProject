@@ -12,6 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import DAO.ChallengeDAO;
+import DAO.ChallengeRecordDAO;
+import DAO.MemberDAO;
+import DTO.ChallengeDTO;
+import DTO.Challenge_recordDTO;
+import DTO.MemberDTO;
+
 @WebServlet("*.usboard")
 public class UserBoardServlet extends HttpServlet {
 
@@ -111,6 +122,7 @@ public class UserBoardServlet extends HttpServlet {
 			int seq = Integer.parseInt(request.getParameter("seq"));
 			ChallengeDTO detail = new ChallengeDTO();
 			try {
+			
 				detail = ChallengeDAO.getInstance().getChallenge(seq);
 				System.out.println(detail);
 				String content = detail.getContent(); //content출력o

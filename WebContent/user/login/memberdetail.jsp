@@ -79,8 +79,14 @@
 	<br>
 	
 	
-	<a href = "${pageContext.request.contextPath}/infoupdate.jsp"><input type = button value = "정보수정"></a>
-	<a href = "delete.mem?id=${id }"><input type = button value="회원탈퇴"></a>
+	<a href = "${pageContext.request.contextPath}/infoupdate.jsp"><input type = button value = "정보수정" ></a>
+	<a href = "delete.mem?id=${id }"><input type = button value="회원탈퇴" id="delete"></a>
+	
+	<script>
+	$("#delete").on("click", function(){
+		confirm("정말로 탈퇴하시겠습니까?")
+	})
+	</script>
 
 
 	<div class="fourfloor">

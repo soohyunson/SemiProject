@@ -36,7 +36,7 @@ public class MemberDAO {
 		return bds.getConnection();
 	}
 
-	public static String encrypt(String input) throws Exception {//비밀번호 암호화
+	public String encrypt(String input) throws Exception {//비밀번호 암호화
 		MessageDigest digest = MessageDigest.getInstance("SHA-256");
 		digest.reset();
 		digest.update(input.getBytes("utf8"));
