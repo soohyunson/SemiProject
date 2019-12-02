@@ -26,10 +26,6 @@ import DTO.ChallengeDTO;
 import DTO.Challenge_recordDTO;
 import DTO.MemberDTO;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 @WebServlet("*.usboard")
 public class UserBoardServlet extends HttpServlet {
 
@@ -38,18 +34,13 @@ public class UserBoardServlet extends HttpServlet {
 		StringBuffer url = request.getRequestURL();
 		String uri = request.getRequestURI();
 		String projectPath = request.getContextPath();
-<<<<<<< HEAD
-
-=======
 		//	System.out.println(url);
 		//	System.out.println(uri);
 		//	System.out.println(projectPath);
 		//	System.out.println();
->>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 		String realPath = uri.substring(projectPath.length());
 		System.out.println(realPath);
 		if (realPath.contentEquals("/banner.usboard")) {
-
 			String id = (String) request.getSession().getAttribute("id");
 			try {
 				ArrayList<ChallengeDTO> list = new ArrayList<>();
@@ -136,10 +127,6 @@ public class UserBoardServlet extends HttpServlet {
 			int seq = Integer.parseInt(request.getParameter("seq"));
 			ChallengeDTO detail = new ChallengeDTO();
 			try {
-<<<<<<< HEAD
-=======
-
->>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 				detail = ChallengeDAO.getInstance().getChallenge(seq);
 				System.out.println(detail);
 				String content = detail.getContent(); //content출력o
