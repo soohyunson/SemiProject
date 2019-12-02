@@ -9,7 +9,6 @@ public class PayDTO {
 	private String approval_num;
 	private String company;
 	private String member_id;
-	
 	public PayDTO(int seq, int point, Date payment_date, String approval_num, String company, String member_id) {
 		super();
 		this.seq = seq;

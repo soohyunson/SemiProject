@@ -30,7 +30,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
   <img src="../Img/profileicon.png" class="mr-3" alt="..." style="width:100px; height:100px; margin-left: 10%;">
   <div class="media-body">
       <br>
-    <h5 class="mt-0">Admin</h5>
+    <h5 class="mt-0">${id }</h5>
    관리자님 반갑습니다.
   </div>
              
@@ -50,7 +50,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
              <br><br>
                 <div style="text-align:start; margin-left: 5%;"><a href="#" class="submenu">Member Management </a></div>
                 <br><br>
-                <div><a href="../admin/memberlist.mem" style="margin-left:10%; ">Member List</a></div>
+                <div><a href="memberlist.mem" style="margin-left:10%; ">Member List</a></div>
                 
                 <br><br>
             </div>

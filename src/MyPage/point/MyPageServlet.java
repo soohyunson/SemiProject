@@ -1,11 +1,20 @@
 package MyPage.point;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DAO.MemberDAO;
+import DAO.PaymentDAO;
+import DTO.MemberDTO;
+import DTO.PaymentDTO;
 
 
 @WebServlet("*.mypage")
@@ -15,10 +24,32 @@ public class MyPageServlet extends HttpServlet {
 		String requestURI = request.getRequestURI();
 		String ctxPath = request.getContextPath();
 		String cmd = requestURI.substring(ctxPath.length());
+		System.out.println(ctxPath);
 
 		System.out.println(cmd);
-		if (cmd.contentEquals("/MyPoint.mypage")) {
-			System.out.println("Ddsds");
+		if (cmd.equals("/MyPoint.mypage")) {
+			String id = "point";
+			request.getSession().setAttribute("id", id);
+		
+			try {
+				Date date = new Date();
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+				request.setAttribute("today", format.format(date).toString());
+
+				MemberDTO MemberDTO = MemberDAO.getInstance().select(id);
+				request.setAttribute("dto", MemberDTO);
+				System.out.println(MemberDTO.getPoint());
+				List<PaymentDTO> list = PaymentDAO.getInstance().selectById(id);
+				request.setAttribute("list", list);
+
+
+
+				request.getRequestDispatcher("/user/myPage/MyPoint.jsp").forward(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
 		}
 	}
 

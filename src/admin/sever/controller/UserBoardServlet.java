@@ -36,51 +36,89 @@ public class UserBoardServlet extends HttpServlet {
 		System.out.println(realPath);
 		if (realPath.contentEquals("/banner.usboard")) {
 
+			String id = (String) request.getSession().getAttribute("id");
 			try {
-
-				ArrayList<ChallengeDTO> list1 = new ArrayList<>();
-				ArrayList<ChallengeDTO> list2 = new ArrayList<>();
+				ArrayList<ChallengeDTO> list = new ArrayList<>();
+				list = ChallengeDAO.getInstance().selectIdChallenge(id);
+				ArrayList<ChallengeDTO> giveList = new ArrayList<>();
+				ArrayList<ChallengeDTO> takeList = new ArrayList<>();
 				ArrayList<Challenge_recordDTO> record1 = new ArrayList<>();
 				ArrayList<Challenge_recordDTO> record2 = new ArrayList<>();
-				ChallengeDTO realdto = new ChallengeDTO();
+        
+				if (list.size() == 0) {
+					giveList = null;
+					takeList = null;
+				} else {
+					for (int i = 0; i < list.size(); i++) {
+						if (list.get(i).getGiveortake().equals("give")) {
+							giveList.add(list.get(i));
+						} else {
+							takeList.add(list.get(i));
+						}
 
-				String id = (String)request.getSession().getAttribute("id");
-				List<Challenge_recordDTO> dto = ChallengeRecordDAO.getInstance().selectAll(id);
-				for (int i = 0; i < dto.size(); i++) {
-					System.out.println(dto.size());
-					System.out.println(dto.get(i).getChallenge_num());
-					realdto = ChallengeDAO.getInstance().getChallenge(dto.get(i).getChallenge_num());
-					System.out.println(realdto.getGiveortake());
-					String give = "give";
-					String take = "take";
-					if (realdto.getGiveortake().equalsIgnoreCase(give)) {
-						record1.add(dto.get(i));
-						list1.add(realdto);
-					} else if(realdto.getGiveortake().equalsIgnoreCase(take)){
-						record2.add(dto.get(i));
-						list2.add(realdto);
-					}else if(realdto.getGiveortake()==null) {
-						record2.add(dto.get(i));
-						list2.add(realdto);
-					}
-					else {
-						record2.add(dto.get(i));
-						list2.add(realdto);
 					}
 				}
-				System.out.println("## : " + record1.size());
-				System.out.println("## : " + record2.size());
-				System.out.println("## : " + list1.size());
-				System.out.println("## : " +  list2.size());
-				request.setAttribute("giverecord", record1);
-				request.setAttribute("takerecord", record2);
-				request.setAttribute("givedetail", list1);
-				request.setAttribute("takedetail", list2);
+
+				System.out.println(giveList);
+				System.out.println(takeList);
+
+				request.setAttribute("giveList", giveList);
+				request.setAttribute("takeList", takeList);
 				request.getRequestDispatcher("user/userMyPage.jsp").forward(request, response);
 			} catch (Exception e) {
-				System.out.println("오류다~~!!");
+				System.out.println("오류 났어요!!! 오류 확인해주세요!!");
 				e.printStackTrace();
+
 			}
+
+//			System.out.println("여기까지는 왔어요");
+//
+//			try {
+//
+//				ArrayList<ChallengeDTO> list1 = new ArrayList<>();
+//				ArrayList<ChallengeDTO> list2 = new ArrayList<>();
+//				ArrayList<Challenge_recordDTO> record1 = new ArrayList<>();
+//				ArrayList<Challenge_recordDTO> record2 = new ArrayList<>();
+//				ChallengeDTO realdto = new ChallengeDTO();
+//				
+//				String id = (String)request.getSession().getAttribute("id");
+//				List<Challenge_recordDTO> dto = ChallengeRecordDAO.getInstance().selectAll(id);
+//				for (int i = 0; i < dto.size(); i++) {
+//					System.out.println(dto.size());
+//					System.out.println(dto.get(i).getChallenge_num());
+//					realdto = ChallengeDAO.getInstance().getChallenge(dto.get(i).getChallenge_num());
+//					System.out.println(realdto.getGiveortake());
+//                      String give = "give";
+//                      String take = "take";
+//					if (realdto.getGiveortake().equalsIgnoreCase(give)) {
+//						record1.add(dto.get(i));
+//						list1.add(realdto);
+//					} else if(realdto.getGiveortake().equalsIgnoreCase(take)){
+//						record2.add(dto.get(i));
+//						list2.add(realdto);
+//					}else if(realdto.getGiveortake()==null) {
+//						record2.add(dto.get(i));
+//						list2.add(realdto);
+//					}
+//					else {
+//						record2.add(dto.get(i));
+//						list2.add(realdto);
+//					}
+//				}
+//				System.out.println("## : " + record1.size());
+//				System.out.println("## : " + record2.size());
+//				System.out.println("## : " + list1.size());
+//				System.out.println("## : " +  list2.size());
+//				request.setAttribute("giverecord", record1);
+//				request.setAttribute("takerecord", record2);
+//				request.setAttribute("givedetail", list1);
+//				request.setAttribute("takedetail", list2);
+//				request.getRequestDispatcher("user/userMyPage.jsp").forward(request, response);
+//
+//			} catch (Exception e) {
+//				System.out.println("오류다~~!!");
+//				e.printStackTrace();
+//			}
 
 		} else if (realPath.contentEquals("/fromList.usboard")) {
 			int seq = Integer.parseInt(request.getParameter("seq"));
@@ -94,28 +132,30 @@ public class UserBoardServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		}else if (realPath.contentEquals("/myPageDetailView.usboard")) {
+
+		} else if (realPath.contentEquals("/myPageDetailView.usboard")) {
 
 			System.out.println("여기로 넘어 왔나욤???ㅎㅎㅎ");
 			int challengeNum = Integer.parseInt(request.getParameter("challengeSeq"));
-			int recordNum = Integer.parseInt(request.getParameter("recordSeq"));
+			// int recordNum = Integer.parseInt(request.getParameter("recordSeq"));
 
-			System.out.println(challengeNum+":::::::::::::::"+recordNum);
 
+			String id = (String) request.getSession().getAttribute("id");
 			try {
-				ChallengeDTO dto = ChallengeDAO.getInstance().getChallenge(challengeNum);
 
+				int recordNum = ChallengeRecordDAO.getInstance().selectSeq(challengeNum, id);
+
+				System.out.println(challengeNum + ":::::::::::::::" + recordNum);
+				ChallengeDTO dto = ChallengeDAO.getInstance().getChallenge(challengeNum);
 
 				System.out.println(dto.getStart_date());
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-				Date formatDate=format.parse(dto.getStart_date());
+				Date formatDate = format.parse(dto.getStart_date());
 				String day = new SimpleDateFormat("dd").format(formatDate);
 				String month = new SimpleDateFormat("MM").format(formatDate);
 
 				System.out.println(day);
 				System.out.println(month);
-
-
 
 				request.setAttribute("day", day);
 				request.setAttribute("month", month);
@@ -191,6 +231,8 @@ public class UserBoardServlet extends HttpServlet {
 		//			System.out.println(challengeseq);
 		//			System.out.println(recordseq);
 		//		}
+
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
