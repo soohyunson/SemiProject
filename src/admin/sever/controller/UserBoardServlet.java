@@ -46,8 +46,6 @@ public class UserBoardServlet extends HttpServlet {
 				list = ChallengeDAO.getInstance().selectIdChallenge(id);
 				ArrayList<ChallengeDTO> giveList = new ArrayList<>();
 				ArrayList<ChallengeDTO> takeList = new ArrayList<>();
-				ArrayList<Challenge_recordDTO> record1 = new ArrayList<>();
-				ArrayList<Challenge_recordDTO> record2 = new ArrayList<>();
 
 				if (list.size() == 0) {
 					giveList = null;
