@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+=======
+>>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 
 import DAO.ChallengeDAO;
 import DAO.ChallengeRecordDAO;
@@ -21,6 +26,10 @@ import DTO.ChallengeDTO;
 import DTO.Challenge_recordDTO;
 import DTO.MemberDTO;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 @WebServlet("*.usboard")
 public class UserBoardServlet extends HttpServlet {
 
@@ -29,10 +38,14 @@ public class UserBoardServlet extends HttpServlet {
 		StringBuffer url = request.getRequestURL();
 		String uri = request.getRequestURI();
 		String projectPath = request.getContextPath();
+<<<<<<< HEAD
+
+=======
 		//	System.out.println(url);
 		//	System.out.println(uri);
 		//	System.out.println(projectPath);
 		//	System.out.println();
+>>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 		String realPath = uri.substring(projectPath.length());
 		System.out.println(realPath);
 		if (realPath.contentEquals("/banner.usboard")) {
@@ -121,21 +134,40 @@ public class UserBoardServlet extends HttpServlet {
 
 		} else if (realPath.contentEquals("/fromList.usboard")) {
 			int seq = Integer.parseInt(request.getParameter("seq"));
-			String id = (String) request.getSession().getAttribute("id");
-			ChallengeDTO detail = new ChallengeDTO();	
+			ChallengeDTO detail = new ChallengeDTO();
 			try {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 				detail = ChallengeDAO.getInstance().getChallenge(seq);
-				boolean isChallengeById = ChallengeRecordDAO.getInstance().idCompare(id, seq); //챌린지에 참가하고 있는가?
-				System.out.println(isChallengeById);
-				request.setAttribute("isChallengeById", isChallengeById);
+				System.out.println(detail);
+				String content = detail.getContent(); //content출력o
+				String text = "{" + content + "}"; //json타입o
+				System.out.println(text);
+				JsonParser parser = new JsonParser();
+				JsonElement data = parser.parse(text); //data출력o
+				System.out.println(data);
+				JsonObject obj = data.getAsJsonObject();
+				System.out.println("obj : " + obj);
+				String day = obj.get("인증가능요일").getAsString(); 
+				String frequency = obj.get("인증빈도").getAsString();
+				String time = obj.get("인증가능시간").getAsString();
+				String number = obj.get("하루인증횟수").getAsString(); //출력o
+				System.out.println(day + " : " + frequency + " : " + time + " : " + number);
+				
 				request.setAttribute("detailpage", detail);
+				request.setAttribute("day", day);
+				request.setAttribute("frequency", frequency);
+				request.setAttribute("time", time);
+				request.setAttribute("number", number);
+				
 				RequestDispatcher rd = request.getRequestDispatcher("user/detail.jsp");
 				rd.forward(request, response);
 			} catch (Exception e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 
 		} else if (realPath.contentEquals("/myPageDetailView.usboard")) {
 

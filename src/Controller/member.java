@@ -36,6 +36,7 @@ public class member extends HttpServlet {
 				boolean loginResult = dao.isAdmin(id, dao.encrypt(pw)); //dao.isLoginOK(id, dao.encrypt(pw));			
 				System.out.println("loginResult : " + loginResult);
 				if(loginResult) {
+					
 					request.getSession().setAttribute("loginResult", loginResult);
 					request.getSession().setAttribute("id", id);
 					request.getRequestDispatcher("logincheck.jsp").forward(request, response);
@@ -43,6 +44,7 @@ public class member extends HttpServlet {
 					boolean loginResult2 = dao.isLoginOK(id, dao.encrypt(pw));
 					request.getSession().setAttribute("loginResult2", loginResult2);
 					System.out.println("loginResult2 : " + loginResult2);
+					System.out.println("id : " + id);
 					request.getSession().setAttribute("id", id);
 					request.getRequestDispatcher("logincheck.jsp").forward(request, response);
 				}
@@ -119,6 +121,11 @@ public class member extends HttpServlet {
 			}else if(realPath.contentEquals("/logout.mem")) {
 				request.getSession().invalidate();
 				response.sendRedirect("index.jsp");
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 			}else if(realPath.contentEquals("/delete.mem")) {
 				
 				try {String id = request.getParameter("id");
@@ -149,6 +156,10 @@ public class member extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+<<<<<<< HEAD
+			
+=======
+>>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
 			}
 		
 	}
