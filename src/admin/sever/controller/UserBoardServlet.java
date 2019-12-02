@@ -12,13 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-=======
->>>>>>> 0b003bac3824db2fd94b1f4723f9fbc771c4a180
-
 import DAO.ChallengeDAO;
 import DAO.ChallengeRecordDAO;
 import DAO.MemberDAO;
