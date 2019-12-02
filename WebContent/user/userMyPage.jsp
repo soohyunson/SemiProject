@@ -234,19 +234,17 @@
 			
 			<div class="sidebar">
 				<img src="${pageContext.request.contextPath }/resources/img/challcon.png" style="widht:30px;height:30px;">
+				<a href="myPageDetailView.mypage?id=${id }">My Information</a>
 			</div>
 			<div class="sidebar">
 				<a href="#" style="font-family: 양진체; font-weight:bold;">My Challenge</a>
 			</div>
-			
 			<div class="sidebar">
 				<img src="${pageContext.request.contextPath }/resources/img/cashcon.png" style="widht:30px;height:30px;">
 			</div>
 			<div class="sidebar">
 				<a href="#" style="font-family: 양진체; font-weight:bold;">My Point</a>
 			</div>
-			
-			
 		</div>
 	</div>
 	<ul class="navi">

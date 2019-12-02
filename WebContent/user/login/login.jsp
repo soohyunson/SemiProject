@@ -227,7 +227,7 @@ th{
 			
 			<%
 				String uri = request.getHeader("Referer");
-				System.out.println(uri);
+				System.out.println("uri : " + uri);
 				request.getSession().setAttribute("uri", uri);
 			%>
 				<table class="loginbox">

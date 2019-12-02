@@ -36,7 +36,7 @@ public class MemberDAO {
 		return bds.getConnection();
 	}
 
-	public static String encrypt(String input) throws Exception {//비밀번호 암호화
+	public String encrypt(String input) throws Exception {//비밀번호 암호화
 		MessageDigest digest = MessageDigest.getInstance("SHA-256");
 		digest.reset();
 		digest.update(input.getBytes("utf8"));
@@ -50,6 +50,7 @@ public class MemberDAO {
 				PreparedStatement psta = con.prepareStatement(sql);){
 			psta.setString(1, id);
 			psta.setString(2, pw);
+			System.out.println(pw);
 			try(ResultSet rs = psta.executeQuery();){
 				return rs.next();
 			}
@@ -131,15 +132,15 @@ public class MemberDAO {
 		}
 	}
 
-	public int update(MemberDTO dto, String id) throws Exception{
+	public int update(String pw, String phone, String email) throws Exception{
 		String sql = "update member set pw=?, phone=?, email=?";
 		try(
 				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
-			pstat.setString(1, encrypt(dto.getPw()));
-			pstat.setString(2, dto.getPhone());
-			pstat.setString(3, dto.getEmail());
+			pstat.setString(1, encrypt(pw));
+			pstat.setString(2, phone);
+			pstat.setString(3, email);
 			int result = pstat.executeUpdate();
 			return result;
 			//개인정보 수정
