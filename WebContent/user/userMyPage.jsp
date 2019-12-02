@@ -93,10 +93,7 @@
 				<a href="#" class="submenu" style=" font-family: 'BMEULJIRO';">My Challenge</a>
 			</div>
 			<br> <br>
-			<script>
-				console.log(${giveList.size()});
-				console.log(${takeList.size()});
-			</script>
+		
 			<c:choose>
 				<c:when test="${giveList.size() eq 0 || giveList eq null}">
 

@@ -53,7 +53,7 @@ public class FileListDAO {
 	}
 
 	public List<File_ListDTO> selectAll(int num) throws SQLException, Exception {
-		String sql = "select * from file_list where challenge_record_num=?";
+		String sql = "select * from file_list where challenge_record_num=? order by 1 asc";
 		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql);) {
 			pstat.setInt(1, num);
 			try (ResultSet rs = pstat.executeQuery()) {
