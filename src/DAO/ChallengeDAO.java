@@ -312,6 +312,38 @@ public class ChallengeDAO {
 			} // try2
 		} // try1
 	}
+	public List<ChallengeDTO> selectByPagesearch(int p_start, int p_end,String title2) throws Exception {
+		String sql = "select * from " + "(select challenge.*, row_number()over (order by seq desc)"
+				+ " as rown from challenge where title like ?) where rown between ? and ?";
+		try (Connection con = this.getConnection(); PreparedStatement pstat = con.prepareStatement(sql);) {
+            pstat.setString(1, title2);
+			pstat.setInt(2, p_start);
+			pstat.setInt(3, p_end);
+			try (ResultSet rs = pstat.executeQuery();) {
+				List<ChallengeDTO> result = new ArrayList<>();
+				while (rs.next()) {
+					int seq = rs.getInt(1);
+					String title = rs.getString(2);
+					String content = rs.getString(3);
+					String start_date = rs.getString(4);
+					String end_date = rs.getString(5);
+					String end = rs.getString(6);
+					int total_partcipate = rs.getInt(7);
+					String file_path = rs.getString(8);
+					String giveortake = rs.getString(9);
+					String category = rs.getString(10);
+					int pp_point = rs.getInt(11);
+					int total_amount = rs.getInt(12);
+					ChallengeDTO dto = new ChallengeDTO(seq, title, content, start_date, end_date, end,
+							total_partcipate, file_path, giveortake, category, pp_point, total_amount);
+
+					result.add(dto);
+				}
+				con.commit();
+				return result;
+			} // try2
+		} // try1
+	}
 
 	public ArrayList<ChallengeDTO> selectIdChallenge (String id) throws SQLException, Exception {
 		String sql = "select c.* from challenge c, challenge_record r where r.challenge_numm = c.seq and memeber_id=? ";
@@ -371,6 +403,23 @@ public class ChallengeDAO {
 			rs.next();
 			return rs.getInt(1);
 		} // try
+	}
+	
+
+	private int getArticleCount(String search) throws Exception {
+		String sql = "select count(*) from challenge where title like ?";
+		        
+		try (Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);
+				
+				) {
+			pstat.setString(1, search);try(
+			ResultSet rs = pstat.executeQuery();
+					){
+			rs.next();
+			return rs.getInt(1);
+		} // try
+		}
 	}
 
 	public String getPageNavi(int currentPage) throws Exception {
@@ -434,6 +483,78 @@ public class ChallengeDAO {
 		}
 		if (needNext) {
 			sb.append("<a href='list.adboard?currentPage=" + (endNavi + 1) + "'> > </a>");
+		}
+
+		return sb.toString();
+
+	}
+	public String getPageNavi2(int currentPage,String title) throws Exception {
+		
+		String title2 = "%"+title+"%";
+		int recordTotalCount = 0;
+		// 게시판 내의 총 글의 개수
+		if(title == null) {
+		recordTotalCount = this.getArticleCount();
+		}else {
+			 recordTotalCount = this.getArticleCount(title2);
+		}
+		// 페이지 당 몇개의 게시글
+//		 int recordCountPerPage = 10;
+
+		// 한 페이지에서 몇개의 네비게이터를 보여줄 지 설정
+//		 int naviCountPerPage = 10;
+
+		// 총 몇 개의 페이지 인가
+		int pageTotalCount = 0;
+		if (recordTotalCount % Configuration.recordCountPerPage2 > 0) {
+			// 총 글의 개수를 페이지당 보여줄 개수로 나누었을 때, 나머지가 생기면
+			// 총 페이지의 개수 + 1
+			// ex) 143 /10 = 14 이고 나머지 3이니 페이지는 총 15개가 되어야 하니 +1
+			pageTotalCount = recordTotalCount / Configuration.recordCountPerPage2 + 1;
+		} else {
+			pageTotalCount = recordTotalCount / Configuration.recordCountPerPage2;
+		}
+		// 현재 내가 위치하는 페이지
+
+		// 현재 페이지값이 범위를 넘어섰을 때
+		if (currentPage < 1) {
+			currentPage = 1;
+		} else if (currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		// 현재 내가 위치하고 있는 페이지에 따라 네비게이터 시작 페이지 값을 구하는 공식
+		int startNavi = (currentPage - 1) / Configuration.naviCountPerPage2 * Configuration.naviCountPerPage2 + 1;
+		int endNavi = startNavi + Configuration.naviCountPerPage2 - 1;
+		// 페이지 끝 값이 비정상 값일 때, 조정하는 보안 코드
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		System.out.println("현재 페이지 번호 : " + currentPage);
+		System.out.println("네비게이터 시작 번호: " + startNavi);
+		System.out.println("네비게이터 끝 번호 : " + endNavi);
+
+		boolean needPrev = true;
+		boolean needNext = true;
+
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+		System.out.println(title);
+		StringBuilder sb = new StringBuilder();
+		if (needPrev) {
+			sb.append("<a href='searchList.adboard?currentPage=" + (startNavi - 1) +"&search="+ title+ "'> < </a>");
+		}
+
+		for (int i = startNavi; i <= endNavi; i++) {
+			sb.append("<a href='searchList.adboard?currentPage=" + i +"&search="+ title+ "'>");
+			sb.append(i + " ");
+			sb.append("</a>");
+		}
+		if (needNext) {
+			sb.append("<a href='searchList.adboard?currentPage=" + (endNavi + 1) + "&search="+ title+"'> > </a>");
 		}
 
 		return sb.toString();
