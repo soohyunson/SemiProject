@@ -44,7 +44,7 @@
 			</div>
 			<br>
 			<br>
-			<table border=5 align=center>
+			<table border=5 align=center style="border:0.5px solid black;">
 				<tr>
 					<th width="1000" colspan=6 align=center><font color="blue">챌린지
 							게시판</font></th>
@@ -85,6 +85,11 @@
 				<tr>
 					<td width="1000" colspan=6 align=center>${page}</td>
 				</tr>
+				<form action="searchList.adboard" method="get">
+				<tr>
+				<td width="1000" colspan=6 align=center><input type="text" id="search" name="search"><button>제목검색</button></td>
+				</tr>
+				</form>
 				<tr>
 					<td width="1000" colspan=6 align=right><input type="button"
 						id=write value="글쓰기"><input type="button" id=back2

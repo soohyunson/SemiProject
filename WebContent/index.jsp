@@ -35,9 +35,7 @@
       })
       $("#donate").on("click",function(){
           location.href = "donation.challenge";
-
-        })
-        
+        })        
         $("#take").on("click",function(){
           location.href = "take.challenge";
         })
@@ -85,7 +83,7 @@
   </script>
 </head>
 
-<body>
+<body class="animated fadeIn delay-1s">
   <div class="wrap">
     <div class="box firstBox">
       <img src="${pageContext.request.contextPath }/resources/img/background-Index.png" class="backgroundImg firstImg">
@@ -100,8 +98,7 @@
         <div class="start"><button class="startBtn">레츠고</button></div>
         <div class="scroll animated infinite bounce delay-2s"><img src="${pageContext.request.contextPath }/resources/img/scroll@2x.png"></div>
       </div>
-    </div>
-
+    </div>            
     <div class="box secondBox">
       <img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="backgroundImg secondImg">
       <div class="navi secondNavi">
