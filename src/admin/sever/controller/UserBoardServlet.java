@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,13 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import DAO.ChallengeDAO;
-import DAO.ChallengeRecordDAO;
-import DAO.MemberDAO;
-import DTO.ChallengeDTO;
-import DTO.Challenge_recordDTO;
-import DTO.MemberDTO;
 
 @WebServlet("*.usboard")
 public class UserBoardServlet extends HttpServlet {
@@ -28,10 +20,7 @@ public class UserBoardServlet extends HttpServlet {
 		StringBuffer url = request.getRequestURL();
 		String uri = request.getRequestURI();
 		String projectPath = request.getContextPath();
-		//	System.out.println(url);
-		//	System.out.println(uri);
-		//	System.out.println(projectPath);
-		//	System.out.println();
+    
 		String realPath = uri.substring(projectPath.length());
 		System.out.println(realPath);
 		if (realPath.contentEquals("/banner.usboard")) {
@@ -123,7 +112,27 @@ public class UserBoardServlet extends HttpServlet {
 			ChallengeDTO detail = new ChallengeDTO();
 			try {
 				detail = ChallengeDAO.getInstance().getChallenge(seq);
+				System.out.println(detail);
+				String content = detail.getContent(); //content출력o
+				String text = "{" + content + "}"; //json타입o
+				System.out.println(text);
+				JsonParser parser = new JsonParser();
+				JsonElement data = parser.parse(text); //data출력o
+				System.out.println(data);
+				JsonObject obj = data.getAsJsonObject();
+				System.out.println("obj : " + obj);
+				String day = obj.get("인증가능요일").getAsString(); 
+				String frequency = obj.get("인증빈도").getAsString();
+				String time = obj.get("인증가능시간").getAsString();
+				String number = obj.get("하루인증횟수").getAsString(); //출력o
+				System.out.println(day + " : " + frequency + " : " + time + " : " + number);
+				
 				request.setAttribute("detailpage", detail);
+				request.setAttribute("day", day);
+				request.setAttribute("frequency", frequency);
+				request.setAttribute("time", time);
+				request.setAttribute("number", number);
+				
 				RequestDispatcher rd = request.getRequestDispatcher("user/detail.jsp");
 				rd.forward(request, response);
 			} catch (Exception e) {
