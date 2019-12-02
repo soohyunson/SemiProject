@@ -154,7 +154,7 @@ public class AdminBoardServlet extends HttpServlet {
             // String writer = (String)request.getSession().getAttribute("loginInfo");
             String start_date = multi.getParameter("startdate");
             String end_date = multi.getParameter("enddate");
-
+            System.out.println(start_date + " : " + end_date);
             String giveortake = multi.getParameter("giveortake");
             String category = multi.getParameter("category");
 

@@ -200,30 +200,28 @@
             .onefloor{
             	height : 400px;
             	width: 100%;
-            	border: 1px solid black;
+            	
             	margin: auto;
             }
             .twofloor{
-            	border: 1px solid black;
             	height: 60px;
             	width: 100%;
             	font-size: 30px;
             	text-align: center;
             }
             .threefloor{
-            	border: 1px solid black;
+            	
             	height: 50px;
             	text-align: center;
             	font-size: 20px;
             }
             .fourfloor{
-            	border: 1px solid black;
             	height: 60px;
             	font-size: 40px;
             	text-align: center;
             }
             .fivefloor{
-            	border: 1px solid black;
+            	
             	height: 500px;
             }
             .fourthfloor{
@@ -237,6 +235,10 @@
             	height: 100%;
             	border: 1px solid black;
             }
+            #method{
+            	font-weight: bold;
+            	text-size: 15px;
+            }
             
         </style>
 
@@ -246,7 +248,7 @@
             <br><br><br>
             <div class="topfloor">
               <div class="bd-example">
-                    <img src = "${detailpage.file_path}">
+                    <img src = /${detailpage.file_path}">
                 </div>
                
             </div>
@@ -260,7 +262,7 @@
             </div>
             <br>
             <div class="threefloor">
-            	${detailpage.category }
+            	카테고리 : ${detailpage.category }
             </div>
             <br>
             <div class="fourfloor">
@@ -268,7 +270,12 @@
             </div>
             <br>
             <div class="fivefloor">
-            	${detailpage.content }
+            	<br>
+            	<div id="method">챌린지 진행 방식</div>
+            	<div>🗓 인증 가능 요일 : ${day } </div><br>
+            	<div>📋 인증 빈도 : ${frequency } </div><br>
+            	<div>⏱ 인증 가능 시간 : ${time } </div><br>
+            	<div>📌 하루 인증 횟수 : ${number }</div><br>
             </div>
             <div class="rfloor">
              <br>  <br>  <br> <br>
@@ -328,12 +335,13 @@
         </div>
     <div class="category">
         <div class="wrapper">
-        	<div style="height:20%" style="font-size: 20px; font-weight: bold;">
-        	${detailpage.title } 챌린지
+        	<br>
+        	<div style="height:20%; font-size: 20px; font-weight: bold;">
+        	${detailpage.title }
         	</div>
+        	<div style="height: 20px;"> ${detailpage.giveortake } 챌린지</div><br>
         	<div style="height:20%;">챌린지 시작일 : ${detailpage.start_date } </div>
         	<div style="height:20%">챌린지 종료일 : ${detailpage.end_date }</div>
-        	<div style="height:20%"> ${detailpage.giveortake } 챌린지</div>
         	<div style="height:20%"><button id="enjoybtn">enjoy</button></div>
         </div>
     </div>
