@@ -109,6 +109,7 @@ html,body{margin: 0px; padding: 0px; overflow: hidden;}
     font-weight: bold;
 }
 .layerSecondText{
+	margin: 100px 50px 0px 0px;
     font-size: 60px;
     font-weight: bold;
 }
