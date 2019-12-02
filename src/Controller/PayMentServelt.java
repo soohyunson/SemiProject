@@ -80,12 +80,17 @@ public class PayMentServelt extends HttpServlet {
 				PaymentDTO dto = PaymentDAO.getInstance().selectByreceipt_Id(member_id, seq);
 				if(dto !=null) {
 					String result = Payment.getInstance().goCancel(dto.getReceipt_id(), dto.getPoint());
-					System.out.println(result);
+					
+					JsonParser parser = new JsonParser();
+					JsonElement elemt = parser.parse(result);
+					int code = elemt.getAsJsonObject().get("code").getAsInt();
 					int reuslt = PaymentDAO.getInstance().deleteByPoint(member_id, seq);
-					if(reuslt >0) {
+					if(reuslt > 0 && code == 0) {
 						//삭제 성공
 						request.setAttribute("url", realURL);
 						request.getRequestDispatcher("/user/pay/close.jsp").forward(request, response);
+					}else {
+						
 					}
 				}
 			}catch (Exception e) {
