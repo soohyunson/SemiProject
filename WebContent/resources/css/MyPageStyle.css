@@ -40,7 +40,7 @@
                 margin:0px;
                 padding:0px;
                 
-                right: 0px;
+                right: -250px;
                 width:50%;
             }
             .navi-title{
@@ -55,7 +55,7 @@
             .navi-item{
                 
                 list-style-type: none;
-                width:30%;
+                width:25%;
                 line-height:72px;
                 float:left;
                 text-align: center;
@@ -116,7 +116,7 @@
                 
             }
             .container{
-               background-color: #ededed;
+               background-color: #FFFFFF;
                 width:60%;
                 
                 margin:auto;
@@ -142,7 +142,7 @@
                 
                 border-radius: 3px;
                 width: 100%;
-                background-color: gainsboro;
+                background-color: #FFFFFF;
             }
             .progress{
                 display: inline-block;
@@ -157,9 +157,9 @@
                 top: 80px;
                 left: 7%;
                 width: 12%;
-                height: 300px;
+                height: 350px;
                 border: 3px solid #1D1F21;
-                
+                border-radius:30px;
                 
             }
             .submenu{

@@ -1,8 +1,6 @@
-<%@page import="DTO.File_ListDTO"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -317,7 +315,6 @@ img {
 						<input type="file" name="fileImg" id="fileImg" accept="image/*"
 							onchange="checkFile(this)">
 						<button id="confirmBtn" type="button">인증하기</button>
-
 					</div>
 				</div>
 
@@ -380,7 +377,9 @@ img {
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"></li>
+			<li class="navi-title"><a href="#"><img src="reallogo.png"
+					class="mr-3" alt="..."
+					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
 		</ul>
 		<ul class="itemList">
 
@@ -412,8 +411,6 @@ img {
 			options : {}
 		});
 	</script>
-
-
 	<script>
 	
 
@@ -425,141 +422,152 @@ img {
 		console.log(month);
 		console.log(day);
 		
-		var lastday = ( new Date(year,month-1, 0) ).getDate();
+		var lastday = ( new Date(year,month, 0) ).getDate();
 		
 		console.log(lastday);
 		console.log("받아온 월: "+${month});
 		console.log("오늘 일"+day);
 		console.log("받아온 일 :"+${day});
-		console.log("마지막 날짜 : "+lastday);
 		
 
-		var size = ${size};
-		console.log("넘어온 size : "+size);
-		var imgtag = $(".Imgtag");
-	
-		 console.log((lastday-${day})+day);
-		 
-		$.ajax({
-			url:"${pageContext.request.contextPath}/arrayFile.file",
-			dataType:"json",
-			data:{
-				recordNum : ${recordNum},
-				start_day : "${dto.start_date}"
-			}
-			
-		}).done(function(data){
-			console.log(data);
-			console.log(data.length);
-			
-			
-			for(i=0;i<data.length;i++){
-				var className;
-			 if(data[i].day==1){
-	               className= 'one';      
-	            }
-	             if(data[i].day==2){
-	               className= 'two';      
-	            }
-	            else if(data[i].day==3){
-	               className= 'three';      
-	            }
-	            else if(data[i].day==4){
-	               className= 'four';      
-	            }
-	            else if(data[i].day==5){
-	               className= 'five';      
-	            }
-	            else if(data[i].day==6){
-	               className= 'six';      
-	            }
-	            else if(data[i].day==7){
-	               className= 'seven';      
-	            }
-	            else if(data[i].day==8){
-	               className= 'eight';      
-	            }
-	            else if(data[i].day==9){
-	               className= 'nine';      
-	            }
-	            else if(data[i].day==10){
-	               className= 'ten';      
-	            }
-	             console.log(className);
-	             $("."+className).attr("src",data[i].filePath);
-			}
 		
-		})
-		
-		
-		
-		var name;
+		var className;
 		if(${month}!=month){
             if((lastday-day)+${day}==1){
-               name= 'one';      
+               className= 'one';      
             }
              if((lastday-day)+${day}==2){
-               name= 'two';      
+               className= 'two';      
             }
             else if((lastday-day)+${day}==3){
-               name= 'three';      
+               className= 'three';      
             }
             else if((lastday-day)+${day}==4){
-               name= 'four';      
+               className= 'four';      
             }
             else if((lastday-day)+${day}==5){
-               name= 'five';      
+               className= 'five';      
             }
             else if((lastday-day)+${day}==6){
-            	name= 'six';      
+               className= 'six';      
             }
             else if((lastday-day)+${day}==7){
-            	name= 'seven';      
+               className= 'seven';      
             }
             else if((lastday-day)+${day}==8){
-            	name= 'eight';      
+               className= 'eight';      
             }
             else if((lastday-day)+${day}==9){
-            	name= 'nine';      
+               className= 'nine';      
             }
             else if((lastday-day)+${day}==10){
-            	name= 'ten';      
+               className= 'ten';      
             }
    
          }else{
             if((day-${day})==1){
-            	name= 'one';      
+               className= 'one';      
             }
             else if((day-${day})==2){
-            	name= 'two';      
+               className= 'two';      
             }
             else if(day-${day}==3){
-            	name= 'three';      
+               className= 'three';      
             }
             else if(day-${day}==4){
-            	name= 'four';      
+               className= 'four';      
             }
             else if(day-${day}==5){
-            	name= 'five';      
+               className= 'five';      
             }
             else if(day-${day}==6){
-            	name= 'six';      
+               className= 'six';      
             }
             else if(day-${day}==7){
-            	name= 'seven';      
+               className= 'seven';      
             }
             else if(day-${day}==8){
-            	name= 'eight';      
+               className= 'eight';      
             }
             else if(day-${day}==9){
-            	name= 'nine';      
+               className= 'nine';      
             }
             else if(day-${day}==10){
-            	name= 'ten';      
+               className= 'ten';      
             }
             
          }
-         console.log(name);
+		
+		
+	
+	
+		var className;
+		if(${month}!=month){
+            if((lastday-day)+${day}==1){
+               className= 'one';      
+            }
+             if((lastday-day)+${day}==2){
+               className= 'two';      
+            }
+            else if((lastday-day)+${day}==3){
+               className= 'three';      
+            }
+            else if((lastday-day)+${day}==4){
+               className= 'four';      
+            }
+            else if((lastday-day)+${day}==5){
+               className= 'five';      
+            }
+            else if((lastday-day)+${day}==6){
+               className= 'six';      
+            }
+            else if((lastday-day)+${day}==7){
+               className= 'seven';      
+            }
+            else if((lastday-day)+${day}==8){
+               className= 'eight';      
+            }
+            else if((lastday-day)+${day}==9){
+               className= 'nine';      
+            }
+            else if((lastday-day)+${day}==10){
+               className= 'ten';      
+            }
+   
+         }else{
+            if((day-${day})==1){
+               className= 'one';      
+            }
+            else if((day-${day})==2){
+               className= 'two';      
+            }
+            else if(day-${day}==3){
+               className= 'three';      
+            }
+            else if(day-${day}==4){
+               className= 'four';      
+            }
+            else if(day-${day}==5){
+               className= 'five';      
+            }
+            else if(day-${day}==6){
+               className= 'six';      
+            }
+            else if(day-${day}==7){
+               className= 'seven';      
+            }
+            else if(day-${day}==8){
+               className= 'eight';      
+            }
+            else if(day-${day}==9){
+               className= 'nine';      
+            }
+            else if(day-${day}==10){
+               className= 'ten';      
+            }
+            
+         }
+         console.log(className);
 	
 		$("#confirmBtn").on("click",function(){
 			if(!$("#fileImg").val()){
@@ -583,7 +591,7 @@ img {
 						}).done(function(data){
 							console.log(data);
 							
-							$("."+name).attr("src",data);
+							$("."+className).attr("src",data);
 							
 						}).fail(function(){
 							console.log("실패실패실패~~!!");

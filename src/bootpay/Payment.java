@@ -13,15 +13,15 @@ import java.util.Arrays;
 
 public class Payment {
     static BootpayApi api;
-//    public static void main(String[] args) {
+    //public static void main(String[] args) {
 //    	//REST Application ID, Private Key  - 고정값
 //        api = new BootpayApi("5dd10c304f74b4002fc15ac4", "mMPuP5NSt3sZCwTmp3S2PNuE3hQ+rz63wCqOecefcTs=");
-//        goGetToken(); //결제 검증용 토큰 얻기
-//        goVerfity();  //결제 검증
+        //goGetToken(); //결제 검증용 토큰 얻기
+        //goVerfity("5de20b1d5ade1600282b59b2");  //결제 검증
 //        //goCancel();
 //        //goSubscribeBilling();
 //        //goRemoteForm();
-//    }
+    //}
 
     private static Payment instance;
 
@@ -47,8 +47,11 @@ public class Payment {
         try {
         	//결제 검증용 키 값  : receipt_id , 영수증ID - 변동값
         	this.getInstance();
+        	goGetToken();
+        	System.out.println(receipt_id);
             HttpResponse res = api.verify(receipt_id);
             String str = IOUtils.toString(res.getEntity().getContent(), "UTF-8");
+            System.out.println(str);
             return str;
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,6 +61,8 @@ public class Payment {
 
     public String goCancel(String receipt_id, int price) {
     	this.getInstance();
+    	goGetToken();
+
         Cancel cancel = new Cancel();
         //결제 검증용 키 값  : receipt_id , 영수증ID - 변동값
         cancel.receipt_id = receipt_id;

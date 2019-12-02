@@ -36,7 +36,7 @@ public class MemberDAO {
 		return bds.getConnection();
 	}
 
-	public static String encrypt(String input) throws Exception {//비밀번호 암호화
+	public String encrypt(String input) throws Exception {//비밀번호 암호화
 		MessageDigest digest = MessageDigest.getInstance("SHA-256");
 		digest.reset();
 		digest.update(input.getBytes("utf8"));
@@ -50,6 +50,7 @@ public class MemberDAO {
 				PreparedStatement psta = con.prepareStatement(sql);){
 			psta.setString(1, id);
 			psta.setString(2, pw);
+			System.out.println(pw);
 			try(ResultSet rs = psta.executeQuery();){
 				return rs.next();
 			}
@@ -131,15 +132,15 @@ public class MemberDAO {
 		}
 	}
 
-	public int update(MemberDTO dto, String id) throws Exception{
+	public int update(String pw, String phone, String email) throws Exception{
 		String sql = "update member set pw=?, phone=?, email=?";
 		try(
 				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
-			pstat.setString(1, encrypt(dto.getPw()));
-			pstat.setString(2, dto.getPhone());
-			pstat.setString(3, dto.getEmail());
+			pstat.setString(1, encrypt(pw));
+			pstat.setString(2, phone);
+			pstat.setString(3, email);
 			int result = pstat.executeUpdate();
 			return result;
 			//개인정보 수정
@@ -196,7 +197,50 @@ public class MemberDAO {
 
 			}return list;
 		}
+	}
 
+	public boolean isAdmin(String id, String pw) throws Exception{
+		String sql = "select * from member where id=? and pw=? and getout='gm'";
+		try(Connection con = getConnection();
+				PreparedStatement psta = con.prepareStatement(sql);){
+			psta.setString(1, id);
+			psta.setString(2, pw);
+
+			try(ResultSet rs = psta.executeQuery();){
+				return rs.next(); //로그인 한 사람이 관리자인지 체크
+			}
+		}
+
+	}
+
+	public int selectByPoint(String id) throws Exception{
+		String sql = "select * from member where id = ?";
+		
+		try(Connection conn = this.getConnection();
+				PreparedStatement pstat = new LoggableStatement(conn, sql);){
+			pstat.setString(1, id);
+			System.out.println(((LoggableStatement)pstat).getQueryString());
+			try(ResultSet rs = pstat.executeQuery();){
+				if(rs.next()) {
+					return rs.getInt("point");
+				}else {
+					return -1;
+				}
+			}
+		}
+	}
+	
+	public int updateByPoint(String id, int point) throws Exception {
+		String sql ="update member set point = ? where id = ?";
+
+		try(Connection conn = this.getConnection();
+				PreparedStatement pstat = new LoggableStatement(conn, sql);){
+			pstat.setInt(1, point);
+			pstat.setString(2, id);
+			System.out.println(((LoggableStatement)pstat).getQueryString());
+			int result = pstat.executeUpdate();
+			return result;
+		}
 	}
 
 	public List<MemberDTO> selectByPage(int start, int end) throws Exception{
@@ -265,11 +309,11 @@ public class MemberDAO {
 		//int recordCountPerPage = 10; // 한 페이지에 보여줄 글의 갯수
 		//int naviCountPerPage = 10; //한 페이지에서 몇개의 네비게이터를 보여줄 것인 지 설정 / 현재 내가 4에 있으면 네비게이터에서는 1부터 10까지 볼 수 있음
 		int pageTotalCount = 0;//총 몇개의 페이지인지
-		
-		
+
+
 		if(recordTotalCount % Configuration.recordCountPerPage > 0) { // recordTotalCount를 recordCountPerPage로 나누었을때 나머지가 0보다 크다면(즉, 나머지가 생긴다면)
 			pageTotalCount = recordTotalCount/Configuration.recordCountPerPage +1;
-			
+
 		}else {
 			pageTotalCount = recordTotalCount/Configuration.recordCountPerPage;
 
@@ -289,7 +333,7 @@ public class MemberDAO {
 		if(endNavi > pageTotalCount) { //페이지 끝 값이 비정상적일때/ 총 15페이지가 있을때 15페이지를 선택하면 보여지는 네비는 11-20이 아니라 11-15여야함
 			endNavi = pageTotalCount;
 		}
-		
+
 		boolean needPrev = true; // < 표시가 필요한지
 		boolean needNext = true; // > 표시가 필요한지
 
@@ -315,7 +359,7 @@ public class MemberDAO {
 			sb.append("<a href='memberlist.mem?cpage="+(endNavi + 1) +"' > > </a>");
 		}
 
-		
+
 		return sb.toString();
 	}
 }

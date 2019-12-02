@@ -12,17 +12,27 @@
 	<c:choose>
 		<c:when test="${loginResult == true }">
 			<script>
-				alert("로그인에 성공하였습니다!");
-				location.href = "${uri }";
+				alert("관리자님 환영합니다.");
+				location.href = "../../admin/adminMyPage.jsp";
 			</script>
 		</c:when>
-
 		<c:otherwise>
-			<script>
+			<c:choose>
+			<c:when test="${loginResult2 == true }">
+				<script>
+					alert("로그인에 성공하였습니다.");
+					location.href = "${uri }"
+				</script>
+			</c:when>
+			<c:otherwise>
+				<script>
 				alert("아이디 또는 비밀번호를 확인해주세요");
 				location.href = "login.jsp";
 			</script>
+			</c:otherwise>
+		</c:choose>
 		</c:otherwise>
+		
 	</c:choose>
 
 </body>

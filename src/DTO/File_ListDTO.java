@@ -8,7 +8,15 @@ public class File_ListDTO {
 	private String original_name;
 	private String upload_date;
 	private int challenge_record_num;
+	private int day;
+
 	
+	public void setDay(int day) {
+		this.day = day;
+	}
+	public int getDay() {
+		return day;
+	}
 	public String getFile_path() {
 		return file_path;
 	}

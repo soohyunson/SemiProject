@@ -34,7 +34,6 @@
                 position:fixed;
                 top:0px;
                 margin:0px;
-
                 overflow: hidden;
                 padding:0px;
                 width:60%;
@@ -52,7 +51,6 @@
                 position: absolute;
                 margin:0px;
                 padding:0px;
-
                 right: 0px;
                 width:50%;
             }
@@ -62,7 +60,7 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
-                color:#7019FF;
+                color:black;
             }
             .navi-item{
 
@@ -71,8 +69,7 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
-
-                color:#7019FF;
+                color:black;
             }
             .navi-item2{
                 list-style-type: none;
@@ -80,7 +77,7 @@
                 line-height:30px;
                 float:left;
                 text-align: center;
-                color:#7019FF;
+                color:black;
             }
             .navi-item3{
                 list-style-type: none;
@@ -88,25 +85,25 @@
                 line-height:72px;
                 float:left;
                 text-align: center;
-                color:#7019FF;
+                color:black;
             }
             .navi-item>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
             }
             .navi-item2>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
             }
             .navi-item3>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
@@ -114,7 +111,7 @@
             }
             .navi-title>a{
                 text-decoration: none;
-                color:#7019FF;
+                color:black;
                 width:100%;
                 height:100%;
                 display: block;
@@ -130,23 +127,23 @@
                 margin-top:0px;
             }
             .onefloor{
-                border-bottom: 3px solid #7019FF;
-                border-top: 3px solid #7019FF;
+                border-bottom: 3px solid black;
+                border-top: 3px solid black;
                 border-radius: 3px;
             }
             .twofloor{
-                border-bottom: 3px solid #7019FF;
+                border-bottom: 3px solid black;
                 border-radius: 3px;
 
             }
             .threefloor{
-                border-bottom: 3px solid #7019FF;
+                border-bottom: 3px solid black;
                 border-radius: 3px;
                 height: 50px;
             }
 
             .fivefloor{
-                border-top: 3px solid #7019FF;
+                border-top: 3px solid black;
                 border-radius: 3px;
                 width: 100%;
                 background-color: gainsboro;
@@ -159,7 +156,7 @@
 
             .submenu{
                 font-family: 'Calistoga', cursive;
-                color:#7019FF;
+                color:black;
             }
             .sidebar{
                 height: 51px;
@@ -176,10 +173,10 @@
                 height: 700px;
             }
             table{
-                border: 2px solid #7019FF;
+                border: 2px solid black;
                 margin: auto;
                 position: relative;
-                top: 20%;
+                top: 120px;
                 height: 400px;
                 width: 500px;
             }
@@ -196,6 +193,16 @@
             .sub{
                 text-align: right;
             }
+            #confirm{
+            	background-color: black;
+            	border: 1px solid black;
+            	color: white;
+            }
+            #reset{
+            	background-color: black;
+            	border: 1px solid black;
+            	color: white;
+            }
         </style>
 	
 </head>
@@ -207,11 +214,7 @@
 		<div class="twofloor"></div>
 
 		<div class="fourthfloor">
-		<%
-				String realuri = request.getHeader("Referer");
-				request.getSession().setAttribute("realuri", realuri);
-				
-			%>
+		
 			<form action="signup.mem" method="post" id="signfrm">
 				<table class="signuptable">
 					<tr>
@@ -229,7 +232,7 @@
 						<td><input type="password" id="pw1" name="pw"></td>
 					</tr>
 					<tr>
-						<td colspan="2" id="pw1result" style="text-align: center">
+						<td colspan="2" id="pw1result" style="text-align: center;">
 							(비밀번호는 영어 대소문자, 숫자 조합 8자 이상)</td>
 					</tr>
 					<tr>
@@ -262,8 +265,8 @@
 						<td colspan="2" id=emailresult></td>
 					</tr>
 					<tr>
-						<td colspan="2" id="btnresult"><button>확인</button> <input
-							type="reset" value="다시입력"></td>
+						<td colspan="2" id="btnresult">
+						<button id="confirm">확인</button> <input type="reset" value="다시입력" id="reset"></td>
 					</tr>
 				</table>
 			</form>
