@@ -14,7 +14,14 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-
+<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Coming+Soon|Gloria+Hallelujah|Handlee|Rock+Salt&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: '양진체'; src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'BMEULJIRO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff'); font-weight: normal; font-style: normal; }
+</style>
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -36,25 +43,27 @@
 
 </head>
 <body>
+<div>
+<img src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg" class="back" style="position:fixed; z-index:-500;filter: blur(4px);">
+</div>
 
-
-	<div class="container">
+	<div class="container" style="background-color:#FFFFFF">
 		<br> <br> <br>
 
 		<div class="onefloor" style="text-align: center;">
 			<br>
 			<div style="text-align: start; margin-left: 5%;">
-				<a href="#" class="submenu">My Profile</a>
+				<a href="#" class="submenu" style=" font-family: 'BMEULJIRO';">My Information</a>
 			</div>
 			<br> <br>
 			<div class="media">
-				<img src="${pageContext.request.contextPath}/Img/profileicon.png"
+				<img src="${pageContext.request.contextPath}/resources/img/profileicon.png"
 					class="mr-3" alt="..."
 					style="width: 100px; height: 100px; margin-left: 10%;">
 				<div class="media-body">
 					<br>
-					<h5 class="mt-0">${id }님의마이페이지입니다.</h5>
-					내일은 챌린지 성공하자!
+					<h5 class="mt-0"style=" font-family: 'BMEULJIRO';">${id }님의마이페이지입니다.</h5>
+					
 				</div>
 
 
@@ -73,7 +82,7 @@
 		<div class="twofloor">
 			<br> <br>
 			<div style="text-align: start; margin-left: 5%;">
-				<a href="#" class="submenu">My Point </a>
+				<a href="#" class="submenu"style=" font-family: 'BMEULJIRO';">My Point </a>
 			</div>
 			<br> <br>
 			<h1 style="margin-left: 15%;">My Point is 45,000</h1>
@@ -83,7 +92,7 @@
 		<div class="threefloor">
 			<br> <br>
 			<div style="text-align: start; margin-left: 5%;">
-				<a href="#" class="submenu">My Challenge</a>
+				<a href="#" class="submenu" style=" font-family: 'BMEULJIRO';">My Challenge</a>
 			</div>
 			<br> <br>
 			<script>
@@ -94,7 +103,7 @@
 				<c:when test="${giveList.size() eq 0 || giveList eq null}">
 
 					<div
-						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;">기부</div>
+						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px; font-family: 'BMEULJIRO';">기부</div>
 					<div class="row" style="width:100%; margin:auto;">
 						<div class="col-12 p-4 m-1" style="background:white; width:100%;">
 							<div>존재하는 챌린지가 없습니다.</div>
@@ -104,7 +113,7 @@
 				</c:when>
 				<c:otherwise>
 					<div
-						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;">기부</div>
+						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px; font-family: 'BMEULJIRO';">기부</div>
 					<div class="row">
 
 						<c:forEach items="${giveList}" var="dto">
@@ -130,7 +139,7 @@
 			<c:choose>
 				<c:when test="${takeList.size() eq 0 || takeList eq null}">
 					<div
-						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;">테이크</div>
+						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px; font-family: 'BMEULJIRO';" >테이크</div>
 					<div class="row mb-5" style="width:100%; margin:auto;">
 						<div class="col-12 p-4 m-1" style="background:white; width:100%;">
 							<div>존재하는 챌린지가 없습니다.</div>
@@ -140,7 +149,7 @@
 				</c:when>
 				<c:otherwise>
 					<div
-						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;">테이크</div>
+						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px;font-family: 'BMEULJIRO';">테이크</div>
 					<div class="row">
 						<c:forEach items="${takeList}" var="dto">
 
@@ -164,23 +173,14 @@
 			</c:choose>
 
 		</div>
-	</div>
+	
 
 
 	<br>
 
 
-	<div class="fourfloor">
-		<br> <br>
-		<div style="text-align: start; margin-left: 5%;">
-			<a href="#" class="submenu">My Statics</a>
-		</div>
-		<br> <br>
-		<div>
-			<canvas id="myChart"></canvas>
-		</div>
-	</div>
-	<div class="fivefloor">
+	
+	<div class="fivefloor" style="background-color:white;">
 		<ul class="lastbar">
 			<li class="navi-item3"><a href="#">COMPANY</a></li>
 			<li class="navi-item3"><a href="#">POLICIES</a></li>
@@ -211,40 +211,51 @@
 		</div>
 		<br>
 		<div class="lastbar3" style="text-align: center">
-			<a href="#"><img src="../Img/icon1.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon1.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="../Img/icon2.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon2.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
-			<a href="#"><img src="../Img/icon3.png" class="mr-3" alt="..."
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/img/icon3.png" class="mr-3" alt="..."
 				style="width: 50px; height: 50px; margin-left: 10%; margin: 0px;"></a>
 		</div>
 		<br>
 	</div>
-	<div class="category">
+	</div>
+	<div class="category" style="background-color:#FFFFFF;">
 		<div class="wrapper">
 			<br>
+			
 			<div class="sidebar">
-				<a href="#">My Profile</a>
+				<img src="${pageContext.request.contextPath }/resources/img/inforcon.png" style="widht:30px;height:30px;">
 			</div>
 			<div class="sidebar">
+				<a href="#" style="font-family: 양진체; font-weight:bold;">My Information</a>
+			</div>
+			
+			<div class="sidebar">
+				<img src="${pageContext.request.contextPath }/resources/img/challcon.png" style="widht:30px;height:30px;">
 				<a href="myPageDetailView.mypage?id=${id }">My Information</a>
 			</div>
 			<div class="sidebar">
-				<a href="#">My Point</a>
+				<a href="#" style="font-family: 양진체; font-weight:bold;">My Challenge</a>
+			</div>
+			<div class="sidebar">
+				<img src="${pageContext.request.contextPath }/resources/img/cashcon.png" style="widht:30px;height:30px;">
+			</div>
+			<div class="sidebar">
+				<a href="#" style="font-family: 양진체; font-weight:bold;">My Point</a>
 			</div>
 		</div>
 	</div>
 	<ul class="navi">
 		<ul class="title">
-			<li class="navi-title"><a href="#"><img
-					src="../Img/reallogo.png" class="mr-3" alt="..."
-					style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
+			<li class="navi-title"><a href="#" style="font-family: 'Rock Salt', cursive; font-size:20px;">Don't Give Up</a></li>
 		</ul>
 		<ul class="itemList">
-
-			<li class="navi-item"><a href="#">GIVE OR TAKE</a></li>
-			<li class="navi-item"><a href="#">CHALLENGE</a></li>
-			<li class="navi-item"><a href="#">MYPAGE</a></li>
+            <li class="navi-item"></li>
+			<li class="navi-item"></li>
+			<li class="navi-item"><a href="#" style="font-family: 양진체; font-weight:bold;">MYPAGE</a></li>
+			<li class="navi-item"><a href="#" style="font-family: 양진체; font-weight:bold;">LOGOUT</a></li>
 		</ul>
 	</ul>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

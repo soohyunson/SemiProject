@@ -118,9 +118,7 @@ public class member extends HttpServlet {
 				}
 			}else if(realPath.contentEquals("/logout.mem")) {
 				request.getSession().invalidate();
-
 				response.sendRedirect("index.jsp");
-
 			}else if(realPath.contentEquals("/delete.mem")) {
 				
 				try {String id = request.getParameter("id");
@@ -151,7 +149,6 @@ public class member extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
 			}
 		
 	}

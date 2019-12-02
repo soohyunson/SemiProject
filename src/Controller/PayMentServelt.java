@@ -80,7 +80,7 @@ public class PayMentServelt extends HttpServlet {
 				PaymentDTO dto = PaymentDAO.getInstance().selectByreceipt_Id(member_id, seq);
 				if(dto !=null) {
 					String result = Payment.getInstance().goCancel(dto.getReceipt_id(), dto.getPoint());
-					
+
 					JsonParser parser = new JsonParser();
 					JsonElement elemt = parser.parse(result);
 					int code = elemt.getAsJsonObject().get("code").getAsInt();
@@ -90,7 +90,7 @@ public class PayMentServelt extends HttpServlet {
 						request.setAttribute("url", realURL);
 						request.getRequestDispatcher("/user/pay/close.jsp").forward(request, response);
 					}else {
-						
+
 					}
 				}
 			}catch (Exception e) {
@@ -116,9 +116,17 @@ public class PayMentServelt extends HttpServlet {
 			}
 
 		}else if(URL.equals("/refunds.pay")) {
-			//아이디 불러옴
-			//String id = (String) request.getSession().getAttribute("");
-			request.getRequestDispatcher("/user/pay/refunds.jsp").forward(request, response);
+			try {
+				//아이디 불러옴
+				String id = (String) request.getSession().getAttribute("id");
+				int oPoint = MemberDAO.getInstance().selectByPoint(id);
+				if(oPoint > -1) {
+					request.setAttribute("point", oPoint);
+					request.getRequestDispatcher("/user/pay/refunds.jsp").forward(request, response);
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

@@ -50,6 +50,7 @@ public class MemberDAO {
 				PreparedStatement psta = con.prepareStatement(sql);){
 			psta.setString(1, id);
 			psta.setString(2, pw);
+			System.out.println(pw);
 			try(ResultSet rs = psta.executeQuery();){
 				return rs.next();
 			}
