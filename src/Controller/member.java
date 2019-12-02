@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.media.jfxmedia.track.Track.Encoding;
+
 import DAO.MemberDAO;
 import DTO.MemberDTO;
 
@@ -100,7 +102,8 @@ public class member extends HttpServlet {
 					e.printStackTrace();
 				}
 
-			}else if(realPath.contentEquals("/search.mem")) {
+			}else if(realPath.contentEquals("/admin/search.mem")) {
+				request.setCharacterEncoding("utf8");
 				try {
 				String id = request.getParameter("search");
 				System.out.println(id); 

@@ -287,13 +287,18 @@ th {
 <h1 style = "text-align :center">참여중인 챌린지</h1>
 <br><br>
 <table class="listboard">
-				
+				<c:choose>
+					<c:when test="${list.size() == 0 }">
+						<tr><td style="text-align:center;">참여 중인 챌린지가 없습니다.</tr>
+					</c:when>
+					<c:otherwise>
 					<c:forEach items="${list}" var="dto">
 					<tr>
 					<th width="100%" style="text-align: center"><a href = "${pageContext.request.contextPath}/detail.adboard?seq=${dto.seq}">${dto.title}</a>
 					</c:forEach>
+					</c:otherwise>
+					</c:choose>
 					</tr>
-
 			</table>
 			<br><br>
 		</div>

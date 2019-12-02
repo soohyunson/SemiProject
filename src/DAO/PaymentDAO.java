@@ -38,8 +38,8 @@ public class PaymentDAO {
 
 	public List<PaymentDTO> selectById(String id) throws Exception{
 		//String sql = "select * from payment where member_id =?";
-		String sql = "select to_char(payment_date, 'yyyy-MM-dd'), seq, point, approval_num, company, member_id "
-				+ "from payment where member_id = ?";
+		String sql = "select to_char(payment_date, 'yyyy-MM-dd'), seq, point, receipt_Id, company, member_id "
+				+ "from payment where member_id = ? order by 1 desc";
 
 		try(Connection conn = this.getConnection();
 				PreparedStatement pstat = new LoggableStatement(conn, sql);
@@ -54,7 +54,7 @@ public class PaymentDAO {
 							rs.getInt("point"),
 							//rs.getDate("payment_date"),
 							rs.getString(1),
-							rs.getString("approval_num"),
+							rs.getString("receipt_Id"),
 							rs.getString("company"),
 							rs.getString("member_id"));
 					list.add(dto);
@@ -63,4 +63,52 @@ public class PaymentDAO {
 			}
 		}
 	}	
+	
+	public int insertAll(PaymentDTO dto) throws Exception{
+		String sql ="insert into payment values(payment_seq.nextval, ?, sysdate, ?, ?, ?)";
+		
+		try(Connection conn = this.getConnection();
+			PreparedStatement pstat = new LoggableStatement(conn, sql);){
+			pstat.setInt(1, dto.getPoint());
+			pstat.setString(2, dto.getReceipt_id());
+			pstat.setString(3, dto.getCompany());
+			pstat.setString(4, dto.getMember_id());
+			
+			System.out.println(((LoggableStatement)pstat).getQueryString());
+			
+			int result = pstat.executeUpdate();
+			return result;
+		}
+	}
+	
+	public PaymentDTO selectByreceipt_Id(String id, int seq) throws Exception{
+		String sql = "select * from payment where member_id = ? and seq = ?";
+		
+		try(Connection conn = this.getConnection();
+				PreparedStatement pstat = new LoggableStatement(conn, sql);){
+			pstat.setString(1, id);
+			pstat.setInt(2, seq);
+			try(ResultSet rs = pstat.executeQuery();){
+				PaymentDTO dto =new PaymentDTO();;
+				if(rs.next()) {
+					dto.setReceipt_id(rs.getString("receipt_Id"));
+					dto.setPoint(rs.getInt("point"));	
+				}
+				return dto;
+			}
+		}
+	}
+	
+	public int deleteByPoint(String id, int seq) throws Exception{
+		String sql = "delete from payment where member_id = ? and seq = ?";
+		
+		try(Connection conn = this.getConnection();
+				PreparedStatement pstat = new LoggableStatement(conn, sql);){
+			pstat.setString(1, id);
+			pstat.setInt(2, seq);
+			int result = pstat.executeUpdate();
+			return result;
+		}
+	}
+	
 }

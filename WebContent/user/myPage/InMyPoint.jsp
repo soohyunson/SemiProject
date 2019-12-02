@@ -13,7 +13,6 @@
 </script>
 </head>
 <body>
-	
 	<button onclick="goPoint()">goPoint</button>
 </body>
 

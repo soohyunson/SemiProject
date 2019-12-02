@@ -259,7 +259,7 @@
                         	<c:forEach items="${dto }" var="item">
                         	<tr>
                         		<td>${item.id }
-                        		<td>${item.name }
+                        		<td><a href="${pageContext.request.contextPath}/memberlist.adboard?id=${item.id}">${item.name }</a>
                         	</tr>
                         	
                         	</c:forEach>
@@ -271,10 +271,7 @@
                         </tr>
                         <tr>
                				<tr>
-               				
-               				
                         	<td colspan=2 style="text-align: center">${navi }
-                        	
                      		</tr>
                         </tr>
                         <tr>

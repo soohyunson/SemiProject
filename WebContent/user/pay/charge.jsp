@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +30,7 @@
 <script>
 	$(document).ready(function() {
 		$('[data-toggle="tooltip"]').tooltip();
+
 	});
 </script>
 <noscript>
@@ -47,95 +49,93 @@
 			브라우저에서 자바스크립트를 활성화하는 방법</a>을 참고 하세요.
 	</div>
 </noscript>
-<body onresize="parent.resizeTo(540,600)" onload="parent.resizeTo(540,600)">
+<body onresize="parent.resizeTo(540,600)"
+	onload="parent.resizeTo(540,600)">
+	<c:choose>
+		<c:when test="${dto ne null}">
+			<div class="pagecontainer">
+				<nav class="navbar navbar-light bg-light">
+					<a class="navbar-brand" href="#"> <img
+						src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30"
+						height="30" class="d-inline-block align-top" alt="">
 
+					</a>
+					<button id="close"
+						class="btn btn-sm btn-outline-secondary border-0" type="button">
+						<i class="material-icons"> close</i>
+					</button>
+				</nav>
 
-	<div class="pagecontainer">
-		<nav class="navbar navbar-light bg-light">
-			<a class="navbar-brand" href="#"> <img
-				src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30"
-				height="30" class="d-inline-block align-top" alt="">
-
-			</a>
-			<button id="close" class="btn btn-sm btn-outline-secondary border-0"
-				type="button">
-				<i class="material-icons"> close</i>
-			</button>
-		</nav>
-
-		<div class="container-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<h2></h2>
-						<h3 class="text-center">충전</h3>
-						<h6>충전 금액</h6>
-						<div class="input-group mb-3">
-							<input id="inputMoney" type="text" class="form-control">
-							<div class="input-group-append">
-								<span id="removeMoney" class="input-group-text"><i
-									class="material-icons"> close</i></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<p>
-							<span class="text-left" data-toggle="tooltip"
-								data-placement="bottom"
-								title="충전 단위는 1,000원 단위입니다. &#10;&#13; 1회 최대 충전금액은 100만원입니다.">
-								<i class="material-icons">help_outline</i> 충전은 1,000원 단위입니다.
-							</span>
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div id="addMoney" class="col">
-						<div class="card text-center">
-							<div class="card-body">
-								<button type="button" onclick="addMoney(1000)"
-									class="btn btn-outline-dark addMoney">+1,000원</button>
-								<button type="button" onclick="addMoney(3000)"
-									class="btn btn-outline-dark addMoney">+3,000원</button>
-								<button type="button" onclick="addMoney(5000)"
-									class="btn btn-outline-dark addMoney">+5,000원</button>
-								<button type="button" onclick="addMoney(10000)"
-									class="btn btn-outline-dark addMoney">+10,000원</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row text-center pt-5">
-					<div class="col">
-						<button id="pay" type="button" class="btn btn-primary btn-lg">결제</button>
-					</div>
-				</div>
-				<div class="row pt-5">
-					<div class="col">
-						<div class="accordion" id="accordionExample">
-							<div class="card">
-								<div class="card-header" id="headingOne">
-									<h2 class="">
-										<button class="btn btn-link" type="button"
-											data-toggle="collapse" data-target="#collapseOne"
-											aria-expanded="true" aria-controls="collapseOne">유의사항</button>
-									</h2>
+				<div class="container-bg">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<h2></h2>
+								<h3 class="text-center">충전</h3>
+								<h6>충전 금액</h6>
+								<div class="input-group mb-3">
+									<input id="inputMoney" type="text" class="form-control">
+									<div class="input-group-append">
+										<span id="removeMoney" class="input-group-text"><i
+											class="material-icons"> close</i></span>
+									</div>
 								</div>
-								<div id="collapseOne" class="collapse hiden"
-									aria-labelledby="headingOne" data-parent="#accordionExample">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<p>
+									<span class="text-left" data-toggle="tooltip"
+										data-placement="bottom"
+										title="충전 단위는 1,000원 단위입니다. &#10;&#13; 1회 최대 충전금액은 100만원입니다.">
+										<i class="material-icons">help_outline</i> 충전은 1,000원 단위입니다.
+									</span>
+								</p>
+							</div>
+						</div>
+						<div class="row">
+							<div id="addMoney" class="col">
+								<div class="card text-center">
 									<div class="card-body">
-										<ul class="list-group list-group-flush">
-											<li class="list-group-item">현금으로 포인트를 충전할 수 있습니다.</li>
-											<li class="list-group-item">1000포인트 이상 1000포인트 단위로 입금이
-												가능합니다.</li>
-											<li class="list-group-item">365일 00:10 ~ 23:50 전환 가능
-												합니다.</li>
-											<li class="list-group-item">단, 시스템 정비 시간은(23:50 ~ 00:10)
-												서비스 이용불가</li>
-											<li class="list-group-item">개인의 실명이름 외에 법인사업자 또는 개인사업자의
-												상호명, 동호회와 같은 모임명칭 등 기재사항이 등재되어 있는 계좌에 대해 입금이 제한될 수 있습니다.</li>
-										</ul>
+										<button type="button" onclick="addMoney(1000)"
+											class="btn btn-outline-dark addMoney">+1,000원</button>
+										<button type="button" onclick="addMoney(3000)"
+											class="btn btn-outline-dark addMoney">+3,000원</button>
+										<button type="button" onclick="addMoney(5000)"
+											class="btn btn-outline-dark addMoney">+5,000원</button>
+										<button type="button" onclick="addMoney(10000)"
+											class="btn btn-outline-dark addMoney">+10,000원</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row text-center pt-5">
+							<div class="col">
+								<button id="pay" type="button" class="btn btn-primary btn-lg">결제</button>
+							</div>
+						</div>
+						<div class="row pt-5">
+							<div class="col">
+								<div class="accordion" id="accordionExample">
+									<div class="card">
+										<div class="card-header" id="headingOne">
+											<h2 class="">
+												<button class="btn btn-link" type="button"
+													data-toggle="collapse" data-target="#collapseOne"
+													aria-expanded="true" aria-controls="collapseOne">유의사항</button>
+											</h2>
+										</div>
+										<div id="collapseOne" class="collapse hiden"
+											aria-labelledby="headingOne" data-parent="#accordionExample">
+											<div class="card-body">
+												<ul class="list-group list-group-flush">
+													<li class="list-group-item">현금으로 포인트를 충전할 수 있습니다.</li>
+													<li class="list-group-item">1000포인트 이상 1000포인트 단위로 충전이 가능합니다.</li>
+													<li class="list-group-item">365일 00:10 ~ 23:50 전환 가능합니다.</li>
+													<li class="list-group-item">단, 시스템 정비 시간은(23:50 ~ 00:10) 서비스 이용불가</li>
+												</ul>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -143,8 +143,17 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</c:when>
+		<c:otherwise>
+			<script type="text/javascript">
+				$(function() {
+					alert("로그인이 필요합니다.");
+					location.href = "${pageContext.request.contextPath}/index.jsp";
+				})
+			</script>
+		</c:otherwise>
+	</c:choose>
+
 	<script type="text/javascript">
 		$("#close").on("click", function() {
 			if (confirm("결제를 취소하시겠습니까? 입력된 내용이 초기화됩니다.")) {
@@ -236,12 +245,13 @@
 						cat3 : '라운드 티', // 대표상품의 카테고리 하, 50글자 이내
 					} ], */
 					user_info : {
-						username : '사용자 이름',
-						email : '사용자 이메일',
-						addr : '사용자 주소',
-						phone : '010-1234-4567'
+						username : '${dto.name}', //사용자 
+						email : '${dto.email}', //이메일
+						//addr : '사용자 주소',
+						phone : '${dto.phone}' //전화번호
 					},
-					order_id : '고유order_id_1234', //고유 주문번호로, 생성하신 값을 보내주셔야 합니다.
+					//사용자ID_날짜_시간_구매한금액
+					order_id : '${dto.id}_${order_id}_' + $("#inputMoney").val(), //고유 주문번호로, 생성하신 값을 보내주셔야 합니다.
 					params : {
 						callback1 : '그대로 콜백받을 변수 1',
 						callback2 : '그대로 콜백받을 변수 2',

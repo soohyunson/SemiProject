@@ -14,9 +14,7 @@ public class ChallengeDTO {
 	private String category;
 	private int pp_point;
 	private int total_amount;
-	
-	
-	
+
 	public ChallengeDTO() {
 		super();
 		// TODO Auto-generated constructor stub

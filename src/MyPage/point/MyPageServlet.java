@@ -25,11 +25,10 @@ public class MyPageServlet extends HttpServlet {
 		String ctxPath = request.getContextPath();
 		String cmd = requestURI.substring(ctxPath.length());
 		System.out.println(ctxPath);
-		System.out.println("dd");
 
 		System.out.println(cmd);
 		if (cmd.equals("/MyPoint.mypage")) {
-			String id = "test";
+			String id = "point";
 			request.getSession().setAttribute("id", id);
 		
 			try {
