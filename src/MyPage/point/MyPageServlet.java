@@ -50,7 +50,17 @@ public class MyPageServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else {
+		}else if(cmd.contentEquals("/myPageDetailView.mypage")) {
+			String id = request.getParameter("id");
+			try {
+				MemberDTO MemberDTO = MemberDAO.getInstance().select(id);
+				request.setAttribute("list", MemberDTO);
+				request.getRequestDispatcher("user/login/memberdetail.jsp").forward(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
 

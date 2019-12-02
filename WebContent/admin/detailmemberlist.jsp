@@ -348,8 +348,8 @@ th {
 				style="color: black; font-weight: bold">Manager Home</a> <br> <br>
 			<li><a href="memberlist.mem" style="color: black">Member
 					List</a>
-			<li><a href="#" style="color: black;">Board List</a>
-			<li><a href="#" style="color: black;">write Board</a>
+			<li><a href="list.adboard" style="color: black;">Board List</a>
+			<li><a href="list.adboard" style="color: black;">write Board</a>
 		</ul>
 </div>
 	</div>
