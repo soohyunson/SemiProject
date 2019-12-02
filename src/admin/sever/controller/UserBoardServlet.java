@@ -120,9 +120,14 @@ public class UserBoardServlet extends HttpServlet {
 
 		} else if (realPath.contentEquals("/fromList.usboard")) {
 			int seq = Integer.parseInt(request.getParameter("seq"));
-			ChallengeDTO detail = new ChallengeDTO();
+			String id = (String) request.getSession().getAttribute("id");
+			ChallengeDTO detail = new ChallengeDTO();	
 			try {
+				System.out.println(seq);
 				detail = ChallengeDAO.getInstance().getChallenge(seq);
+				boolean isChallengeById = ChallengeRecordDAO.getInstance().idCompare(id, seq); //챌린지에 참가하고 있는가?
+				System.out.println(isChallengeById);
+				request.setAttribute("isChallengeById", isChallengeById);
 				request.setAttribute("detailpage", detail);
 				RequestDispatcher rd = request.getRequestDispatcher("user/detail.jsp");
 				rd.forward(request, response);
