@@ -235,14 +235,20 @@ th{
 		<br> <br> <br>
 		<div class="twofloor"></div>
 		<div class="fourthfloor">
-			<form action="login.mem" method="post" id="loginfrm">
-			
-			<%
+		<%
 				String uri = request.getHeader("Referer");
-				System.out.println(uri);
+				System.out.println("uri : " + uri);
 				request.getSession().setAttribute("uri", uri);
 			%>
+<<<<<<< HEAD
 				<table class="loginbox" style="width:180px;">
+=======
+			<form action="login.mem" method="post" id="loginfrm">
+				<table class="loginbox">
+					<tr>
+						<th>Login
+					</tr>
+>>>>>>> 0797b9b5de0d0f2258243627bbf66304f3c5c5d0
 					<tr>
 						<th style="font-size:40px;">Login
 					</tr>
@@ -265,8 +271,14 @@ th{
 					</tr>
 				</table>
 			</form>
+			
 		</div>
+<<<<<<< HEAD
 	
+=======
+		
+	</div>
+>>>>>>> 0797b9b5de0d0f2258243627bbf66304f3c5c5d0
 
 	<div class="fivefloor">
 		<ul class="lastbar">

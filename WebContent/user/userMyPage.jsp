@@ -94,10 +94,7 @@
 				<a href="#" class="submenu" style=" font-family: 'BMEULJIRO';">My Challenge</a>
 			</div>
 			<br> <br>
-			<script>
-				console.log(${giveList.size()});
-				console.log(${takeList.size()});
-			</script>
+		
 			<c:choose>
 				<c:when test="${giveList.size() eq 0 || giveList eq null}">
 
@@ -233,19 +230,17 @@
 			
 			<div class="sidebar">
 				<img src="${pageContext.request.contextPath }/resources/img/challcon.png" style="widht:30px;height:30px;">
+				<a href="myPageDetailView.mypage?id=${id }">My Information</a>
 			</div>
 			<div class="sidebar">
 				<a href="#" style="font-family: 양진체; font-weight:bold;">My Challenge</a>
 			</div>
-			
 			<div class="sidebar">
 				<img src="${pageContext.request.contextPath }/resources/img/cashcon.png" style="widht:30px;height:30px;">
 			</div>
 			<div class="sidebar">
 				<a href="#" style="font-family: 양진체; font-weight:bold;">My Point</a>
 			</div>
-			
-			
 		</div>
 	</div>
 	<ul class="navi">

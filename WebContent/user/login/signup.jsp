@@ -214,11 +214,7 @@
 		<div class="twofloor"></div>
 
 		<div class="fourthfloor">
-		<%
-				String realuri = request.getHeader("Referer");
-				request.getSession().setAttribute("realuri", realuri);
-				
-			%>
+		
 			<form action="signup.mem" method="post" id="signfrm">
 				<table class="signuptable">
 					<tr>
