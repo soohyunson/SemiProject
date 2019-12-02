@@ -13,6 +13,9 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bangers|Coming+Soon|Gloria+Hallelujah|Handlee|Rock+Salt&display=swap" rel="stylesheet">
         <style>
         /* 을지로체 */
 @font-face { font-family: 'BMEULJIRO'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff') format('woff'); font-weight: normal; font-style: normal; }
@@ -210,11 +213,13 @@
             	width: 100%;
             	font-size: 30px;
             	text-align: left;
+            	
             }
             .threefloor{
             	height: 50px;
             	text-align: left;
             	font-size: 20px;
+            	border-bottom: 3px solid black;
             }
             .fourfloor{
             	height: 60px;
@@ -223,7 +228,7 @@
             	border-bottom: 3px solid black;
             }
             .fivefloor{
-            	
+            	font-size: 20px;
             	height: 500px;
             }
             .fourthfloor{
@@ -246,6 +251,10 @@
             	background-color: white;
             	font-weight: bold;
             }
+            .bonusfloor{
+            	border: 3px solid black;
+            	text-align: center;
+            }
             
         </style>
 
@@ -255,7 +264,7 @@
             <br><br><br>
             <div class="topfloor">
               <div class="bd-example">
-                    <img src = /${detailpage.file_path}">
+                    
                 </div>
                
             </div>
@@ -279,11 +288,22 @@
             
             <div class="fivefloor">
             	<br>
-            	<div id="method">챌린지 진행 방식</div>
+            	<div id="method">챌린지 진행 방식</div><br>
             	<div>🗓 인증 가능 요일 : ${day } </div><br>
             	<div>📋 인증 빈도 : ${frequency } </div><br>
             	<div>⏱ 인증 가능 시간 : ${time } </div><br>
             	<div>📌 하루 인증 횟수 : ${number }</div><br>
+            </div>
+            <div class="bonusfloor">
+             <br>  <br>
+              <h4>🎫목표달성을 위한 보상이 중요한 이유</h4><br>
+               ✏목표설정이론의 상황요인 중 보상조건
+<br>주어진 목표와 관련하여 제공되는 보수나 보상 수준은 성과를 향상시키는 방법이며,
+<br>보상은 개인의 목표에 대한 몰입의 정도에 영향을 미치는데,
+<br>보상의 제공이 그렇지 않은 경우보다 노력을 훨씬 많이 하려는 의지를 야기시킴.
+<br>즉, 목표 달성에 따른 적절한 보상이 주어졌을 때 성과를 훨씬 높일 수 있음
+                 <br>  <br>
+               
             </div>
             <div class="rfloor">
              <br>  <br>  <br> <br>
@@ -336,9 +356,9 @@
             <div class="lastbar2" style="text-align: center;">상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 : 234-88-00720 | 대표자명 : 김세원<br>
                 Copyright ⓒ2019 Miwansung inc, ltd. All rights reserved</div><br>
             <div class="lastbar3" style="text-align: center">
-                <a href="#"><img src="icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                <a href="#"><img src="icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
-                <a href="#"><img src="icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
+                <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon1.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon2.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a>
+                <a href="#"><img src="${pageContext.request.contextPath }/resources/img/icon3.png" class="mr-3" alt="..." style="width:50px; height:50px; margin-left: 10%; margin: 0px;"></a></div>
             <br>
         </div>
         </div>
@@ -348,15 +368,15 @@
         	<div style="height:20%; font-size: 30px; font-weight: bold; font-family: 'BMEULJIRO' ">
         	${detailpage.title }
         	</div>
-        	<div style="height: 20px; font-family: 'BMEULJIRO';"> ${detailpage.giveortake } 챌린지</div><br>
-        	<div style="height:20%; font-family: 'BMEULJIRO';">챌린지 시작일 : ${detailpage.start_date } </div>
-        	<div style="height:20%; font-family: 'BMEULJIRO'; ">챌린지 종료일 : ${detailpage.end_date }</div>
+        	<div style="height: 20px; font-family: 'BMEULJIRO'; font-size: 20px;"> ${detailpage.giveortake } 챌린지</div><br>
+        	<div style="height:20%; font-family: 'BMEULJIRO'; font-size: 20px;">챌린지 시작일 : ${detailpage.start_date } </div>
+        	<div style="height:20%; font-family: 'BMEULJIRO'; font-size: 20px;">챌린지 종료일 : ${detailpage.end_date }</div>
         	<div style="height:20%"><button id="enjoybtn">enjoy</button></div>
         </div>
     </div>
     <ul class="navi">
         <ul class="title">
-            <li class="navi-title"><a href="${uri }"><img src="reallogo.png" class="mr-3" alt="..." style="width:135px; height:50px; margin-left: 10%;"></a></li>
+            <li class="navi-title" style="font-family: 'Rock Salt', cursive; "><a href="${uri }">Don't Give Up</a></li>
         </ul>
         <ul class="itemList">
             <li class="navi-item"><a href="banner.usboard">MYPAGE</a></li>
@@ -367,7 +387,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
->>>>>>> 7dd67a1b23210000fca1d4db0dad2b0aae422a84
+
         var ctx = document.getElementById('myChart').getContext('2d');
         var chart = new Chart(ctx, {
             // The type of chart we want to create
