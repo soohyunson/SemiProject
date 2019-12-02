@@ -83,7 +83,7 @@ public class ChallengeDAO {
 	}
 
 	public int delete(int seq) throws SQLException, Exception {
-		String sql = "delete * from challenge where seq=?";
+		String sql = "delete from challenge where seq=?";
 		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql);) {
 			pstat.setInt(1, seq);
 

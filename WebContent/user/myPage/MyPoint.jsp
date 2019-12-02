@@ -313,7 +313,7 @@ body {
 												id="headingOne">
 												<button class="btn btn-link" type="button"
 													data-toggle="collapse" data-target="#collapseOne"
-													aria-expanded="true" aria-controls="collapseOne">결제내역</button>
+													aria-expanded="true" aria-controls="collapseOne">포인트 내역</button>
 											</div>
 											<div id="collapseOne" class="collapse hiden"
 												data-parent="#accordionExample">
@@ -323,7 +323,7 @@ body {
 															<div class="row border-dark">
 																<div class="col text-center">금액</div>
 																<div class="col text-center">결제수단</div>
-																<div class="col text-center">구매일자</div>
+																<div class="col text-center">일자</div>
 																<div class="col text-center">기타</div>
 															</div>
 														</li>

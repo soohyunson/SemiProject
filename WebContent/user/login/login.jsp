@@ -238,8 +238,7 @@ th{
 				request.getSession().setAttribute("uri", uri);
 			%>
 
-				<table class="loginbox" style="width:180px;">
-
+				
 			<form action="login.mem" method="post" id="loginfrm">
 				<table class="loginbox">
 					<tr>
@@ -268,9 +267,6 @@ th{
 					</tr>
 				</table>
 			</form>
-			
-		
-</table>
 	
 </div>
 		
