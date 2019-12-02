@@ -220,7 +220,6 @@ public class ChallengeDAO {
 		}
 
 	}
-
 	public ChallengeDTO getChallenge(int seq) throws Exception {
 		String sql = "select * from challenge where seq=?";
 		try (Connection conn = getConnection(); PreparedStatement pstat = conn.prepareStatement(sql)) {
@@ -242,7 +241,6 @@ public class ChallengeDAO {
 					dto.setPp_point(rs.getInt(11));
 					dto.setTotal_amount(rs.getInt(12));
 				}
-
 				return dto;
 
 			}
@@ -280,7 +278,7 @@ public class ChallengeDAO {
 		}
 	}
 
-	public List<ChallengeDTO> selectByPage(int p_start, int p_end) throws Exception {
+  public List<ChallengeDTO> selectByPage(int p_start, int p_end) throws Exception {
 		String sql = "select * from " + "(select challenge.*, row_number()over (order by seq desc)"
 				+ " as rown from challenge) where rown between ? and ?";
 		try (Connection con = this.getConnection(); PreparedStatement pstat = con.prepareStatement(sql);) {
@@ -357,7 +355,8 @@ public class ChallengeDAO {
 			pstat.setString(7, dto.getCategory());
 			pstat.setInt(8, dto.getPp_point());
 			pstat.setInt(9, dto.getTotal_amount());
-			int result = pstat.executeUpdate();
+
+      int result = pstat.executeUpdate();
 			con.commit();
 			return result;
 		}
