@@ -334,7 +334,7 @@
 				<br>
 				<div style="font-size: 17px; font-weight: bold"> 🖍챌린지 정보 </div>
 				<br> 챌린지명 : ${challenge.title }<br>
-				<br> 참가포인트 : ${challenge.pp_point } <br>
+				<br> 참가포인트 : <span id="pp-point">${challenge.pp_point }</span> <br>
 				<br> 시작날짜 : ${challenge.start_date } <br>
 				<br> 끝나는 날짜 : ${challenge.end_date } <br>
 				<br> 카테고리 : ${challenge.category } <br><br>
@@ -344,7 +344,7 @@
 			<div class="myInfo"><br>
 				<div style="font-size: 17px; font-weight: bold"> 🖍회원정보 </div><br>
 				<div id="userId">아이디 : ${userId.id }</div>
-				<br> ${userId.name }의 포인트 : ${userId.point } 원  <input type="button" id="pointCharge" value="충전"><br>
+				<br> ${userId.name }의 포인트 : <span id="userPoint">${userId.point }</span> 원  <input type="button" id="pointCharge" value="충전"><br>
 				<br>
 			</div>
 		</div>

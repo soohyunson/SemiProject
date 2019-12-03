@@ -288,7 +288,7 @@ th {
 <br><br>
 <table class="listboard">
 				<c:choose>
-					<c:when test="${list.size() == 0 }">
+					<c:when test="${dto.size() == 0 }">
 						<tr><td style="text-align:center;">참여 중인 챌린지가 없습니다.</tr>
 					</c:when>
 					<c:otherwise>

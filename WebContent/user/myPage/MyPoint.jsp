@@ -155,7 +155,7 @@ body {
 }
 
 .container {
-	background-color: #ededed;
+	background-color: #FFFFFF;
 	width: 60%;
 	margin: auto;
 	margin-top: 0
@@ -223,6 +223,24 @@ body {
 .list-group-item {
 	background-color: #EDEDED;
 }
+
+@font-face {
+	font-family: '양진체';
+	src:
+		url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BMEULJIRO';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 </style>
 <script>
 	$(function() {
@@ -243,9 +261,14 @@ body {
 <body>
 	<c:choose>
 		<c:when test="${id ne null}">
+			<div>
+				<img
+					src="${pageContext.request.contextPath }/resources/img/backgroundMain.jpg"
+					class="back"
+					style="position: fixed; z-index: -500; filter: blur(4px);">
+			</div>
 			<div class="container">
 				<br> <br> <br>
-
 				<div class="onefloor" style="text-align: center;">
 					<br> <br>
 					<div style="text-align: start; margin-left: 5%;">
@@ -262,7 +285,7 @@ body {
 					<h1 style="text-align: center; font-size: 50px;">${dto.point}</h1>
 					<br> <br>
 					<div
-						style="width: 100%; height: 50px; background-color: darkgrey; text-align: center;">
+						style="width: 100%; height: 50px; background-color: #EDEDED; text-align: center;">
 						<div
 							style="float: left; width: 50%; height: 100%; line-height: 50px;">
 							<button id="pointCharge" type="button"
@@ -286,11 +309,11 @@ body {
 								<div class="col">
 									<div class="accordion" id="accordionExample">
 										<div class="card">
-											<div class="card-header" style="background-color: #EDEDED;"
+											<div class="card-header" style="background-color: #FFFFFF;"
 												id="headingOne">
-													<button class="btn btn-link" type="button"
-														data-toggle="collapse" data-target="#collapseOne"
-														aria-expanded="true" aria-controls="collapseOne">결제내역</button>
+												<button class="btn btn-link" type="button"
+													data-toggle="collapse" data-target="#collapseOne"
+													aria-expanded="true" aria-controls="collapseOne">포인트 내역</button>
 											</div>
 											<div id="collapseOne" class="collapse hiden"
 												data-parent="#accordionExample">
@@ -300,7 +323,7 @@ body {
 															<div class="row border-dark">
 																<div class="col text-center">금액</div>
 																<div class="col text-center">결제수단</div>
-																<div class="col text-center">구매일자</div>
+																<div class="col text-center">일자</div>
 																<div class="col text-center">기타</div>
 															</div>
 														</li>
@@ -313,8 +336,8 @@ body {
 																	<c:choose>
 																		<c:when test="${dto.payment_date == today}">
 																			<div class="col text-center">
-																				<button type="button" class="btn btn-outline-danger" onclick="buyCancel(${dto.seq})">
-																					결제 취소</button>	
+																				<button type="button" class="btn btn-outline-danger"
+																					onclick="buyCancel(${dto.seq})">결제 취소</button>
 																			</div>
 																		</c:when>
 																		<c:otherwise>
@@ -334,32 +357,37 @@ body {
 						</div>
 					</c:when>
 					<c:otherwise>
-						
+
 					</c:otherwise>
 				</c:choose>
 				<div class="fourfloor"></div>
-				<div class="fivefloor">
+				<div class="fivefloor" style="background-color: white;">
 					<ul class="lastbar">
 						<li class="navi-item3"><a href="#">COMPANY</a></li>
 						<li class="navi-item3"><a href="#">POLICIES</a></li>
 						<li class="navi-item3"><a href="#">SUPPORT</a></li>
 						<li class="navi-item3"><a href="#">기업교육</a></li>
+						<br>
+						<br>
 					</ul>
 					<ul class="lastbar">
 						<li class="navi-item2"><a href="#">블로그</a></li>
 						<li class="navi-item2"><a href="#">이용약관</a></li>
 						<li class="navi-item2"><a href="#">FAQ</a></li>
 						<li class="navi-item2"><a href="#">MIWANSUNG.BIZ</a></li>
+
 					</ul>
 					<ul class="lastbar">
 						<li class="navi-item2"><a href="#">언론보도</a></li>
-						<li class="navi-item2"><a href="#">개인정보 취급방침</a></li>
-						<li class="navi-item2"><a href="#">미완성 센터</a></li>
+						<li class="navi-item2"><a href="#">개인정보취급방침</a></li>
+						<li class="navi-item2"><a href="#">미완성센터</a></li>
 						<li class="navi-item2"><a href="#"></a></li>
+						<br>
+						<br>
 					</ul>
 					<div class="lastbar2" style="text-align: center;">
 						상호 : (주)미완성자들 | 주소 : 서울특별시 종로구 평창동 486 -20 | 사업자등록번호 :
-						234-88-00720 | 대표자명 : 김세원 <br> Copyright ⓒ2019 Miwansung inc,
+						234-88-00720 | 대표자명 : 김세원<br> Copyright ⓒ2019 Miwansung inc,
 						ltd. All rights reserved
 					</div>
 					<br>
@@ -380,38 +408,54 @@ body {
 					<br>
 				</div>
 			</div>
-			<div class="category">
+			<div class="category" style="background-color: #FFFFFF;">
 				<div class="wrapper">
 					<br>
+
 					<div class="sidebar">
-						<a href="#">My Profile</a>
+						<img
+							src="${pageContext.request.contextPath }/resources/img/inforcon.png"
+							style="widht: 30px; height: 30px;">
 					</div>
 					<div class="sidebar">
-						<a href="#">My Information</a>
+						<a href="#" style="font-family: 양진체; font-weight: bold;">My
+							Information</a>
+					</div>
+
+					<div class="sidebar">
+						<img
+							src="${pageContext.request.contextPath }/resources/img/challcon.png"
+							style="widht: 30px; height: 30px;"> <a
+							href="myPageDetailView.mypage?id=${id }">My Information</a>
 					</div>
 					<div class="sidebar">
-						<a href="#">My Challenge</a>
+						<a href="#" style="font-family: 양진체; font-weight: bold;">My
+							Challenge</a>
 					</div>
 					<div class="sidebar">
-						<a href="#">My Point</a>
+						<img
+							src="${pageContext.request.contextPath }/resources/img/cashcon.png"
+							style="widht: 30px; height: 30px;">
 					</div>
 					<div class="sidebar">
-						<a href="#">Membership Withdrawal</a>
+						<a href="#" style="font-family: 양진체; font-weight: bold;">My
+							Point</a>
 					</div>
 				</div>
 			</div>
 			<ul class="navi">
 				<ul class="title">
-					<li class="navi-title"><a href="#"><img
-							src="${pageContext.request.contextPath}/resources/img/reallogo.png"
-							class="mr-3" alt="..."
-							style="width: 135px; height: 50px; margin-left: 10%;"></a></li>
+					<li class="navi-title"><a href="#"
+						style="font-family: 'Rock Salt', cursive; font-size: 20px;">Don't
+							Give Up</a></li>
 				</ul>
 				<ul class="itemList">
-
-					<li class="navi-item"><a href="#">GIVE OR TAKE</a></li>
-					<li class="navi-item"><a href="#">CHALLENGE</a></li>
-					<li class="navi-item"><a href="#">MYPAGE</a></li>
+					<li class="navi-item"></li>
+					<li class="navi-item"></li>
+					<li class="navi-item"><a href="#"
+						style="font-family: 양진체; font-weight: bold;">MYPAGE</a></li>
+					<li class="navi-item"><a href="#"
+						style="font-family: 양진체; font-weight: bold;">LOGOUT</a></li>
 				</ul>
 			</ul>
 		</c:when>

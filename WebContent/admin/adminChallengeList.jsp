@@ -160,21 +160,49 @@
 			</div>
 			<br>
 		</div>
-
 	</div>
-
-	<ul class="navi">
+	<ul class="navi" style="position: absolute">
 		<ul class="title">
-			<li class="navi-title"><a href="#" style="font-family: 'Rock Salt', cursive; font-size:20px;">Don't Give Up</a></li>
+			<li class="navi-title"><a href="${uri }" style="font-family: 'Rock Salt', cursive; font-size:20px;">Don't Give Up</a></li>
 		</ul>
 		<ul class="itemList">
 
-			<li class="navi-item"><a href="#"  style="font-family: 양진체; font-weight:bold;">ADMIN PAGE</a></li>
-            <li class="navi-item"><a href="#"  style="font-family: 양진체; font-weight:bold;">LOGOUT</a></li>
+			<li class="navi-item"><a href="${pageContext.request.contextPath }/admin/adminMyPage.jsp"  style="font-family: 양진체; font-weight:bold;">ADMIN PAGE</a></li>
+            <li class="navi-item"><button id="logoutbtn" style="font-family: 양진체; font-weight:bold; border: none; background-color: white">LOGOUT</button></li>
 		</ul>
 	</ul>
-	
-
+	<div class="category">
+		<div class="wrapper" style="background-color: white; border: 3px solid black; ">
+			<br>
+			<div class="sidebar">
+				<img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2018/240/iconmonstr-marketing-29.png" style="widht:30px;height:30px;">
+			</div>
+			<div class="sidebar">
+			<a href="admin/memberlist.mem" style="font-family: 양진체; color: black; font-weight:bold;">Member List</a>
+			</div>
+			<div class="sidebar">
+				<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-task-thin.png&r=0&g=0&b=0" style="widht:30px;height:30px;">
+				
+			</div>
+			<div class="sidebar">
+				<a href="list.adboard" style="font-family: 양진체; color: black; font-weight:bold; color: black">Board List</a>
+			</div>
+			<div class="sidebar">
+				<img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2018/240/iconmonstr-pencil-thin.png" style="widht:30px;height:30px;">
+			</div>
+			<div class="sidebar">
+				<a href="${pageContext.request.contextPath }/admin/writeBoard.jsp" style="font-family: 양진체; font-weight:bold; color: black;">write Board</a>
+			</div>
+		</div>
+	</div>
+	<script>
+	$("#logoutbtn").on("click",function(){
+		var result = confirm("로그아웃 하시겠습니까?");
+		if(result){
+			location.href="logout.mem";
+		}
+		})
+	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

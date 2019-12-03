@@ -208,9 +208,9 @@
 </head>
 <body>
 <%
-				String uri = request.getHeader("Referer");
-				System.out.println("uri : " + uri);
-				request.getSession().setAttribute("uri", uri);
+				String realuri = request.getHeader("Referer");
+				System.out.println("realuri : " + realuri);
+
 			%>
 	<div class="container">
 		<br>
@@ -464,13 +464,13 @@
             
             $("#confirm").on("click",function(){
             	if($("#id").val() == "" || $("#pw1").val() == "" || $("#pw2").val() == "" || $("#name").val() == "" || $("#phone").val() == "" ||
-            			$("#email").val() == "" ||){
+            			$("#email").val() == ""){
             		alert("양식을 확인해주세요");
             	}else{
             		$("#signfrm").submit();
             	}
             })
-            
+                          
         </script>
         <script>
     function sample6_execDaumPostcode() {

@@ -44,7 +44,8 @@ public class UserBoardServlet extends HttpServlet {
 				list = ChallengeDAO.getInstance().selectIdChallenge(id);
 				ArrayList<ChallengeDTO> giveList = new ArrayList<>();
 				ArrayList<ChallengeDTO> takeList = new ArrayList<>();
-        
+				System.out.println(id);
+				MemberDTO dto = MemberDAO.getInstance().select(id);
 				if (list.size() == 0) {
 					giveList = null;
 					takeList = null;
@@ -61,9 +62,11 @@ public class UserBoardServlet extends HttpServlet {
 
 				System.out.println(giveList);
 				System.out.println(takeList);
-
+				
 				request.setAttribute("giveList", giveList);
 				request.setAttribute("takeList", takeList);
+				request.setAttribute("dto", dto);
+				
 				request.getRequestDispatcher("user/userMyPage.jsp").forward(request, response);
 			} catch (Exception e) {
 				System.out.println("오류 났어요!!! 오류 확인해주세요!!");

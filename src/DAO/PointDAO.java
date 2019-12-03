@@ -8,12 +8,12 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import DTO.PayDTO;
 
-public class PayDAO {
-	private static PayDAO instance;
+public class PointDAO {
+	private static PointDAO instance;
 
 	private static BasicDataSource bds = new BasicDataSource();
 
-	private PayDAO() {
+	private PointDAO() {
 		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		bds.setUrl("jdbc:oracle:thin:@o.qowmq.dev:1521:xe");
 		bds.setUsername("manager");
@@ -21,9 +21,9 @@ public class PayDAO {
 		bds.setInitialSize(30);	
 	}
 
-	public synchronized static PayDAO getInstance() {
+	public synchronized static PointDAO getInstance() {
 		if(instance == null) {
-			instance = new PayDAO();
+			instance = new PointDAO();
 		}
 		return instance;
 	}
@@ -32,8 +32,8 @@ public class PayDAO {
 		return bds.getConnection();
 	}
 	
-	public PayDTO selectAllById(String member_id) {
-		String sql = "select * from payment where member_id = ?";
+	public PayDTO insertAll(String member_id) {
+		String sql = "insert into point VALUES(point.nextval, ?, sysdate, ?, ?);";
 		
 		try (Connection conn =this.getConnection();
 				PreparedStatement pstat = new LoggableStatement(conn, sql)){

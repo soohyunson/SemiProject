@@ -11,9 +11,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
   
@@ -61,7 +59,7 @@
 					style="width: 100px; height: 100px; margin-left: 10%;">
 				<div class="media-body">
 					<br>
-					<h5 class="mt-0"style=" font-family: 'BMEULJIRO';">${id }님의마이페이지입니다.</h5>
+					<h5 class="mt-0"style=" font-family: 'BMEULJIRO';">${id}님의 마이페이지입니다.</h5>
 					
 				</div>
 
@@ -81,10 +79,10 @@
 		<div class="twofloor">
 			<br> <br>
 			<div style="text-align: start; margin-left: 5%;">
-				<a href="#" class="submenu"style=" font-family: 'BMEULJIRO';">My Point </a>
+				<a href="MyPoint.mypage" class="submenu"style=" font-family: 'BMEULJIRO';">My Point </a>
 			</div>
 			<br> <br>
-			<h1 style="margin-left: 15%;">My Point is 45,000</h1>
+			<h1 style="margin-left: 15%;">My Point is ${dto.point}</h1>
 			<br> <br>
 		</div>
 
@@ -98,8 +96,7 @@
 			<c:choose>
 				<c:when test="${giveList.size() eq 0 || giveList eq null}">
 
-					<div
-						style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px; font-family: 'BMEULJIRO';">기부</div>
+					<div style="text-align: start; margin-left: 5%; font-weight: 700; font-size: 20px; font-family: 'BMEULJIRO'">기부</div>
 					<div class="row" style="width:100%; margin:auto;">
 						<div class="col-12 p-4 m-1" style="background:white; width:100%;">
 							<div>존재하는 챌린지가 없습니다.</div>
@@ -225,12 +222,11 @@
 				<img src="${pageContext.request.contextPath }/resources/img/inforcon.png" style="widht:30px;height:30px;">
 			</div>
 			<div class="sidebar">
-				<a href="#" style="font-family: 양진체; font-weight:bold;">My Information</a>
+			<a href="myPageDetailView.mypage?id=${id }" style="font-family: 양진체; font-weight:bold;">My Information</a>
 			</div>
-			
 			<div class="sidebar">
 				<img src="${pageContext.request.contextPath }/resources/img/challcon.png" style="widht:30px;height:30px;">
-				<a href="myPageDetailView.mypage?id=${id }">My Information</a>
+				
 			</div>
 			<div class="sidebar">
 				<a href="#" style="font-family: 양진체; font-weight:bold;">My Challenge</a>

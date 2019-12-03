@@ -111,10 +111,7 @@
                 height:100%;
                 display: block;
             }
-            .navi-item>a:hover{
-                background-color: orange;
-                
-            }
+           
             .container{
                background-color: #FFFFFF;
                 width:60%;

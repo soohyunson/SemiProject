@@ -27,13 +27,13 @@ public class ChallengeServlet extends HttpServlet {
 		System.out.println(realPath);
 
 		if (realPath.contentEquals("/take.challenge")) {
-		
 			try {
 				ArrayList<ChallengeDTO> list = ChallengeDAO.getInstance().selectAll("take");
 				ArrayList<ChallengeDTO> exlist = ChallengeDAO.getInstance().getCatergoryChallege("take", "운동");
 				ArrayList<ChallengeDTO> lifelist = ChallengeDAO.getInstance().getCatergoryChallege("take", "생활");
 				ArrayList<ChallengeDTO> studylist = ChallengeDAO.getInstance().getCatergoryChallege("take", "공부");
 				ArrayList<ChallengeDTO> healthlist = ChallengeDAO.getInstance().getCatergoryChallege("take", "건강");
+		
 				request.setAttribute("list", list);
 				request.setAttribute("exlist", exlist);
 				request.setAttribute("lifelist", lifelist);
