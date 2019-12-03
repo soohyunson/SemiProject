@@ -207,6 +207,11 @@
 	
 </head>
 <body>
+<%
+				String uri = request.getHeader("Referer");
+				System.out.println("uri : " + uri);
+				request.getSession().setAttribute("uri", uri);
+			%>
 	<div class="container">
 		<br>
 		<br>
@@ -266,7 +271,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" id="btnresult">
-						<button id="confirm">확인</button> <input type="reset" value="다시입력" id="reset"></td>
+						<button id="confirm" type="button">확인</button> <input type="reset" value="다시입력" id="reset"></td>
 					</tr>
 				</table>
 			</form>
@@ -364,6 +369,7 @@
 		}).done(function(data){
 			if(data.result == true){
 				$("#idresult").html("사용할 수 없는 아이디입니다.");
+				$("#id").val("");
 				$("#idresult").css("text-align","center");
 				$("#idresult").css("color","red");
 			}else{
@@ -384,6 +390,7 @@
                     $("#pw1result").css("text-align","center");
                 }else{
                     $("#pw1result").html("비밀번호가 양식에 맞지 않습니다");
+                    $("#pw1").val("");
                     $("#pw1result").css("color","red");
                     $("#pw1result").css("text-align","center");
                 }
@@ -401,6 +408,7 @@
                     $("#pw2result").css("text-align","center");
                 }else{
                     $("#pw2result").html("비밀번호가 일치하지 않습니다");
+                    $("#pw2").val("");
                     $("#pw2result").css("color","red");
                     $("#pw2result").css("text-align","center");
                 }
@@ -416,6 +424,7 @@
                     $("#nameresult").css("text-align","center");
                 }else{
                     $("#nameresult").html("이름이 양식에 맞지 않습니다");
+                    $("#name").val("");
                     $("#nameresult").css("color","red");
                     $("#nameresult").css("text-align","center");
                 }
@@ -431,6 +440,7 @@
                     $("#phoneresult").css("text-align","center");
                 }else{
                     $("#phoneresult").html("휴대폰번호가 양식에 맞지 않습니다");
+                    $("#phone").val("");
                     $("#phoneresult").css("color","red");
                     $("#phoneresult").css("text-align","center");
                 }
@@ -446,10 +456,21 @@
                     $("#emailresult").css("text-align","center");
                 }else{
                     $("#emailresult").html("이메일이 양식에 맞지 않습니다");
+                    $("#email").val("");
                     $("#emailresult").css("color","red");
                     $("#emailresult").css("text-align","center");
                 }
             })
+            
+            $("#confirm").on("click",function(){
+            	if($("#id").val() == "" || $("#pw1").val() == "" || $("#pw2").val() == "" || $("#name").val() == "" || $("#phone").val() == "" ||
+            			$("#email").val() == "" ||){
+            		alert("양식을 확인해주세요");
+            	}else{
+            		$("#signfrm").submit();
+            	}
+            })
+            
         </script>
         <script>
     function sample6_execDaumPostcode() {
@@ -482,7 +503,6 @@
 
                 document.getElementById('sample6_postcode').value = data.zonecode;
                 document.getElementById("sample6_address").value = addr;
-
                 document.getElementById("sample6_detailAddress").focus();
             }
         }).open();
