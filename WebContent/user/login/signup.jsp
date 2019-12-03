@@ -266,7 +266,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" id="btnresult">
-						<button id="confirm">확인</button> <input type="reset" value="다시입력" id="reset"></td>
+						<button id="confirm" type="button">확인</button> <input type="reset" value="다시입력" id="reset"></td>
 					</tr>
 				</table>
 			</form>
@@ -449,6 +449,15 @@
                     $("#emailresult").css("color","red");
                     $("#emailresult").css("text-align","center");
                 }
+            })
+            
+            $("#confirm").on("click",function(){
+               if($("#idresult").html("없는") || $("#pw1result").html("않습니다") || $("#pw2result").html("않습니다") || $("#nameresult").html("않습니다") ||
+                     $("#phoneresult").html("않습니다") || $("#emailresult").html("않습니다")){
+                  alert("망나니야..;;;;;");
+               }else{
+                  $("#signfrm").submit();
+               }
             })
         </script>
         <script>

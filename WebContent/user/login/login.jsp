@@ -336,6 +336,8 @@ th{
 		$("#login").on("click", function(){
 			$("#loginfrm").submit();
 		})
+		
+		
 	</script>
 
 </body>
